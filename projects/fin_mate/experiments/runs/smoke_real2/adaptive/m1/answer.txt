@@ -1,0 +1,5 @@
+當Azure供應受限時，Microsoft力推E7加價式upsell可能基於以下原因：  
+1. **AI驅動的高邊際應用需求**：Microsoft優先將GPU分配給第一方應用和研發，以加速AI創新，盡管Azure增長受供應制約，但高邊際的應用層（如M365 Copilot、GitHub Copilot等）是長期戰略要地，且被視為AI貨幣化的關鍵。E7 SKU整合了多種高價值服務，可提升訂閱ARPU【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L, 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+2. **企業對AI工具的迫切需求**：Agentic adoption（代理式採用）依賴安全和管理工具，Agent 365作為控制平面，解決了代理註冊、可觀察性等 prerequisite，而E7將其與M365 Copilot等整合，降低了企業獨立採用的門檻，加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+3. **價格上漲的時機性**：此前M365價格上漲迫使企業在2H26進行談判，E7的推出恰逢其時，利用這一契機推動高價SKU的 adoption，創造額外收入【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+4. **安裝基礎的潛力**：現有E3/E5用戶是E7的高潛在採用群體，估計有1.5億個E3/E5席位，帶來約1000億美元的年 upsell 機會，盡管Azure供應受限，但企業對AI驅動的高級功能需求旺盛，支撐了E7的銷售【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。

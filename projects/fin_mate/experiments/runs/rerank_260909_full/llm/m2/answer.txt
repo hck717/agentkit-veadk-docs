@@ -1,0 +1,5 @@
+Agent 365 提供了代理註冊/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些都是代理式採用的重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。而 E7 SKU 包含了 Agent 365，其安全性相關的功能對於管理代理至關重要，因為在代理式採用中，確保代理的安全、可觀察性和風險控制是關鍵環節。此外，E7 作為一個 bundle，整合了多種安全相關的套件（如 Entra Suite），進一步增強了安全性，這對於企業客戶採用 E7 至關重要，因為企業客戶非常重視雲端和 AI 應用中的數據安全和治理【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evol】。
+
+## 來源
+[1] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>
+[5] <20260313_Barclays_MSFT_Microsoft_Corp.-_Evol>

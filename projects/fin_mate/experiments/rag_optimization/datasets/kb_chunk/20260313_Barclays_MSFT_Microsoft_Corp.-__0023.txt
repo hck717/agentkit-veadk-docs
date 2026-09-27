@@ -1,0 +1,39 @@
+05
+ 
+550.00
+30-Apr-2025
+391.16
+ 
+494.00
+21-Apr-2025
+367.78
+ 
+430.00
+31-Jan-2024
+408.59
+ 
+475.00
+24-Oct-2023
+330.53
+ 
+421.00
+19-Jul-2023
+359.49
+ 
+425.00
+26-Apr-2023
+295.37
+ 
+336.00
+17-Apr-2023
+286.14
+ 
+310.00
+On 09-Mar-2023, prior to any intra-day change that may have been
+published, the rating for this security was Overweight, and the adjusted
+price target was 280.00.
+Source: Bloomberg, Barclays Research
+*This is the closing price referenced in the publication, which may not be
+the last available closing price at the time of publication.
+Historical stock prices and price targets may have been adjusted for stock
+splits and dividends.

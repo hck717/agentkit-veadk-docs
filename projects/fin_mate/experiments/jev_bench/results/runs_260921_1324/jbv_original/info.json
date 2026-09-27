@@ -1,0 +1,8 @@
+{
+  "variant": "original",
+  "desc": "原裝：全部 LLM chat（tool-call 都係）",
+  "flags": {
+    "tool": "chat",
+    "desc": "原裝：全部 LLM chat（tool-call 都係）"
+  }
+}

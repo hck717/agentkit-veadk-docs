@@ -1,0 +1,3258 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI 概念百科</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>AI 概念百科</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-ai-概念百科字典索引-rag--decoder--ranker--cache--context--memory--vectordb--database--mcp--guardrail--filter--模型選擇--eval--推理引擎">VeADK
++ AgentKit AI 概念百科（字典・索引）— RAG / Decoder / Ranker / Cache /
+Context / Memory / VectorDB / Database / MCP / Guardrail / Filter /
+模型選擇 / Eval / 推理引擎</h1>
+<p>呢份係全套 VeADK / AgentKit / BytePlus 文件嘅 <strong>AI
+概念字典＆索引</strong>。每個概念都用
+<strong>幾句講清楚</strong>（概念係咩 → 對比 →
+幾時用），<strong>實體落喺 BytePlus /
+Volcengine（方舟）點落地</strong>，再指去<strong>專屬 Tab</strong>
+睇深度。寫得深，係要你唔止識「揀」，仲識<strong>點解</strong>——sales /
+方案工程師要答得住 client 問「點解唔揀嗰個」。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>九成方案問題唔喺概念，喺「揀錯層」</strong>：喺 framework
+層控制 context / cache /
+memory；底層引擎你唔使掂（方舟包辦）。知道「邊層係我話事」比識晒名詞重要。</li>
+<li><strong>每個概念都有一條「決策線」</strong>：唔好死背功能，記「幾時用邊個」嘅
+trigger，同埋「揀錯嘅代價係咩」。</li>
+<li><strong>成本意識要落地</strong>：每個選擇都問一句「呢個選擇令 AFP /
+token / GPU 多定少」（見
+<code>veadk-agentkit-pricing.md</code>）。技術揀錯 = 帳單揀錯。</li>
+<li><strong>引用關係</strong>：呢份係<strong>字典／索引</strong>（Q3
+決策：每概念淺講 + 指去專屬 Tab 深探）。專屬 Tab 見下表。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-概念字典索引--全-doc-地圖結構">0. 概念字典・索引 — 全 doc
+地圖結構</h2>
+<blockquote>
+<p>🎯 呢張表係成個 doc 嘅總入口：<strong>概念（喺邊層）→ 幾句即要 → 專屬
+Tab（要深度就去）→ 字典條目#（呢份淺講）</strong>。「專屬 Tab」=
+要深度時跳去；「字典條目」= 留喺度快速 refresh。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>幾句即要</th>
+<th>專屬 Tab（link filename）</th>
+<th>字典條目#</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RAG 類型</strong>（Naive / Advanced / Agentic / Corrective /
+Self-RAG / Hybrid / Graph / Modular）</td>
+<td>由「檢索→生成」一條直線，精到 agent
+全自動（路由/改寫/多跳/自評）；Graph 答關係題</td>
+<td><code>veadk-agentkit-rag-guide.md</code></td>
+<td>§1</td>
+</tr>
+<tr>
+<td><strong>Chunking</strong></td>
+<td>切文件決定檢索準唔準嘅頭號隱形因素（size / overlap 取捨）</td>
+<td>—</td>
+<td>§1.3</td>
+</tr>
+<tr>
+<td><strong>Decoder / 生成</strong>（sampling：greedy / beam /
+temperature / top-k / top-p / min-p）</td>
+<td>決定「穩 vs 創意 vs 快」；T&lt;1 穩、T&gt;1 創意</td>
+<td>—</td>
+<td>§2</td>
+</tr>
+<tr>
+<td><strong>Structured output</strong></td>
+<td>保證輸出合 JSON schema；<code>output_schema</code>
+會自動關上下文緩存</td>
+<td>—</td>
+<td>§2.3</td>
+</tr>
+<tr>
+<td><strong>Speculative decoding</strong></td>
+<td>細模型估 N 個 → 大模型 verify → 吞吐 2–3×、質量不變</td>
+<td>—</td>
+<td>§2.4 / §14.5</td>
+</tr>
+<tr>
+<td><strong>Ranker</strong>（BM25 / Dense / RRF / Cross-encoder）</td>
+<td>粗檢 50 → 精排 10；BM25 強專名、Dense 強語義、RRF
+融合、Cross-encoder 最準最慢</td>
+<td>—</td>
+<td>§3</td>
+</tr>
+<tr>
+<td><strong>Cache 三層</strong>（KV-Cache / Provider Prefix / Framework
+Context）</td>
+<td>①慳算力，②③慳錢；框架默認開 session 緩存</td>
+<td><code>veadk-agentkit-cache-management.md</code></td>
+<td>§4</td>
+</tr>
+<tr>
+<td><strong>Context 管理 / Compaction</strong></td>
+<td>控制 prompt 唔好爆；壓縮長對話成 summary（細模型做，慳錢）</td>
+<td>—</td>
+<td>§5</td>
+</tr>
+<tr>
+<td><strong>Memory</strong>（STM / LTM / KB）</td>
+<td>STM 內部、LTM 跨 session（viking / mem0）、KB 外部知識</td>
+<td><code>veadk-agentkit-vector-cache.md</code></td>
+<td>§6</td>
+</tr>
+<tr>
+<td><strong>Vector DB</strong></td>
+<td>向量索引（HNSW 主流）；托管 VikingDB / 自建 Milvus / OpenSearch</td>
+<td><code>veadk-agentkit-database-management.md</code></td>
+<td>§7</td>
+</tr>
+<tr>
+<td><strong>Database</strong>（SQL / NoSQL / ACID）</td>
+<td>Agent 方案要多種 DB：PG 事務 + TOS 大檔 + Vector 語義 + Redis
+熱數據</td>
+<td><code>veadk-agentkit-database-management.md</code></td>
+<td>§8</td>
+</tr>
+<tr>
+<td><strong>MCP / Tools / Skills / A2A</strong></td>
+<td>工具標準化（MCP 事實標準）、Skills 重複流程、A2A 多 agent 互通</td>
+<td><code>veadk-agentkit-tools-capabilities.md</code></td>
+<td>§9</td>
+</tr>
+<tr>
+<td><strong>Guardrail</strong></td>
+<td>安全：攔有害 / 違法 / PII（火山 LLM-FW 四點審查）</td>
+<td><code>veadk-agentkit-rbac-observability.md</code></td>
+<td>§10</td>
+</tr>
+<tr>
+<td><strong>Input / Output Filter</strong></td>
+<td>乾淨：過濾入出、PII mask、trace/log 開關</td>
+<td><code>veadk-agentkit-rbac-observability.md</code></td>
+<td>§11</td>
+</tr>
+<tr>
+<td><strong>模型選擇（模型梯度）</strong></td>
+<td>唔好一粒走天涯：mini 高頻 / pro 難題 / fallback list 自修復</td>
+<td><code>veadk-agentkit-pricing.md</code></td>
+<td>§12</td>
+</tr>
+<tr>
+<td><strong>Eval</strong></td>
+<td>改嘢就要有量度：Offline / Shadow / CI / Studio 回流</td>
+<td><code>veadk-agentkit-evaluation.md</code></td>
+<td>§13</td>
+</tr>
+<tr>
+<td><strong>vLLM / SGLang 引擎</strong></td>
+<td>底層點快（prefill→decode、continuous
+batching、KV-Cache）；托管包辦</td>
+<td><code>veadk-agentkit-serving-kit.md</code></td>
+<td>§14</td>
+</tr>
+<tr>
+<td><strong>KV-Cache</strong></td>
+<td>Transformer attention 中間值；食 VRAM；GQA / 量化 / 分頁慳</td>
+<td><code>veadk-agentkit-serving-kit.md</code></td>
+<td>§14.4</td>
+</tr>
+<tr>
+<td><strong>量化（Quantization）</strong></td>
+<td>權重 / KV 壓縮精度換速度記憶（FP8/INT8）</td>
+<td><code>veadk-agentkit-serving-kit.md</code></td>
+<td>§14</td>
+</tr>
+<tr>
+<td><strong>LoRA / 精調</strong>（LoRA / SFT / DPO / RLHF）</td>
+<td>用少量數據適應特定任務；方舟模型精調 SFT / DPO / GRPO</td>
+<td><code>veadk-agentkit-finetune-optimize.md</code></td>
+<td>§12.7</td>
+</tr>
+<tr>
+<td><strong>Hardware</strong></td>
+<td>GPU / 部署選型；托管唔使掂、自建先講</td>
+<td><code>veadk-agentkit-hardware.md</code></td>
+<td>§14</td>
+</tr>
+<tr>
+<td><strong>Deployment / Harness</strong></td>
+<td>上線架構、runtime 資源、A2A harness</td>
+<td><code>veadk-agentkit-serving-kit.md</code></td>
+<td>§14.9</td>
+</tr>
+<tr>
+<td><strong>訓練 TrainingKit</strong></td>
+<td>由零開始訓練模型 / dataset / grader</td>
+<td><code>veadk-agentkit-training-kit.md</code>（精調 / 優化 tab）</td>
+<td>§12.8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="02-一條主線一單-request-由頭到尾做咗啲咩">0.2 一條主線：一單
+request 由頭到尾做咗啲咩</h3>
+<pre><code>用戶輸入
+  │
+  ▼
+① 入站認證 (API Key / OAuth2 / JWT)          ← sec tab
+  │
+  ▼
+② Input filter / Guardrail Before-Model      ← §10/§11
+  │
+  ▼
+③ Context 組裝：system + few-shot + RAG top_k + 歷史(cache) + 新輸入   ← §5
+  │
+  ▼
+④ 模型選擇 (mini/pro/... 或 fallback list)    ← §12
+  │
+  ▼
+⑤ 引擎：prefill → decode（continuous batching / KV-cache / spec-decode）← §14
+  │
+  ▼
+⑥ 生成策略 (greedy/sampling/structured)       ← §2
+  │
+  ▼
+⑦ Output filter / Guardrail After-Model       ← §10/§11
+  │
+  ▼
+⑧ 工具/MCP call → 結果 → 再入 context（loop）  ← §9
+  │
+  ▼
+⑨ 記憶寫入 (LTM) / 可觀測 (OTel/APMPlus)       ← §6 / sec tab
+  │
+  ▼
+⑩ Eval (shadow/CI) 判定質量                    ← §13</code></pre>
+<blockquote>
+<p><strong>呢條線係全份文件嘅骨架</strong>——每一個概念都係呢條線上嘅一個環節。答
+client 問題時，沿住條線講「邊個環節出事」。</p>
+</blockquote>
+<hr />
+<h2 id="1-rag-類型--揀邊隻檢索架構">1. RAG 類型 — 揀邊隻檢索架構</h2>
+<h3 id="11-概念rag-係咩解決咩問題">1.1 概念：RAG 係咩、解決咩問題</h3>
+<p>RAG（Retrieval-Augmented Generation）=
+<strong>生成前先檢索</strong>：唔靠 model
+記住一切，而係從外部知識庫拎相關片段塞入 prompt 再生成。</p>
+<p><strong>點解要 RAG（vs 直接問 model）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>純 model</th>
+<th>RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知識凍結喺訓練日</td>
+<td>答唔到新嘢 / 會亂嗡</td>
+<td>檢最新文件答</td>
+</tr>
+<tr>
+<td>內部文件唔會入訓練</td>
+<td>唔知</td>
+<td>檢自己嘅 KB</td>
+</tr>
+<tr>
+<td>引用 / 來源出處</td>
+<td>亂作</td>
+<td>可以帶出處</td>
+</tr>
+<tr>
+<td>資料更新</td>
+<td>要重訓 / 無得</td>
+<td>換文件即生效</td>
+</tr>
+<tr>
+<td>成本</td>
+<td>要長 context 塞晒</td>
+<td>只塞 top_k 片段，慳 token</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12-rag-核心零件五件">1.2 RAG 核心零件（五件）</h3>
+<table>
+<thead>
+<tr>
+<th>零件</th>
+<th>做咩</th>
+<th>關鍵設定</th>
+<th>見</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chunking</strong></td>
+<td>將文件切段</td>
+<td>chunk size / overlap / 切法</td>
+<td>§1.3</td>
+</tr>
+<tr>
+<td><strong>Embedding</strong></td>
+<td>文字 → 向量</td>
+<td>embedding model / 維度</td>
+<td>§7</td>
+</tr>
+<tr>
+<td><strong>Index / Vector DB</strong></td>
+<td>儲存 + 搜尋向量</td>
+<td>backend / 索引演算法</td>
+<td>§7</td>
+</tr>
+<tr>
+<td><strong>Retrieval</strong></td>
+<td>拎 top_k</td>
+<td>檢索法（BM25/dense/hybrid）</td>
+<td>§3</td>
+</tr>
+<tr>
+<td><strong>Generation</strong></td>
+<td>塞入 prompt 生成</td>
+<td>context 組裝 / rerank</td>
+<td>§3/§5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-chunking--rag-準唔準嘅頭號隱形因素">1.3 Chunking — RAG
+準唔準嘅頭號隱形因素</h3>
+<table>
+<thead>
+<tr>
+<th>切法</th>
+<th>做法</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fixed-size</strong></td>
+<td>固定 N token 切（如 200/400）</td>
+<td>簡單、均勻</td>
+<td>切斷語意</td>
+<td>快起 / demo</td>
+</tr>
+<tr>
+<td><strong>Recursive</strong></td>
+<td>按段落 / 標題 / 句子層級切</td>
+<td>保留結構</td>
+<td>長度不均</td>
+<td>文檔有結構</td>
+</tr>
+<tr>
+<td><strong>Semantic</strong></td>
+<td>按語意邊界切（embedding 相似度找斷點）</td>
+<td>每塊語意完整</td>
+<td>貴、要再嵌一次</td>
+<td>準度敏感場景</td>
+</tr>
+<tr>
+<td><strong>Document-based</strong></td>
+<td>一文件一 chunk</td>
+<td>上下文完整</td>
+<td>可能太長</td>
+<td>短文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>chunk size / overlap 經驗</strong>：</p>
+<ul>
+<li><strong>chunk 太大</strong>：塞咗無關內容 → 檢索唔準 + 塞爆
+context（貴）。</li>
+<li><strong>chunk 太細</strong>：語意斷裂 → 檢索到但唔完整。</li>
+<li>建議起點：<strong>256–512 token / chunk，overlap
+50–100</strong>；再用 eval 校準（§13）。</li>
+<li>對照：VeADK <code>KnowledgeBase</code> 用<strong>托管後端（viking /
+context_search）時服務端自己切分</strong>——你唔使理 chunk
+細節（好處），但想自訂就落向量類後端自己管。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：用火山方舟托管
+RAG，chunk / embedding / index 全部有平台代管。</p>
+</blockquote>
+<pre class="python"><code>from veadk.knowledgebase import KnowledgeBase
+kb = KnowledgeBase(backend=&quot;viking&quot;, top_k=10, index=&quot;product-docs&quot;)
+kb.add_from_directory(&quot;docs/&quot;)
+agent = Agent(..., knowledgebase=kb)   # 自動有 load_knowledgebase 工具</code></pre>
+<blockquote>
+<p>呢度 <code>backend="viking"</code> 即係火山方舟
+<strong>VikingDB</strong>，向量化用
+<code>doubao-embedding-vision</code>（多模態向量）；<strong>服務端負責切分
++ 向量化 + 檢索</strong>，你唔使自己管 chunk 細節。要再準就加
+reranker（§3）。Graph RAG 唔係內建——要就去 Context Search 托管 RAG
+或自建。</p>
+</blockquote>
+<h3 id="14-五種-rag-架構深入對比">1.4 五種 RAG 架構深入對比</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>做法</th>
+<th>優點</th>
+<th>弱點</th>
+<th>適合</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Naive RAG</strong></td>
+<td>「檢索 → 塞入 prompt → 生成」一條直線，無 pre/post 處理</td>
+<td>簡單、快、夠用</td>
+<td>唔識處理複雜關係、更新慢、準度天花板低</td>
+<td>FAQ、產品文檔、新手</td>
+<td>⭐</td>
+</tr>
+<tr>
+<td><strong>Advanced RAG</strong></td>
+<td>Naive + <strong>預處理（chunk/清洗/索引優化）+
+後處理（rerank/壓縮/去重）</strong></td>
+<td>準度明顯升</td>
+<td>多咗幾步要調（chunk/rerank threshold）</td>
+<td>生產客服、法規檢索</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Modular RAG</strong></td>
+<td>揀積木自由組合（query 改寫、routing、fallback、fusion、多跳）</td>
+<td>彈性最大、可逐件換</td>
+<td>過度工程風險、難 debug</td>
+<td>複雜 query、多來源</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Graph RAG</strong></td>
+<td>抽 entity + relation 落圖，答關係題</td>
+<td>超強於「A 關連 B 幾次」類問題</td>
+<td>建立貴、更新難</td>
+<td>知識圖譜、合規關連</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>Hybrid（BM25 + Dense）</strong></td>
+<td>關鍵字 + 向量並行，融合排名</td>
+<td>覆蓋精確匹配 + 語義</td>
+<td>要管兩個索引</td>
+<td>有專有名詞 + 語義並存語料</td>
+<td>⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-modular-rag-入面嘅可選積木">1.5 Modular RAG
+入面嘅可選積木</h3>
+<table>
+<thead>
+<tr>
+<th>積木</th>
+<th>做咩</th>
+<th>幾時加</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Query 改寫</strong></td>
+<td>將口語 query 改寫成更易檢索嘅查詢</td>
+<td>用戶講得鬆散（「上次講嗰單嘢」）</td>
+</tr>
+<tr>
+<td><strong>Query routing</strong></td>
+<td>按意圖送去唔同檢索器（BM25 / vector / 圖）</td>
+<td>多種資料、意圖混雜</td>
+</tr>
+<tr>
+<td><strong>HyDE</strong></td>
+<td>先讓 model 偽造一個理想答案再檢索</td>
+<td>短 query 檢索唔到好嘢</td>
+</tr>
+<tr>
+<td><strong>多跳（Multi-hop）</strong></td>
+<td>第一跳結果拎去第二跳檢索</td>
+<td>問題要兩層先答到</td>
+</tr>
+<tr>
+<td><strong>Fallback</strong></td>
+<td>檢索零結果 → 改策略重檢</td>
+<td>長尾 query</td>
+</tr>
+<tr>
+<td><strong>重排序</strong></td>
+<td>rerank（見 §3）</td>
+<td>要準度</td>
+</tr>
+<tr>
+<td><strong>壓縮</strong></td>
+<td>塞入前壓縮檢索內容</td>
+<td>context 會爆</td>
+</tr>
+</tbody>
+</table>
+<h3 id="16-幾時揀邊個決策樹">1.6 幾時揀邊個（決策樹）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>揀</th>
+<th>唔揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>靜態 FAQ / 文檔、想快上線</td>
+<td>Naive（用內建 KB 即得）</td>
+<td>唔好 Graph</td>
+</tr>
+<tr>
+<td>準度唔夠、專有名詞多</td>
+<td>Advanced（+rerank）</td>
+<td>唔好跳去 Modular</td>
+</tr>
+<tr>
+<td>query 多變、多來源、意圖雜</td>
+<td>Modular（路由 / 改寫）</td>
+<td>唔好過度工程</td>
+</tr>
+<tr>
+<td>關係題（「A 同 B 有咩關係」「幾次」）</td>
+<td>Graph RAG</td>
+<td>Naive 答唔到關係</td>
+</tr>
+<tr>
+<td>同時有精確詞 + 語義需求</td>
+<td>Hybrid（BM25 + dense + RRF）</td>
+<td>單一檢索</td>
+</tr>
+<tr>
+<td>每樣都想要但想先簡</td>
+<td>Advanced 起步，需要再加積木</td>
+<td>一步到位 Modular（難 debug）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「RAG
+準唔準，八成喺『點切文件』同『點排結果』，唔係喺『用邊個模型』。文件切得爛，再靚嘅
+model 都救唔返。」</p>
+</blockquote>
+<hr />
+<h2 id="2-decoder--生成策略--點樣出-token">2. Decoder / 生成策略 —
+點樣出 token</h2>
+<h3 id="21-概念decoding-係咩">2.1 概念：decoding 係咩</h3>
+<p>LLM 輸出本質係「逐 token 揀機率」：given 前面嘅
+token，模型計出「下一個 token 嘅機率分佈」，再由 <strong>decoding
+策略</strong>決定實際出邊個。</p>
+<pre><code>P(next_token | 前面所有 token) → 機率分佈 → decoding 策略 → 揀 token</code></pre>
+<ul>
+<li><strong>決定「穩 vs 創意 vs 快」</strong> 就喺呢一步。</li>
+<li>兩個維度：<strong>取樣策略</strong>（揀邊個 token）+
+<strong>約束</strong>（結構化輸出）。</li>
+</ul>
+<h3 id="22-常用取樣策略對比">2.2 常用取樣策略對比</h3>
+<table>
+<thead>
+<tr>
+<th>策略</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>適合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Greedy（貪婪）</strong></td>
+<td>每次都揀最高機率 token</td>
+<td>穩定、可重現、快</td>
+<td>單調、會重複、冇創意</td>
+<td>抽取 / 分類 / 翻譯</td>
+</tr>
+<tr>
+<td><strong>Beam Search</strong></td>
+<td>同時保留 N 條 top 路徑，最後揀最好</td>
+<td>更一致、全局較優</td>
+<td>貴（N× decode）、仍唔夠創意</td>
+<td>翻譯 / 摘要 / 需要一致性</td>
+</tr>
+<tr>
+<td><strong>Temperature（T）</strong></td>
+<td>將 logits 除 T 再 softmax；T&lt;1 收窄、T&gt;1 放寬</td>
+<td>一個旋鈕控制創意</td>
+<td>唔單獨用，配合 sampling</td>
+<td>調節「穩/創意」光譜</td>
+</tr>
+<tr>
+<td><strong>Top-k</strong></td>
+<td>只喺機率最高嘅 k 個 token 入面抽</td>
+<td>排除長尾垃圾 token</td>
+<td>k 揀得唔好就太窄/太闊</td>
+<td>配 temperature 用</td>
+</tr>
+<tr>
+<td><strong>Top-p（nucleus）</strong></td>
+<td>累積機率到 p 先進入抽籤池</td>
+<td>動態、比 top-k 好</td>
+<td>細語料偶爾唔穩</td>
+<td>對話 / 文案（常用默認）</td>
+</tr>
+<tr>
+<td><strong>Min-p</strong></td>
+<td>排除機率低於「最高機率×p」嘅 token</td>
+<td>更平滑</td>
+<td>較新、生態未齊</td>
+<td>創意寫作</td>
+</tr>
+<tr>
+<td><strong>Repetition penalty</strong></td>
+<td>罰已出過嘅 token</td>
+<td>減少 loop/重複</td>
+<td>會影響自然度</td>
+<td>長文防 loop</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：喺
+<code>doubao-seed-2.0-mini</code> 上用 <code>factory</code>-style API
+透傳取樣參數。</p>
+</blockquote>
+<pre class="python"><code># factory / 方舟 Chat Completions：temperature、top_p、max_tokens 係 API 參數，SDK 可透傳
+response = model.chat(
+    model=&quot;doubao-seed-2.0-mini&quot;,
+    messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;寫一段產品文案&quot;}],
+    temperature=0.9,     # 創意
+    top_p=0.95,          # nucleus
+)</code></pre>
+<blockquote>
+<p>⚠️ 喺 VeADK /
+方舟，<strong>取樣參數唔係你直接控制</strong>（greedy/temperature 係
+model API 參數，SDK 可透傳但 Plan
+場景通常默認）。<strong>真正你控制嘅係「邊個 model +
+結構化要求」</strong>——呢個先係你嘅槓桿。</p>
+</blockquote>
+<h3 id="23-約束式生成structured--constrained-output">2.3
+約束式生成（Structured / Constrained output）</h3>
+<table>
+<thead>
+<tr>
+<th>做法</th>
+<th>原理</th>
+<th>優點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function calling / tool call</strong></td>
+<td>model 出 JSON tool call 結構</td>
+<td>內建、標準</td>
+<td>想 model 自己揀工具</td>
+</tr>
+<tr>
+<td><strong><code>output_schema</code></strong></td>
+<td>指定輸出 JSON schema</td>
+<td>保證結構</td>
+<td>⚠️ <strong>會自動關上下文緩存</strong>（見 §4）</td>
+</tr>
+<tr>
+<td><strong>Constrained decoding（引擎級）</strong></td>
+<td>引擎直接強制 grammar/schema</td>
+<td>唔使 retry、零 parse 錯</td>
+<td>大量結構化 API（SGLang 強項）</td>
+</tr>
+<tr>
+<td><strong>JSON mode（API）</strong></td>
+<td>平台保証輸出係 JSON</td>
+<td>較鬆</td>
+<td>要 JSON 唔需要嚴格 schema</td>
+</tr>
+</tbody>
+</table>
+<p><strong>兩條路線嘅取捨</strong>：</p>
+<pre><code>路線 A：generate → parse → retry（軟）     → 有機會 retry 幾次，慢 + 貴
+路線 B：engine constrained（硬）           → 零 retry，快，但引擎支援（SGLang）</code></pre>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：Structured output 用
+<strong>Responses API 嘅 <code>output_schema</code></strong>（VeADK
+<code>Responses</code> 模式）。</p>
+</blockquote>
+<pre class="python"><code>response = agent.chat(
+    &quot;提取呢單發票嘅字段&quot;,
+    output_schema={
+        &quot;type&quot;: &quot;object&quot;,
+        &quot;properties&quot;: {
+            &quot;invoice_no&quot;: {&quot;type&quot;: &quot;string&quot;},
+            &quot;amount&quot;: {&quot;type&quot;: &quot;number&quot;},
+        },
+        &quot;required&quot;: [&quot;invoice_no&quot;, &quot;amount&quot;],
+    },
+)</code></pre>
+<blockquote>
+<p>⚠️ 用 <code>output_schema</code>
+會<strong>自動關上下文緩存</strong>（§4）——要權衡「準 vs
+慳」。大量結構化 API 就靠引擎級 constrained decoding（§14，SGLang
+強項）。</p>
+</blockquote>
+<h3 id="24-speculative-decoding-快嘅秘密">2.4 Speculative decoding
+—「快」嘅秘密</h3>
+<ul>
+<li>原理：<strong>細 model 一口氣估 N 個 token → 大 model 一次過
+parallel verify</strong> → 啱晒一次收 N 個。</li>
+<li>效果：throughput 2–3×、latency
+降、<strong>質量幾乎不變</strong>（verify 兜底）。</li>
+<li>變體：Classic draft model / Medusa（尾加平行 head）/
+EAGLE（feature-level）/ Self-speculative。</li>
+<li><strong>喺托管（方舟）你唔使揀</strong>——引擎自動做（見
+§14）。識嘅用途：答 client「點解 token/s 咁高」。</li>
+</ul>
+<h3 id="25-幾時揀邊個決策">2.5 幾時揀邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客服答覆（要穩定、可審計）</td>
+<td>低 T + greedy（或默認）</td>
+</tr>
+<tr>
+<td>文案 / 創意</td>
+<td>高 T + top-p sampling</td>
+</tr>
+<tr>
+<td>翻譯 / 摘要</td>
+<td>beam（要一致）</td>
+</tr>
+<tr>
+<td>一定要合 JSON schema</td>
+<td><code>output_schema</code>（⚠️ 關 cache）/ structured output</td>
+</tr>
+<tr>
+<td>量產 / 吞吐壓力</td>
+<td>靠 spec-decode + 細 model（§14/§12）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-ranker--檢索結果點排">3. Ranker — 檢索結果點排</h2>
+<h3 id="31-概念檢索--答案">3.1 概念：檢索 ≠ 答案</h3>
+<p>RAG
+檢索完，<strong>唔係即刻用</strong>——「檢到」同「排得啱」係兩件事。<strong>Rerank</strong>
+係 Advanced RAG 嘅核心升級：先粗檢 top-50，再精排到 top-10，先塞入
+model。</p>
+<pre><code>粗檢（快，攞大池） →  精排（準，篩細池） →  塞入 context
+BM25 + dense top-50    cross-encoder top-10</code></pre>
+<h3 id="32-ranker-類型對比">3.2 Ranker 類型對比</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>做法</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BM25（關鍵字）</strong></td>
+<td>統計（TF-IDF 家族，詞頻+文檔頻率）</td>
+<td>快、精確詞好、零 model</td>
+<td>唔識語義 / synonym</td>
+<td>有準確術語、首輪粗檢</td>
+</tr>
+<tr>
+<td><strong>Dense / Bi-encoder</strong></td>
+<td>各自 embedding → cosine/dot</td>
+<td>語義強</td>
+<td>專名/代碼易 miss、要管向量</td>
+<td>語義搜尋主幹</td>
+</tr>
+<tr>
+<td><strong>Hybrid + RRF</strong></td>
+<td>兩邊分數合併排名（見公式）</td>
+<td>兩者兼得</td>
+<td>要管兩索引</td>
+<td>預設建議（§1.7 hybrid RAG）</td>
+</tr>
+<tr>
+<td><strong>Cross-encoder</strong></td>
+<td>模型直接讀 query+doc 打分</td>
+<td><strong>最準</strong></td>
+<td>最慢（每 doc 一次 forward）</td>
+<td><strong>只精排 top-k</strong>（如 50→10）</td>
+</tr>
+<tr>
+<td><strong>ColBERT（late interaction）</strong></td>
+<td>token 級互動、預先算</td>
+<td>準 + 可縮放</td>
+<td>要特製索引</td>
+<td>大規模語料精排</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-深入bm25-vs-dense-vs-rrf-點解要混合">3.3 深入：BM25 vs Dense
+vs RRF 點解要混合</h3>
+<ul>
+<li><strong>BM25 強</strong>：精確匹配（「EULA 第 3.2
+條」呢類專名、代碼、型號）——dense embedding 成日 miss 呢啲。</li>
+<li><strong>Dense 強</strong>：同義詞、意譯（「點樣退貨」→
+文檔寫「refund policy」）——BM25 完全無。</li>
+<li><strong>RRF（Reciprocal Rank
+Fusion）</strong>：兩邊各出排名，融合分數：</li>
+</ul>
+<pre><code>score(doc) = Σ ( 1 / (k + rank_i(doc)) )    # k ≈ 60</code></pre>
+<ul>
+<li>唔使理兩邊分數量綱（唔係加權平均分），只睇排名——穩。</li>
+</ul>
+<h3 id="34-cross-encoder-深入點解最準點解慢">3.4 Cross-encoder
+深入：點解最準、點解慢</h3>
+<ul>
+<li><strong>Bi-encoder</strong>：query 同 doc <strong>分開</strong>
+embed → 比較（一次預算，快，但資訊獨立）。</li>
+<li><strong>Cross-encoder</strong>：query + doc <strong>一齊入</strong>
+model 打分（可睇到語義互動，準，但每對 doc 一次 forward）。</li>
+<li>所以正路：<strong>粗選用 bi-encoder/BM25（快），精排用
+cross-encoder（準）</strong>——兩個階段分工。</li>
+</ul>
+<h3 id="35-標準-pipelineadvanced-rag-成本">3.5 標準 pipeline（Advanced
+RAG）+ 成本</h3>
+<pre><code>BM25 + Dense 並行檢索 (top 50)  →  RRF 融合  →  Cross-encoder rerank (top 10)  →  塞入 context</code></pre>
+<table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>數量級</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>檢索</td>
+<td>1 次 vector query</td>
+<td>平（viking 托管計「向量化」）</td>
+</tr>
+<tr>
+<td>Cross-encoder rerank</td>
+<td>50 對 query+doc</td>
+<td><strong>每對要 model forward</strong> → 計錢（如計 AFP /
+第三方）</td>
+</tr>
+<tr>
+<td>Context 塞入</td>
+<td>top-10 × 200 token ≈ 2k token</td>
+<td>計 input token</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：VeADK
+<code>Ranker</code> 用 embedding_model 做 rerank（火山方舟模型）。</p>
+</blockquote>
+<pre class="python"><code>from veadk.knowledgebase import Ranker
+ranker = Ranker(embedding_model=&quot;doubao-embedding-vision&quot;)  # 用方舟多模態向量做精排
+kb = KnowledgeBase(backend=&quot;viking&quot;, top_k=10, index=&quot;product-docs&quot;, reranker=ranker)</code></pre>
+<blockquote>
+<p>⚠️ <strong>rerank 唔係默認</strong>——VeADK 內建 <code>top_k</code>
+檢索（預設 10）冇自動 rerank。要精度先加
+<code>Ranker(embedding_model="doubao-embedding-vision")</code>——同
+embedding 一樣有錢（計 AFP，見 pricing doc）。</p>
+</blockquote>
+<h3 id="36-幾時揀邊個決策">3.6 幾時揀邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>有準確術語（型號 / 代碼 / 條款）</td>
+<td>一定要混合 BM25（唔好用純 dense）</td>
+</tr>
+<tr>
+<td>語義搜尋為主（口語 / 意譯）</td>
+<td>dense 主 + BM25 補</td>
+</tr>
+<tr>
+<td>語料大（&gt;1M docs）</td>
+<td>ColBERT 或 分層粗選→精排</td>
+</tr>
+<tr>
+<td>想最快</td>
+<td>純 BM25 / 純 dense（唔 rerank）</td>
+</tr>
+<tr>
+<td>想最準</td>
+<td>hybrid + cross-encoder（願付精排錢）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「檢索唔等於答案。你先粗檢 50
+條，再用精排模型篩到 10 條，先係『餵到 model 面前』嗰 10
+條——呢個先係準嘅關鍵。但精排有錢，要先講。」</p>
+</blockquote>
+<hr />
+<h2 id="4-cache-管理--慳重複-token-嘅三層">4. Cache 管理 — 慳重複 token
+嘅三層</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-cache-management.md</code>。呢度係字典級 +
+落地。</p>
+</blockquote>
+<h3 id="41-概念三層-cache各管各">4.1 概念：三層 cache，各管各</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>係咩</th>
+<th>儲喺邊</th>
+<th>控制權</th>
+<th>慳咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 引擎 KV-Cache</strong></td>
+<td>Transformer attention 中間值（K/V 向量）</td>
+<td>GPU VRAM</td>
+<td>托管自動</td>
+<td>唔使重算 attention（引擎層）</td>
+</tr>
+<tr>
+<td><strong>② Provider Prefix / Context Cache</strong></td>
+<td>平台對相同前綴 / 上下文複用 token</td>
+<td>provider 側</td>
+<td>自動 + <code>usage_metadata</code> 睇命中</td>
+<td><strong>慳 token 錢</strong></td>
+</tr>
+<tr>
+<td><strong>③ Framework Context Caching</strong></td>
+<td>VeADK Responses API session 緩存</td>
+<td>框架</td>
+<td>默認開，<code>output_schema</code> 會關</td>
+<td><strong>慳重複 input token</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>三層唔好撈亂：① 慳算力，②③ 慳錢。sales
+講「cache」要講得清係邊層。</p>
+</blockquote>
+<h3 id="42-kv-cache-深入引擎層">4.2 KV-Cache 深入（引擎層）</h3>
+<pre><code>KV memory ≈ 2 (K+V) × num_layers × num_heads × head_dim × 2 bytes × tokens × concurrent requests</code></pre>
+<ul>
+<li>長 context + 高並行 = KV 食 VRAM
+爆燈（同權重大細差唔多，甚至更大）。</li>
+<li>引擎層慳法：GQA/MQA（共享 KV 頭）、KV
+量化（FP8/INT8）、PagedAttention/RadixAttention（見
+§14）、streaming（H2O/SnapKV）。</li>
+<li><strong>你嘅槓桿</strong>：context 越短 → KV 越細 → 平台 VRAM 需求低
+→ 平台可以更平（正正解釋 128k+ 雙倍率，見 pricing doc）。</li>
+</ul>
+<h3 id="43-provider--framework-context-cache-深入">4.3 Provider /
+Framework Context Cache 深入</h3>
+<ul>
+<li><strong>機制</strong>：平台記憶已送過嘅 prompt 前綴；下輪 request
+只送「新增部分」+ cache token 平價/半價計。</li>
+<li><strong>VeADK 默認開</strong> session 上下文緩存（Responses API
+模式）。</li>
+<li><strong>睇命中率</strong>：</li>
+</ul>
+<pre><code>usage_metadata:
+  cached_content_token_count   # 命中
+  prompt_token_count           # 實際送 model
+命中率 = cached / prompt</code></pre>
+<ul>
+<li>多輪對話理想 <strong>50–95%</strong>；低過 50% → 檢查係咪每輪塞咗大
+object（例如成個 file 入 tool return）。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：Responses API
+上下文緩存。</p>
+</blockquote>
+<pre class="python"><code># 每輪對話自動開 Context Caching（VeADK Responses API 默認）
+resp = agent.chat(&quot;繼續跟進上單退款&quot;)
+print(resp.usage_metadata)
+# cached_content_token_count ≈ 大部分 prompt → 命中率 50–95%</code></pre>
+<blockquote>
+<p>長 context（128k+）命中後會更抵；<code>output_schema</code>
+會<strong>自動關</strong>呢個緩存。SDK / 日志會透出
+<code>cached_content_token_count</code> 俾你驗命中率。隱式
+cache（平台對已送過嘅前綴）命中率 ~20% 起跳，128k+
+前綴命中率變異更大——用 <code>usage_metadata</code> 實測為準（見 cache
+tab）。</p>
+</blockquote>
+<h3 id="44-cache-aware-prompting令命中率自動升">4.4 Cache-aware
+prompting（令命中率自動升）</h3>
+<table>
+<thead>
+<tr>
+<th>動作</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System / instruction 穩定</strong></td>
+<td>system 部分 = 緩存區，穩定先命中</td>
+</tr>
+<tr>
+<td><strong>動態內容放 prompt 後面</strong></td>
+<td>前面變 = 成個 prefix miss</td>
+</tr>
+<tr>
+<td>唔好每輪塞大 object</td>
+<td>塞咗就強制重送</td>
+</tr>
+<tr>
+<td>唔好每次 run 都重放成串歷史</td>
+<td>靠 session cache / compaction（§5）</td>
+</tr>
+<tr>
+<td>結構化需求少用 <code>output_schema</code></td>
+<td><code>output_schema</code> 會關緩存（要權衡）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="45-幾時開幾時關">4.5 幾時開幾時關</h3>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>開 / 關</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多輪客服、長 prompt、工具多</td>
+<td>✅ 開（默認）</td>
+</tr>
+<tr>
+<td>要 <code>output_schema</code> 強制結構</td>
+<td>⚠️ 自動關——衡量「準 vs 慳」</td>
+</tr>
+<tr>
+<td>每輪 context 都唔同（一次性）</td>
+<td>開咗都冇命中，無損失</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-context-管理--prompt-唔好爆">5. Context 管理 — prompt
+唔好爆</h2>
+<h3 id="51-概念context-window-點樣被食">5.1 概念：context window
+點樣被食</h3>
+<p>一個 agent request 嘅 context = 幾樣嘢疊埋：</p>
+<pre><code>┌─ system / instruction（agent 人設）────────┐
+├─ few-shot 例子 ────────────────────────────┤
+├─ RAG top_k 檢索片段 ───────────────────────┤
+├─ 歷史對話（越滾越長）───────────────────────┤
+├─ 工具 / MCP 定義 ──────────────────────────┤
+└─ 今次用戶輸入 ─────────────────────────────┘</code></pre>
+<ul>
+<li><strong>長 context = 貴 + 慢</strong>：更多 input token（慳錢位）+
+更大 KV cache（平台 VRAM）+ 更慢 TTFT（prefill 久）。</li>
+<li>方舟定價 <strong>128k+ 有加倍率</strong>（見 pricing doc）→
+<strong>慳 context 就係慳真銀</strong>。</li>
+</ul>
+<h3 id="52-工具對比按成本由低到高">5.2 工具對比（按成本由低到高）</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>做法</th>
+<th>慳幾多</th>
+<th>成本</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Context caching</strong></td>
+<td>重用已送過嘅前綴</td>
+<td>多輪 50–90%</td>
+<td>0 code</td>
+<td>默認、長 session</td>
+</tr>
+<tr>
+<td><strong>Prompt 精簡</strong></td>
+<td>instruction 寫短</td>
+<td>每輪慳幾百 token</td>
+<td>0</td>
+<td>永遠（instruction 係 system 一部分）</td>
+</tr>
+<tr>
+<td><strong>RAG top_k</strong></td>
+<td>唔塞全文只塞 top_k</td>
+<td>token ~30%+</td>
+<td>少 code</td>
+<td>KB 場景（唔好全文入 system）</td>
+</tr>
+<tr>
+<td><strong>Tool return 收窄</strong></td>
+<td>tool 內預先 summarize/抽 key</td>
+<td>每輪</td>
+<td>中 code</td>
+<td>tool 回大 JSON</td>
+</tr>
+<tr>
+<td><strong>Compaction（壓縮）</strong></td>
+<td>長對話壓成 summary</td>
+<td>直接斬 token</td>
+<td>額外 summary model call</td>
+<td>長對話（10+ 輪）</td>
+</tr>
+<tr>
+<td><strong>Session 切換</strong></td>
+<td>定期開新 session</td>
+<td>從頭計</td>
+<td>0</td>
+<td>主題跳躍 / 重 context 開頭</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-compaction-深入">5.3 Compaction 深入</h3>
+<pre class="python"><code>app = App(
+    agents=[my_agent],
+    events_compaction_config=EventsCompactionConfig(
+        compaction_interval=10,   # 唔好太密（如 3）→ 額外 summary call 反而貴
+        max_events=50,
+        max_tokens=8000,
+        compactor=LlmEventSummarizer(
+            model=&quot;doubao-seed-2-0-mini&quot;,  # 用細 model 做 summary，慳錢
+            system_instruction=&quot;壓縮成精簡中文摘要，保留用戶事實同已承諾事項。&quot;,
+        ),
+    ),
+)</code></pre>
+<p><strong>做壓縮係咪一定慳？</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>慳</th>
+<th>唔慳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>長對話 / 工具多</td>
+<td>✅ summary 縮短 context</td>
+<td></td>
+</tr>
+<tr>
+<td>每輪都壓（interval=3）</td>
+<td></td>
+<td>❌ 額外 summary call 反而貴</td>
+</tr>
+<tr>
+<td>要 detail（用戶 ID / 引用冧巴）</td>
+<td></td>
+<td>❌ summary 冇咗細節</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Summary 會冇細節</strong>（用戶 ID / 引用冧巴 /
+承諾細節）——要 detail 嘅 domain 唔好壓太勁，或 summary 寫明保留 key
+fields。</p>
+</blockquote>
+<h3 id="54-反模式見-performance-doc-5">5.4 反模式（見 performance doc
+§5）</h3>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>點改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成個 KB 全文塞入 system</td>
+<td>用 <code>load_knowledgebase</code> RAG 只塞 top_k</td>
+</tr>
+<tr>
+<td>tool 回傳大 JSON 唔諗就入 context</td>
+<td>tool 內預先 summarize / 抽 key fields</td>
+</tr>
+<tr>
+<td>一個 agent 做十件事</td>
+<td>拆 agent（抽取 / 驗證，A2A 平行）</td>
+</tr>
+<tr>
+<td>每次 run 重放成串歷史</td>
+<td>session cache + 壓縮，或切 session</td>
+</tr>
+<tr>
+<td>所有輪都問大 model</td>
+<td>前端規則 / gateway 先 handle 簡單查詢</td>
+</tr>
+</tbody>
+</table>
+<h3 id="55-幾時用邊個決策">5.5 幾時用邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>長 session 對話</td>
+<td>caching + compaction</td>
+</tr>
+<tr>
+<td>KB 問答</td>
+<td>RAG top_k（唔好全文）</td>
+</tr>
+<tr>
+<td>工具多、回傳大</td>
+<td>tool return 收窄</td>
+</tr>
+<tr>
+<td>主題跳躍</td>
+<td>切 session</td>
+</tr>
+<tr>
+<td>高準度結構化</td>
+<td>犧牲 cache（<code>output_schema</code>）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：compaction
+用方舟<strong>細模型</strong>做
+summary（<code>doubao-seed-2-0-mini</code> 0.5× 基礎係數，慳錢），見上面
+code。Context 長度 → 直接影響方舟 128k+ 雙倍率，所以「慳 context
+就係慳真銀」（見 pricing doc）。</p>
+</blockquote>
+<hr />
+<h2 id="6-memory-管理--跨-session-記住用戶">6. Memory 管理 — 跨 session
+記住用戶</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-vector-cache.md</code>。呢度係字典級 +
+落地。</p>
+</blockquote>
+<h3 id="61-概念記憶分三層職責唔同">6.1 概念：記憶分三層，職責唔同</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>係咩</th>
+<th>儲存</th>
+<th>幾時要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>STM（短期）</strong></td>
+<td>對話內 context</td>
+<td>Runner/session 內建（進程內 / DB）</td>
+<td>單 session 內連續</td>
+</tr>
+<tr>
+<td><strong>LTM（長期）</strong></td>
+<td>跨 session 記用戶偏好 / 事件 / 實體</td>
+<td>Vector DB / 托管</td>
+<td>要「記得上次」</td>
+</tr>
+<tr>
+<td><strong>KB（知識庫）</strong></td>
+<td>靜態外部知識 RAG</td>
+<td>Vector DB / 托管</td>
+<td>要答產品 / 法規</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>補充：<strong>記憶唔係一個 blob</strong>——有語義分別：</p>
+<ul>
+<li><strong>Episodic（事件）</strong>：做過咩（「上星期問過退款」）</li>
+<li><strong>Semantic（語義）</strong>：偏好 /
+事實（「佢鍾意繁體」）</li>
+<li><strong>Procedural（程序）</strong>：點做（佢個 workflow）</li>
+</ul>
+<p>LTM 多數做 episodic + semantic；procedural 通常靠 instruction / tools
+保持。</p>
+</blockquote>
+<h3 id="62-ltm-7-種後端見-vector-cache-doc-2">6.2 LTM 7 種後端（見
+vector-cache doc §2）</h3>
+<table>
+<thead>
+<tr>
+<th>backend</th>
+<th>要唔要本地 embedding</th>
+<th>適合</th>
+<th>幾時揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>local</code></td>
+<td>✅</td>
+<td>開發 debug</td>
+<td><strong>生產唔好用</strong>（多實例各自一本 → 失憶）</td>
+</tr>
+<tr>
+<td><code>opensearch</code></td>
+<td>✅</td>
+<td>已有 infra</td>
+<td>已用 OpenSearch（默認值）</td>
+</tr>
+<tr>
+<td><code>redis</code></td>
+<td>✅</td>
+<td>低延遲自建</td>
+<td>已有 Redis</td>
+</tr>
+<tr>
+<td><code>viking</code></td>
+<td>❌</td>
+<td><strong>生產推薦</strong>、支援用戶畫像</td>
+<td>新起 / 要 profile（region 固定 cn-hongkong）</td>
+</tr>
+<tr>
+<td><code>mem0</code></td>
+<td>❌</td>
+<td>托管、Mem0 負責抽取</td>
+<td>想第三方托管</td>
+</tr>
+<tr>
+<td><code>openviking</code></td>
+<td>❌</td>
+<td>服務端策略</td>
+<td>生產</td>
+</tr>
+<tr>
+<td><code>tos_context</code></td>
+<td>❌</td>
+<td>火山托管</td>
+<td>生產</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>多實例 AgentKit Runtime + <code>local</code> = session
+甩落第部機就失憶</strong>（<code>run_sse</code> 返回 404
+多數係呢個）。要持久化就唔好用 <code>local</code>。</p>
+</blockquote>
+<h3 id="63-幾時寫入-ltm寫入週期">6.3 幾時寫入 LTM（寫入週期）</h3>
+<ul>
+<li><code>min_messages_threshold</code> /
+<code>min_time_threshold</code>：幾多 event / 幾耐先寫入（預設 10 條
+event 或 60 秒）。</li>
+<li>轉 <code>session_id</code> 時<strong>自動把上一 session 寫入
+LTM</strong>。</li>
+<li>寫入越頻密：記憶越新，但 <strong>embedding + 儲存錢越多</strong>——用
+threshold 平衡。</li>
+</ul>
+<h3 id="64-記憶成本意識">6.4 記憶成本意識</h3>
+<table>
+<thead>
+<tr>
+<th>動作</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LTM 寫入</td>
+<td>embedding（<code>doubao-embedding-vision</code> 計 AFP）+
+儲存（GB·h）</td>
+</tr>
+<tr>
+<td>每次檢索記憶</td>
+<td>1 次 vector query</td>
+</tr>
+<tr>
+<td>檢索結果塞入 context</td>
+<td>計 input token</td>
+</tr>
+<tr>
+<td>用戶畫像檢索</td>
+<td><code>enable_profile</code> /
+<code>query_with_user_profile</code>（<strong>限 Viking
+後端</strong>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="65-幾時用邊個決策">6.5 幾時用邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>單 session 連續問答</td>
+<td>STM（內建）</td>
+</tr>
+<tr>
+<td>要「記得上次」（客服回頭客）</td>
+<td>LTM（viking / mem0）</td>
+</tr>
+<tr>
+<td>要答外部知識</td>
+<td>KB（§7）</td>
+</tr>
+<tr>
+<td>只要本地試</td>
+<td><code>local</code>（唔好上生產）</td>
+</tr>
+<tr>
+<td>已有 OpenSearch/Redis</td>
+<td>用返（慳遷移，但自己配 embedding）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：LTM 生產用
+<strong>VikingDB（方舟托管）</strong> 或 <strong>mem0</strong>。</p>
+</blockquote>
+<pre class="python"><code>from veadk.memory import LTM
+ltm = LTM(backend=&quot;viking&quot;, index=&quot;user-memory&quot;)   # 方舟 VikingDB 托管
+# 或 ltm = LTM(backend=&quot;mem0&quot;)                      # 第三方托管抽取
+app = App(agents=[agent], ltm=ltm)</code></pre>
+<blockquote>
+<p><code>viking</code> / <code>mem0</code> / <code>openviking</code> /
+<code>tos_context</code> 唔使自己配
+embedding（服務端抽取）；<code>local</code> / <code>opensearch</code> /
+<code>redis</code> 要自己配（每個 backend 每次檢索多計一次 embedding
+錢）。用戶畫像 <code>enable_profile</code> 只得 Viking 後端有。</p>
+</blockquote>
+<hr />
+<h2 id="7-vector-db--揀向量索引">7. Vector DB — 揀向量索引</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-database-management.md</code>。呢度係字典級 +
+落地。</p>
+</blockquote>
+<h3 id="71-概念向量點樣被搜">7.1 概念：向量點樣被搜</h3>
+<ul>
+<li><strong>Embedding</strong>：文字/圖 → N 維向量（語義近 =
+向量近），方舟用 <code>doubao-embedding-vision</code>。</li>
+<li><strong>索引演算法</strong> 決定「點樣快咁搵 nearest
+neighbour」：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>演算法</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Brute-force（掃描）</strong></td>
+<td>逐個計距離</td>
+<td>最準</td>
+<td>慢（O(N)）</td>
+<td>細資料集（&lt;100k）</td>
+</tr>
+<tr>
+<td><strong>HNSW</strong></td>
+<td>多層圖搜尋</td>
+<td>快、準度好</td>
+<td>建索引慢、食記憶</td>
+<td><strong>主流默認</strong></td>
+</tr>
+<tr>
+<td><strong>IVF</strong></td>
+<td>先分桶再入桶搜</td>
+<td>慳記憶、可擴</td>
+<td>精度稍低</td>
+<td>超大資料集</td>
+</tr>
+<tr>
+<td><strong>PQ / Scalar quant</strong></td>
+<td>壓縮向量</td>
+<td>慳記憶</td>
+<td>精度 trade-off</td>
+<td>記憶緊</td>
+</tr>
+<tr>
+<td><strong>Disk-based ANN</strong></td>
+<td>落磁碟</td>
+<td>唔爆 RAM</td>
+<td>慢</td>
+<td>極大資料集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-距離--相似度指標">7.2 距離 / 相似度指標</h3>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cosine</strong></td>
+<td>語義檢索主流（方向最重要，唔理長度）</td>
+</tr>
+<tr>
+<td><strong>Dot</strong></td>
+<td>向量已 normalize 時 = cosine</td>
+</tr>
+<tr>
+<td><strong>Euclidean（L2）</strong></td>
+<td>想重視 magnitude</td>
+</tr>
+<tr>
+<td><strong>Inner product</strong></td>
+<td>特定 embedding 模型建議</td>
+</tr>
+</tbody>
+</table>
+<h3 id="73-後端矩陣veadk-knowledgebase--ltm-共通概念">7.3
+後端矩陣（VeADK KnowledgeBase / LTM 共通概念）</h3>
+<table>
+<thead>
+<tr>
+<th>backend</th>
+<th>類型</th>
+<th>要唔要本地 embedding</th>
+<th>幾時揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>local</code></td>
+<td>內存向量索引</td>
+<td>✅</td>
+<td>開發 debug</td>
+</tr>
+<tr>
+<td><code>opensearch</code></td>
+<td>OpenSearch</td>
+<td>✅</td>
+<td>已有 infra</td>
+</tr>
+<tr>
+<td><code>redis</code></td>
+<td>RediSearch</td>
+<td>✅</td>
+<td>低延遲自建</td>
+</tr>
+<tr>
+<td><code>milvus</code></td>
+<td>Milvus collection</td>
+<td>✅</td>
+<td>已有 Milvus / 大規模</td>
+</tr>
+<tr>
+<td><code>tos_vector</code></td>
+<td>TOS 物件向量</td>
+<td>✅</td>
+<td>用緊火山 TOS</td>
+</tr>
+<tr>
+<td><strong><code>viking</code></strong></td>
+<td><strong>VikingDB（托管）</strong></td>
+<td>❌（服務端切分+向量化+檢索）</td>
+<td><strong>生產推薦、新起</strong></td>
+</tr>
+<tr>
+<td><code>context_search</code></td>
+<td><strong>托管 RAG</strong></td>
+<td>❌</td>
+<td>托管 RAG、需 TOS 預簽名上傳</td>
+</tr>
+<tr>
+<td><code>openviking</code></td>
+<td>OpenViking 資源目錄</td>
+<td>❌</td>
+<td>生產</td>
+</tr>
+</tbody>
+</table>
+<h3 id="74-揀法決策">7.4 揀法（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已有 OpenSearch / Redis / Milvus</td>
+<td>用返對應 backend，慳遷移（但要自己配 embedding → 每檢索一次計多一次
+embedding 錢）</td>
+</tr>
+<tr>
+<td><strong>新起 / 想走托管</strong></td>
+<td><strong><code>viking</code> /
+<code>context_search</code></strong>（唔使自己管 embedding →
+掃走「自建向量庫 + embedding 模型」成本）</td>
+</tr>
+<tr>
+<td>只要 local 試嘢</td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>超大規模（&gt;100M 向量）</td>
+<td>milvus / 專用 ANN</td>
+</tr>
+<tr>
+<td>低延遲熱數據</td>
+<td>redis</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：新起走<strong>托管
+VikingDB</strong>，自建先 Milvus / OpenSearch。</p>
+</blockquote>
+<pre class="python"><code># 托管 RAG（VikingDB / Context Search）— 方舟服務端食晒
+kb = KnowledgeBase(backend=&quot;viking&quot;, index=&quot;product-docs&quot;, top_k=10)
+# 自建（要自己配 embedding_model）
+kb = KnowledgeBase(backend=&quot;milvus&quot;, index=&quot;product-docs&quot;, embedding_model=&quot;doubao-embedding-vision&quot;)</code></pre>
+<blockquote>
+<p><code>doubao-embedding-vision</code> 係火山方舟多模態向量模型（計
+AFP，見 pricing doc）。自建後端每次檢索都要自己 embed → 多計一次
+embedding 錢；托管後端（viking/context_search）服務端包辦向量化 +
+檢索，你只買儲存 + 查詢用量。</p>
+</blockquote>
+<blockquote>
+<p><strong>Sale 一句</strong>：「想喺方案度掃走『自建向量庫 + embedding
+模型』兩項成本，就揀 VikingDB / Context
+Search——服務端食晒，你只係買儲存同查詢用量。」</p>
+</blockquote>
+<hr />
+<h2 id="8-database--揀資料庫類型">8. Database — 揀資料庫類型</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-database-management.md</code>。呢度係字典級 +
+落地。</p>
+</blockquote>
+<h3 id="81-概念agent-方案要用幾種db唔係一種">8.1 概念：agent
+方案要用「幾種」DB，唔係一種</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>用途</th>
+<th>例子（喺 stack）</th>
+<th>幾時揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relational（關係型）</strong></td>
+<td>結構化事務、審計</td>
+<td>PostgreSQL（audit 7 年 / chain-hash 存）</td>
+<td>有 schema、要事務 / 合規</td>
+</tr>
+<tr>
+<td><strong>Vector DB</strong></td>
+<td>語義檢索</td>
+<td>VikingDB / OpenSearch / Milvus / Redis</td>
+<td>RAG / LTM</td>
+</tr>
+<tr>
+<td><strong>Object Store（物件）</strong></td>
+<td>大檔案、archive</td>
+<td>TOS（audit archive、video/圖 assets）</td>
+<td>影片/圖/7 年歸檔</td>
+</tr>
+<tr>
+<td><strong>Key-Value / Cache</strong></td>
+<td>快取、session</td>
+<td>Redis</td>
+<td>低延遲熱數據</td>
+</tr>
+<tr>
+<td><strong>Graph DB</strong></td>
+<td>關連題</td>
+<td>（第三方，如 Neo4j）</td>
+<td>Graph RAG</td>
+</tr>
+</tbody>
+</table>
+<h3 id="82-深入acid-vs-base--點解審計要用關係型">8.2 深入：ACID vs BASE
+—— 點解審計要用關係型</h3>
+<ul>
+<li><strong>ACID</strong>（PostgreSQL）：原子性、一致性、隔離、持久——審計
+/ 訂單 / 用戶唔可以「一半寫入」。</li>
+<li><strong>BASE</strong>（KV / 向量 /
+物件）：最終一致、可用性優先——語義搜尋 / 快取 / 檔案 OK。</li>
+<li><strong>Agent 審計要求</strong>（見 sec tab）：chain-hash（hash
+鏈防篡改）+ 7 年保留 → 落 <strong>PostgreSQL（寫入）+
+TOS（archive）</strong>。</li>
+</ul>
+<h3 id="83-一個方案點樣同時用幾種示例">8.3
+一個方案點樣同時用幾種（示例）</h3>
+<table>
+<thead>
+<tr>
+<th>嘢</th>
+<th>儲邊度</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用戶 / 訂單 / 審計寫入</td>
+<td>PostgreSQL</td>
+<td>ACID + chain-hash</td>
+</tr>
+<tr>
+<td>審計 archive 7 年</td>
+<td>TOS</td>
+<td>平、大容量</td>
+</tr>
+<tr>
+<td>向量 / 記憶</td>
+<td>Viking</td>
+<td>托管向量</td>
+</tr>
+<tr>
+<td>session 熱數據</td>
+<td>Redis</td>
+<td>低延遲</td>
+</tr>
+<tr>
+<td>關係問答</td>
+<td>Graph（第三方）</td>
+<td>關係題</td>
+</tr>
+</tbody>
+</table>
+<h3 id="84-幾時用邊個決策">8.4 幾時用邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>你要做咩</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用戶 / 訂單 / 審計（要 ACID）</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>語義搜尋 / 記憶</td>
+<td>Vector DB（§7）</td>
+</tr>
+<tr>
+<td>影片、圖片、7 年 log archive</td>
+<td>TOS</td>
+</tr>
+<tr>
+<td>熱 session / 快取</td>
+<td>Redis</td>
+</tr>
+<tr>
+<td>關係問答</td>
+<td>Graph DB</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine
+點落地</strong>：用火山資料庫服務一體化。</p>
+</blockquote>
+<pre class="python"><code># 火山方舟 / BytePlus 產品（產品名隨版本郁，落地前查控制台）
+# PostgreSQL 事務/審計  →  RDS MySQL / NDB MySQL（火山雲）
+# 大檔案 / 7 年 archive →  TOS（火山物件儲存）
+# 快取 / session          →  Redis（火山雲）
+# 向量語義              →  VikingDB（火山方舟托管）
+# 關連題                →  Graph DB（第三方 Neo4j）</code></pre>
+<blockquote>
+<p>審計 chain-hash 落 <strong>RDS/NDB MySQL（PostgreSQL
+系）</strong>、大檔落 <strong>TOS</strong>、向量落
+<strong>VikingDB</strong>、熱數據落
+<strong>Redis</strong>——一個方案「幾種 DB
+並存」先係正路，唔好一種打天下。產品名 /
+型號隨版本郁，落地前查雲控制台（詳見 db tab）。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>唔好「一個 DB
+打天下」</strong>——每個資料類型都有唔同嘅平快準特性，混埋就樣樣差。</p>
+</blockquote>
+<hr />
+<h2 id="9-mcp--tools--skills--agent-點攞外部能力">9. MCP / Tools /
+Skills — Agent 點攞外部能力</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-tools-capabilities.md</code>。呢度係字典級 +
+落地。</p>
+</blockquote>
+<h3 id="91-概念由-function-calling-到-mcp-到-skills">9.1 概念：由
+Function calling 到 MCP 到 Skills</h3>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>係咩</th>
+<th>標準</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function calling</strong></td>
+<td>model 出 JSON tool call</td>
+<td>各家內建</td>
+<td>單一私有函數</td>
+</tr>
+<tr>
+<td><strong>MCP（Model Context Protocol）</strong></td>
+<td><strong>標準化</strong>工具協議</td>
+<td><strong>業界事實標準（2024+）</strong></td>
+<td><strong>接入外部服務 / 生態</strong></td>
+</tr>
+<tr>
+<td><strong>Toolset</strong></td>
+<td>一組工具打包</td>
+<td>自家</td>
+<td>同域工具分組</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>預包裝能力（流程/指令+工具）</td>
+<td>各家（AGENTS.md 類）</td>
+<td>跨 agent 共用工作流</td>
+</tr>
+<tr>
+<td><strong>A2A（Agent2Agent）</strong></td>
+<td>agent 之間互通</td>
+<td>Google 主導</td>
+<td>pipeline / 平行 agent</td>
+</tr>
+</tbody>
+</table>
+<h3 id="92-mcp-深入client--server--transport">9.2 MCP 深入：client /
+server / transport</h3>
+<pre><code>Agent（MCP client） ←── JSON-RPC 2.0 ──→ MCP server（工具 / 資源 / prompts）
+        (stdio / SSE / HTTP)</code></pre>
+<ul>
+<li><strong>MCP server</strong>
+暴露三類能力：<strong>Tools</strong>（可執行）、<strong>Resources</strong>（可讀資料）、<strong>Prompts</strong>（可重用
+prompt）。</li>
+<li><strong>一次接入、多 agent 重用</strong>：CRM / Slack / 網頁 / DB
+各自寫一個 server，任何 MCP client 都用得。</li>
+<li>生態大（2026 已有大量現成 server）→ 唔使自己由零寫。</li>
+</ul>
+<h3 id="93-喺-veadk--agentkit">9.3 喺 VeADK / AgentKit</h3>
+<pre class="python"><code>from veadk.tools.mcp import MCPToolset
+# 接入 MCP server（外部工具）
+# MCP service：自己開 MCP server 俾人哋用
+# LongRunningFunctionTool：長任務異步工具
+# A2A registry：多 agent 跨服務通訊</code></pre>
+<ul>
+<li>CLI 內建工具：<code>--tools "web_search,run_code"</code>。</li>
+<li><strong>A2A 深入</strong>：agent 之間用 A2A
+協議通訊（<code>invoke</code> / <code>subscribe</code>），配合 registry
+做 pipeline（見 invoice / movie project）。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine
+點落地</strong>：<code>agentkit mcp service</code> 開 MCP server，client
+用 <code>MCPToolset</code> 接入。</p>
+</blockquote>
+<pre class="bash"><code># 開 MCP server（將內部工具/資源暴露成標準 MCP，俾任何 MCP client 用）
+agentkit mcp service --name crm --tools &quot;query_customer,book_meeting&quot;</code></pre>
+<pre class="python"><code>from veadk.tools.mcp import MCPToolset
+tools = MCPToolset(server=&quot;crm&quot;)          # 接入 MCP server
+agent = Agent(..., tools=[tools])          # 或 --tools &quot;web_search,run_code&quot;
+# A2A：多 agent 跨服務通訊（invoke / subscribe）+ registry 做 pipeline</code></pre>
+<blockquote>
+<p>要深度（MCP/Tools/Skills/A2A 全解）→ 工具/能力
+tab：<code>veadk-agentkit-tools-capabilities.md</code>。</p>
+</blockquote>
+<h3 id="94-工具安全見-sec-tab">9.4 工具安全（見 sec tab）</h3>
+<table>
+<thead>
+<tr>
+<th>風險</th>
+<th>防護</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工具 call 入參有毒</td>
+<td><code>content_safety</code> Before Tool</td>
+</tr>
+<tr>
+<td>工具返回有 PII</td>
+<td><code>content_safety</code> After Tool</td>
+</tr>
+<tr>
+<td>出站 key 洩漏</td>
+<td><strong>Agent Identity（托管 + 自動輪換，唔入 repo）</strong></td>
+</tr>
+<tr>
+<td>用戶授權出站</td>
+<td>OAuth2 用戶委託 + 撤銷提示</td>
+</tr>
+</tbody>
+</table>
+<h3 id="95-幾時揀邊個決策">9.5 幾時揀邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>你個 agent 要…</th>
+<th>用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接外部 API（CRM / Slack / 網頁）</td>
+<td>MCP（標準）</td>
+</tr>
+<tr>
+<td>內部私有函數</td>
+<td>Function calling / 自訂 tool</td>
+</tr>
+<tr>
+<td>一組工具成個包</td>
+<td>Toolset</td>
+</tr>
+<tr>
+<td>重複工作流俾幾隻 agent 用</td>
+<td>Skills</td>
+</tr>
+<tr>
+<td>幾隻 agent 分工合作</td>
+<td>A2A</td>
+</tr>
+<tr>
+<td>長任務（file processing）</td>
+<td><code>LongRunningFunctionTool</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-guardrail--攔有害--敏感內容">10. Guardrail — 攔有害 /
+敏感內容</h2>
+<blockquote>
+<p>💡 深度見專屬
+Tab：<code>veadk-agentkit-rbac-observability.md</code>（安全/Filter/Guardrail
+深探）。呢度係字典級 + 落地。</p>
+</blockquote>
+<h3 id="101-概念guardrail-係安全filter-係乾淨">10.1 概念：guardrail
+係「安全」，filter 係「乾淨」</h3>
+<ul>
+<li><strong>Guardrail</strong>：攔有害 / 違法 / PII（安全）。</li>
+<li><strong>Filter</strong>：過濾入出（乾淨，見 §11）。</li>
+<li>兩者有重疊但目標唔同；production 兩個都要。</li>
+</ul>
+<h3 id="102-四點審查veadk-借火山-llm-fw">10.2 四點審查（VeADK 借火山
+LLM-FW）</h3>
+<table>
+<thead>
+<tr>
+<th>審查點</th>
+<th>幾時</th>
+<th>攔乜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Before Model</strong></td>
+<td>入 model 前</td>
+<td>用戶輸入攻擊 / PII</td>
+</tr>
+<tr>
+<td><strong>After Model</strong></td>
+<td>model 出咗</td>
+<td>輸出敏感資訊</td>
+</tr>
+<tr>
+<td><strong>Before Tool</strong></td>
+<td>工具 call 前</td>
+<td>入參問題</td>
+</tr>
+<tr>
+<td><strong>After Tool</strong></td>
+<td>工具返嚟</td>
+<td>返回 PII</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.tools.builtin_tools.llm_shield import content_safety
+agent = Agent(
+    name=&quot;robot&quot;,
+    before_model_callback=content_safety.before_model_callback,
+    after_model_callback=content_safety.after_model_callback,
+    before_tool_callback=content_safety.before_tool_callback,
+    after_tool_callback=content_safety.after_tool_callback,
+)</code></pre>
+<h3 id="103-llm-fw-一級分類節錄">10.3 LLM-FW 一級分類（節錄）</h3>
+<table>
+<thead>
+<tr>
+<th>代碼</th>
+<th>策略</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>模型濫用</td>
+<td>詐騙 / 違法 prompt</td>
+</tr>
+<tr>
+<td><strong>103</strong></td>
+<td><strong>敏感資訊（PII）</strong></td>
+<td><strong>實時偵測身份證 / 手機號等並攔截</strong></td>
+</tr>
+<tr>
+<td>104</td>
+<td>提示詞攻擊</td>
+<td>防越獄 / DAN / system prompt 外洩</td>
+</tr>
+<tr>
+<td>106</td>
+<td>通用話題控制</td>
+<td>敏感話題（預設唔開，要自己配）</td>
+</tr>
+<tr>
+<td>107</td>
+<td>算力消耗</td>
+<td>惡意重複輸出攻擊（累積 pattern 先觸發）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>要 PII 保護一定要開 103</strong>；要敏感話題控制記住加
+106（唔係默認）。</p>
+</blockquote>
+<h3 id="104-深入防-prompt-injection-嘅多層防禦">10.4 深入：防 prompt
+injection 嘅多層防禦</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>做法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 內容安全</td>
+<td>LLM-FW 104（提示詞攻擊）</td>
+</tr>
+<tr>
+<td>② 輸入隔離</td>
+<td>唔好將外部內容同指令混埋（分隔符 / 指令重申）</td>
+</tr>
+<tr>
+<td>③ 權限最小化</td>
+<td>tool 權限收窄（Agent Identity 只授需要嘅）</td>
+</tr>
+<tr>
+<td>④ 輸出過濾</td>
+<td>After-Model 審查（§11）</td>
+</tr>
+<tr>
+<td>⑤ 監控</td>
+<td>OTel / APMPlus 異常偵測</td>
+</tr>
+</tbody>
+</table>
+<h3 id="105-vs-其他家">10.5 vs 其他家</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>BytePlus（LLM-FW）</th>
+<th>Azure Content Safety</th>
+<th>Bedrock Guardrails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接入</td>
+<td>框架掛鈎（<code>content_safety</code> 回調）</td>
+<td>另接服務</td>
+<td>另接服務</td>
+</tr>
+<tr>
+<td>計費</td>
+<td><strong>內置接近免費</strong></td>
+<td>逐次</td>
+<td>$0.15/1K units（in+out 各一）</td>
+</tr>
+<tr>
+<td>PII 實時</td>
+<td>category 103 四點</td>
+<td>有</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：Guardrail
+直接借<strong>火山 LLM-FW</strong>（火山方舟內容審核）。</p>
+</blockquote>
+<pre class="python"><code>from veadk.tools.builtin_tools.llm_shield import content_safety
+agent = Agent(
+    name=&quot;robot&quot;,
+    before_model_callback=content_safety.before_model_callback,  # Before Model
+    after_model_callback=content_safety.after_model_callback,    # After Model
+    before_tool_callback=content_safety.before_tool_callback,    # Before Tool
+    after_tool_callback=content_safety.after_tool_callback,      # After Tool
+)</code></pre>
+<blockquote>
+<p>想開 103（PII）/ 106（話題控制）要喺火山 LLM-FW 控制台配
+category。要深度 → sec
+tab：<code>veadk-agentkit-rbac-observability.md</code>。</p>
+</blockquote>
+<hr />
+<h2 id="11-input--output-filter--過濾入出">11. Input / Output Filter —
+過濾入出</h2>
+<h3 id="111-概念兩邊都要擋">11.1 概念：兩邊都要擋</h3>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>過濾乜</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input filter（入）</strong></td>
+<td>唔想 agent 見嘅內容（黑白名單 / prompt injection 字樣 / 過長截斷 /
+語言）</td>
+<td>公開入口、多租戶</td>
+</tr>
+<tr>
+<td><strong>Output filter（出）</strong></td>
+<td>唔想俾用戶見嘅內容（mask 電話 / 合規敏感詞 / 格式清理 /
+品牌管控）</td>
+<td>有 PII 輸出、品牌</td>
+</tr>
+<tr>
+<td><strong>PII masking</strong></td>
+<td>偵測並遮罩個人資料（電話 / 身份證 / email）</td>
+<td>合規（金融 / 健康）</td>
+</tr>
+<tr>
+<td><strong>Rate / abuse filter</strong></td>
+<td>用量限制、惡意重複</td>
+<td>防濫用、防爆單</td>
+</tr>
+</tbody>
+</table>
+<h3 id="112-過濾機制對比">11.2 過濾機制對比</h3>
+<table>
+<thead>
+<tr>
+<th>機制</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Regex / 規則</strong></td>
+<td>字串 pattern</td>
+<td>快、平、可預測</td>
+<td>假陽性 / 假陰性</td>
+<td>電話 / email / 特定詞</td>
+</tr>
+<tr>
+<td><strong>ML 偵測</strong></td>
+<td>模型分類</td>
+<td>語意、揸唔定都捉到</td>
+<td>貴、要 model</td>
+<td>PII / 有害內容（LLM-FW）</td>
+</tr>
+<tr>
+<td><strong>遮蔽（mask）</strong></td>
+<td>偵測後換 *</td>
+<td>保留其餘</td>
+<td>要另做還原流程</td>
+<td>日誌 / trace 出街</td>
+</tr>
+<tr>
+<td><strong>審批（HITL）</strong></td>
+<td>人睇過先放</td>
+<td>最準、可控</td>
+<td>慢、貴</td>
+<td>高風險（見 A2UI HITL）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="113-喺-stack-點做">11.3 喺 stack 點做</h3>
+<table>
+<thead>
+<tr>
+<th>要做</th>
+<th>用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>內容安全</td>
+<td>LLM-FW（§10）四點 + category 103</td>
+</tr>
+<tr>
+<td>Prompt injection 防禦</td>
+<td>category 104 + 輸入隔離</td>
+</tr>
+<tr>
+<td>Trace 唔寫敏感嘢</td>
+<td><code>OBSERVABILITY_OPENTELEMETRY_TRACE_CONTENT=false</code>（span
+只留結構+耗時）</td>
+</tr>
+<tr>
+<td>Logging 唔洩 prompt</td>
+<td><code>LOGGING_LEVEL=INFO</code>（DEBUG 會記 prompt / 輸出 /
+工具參數）</td>
+</tr>
+<tr>
+<td>出站憑證唔入 repo</td>
+<td>Agent Identity（sec tab）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：Input/Output Filter
+部分靠 LLM-FW（火山），部分靠 env 開關（OBSERVABILITY/LOGGING）。</p>
+</blockquote>
+<pre class="bash"><code># 火山 LLM-FW（§10）負責 ML 偵測（有 category 103 / 104）
+# env 開關負責「過濾咩嘢出街」：
+OBSERVABILITY_OPENTELEMETRY_TRACE_CONTENT=false   # trace 只留結構+耗時
+LOGGING_LEVEL=INFO                                  # 唔記 prompt / 輸出 / 工具參數</code></pre>
+<blockquote>
+<p>Filter 深度（含 HITL / A2UI）→ sec
+tab：<code>veadk-agentkit-rbac-observability.md</code>。</p>
+</blockquote>
+<blockquote>
+<p><strong>Sale 一句</strong>：「入 filter 擋『啲客傳咩入嚟』，出 filter
+擋『我哋 agent 講咩出街』。兩邊都要，唔好只做一邊——trace 同 log
+都係『出街』。」</p>
+</blockquote>
+<hr />
+<h2 id="12-llm-模型選擇--揀模型梯度">12. LLM 模型選擇 — 揀模型梯度</h2>
+<blockquote>
+<p>💡 價/AFP 深度見專屬
+Tab：<code>veadk-agentkit-pricing.md</code>；精調深度見
+<code>veadk-agentkit-finetune-optimize.md</code>；訓練深度見
+<code>veadk-agentkit-training-kit.md</code>。</p>
+</blockquote>
+<h3 id="121-概念模型唔係一粒係一梯">12.1 概念：模型唔係一粒，係一梯</h3>
+<ul>
+<li>一個生產 agent
+應該用<strong>多個梯度</strong>配合（快/平做高頻，強做難題），唔好一粒走天涯。</li>
+<li>仲要考慮：<strong>context
+長度、多模態、第三方生態、下線風險</strong>。</li>
+</ul>
+<h3 id="122-文字模型梯度方舟--agent-plan">12.2 文字模型梯度（方舟 /
+Agent Plan）</h3>
+<table>
+<thead>
+<tr>
+<th>檔次</th>
+<th>模型</th>
+<th>特點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>極速</strong></td>
+<td><code>doubao-seed-2.0-mini</code></td>
+<td>0.5× 基礎係數、快、平</td>
+<td><strong>高頻默認</strong>（客服每一輪 / summary）</td>
+</tr>
+<tr>
+<td><strong>標準</strong></td>
+<td><code>doubao-seed-2.0-lite</code></td>
+<td>混合層</td>
+<td>一般任務</td>
+</tr>
+<tr>
+<td><strong>進階</strong></td>
+<td><code>doubao-seed-2.1-turbo</code></td>
+<td>256k ctx、編碼/主推</td>
+<td>編碼、中量任務</td>
+</tr>
+<tr>
+<td><strong>進階</strong></td>
+<td><code>doubao-seed-2.0-pro</code> / <code>2.1-turbo</code></td>
+<td>推理</td>
+<td>難題、deep reasoning</td>
+</tr>
+<tr>
+<td><strong>旗艦</strong></td>
+<td><code>doubao-seed-evolving</code></td>
+<td>1024k ctx、Coding/Agent 旗艦</td>
+<td>重度 agent / 長文</td>
+</tr>
+<tr>
+<td><strong>第三方</strong></td>
+<td><code>glm-5.2</code> / <code>minimax-m2.7/m3</code> /
+<code>kimi-k2.6/k2.7-code/k3</code> /
+<code>deepseek-v4-flash/pro</code></td>
+<td>方舟托管同價</td>
+<td>想用特定生態</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>更新對照（2026 當刻）：最新由 <code>doubao-seed-2.0-*</code> 推展到
+<strong><code>doubao-seed-2.1-*</code> /
+<code>evolving</code></strong>；第三方新增
+<strong><code>glm-5.2</code>、<code>minimax-m2.7/m3</code>、<code>kimi-k2.6/k2.7-code/k3</code>、<code>deepseek-v4-flash/pro</code></strong>。模型名常常郁，落地前
+refetch（pricing doc）。</p>
+</blockquote>
+<h3 id="123-多模態--向量">12.3 多模態 + 向量</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>模型</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>圖片生成</td>
+<td><code>doubao-seedream-5.0-lite</code>（~100 AFP/張）</td>
+<td>生圖（貴，先問）· <strong>詳情 → seedream tab</strong></td>
+</tr>
+<tr>
+<td>視頻生成</td>
+<td><code>doubao-seedance-2.0</code>（~2,000 AFP/clip）</td>
+<td>生片（<strong>只有 Large/Max Plan</strong>）· <strong>詳情 →
+seedance tab</strong></td>
+</tr>
+<tr>
+<td>語音</td>
+<td><code>doubao-seed-tts-2.0</code> / <code>asr-2.0</code></td>
+<td>語音入出</td>
+</tr>
+<tr>
+<td>向量化</td>
+<td><code>doubao-embedding-vision</code></td>
+<td>RAG / 記憶（多模態向量）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="124-組合拳fallback-list慳錢--穩定">12.4 組合拳：fallback
+list（慳錢 + 穩定）</h3>
+<pre class="python"><code>agent = Agent(
+    model_name=[&quot;doubao-seed-2.1-pro&quot;, &quot;deepseek-r1-250528&quot;],
+)</code></pre>
+<ul>
+<li>主 model 掛咗自動落第二個——<strong>agent 帶自我修復</strong>。</li>
+<li>或者策略性：<code>["doubao-seed-2.0-mini", "doubao-seed-2.0-pro"]</code>
+→ 高頻 mini，難題先 fallback pro → <strong>慳一半以上</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：fallback list
+好實際，見上面 code。要穩 →
+<code>["...mini","doubao-seed-2.0-pro"]</code>
+呢類「熱身+兜底」組合。</p>
+</blockquote>
+<h3 id="125-模型下線風險誠實">12.5 模型下線風險（誠實）</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doubao-seed-2.0-pro</code> / <code>2.0-code</code></td>
+<td><strong>即將下線</strong>，新項目唔好用（呢個 context
+正正反映下線風險）</td>
+</tr>
+<tr>
+<td><code>seedance-1.5-pro</code></td>
+<td>即將下線</td>
+</tr>
+<tr>
+<td><code>deepseek-v4-flash/pro</code> / <code>kimi-k3</code></td>
+<td>嘗鮮/體驗版，繁忙會限流，要 fallback</td>
+</tr>
+<tr>
+<td><code>kimi-k3</code></td>
+<td><strong>只有 Medium+ Plan 先用得</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>模型下線風險 = 你 fallback list
+嘅存在理由</strong>：2.0-pro/2.0-code 即將下線，新項目改用 2.1 系 /
+evolving；實驗版（deepseek-v4 / kimi-k3）繁忙限流，要留
+fallback。<strong>唔好鑿死一個即將下線嘅模型落 production</strong>。</p>
+</blockquote>
+<h3 id="126-揀模型決策">12.6 揀模型決策</h3>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高頻 / 對話 / summary</td>
+<td><strong>mini</strong>（0.5× + 唔使行全 context）</td>
+</tr>
+<tr>
+<td>一般 / 中量</td>
+<td>lite</td>
+</tr>
+<tr>
+<td>編碼 / 主推</td>
+<td>turbo</td>
+</tr>
+<tr>
+<td>難題 / 推理 / 長文</td>
+<td>pro / evolving</td>
+</tr>
+<tr>
+<td>創意圖 / 片</td>
+<td>seedream / seedance（<strong>鎖 Large/Max</strong>）</td>
+</tr>
+<tr>
+<td>第三方生態</td>
+<td>glm / kimi / deepseek（方舟托管同價）</td>
+</tr>
+<tr>
+<td>想穩</td>
+<td>fallback list（<code>["mini","pro"]</code>）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="127-lora--精調深探--finetune-tab">12.7 LoRA / 精調（深探 →
+finetune tab）</h3>
+<blockquote>
+<p>💡 深度全解（LoRA / SFT / DPO / RLHF）→
+<code>veadk-agentkit-finetune-optimize.md</code>。</p>
+</blockquote>
+<ul>
+<li><strong>LoRA</strong>：得 adapter（低秩）注入，幾 MB
+唔使重訓全權重，輕量個人化。</li>
+<li><strong>SFT / DPO / RLHF</strong>：有監督 / 偏好 / 強化
+三級，愈深愈貴。</li>
+<li>商業決策：<strong>先試 RAG / prompt（0 成本）→ 唔夠先 LoRA（輕）→
+先至 SFT 全量</strong>。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine
+點落地</strong>：火山方舟<strong>模型精調</strong>（SFT / DPO /
+GRPO）。</p>
+</blockquote>
+<pre class="python"><code># 方舟精調入口（深探見 finetune tab）
+# SFT：用你嘅 dataset 微調 doubao-seed-2.0-mini
+# DPO / GRPO：偏好 / 強化，以 grader 評分</code></pre>
+<blockquote>
+<p>精調係「最後一招」——先試 RAG / prompt 優化（0 成本）再諗 LoRA /
+SFT。深度 → <code>veadk-agentkit-finetune-optimize.md</code>。</p>
+</blockquote>
+<h3 id="128-訓練-trainingkit深探--精調--優化-tab">12.8 訓練
+TrainingKit（深探 → 精調 / 優化 tab）</h3>
+<blockquote>
+<p>💡 深度全解（由零開始訓練）→
+<code>veadk-agentkit-training-kit.md</code>。精調係「喺基礎模型上加少少」，訓練係「由數據集起」；商業上絕大多數只會落到精調。</p>
+</blockquote>
+<blockquote>
+<p><strong>Sale 一句</strong>：「唔好一個 model 走天涯——高頻用 mini
+慳一半，難題先上 pro。粒度選對 = 帳單砍半。」</p>
+</blockquote>
+<hr />
+<h2 id="13-evaluation--守住質量">13. Evaluation — 守住質量</h2>
+<blockquote>
+<p>💡 深度見專屬 Tab：<code>veadk-agentkit-evaluation.md</code>（評估 /
+評測 tab）。呢度係字典級 + 落地。</p>
+</blockquote>
+<h3 id="131-概念改嘢就要有量度">13.1 概念：改嘢就要有量度</h3>
+<ul>
+<li>性能 / 成本優化（§4/§5）每改一版，都要<strong>有 eval
+守著</strong>——慳到飛起但 accuracy 跌晒等於白做。</li>
+<li>Eval 四件事：<strong>Dataset（測咩）→ Evaluator（點評）→
+Experiment（點跑）→ Regression（點守）</strong>。</li>
+</ul>
+<blockquote>
+<p>💡 深度見專屬 Tab：<code>veadk-agentkit-evaluation.md</code>（評估 /
+評測 tab）；CI/回歸配合 <code>veadk-agentkit-performance.md</code>。</p>
+</blockquote>
+<h3 id="132-幾時用邊種-eval">13.2 幾時用邊種 eval</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>做法</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Offline / dataset eval</strong></td>
+<td>固定集 + evaluator 打分</td>
+<td>每次改 prompt / 模型</td>
+</tr>
+<tr>
+<td><strong>Shadow eval</strong></td>
+<td>上線流量抽 10% 平行評分</td>
+<td>想唔影響用戶嚟監控</td>
+</tr>
+<tr>
+<td><strong>CI eval</strong></td>
+<td><code>eval run</code> 入 pipeline</td>
+<td>每次 deploy 前</td>
+</tr>
+<tr>
+<td><strong>Studio 自動回流</strong></td>
+<td>每輪對話自動評分，Good/Bad Case 落返 eval 集</td>
+<td>持續數據飛輪</td>
+</tr>
+</tbody>
+</table>
+<h3 id="133-evaluator-類型對比">13.3 Evaluator 類型對比</h3>
+<table>
+<thead>
+<tr>
+<th>Evaluator</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字面匹配（BLEU/ROUGE）</strong></td>
+<td>n-gram 重疊</td>
+<td>快、平、可重現</td>
+<td>唔睇語義</td>
+<td>翻譯 / 摘要基準</td>
+</tr>
+<tr>
+<td><strong>Embedding 相似度</strong></td>
+<td>比語義距離</td>
+<td>快、語義</td>
+<td>唔識要點精</td>
+<td>粗略回歸</td>
+</tr>
+<tr>
+<td><strong>LLM-as-judge</strong></td>
+<td>用 model 評分（相關性/完整性）</td>
+<td>準、可自訂 rubric</td>
+<td>貴、要校準</td>
+<td><strong>主流</strong>（<code>agentkit eval run --evaluator 相关性</code>）</td>
+</tr>
+<tr>
+<td><strong>參考對照（reference）</strong></td>
+<td>對住 golden answer</td>
+<td>客觀</td>
+<td>要造 golden</td>
+<td>有標準答案</td>
+</tr>
+<tr>
+<td><strong>人工 / HITL</strong></td>
+<td>人評</td>
+<td>最準</td>
+<td>貴、慢</td>
+<td>高風險 / 小集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="134-流程agentkit-cli">13.4 流程（AgentKit CLI）</h3>
+<pre class="bash"><code>agentkit dataset create --name qa-set --schema &quot;input,reference_output&quot;
+agentkit dataset add qa-set --file ./cases.json
+agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent --json</code></pre>
+<ul>
+<li>一次多個 <code>--evaluator</code>（相關性 / 完整性）加權。</li>
+<li>回傳 <code>experimentId</code> →
+<code>eval experiment get / results</code>（CI 用）。</li>
+<li><code>--concurrency 10</code> 縮短 turnaround。</li>
+<li><strong>Studio 自動回流</strong>：部署開「自動創建評測集」→
+每輪對話自動評分（0–1，≥0.6 入 Good Case）→ Good/Bad Case 落返
+<code>{agent}_good_case</code>/<code>{agent}_bad_case</code> →
+數據飛輪。</li>
+</ul>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：AgentKit CLI
+<code>agentkit eval run</code>。</p>
+</blockquote>
+<pre class="bash"><code>agentkit dataset create --name qa-set --schema &quot;input,reference_output&quot;
+agentkit dataset add qa-set --file ./cases.json
+agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent --json</code></pre>
+<blockquote>
+<p>evaluator「相关性」= 方舟 LLM-as-judge；<code>--concurrency 10</code>
+縮短 turnaround；回傳 <code>experimentId</code> 餵 CI。深度（含 Studio
+自動回流）→ perf tab：<code>veadk-agentkit-performance.md</code>。</p>
+</blockquote>
+<h3 id="135-eval-嘅隱性成本">13.5 Eval 嘅隱性成本</h3>
+<table>
+<thead>
+<tr>
+<th>成本</th>
+<th>出處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shadow eval 10% 流量</td>
+<td>= +10% 模型消耗 → <strong>計入報價 buffer</strong>（pricing doc
+§10）</td>
+</tr>
+<tr>
+<td>Studio 自動評測</td>
+<td>每輪評分 model call</td>
+</tr>
+<tr>
+<td>PII scan</td>
+<td>額外 LLM-FW 消耗</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「性能優化唔使講『應該快少少』——我哋用
+eval 每改一版都畀分，慳錢之餘有實績。」</p>
+</blockquote>
+<h3 id="136-幾時用邊個決策">13.6 幾時用邊個（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每次改 prompt / 模型</td>
+<td>Offline dataset eval</td>
+</tr>
+<tr>
+<td>想唔影響用戶監控</td>
+<td>Shadow eval（10%）</td>
+</tr>
+<tr>
+<td>每次 deploy 前</td>
+<td>CI eval（<code>eval run</code>）</td>
+</tr>
+<tr>
+<td>想數據飛輪</td>
+<td>Studio 自動回流</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="14-vllm--sglang-級數--底層推理引擎">14. vLLM / SGLang 級數 —
+底層推理引擎</h2>
+<blockquote>
+<p>💡 深度見專屬 Tab：<code>veadk-agentkit-serving-kit.md</code>（引擎 /
+ServingKit）；硬件見 <code>veadk-agentkit-hardware.md</code>。
+<strong>托管（方舟）你唔使揀引擎</strong>——呢章係要你「識引擎點行」，sales
+答「點解 token/s 咁高」「點解 cache 咁慳」用。</p>
+</blockquote>
+<h3 id="141-概念一單-request-喺引擎內部">14.1 概念：一單 request
+喺引擎內部</h3>
+<pre><code>prefill（讀 prompt、計首 token，compute-bound）
+    → decode（逐 token 出，memory-bound）</code></pre>
+<ul>
+<li><strong>TTFT</strong> 由 prefill 決定 → 大 prompt / 長 context =
+prefill 耐 = TTFT 大。</li>
+<li>引擎層優化全部針對呢兩個階段：<strong>慳 prefill（cache /
+分頁）、加速 decode（spec-decode）、唔好 idle（continuous
+batching）</strong>。</li>
+</ul>
+<h3
+id="142-三寶continuous-batching--kv-cache-管理--speculative-decoding">14.2
+三寶：Continuous Batching / KV-Cache 管理 / Speculative Decoding</h3>
+<table>
+<thead>
+<tr>
+<th>引擎技術</th>
+<th>原理</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Continuous batching</strong></td>
+<td>任何 sequence 出完即刻插下一個 request（舊式要等成批）</td>
+<td>單 GPU RPS 高 <strong>~20×</strong></td>
+</tr>
+<tr>
+<td><strong>PagedAttention（vLLM）</strong></td>
+<td>KV-Cache 拆 page 按需分配（好似 OS page table）</td>
+<td>碎片慳、單 GPU 頂更多</td>
+</tr>
+<tr>
+<td><strong>RadixAttention（SGLang）</strong></td>
+<td>前綴樹自動複用<strong>任何共享 prefix</strong></td>
+<td>多租戶 / 多 agent 高共享更慳</td>
+</tr>
+<tr>
+<td><strong>Prefix caching</strong></td>
+<td>相同 prompt 前綴 KV 直接複用</td>
+<td>慳 prefill + 慳錢</td>
+</tr>
+<tr>
+<td><strong>Speculative decoding</strong></td>
+<td>細 model 估 N 個 → 大 model parallel verify</td>
+<td>吞吐 <strong>2–3×</strong>、latency 降</td>
+</tr>
+<tr>
+<td><strong>Structured output</strong></td>
+<td>引擎層強制 JSON Schema</td>
+<td>唔使 generate→parse→retry</td>
+</tr>
+<tr>
+<td><strong>Multi-LoRA</strong></td>
+<td>單引擎動態切多個 LoRA adapter</td>
+<td>輕量個人化唔使開多 deployment</td>
+</tr>
+<tr>
+<td><strong>Chunked prefill</strong></td>
+<td>長 prompt 分塊 prefill，減少 block decode</td>
+<td>長 context 唔阻塞</td>
+</tr>
+</tbody>
+</table>
+<h3 id="143-continuous-batching-深入">14.3 Continuous Batching 深入</h3>
+<ul>
+<li>舊式：request 集齊一批 → 跑完 → 停 → 再集下批（<strong>GPU 有
+idle</strong>）。</li>
+<li>vLLM：<strong>任何 sequence 出完 token 即刻插下一個 request
+接力</strong> → GPU 幾乎 100% 無空撳。</li>
+<li>效果：單 GPU RPS 比舊式 batching 高 ~20×（2026 benchmark
+參考）。</li>
+</ul>
+<h3 id="144-kv-cache-管理深入">14.4 KV-Cache 管理深入</h3>
+<pre><code>KV memory ≈ 2 (K+V) × num_layers × num_heads × head_dim × 2 bytes × tokens × concurrent requests</code></pre>
+<ul>
+<li>例子：7B 模型、8k context、同時 100 request → KV 可以食<strong>幾 GB
+到十幾 GB VRAM</strong>（同權重差唔多甚至更大）。</li>
+<li><strong>點慳</strong>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>原理</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GQA / MQA</td>
+<td>多 query 頭共享少數 KV 頭</td>
+<td>KV 慳 4–8×</td>
+</tr>
+<tr>
+<td>KV Quantization</td>
+<td>FP8/INT8 存</td>
+<td>慳 ~2×</td>
+</tr>
+<tr>
+<td>PagedAttention / RadixAttention</td>
+<td>分頁 / 前綴複用</td>
+<td>慳碎片 / 重算</td>
+</tr>
+<tr>
+<td>H2O / SnapKV（streaming）</td>
+<td>唔留全部 token</td>
+<td>長 context 大減（精度 trade-off）</td>
+</tr>
+<tr>
+<td>Context caching（provider）</td>
+<td>同 prefix 複用</td>
+<td>你慳 token 錢（框架層可見）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>同 framework
+層接軌</strong>：你控制嘅最直接嘢係「<strong>context
+唔好咁長</strong>」——context 短 = KV cache 細 = 平台 VRAM 需求低 =
+平台可以更平而唔將成本轉嫁你（見 §5）。</p>
+</blockquote>
+<h3 id="145-speculative-decoding-深入">14.5 Speculative Decoding
+深入</h3>
+<pre><code>1. 細 draft model 一口氣估 N 個 token（快）
+2. 大 model 一次過 verify 呢 N 個 token（parallel）
+3. 啱晒 → 收 N 個；有錯 → 錯位重估</code></pre>
+<ul>
+<li>效果：throughput 2–3×、latency
+降、<strong>質量幾乎不變</strong>。</li>
+<li>變體：Classic draft model / Medusa（尾加平行 head）/
+EAGLE（feature-level）/ Self-speculative。</li>
+<li><strong>同 prefix caching 有協同</strong>：prefix 命中高 →
+spec-decode 更加食糊。所以你嘅「stable system prompt」間接幫引擎。</li>
+</ul>
+<h3 id="146-vllm-vs-sglang2026-參考">14.6 vLLM vs SGLang（2026
+參考）</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>vLLM</strong></th>
+<th><strong>SGLang</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>發跡</td>
+<td>柏克萊 / 雲上大規模</td>
+<td>內核編譯派（LMDeploy 出身）</td>
+</tr>
+<tr>
+<td>KV 管理</td>
+<td><strong>PagedAttention</strong>（分頁）</td>
+<td><strong>RadixAttention</strong>（前綴樹）</td>
+</tr>
+<tr>
+<td>Prefix 複用</td>
+<td>✅（v0.6+ 自動）</td>
+<td>✅ 天生係主菜</td>
+</tr>
+<tr>
+<td>Structured output</td>
+<td>✅ constrained decoding</td>
+<td>✅ 引擎內建、較順</td>
+</tr>
+<tr>
+<td>Multi-LoRA</td>
+<td>✅</td>
+<td>✅ 更順（優勢）</td>
+</tr>
+<tr>
+<td>Spec-decode</td>
+<td>✅ 2–3×</td>
+<td>✅ 2–3×</td>
+</tr>
+<tr>
+<td>成熟度 / 生態</td>
+<td>最廣、文件最多</td>
+<td>年輕但性能屢破</td>
+</tr>
+<tr>
+<td><strong>適合</strong></td>
+<td>一般 Host API、大量獨立 request</td>
+<td>高共享 prefix、多 LoRA、結構化輸出多</td>
+</tr>
+</tbody>
+</table>
+<h3 id="147-其他引擎一眼睇自建先啱用">14.7
+其他引擎一眼睇（自建先啱用）</h3>
+<table>
+<thead>
+<tr>
+<th>引擎</th>
+<th>一句</th>
+<th>適合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TensorRT-LLM（NVIDIA）</td>
+<td>閉源/NVIDIA 優化，同 T4/A100/H100 深度 tune</td>
+<td>單一模型、性能榨到盡</td>
+</tr>
+<tr>
+<td>llama.cpp</td>
+<td>CPU/小 GPU 都得、唔使大 engine、GGUF 量化</td>
+<td>本地 demo、edge（四方對決 → cache tab §2.6；詳情 §2.4）</td>
+</tr>
+<tr>
+<td>xLLM</td>
+<td>BytePlus / ModelArk 全自研企業級引擎</td>
+<td>PD 分離 + MoE（ServerKit 主打；詳情 → cache tab §2.5）</td>
+</tr>
+<tr>
+<td>TGI（HF）</td>
+<td>HuggingFace 出品、老牌</td>
+<td>已用 HF 生態</td>
+</tr>
+<tr>
+<td>Ollama / vLLM local</td>
+<td>dev 便利</td>
+<td>開發/測試</td>
+</tr>
+</tbody>
+</table>
+<h3 id="148-幾時揀僅自建托管方舟包辦">14.8
+幾時揀（<strong>僅自建</strong>；托管方舟包辦）</h3>
+<table>
+<thead>
+<tr>
+<th>考慮</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>大量獨立 request、要穩</td>
+<td>vLLM</td>
+</tr>
+<tr>
+<td>大量共享 prompt / 多租戶 / multi-LoRA</td>
+<td>SGLang</td>
+</tr>
+<tr>
+<td>結構化輸出為主</td>
+<td>SGLang（engine 級約束）</td>
+</tr>
+<tr>
+<td>單一模型榨到盡</td>
+<td>TensorRT-LLM</td>
+</tr>
+<tr>
+<td>本機 demo / edge</td>
+<td>llama.cpp / Ollama</td>
+</tr>
+<tr>
+<td>多模型混合</td>
+<td>vLLM 或 SGLang（multi-LoRA 更勝）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 呢張表<strong>唔影響 AgentKit 方案</strong>——AgentKit
+方案引擎由方舟包辦。<strong>你要講嘅故事</strong>：「引擎 ==
+我哋買嘅『會自己 batch + 分頁 + spec-decode 嘅 server』，你俾錢買 Agent
+Plan 已經打包咗呢啲技術。」</p>
+</blockquote>
+<h3 id="149-喺-agentkit--veadk-情境底層引擎你唔使掂">14.9 喺 AgentKit /
+VeADK 情境：底層引擎你唔使掂</h3>
+<table>
+<thead>
+<tr>
+<th>AgentKit/VeADK 你控制</th>
+<th>引擎（唔使控制）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>model_name</code>（<code>doubao-seed-2-0-mini</code> 等）</td>
+<td>點 serve、點 batch、點 prefill</td>
+</tr>
+<tr>
+<td>context / compaction / Responses cache</td>
+<td>KV-Cache 大小、PagedAttention 頁</td>
+</tr>
+<tr>
+<td><code>usage_metadata</code>（cached/prompt count）</td>
+<td>prefix cache 命中與否</td>
+</tr>
+<tr>
+<td>Runtime <code>--cpu-milli/--memory-mb/--max-concurrency</code></td>
+<td>engine 內 thread/batch 排隊</td>
+</tr>
+<tr>
+<td><code>--apmplus</code> 觀測（操作耗時）</td>
+<td>prefill/decode 比例</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：托管方舟 =
+ServingKit（vLLM / SGLang / Dynamo 打包）。</p>
+</blockquote>
+<pre class="python"><code># 你唔使揀引擎——Agent Plan 已包 vLLM / SGLang / Dynamo
+agent = Agent(model_name=&quot;doubao-seed-2.0-mini&quot;)  # 你只控制 model_name + context + cache</code></pre>
+<blockquote>
+<p>引擎 / ServingKit / Deployment / Harness 深度 → serv
+tab：<code>veadk-agentkit-serving-kit.md</code>。硬件（GPU 選型）→
+<code>veadk-agentkit-hardware.md</code>。量化（FP8/INT8）係引擎層慳 KV /
+權重記憶嘅技術，托管自動處理，見 §14.4。</p>
+</blockquote>
+<h3 id="1410-引擎詞彙速查">14.10 引擎詞彙速查</h3>
+<table>
+<thead>
+<tr>
+<th>詞</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefill</td>
+<td>讀 prompt、計首 token（compute-bound）</td>
+</tr>
+<tr>
+<td>Decode</td>
+<td>逐 token 出（memory-bound）</td>
+</tr>
+<tr>
+<td>KV-Cache</td>
+<td>留住之前 token 嘅 attention 中間值</td>
+</tr>
+<tr>
+<td>PagedAttention</td>
+<td>vLLM 嘅 KV 分頁，慳碎片</td>
+</tr>
+<tr>
+<td>RadixAttention</td>
+<td>SGLang 嘅 prefix 樹複用</td>
+</tr>
+<tr>
+<td>Continuous batching</td>
+<td>唔落 idle、即插 next request → RPS 20×</td>
+</tr>
+<tr>
+<td>Prefix caching</td>
+<td>相同前綴複用 → framework 緩存命中的解說</td>
+</tr>
+<tr>
+<td>Speculative decoding</td>
+<td>細 model 估 + 大 model verify → 2–3×</td>
+</tr>
+<tr>
+<td>Medusa / EAGLE</td>
+<td>Speculative 變體（唔使額外 draft model）</td>
+</tr>
+<tr>
+<td>GQA / MQA</td>
+<td>共享 KV 頭，慳 KV 記憶</td>
+</tr>
+<tr>
+<td>Chunked prefill</td>
+<td>長 prompt 分塊 prefill，少 block decode</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="15-總結一頁決策表">15. 總結：一頁決策表</h2>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>揀邊個</th>
+<th>詳見</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>資料接入</td>
+<td>Naive / Advanced / Modular / Graph / Hybrid</td>
+<td>§1</td>
+</tr>
+<tr>
+<td>生成</td>
+<td>Greedy / Beam / Sampling / Structured</td>
+<td>§2</td>
+</tr>
+<tr>
+<td>排檢索</td>
+<td>BM25 + Dense → RRF → Cross-encoder</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>慳 token</td>
+<td>Context caching + Compaction + RAG top_k</td>
+<td>§4 / §5</td>
+</tr>
+<tr>
+<td>記憶</td>
+<td>STM + LTM（viking/mem0 生產）</td>
+<td>§6</td>
+</tr>
+<tr>
+<td>向量庫</td>
+<td>新起→viking/context_search；已有→對應 backend</td>
+<td>§7</td>
+</tr>
+<tr>
+<td>資料庫</td>
+<td>PG 事務 + TOS 大檔 + Vector 語義</td>
+<td>§8</td>
+</tr>
+<tr>
+<td>工具</td>
+<td>MCP 外部 / Function 私有 / A2A 多 agent</td>
+<td>§9</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>LLM-FW 四點 + 103</td>
+<td>§10</td>
+</tr>
+<tr>
+<td>過濾</td>
+<td>Input/Output + PII mask + trace 開關</td>
+<td>§11</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>mini 高頻 / pro 難題 / seedance 片（Large/Max）</td>
+<td>§12</td>
+</tr>
+<tr>
+<td>質量</td>
+<td>Offline + CI + Shadow + Studio 回流</td>
+<td>§13</td>
+</tr>
+<tr>
+<td>引擎</td>
+<td>托管唔使揀；自建先 vLLM vs SGLang</td>
+<td>§14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>決策三問</strong>（任何方案都先答呢三條再講技術）：</p>
+<ol type="1">
+<li><strong>邊層話事？</strong>——呢個問題喺 framework 層控制（context /
+cache / memory）定係引擎層（托管包辦）？答啱層先落手。</li>
+<li><strong>慳定準？</strong>——每個 cache / rerank / 模型選擇都係「慳
+token / GPU」同「準度」嘅拉鋸，邊個行先？</li>
+<li><strong>點證明？</strong>——改完有冇 eval 分數守著？（§13）冇 =
+等於冇改。</li>
+</ol>
+<hr />
+<h2 id="16-資料來源">16. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>概念字典（本文件）</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code></td>
+<td>2026-08-17</td>
+</tr>
+<tr>
+<td>Vector / Cache / Memory 深度（記憶、RAG、緩存）</td>
+<td><code>references/veadk-agentkit-vector-cache.md</code></td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>工具 / 能力深度（MCP / Tools / Skills / A2A）</td>
+<td><code>references/veadk-agentkit-tools-capabilities.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>精調 / 優化深度（LoRA / SFT / DPO / RLHF/GRPO）</td>
+<td><code>references/veadk-agentkit-finetune-optimize.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>性能 Playbook（cache / compaction / model selection / eval）</td>
+<td><code>references/veadk-agentkit-performance.md</code></td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>Cache 管理深度</td>
+<td><code>references/veadk-agentkit-cache-management.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>硬件深度</td>
+<td><code>references/veadk-agentkit-hardware.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>資料庫管理深度（Vector / RDS / NDB / Redis / Mongo / TOS）</td>
+<td><code>references/veadk-agentkit-database-management.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>引擎 / ServingKit 深度（vLLM / SGLang / Dynamo）</td>
+<td><code>references/veadk-agentkit-serving-kit.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>訓練 TrainingKit 深度</td>
+<td><code>references/veadk-agentkit-training-kit.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>安全 / RBAC / PII / Audit / Observability（Guardrail / Filter）</td>
+<td><code>references/veadk-agentkit-rbac-observability.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>模型矩陣 / AFP / 價</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>獨特賣點（自家模型 / 一體化）</td>
+<td><code>references/veadk-agentkit-uniqueness.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>vLLM 官方（PagedAttention / continuous batching / prefix
+caching）</td>
+<td><a href="https://docs.vllm.ai">https://docs.vllm.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>SGLang 官方（RadixAttention / structured output / multi-LoRA）</td>
+<td><a href="https://docs.sglang.ai">https://docs.sglang.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>RAG 綜述（Naive / Advanced / Modular / Graph / HyDE）</td>
+<td>arXiv / 業界綜述</td>
+<td>2023–2026</td>
+</tr>
+<tr>
+<td>RRF / Cross-encoder rerank / ColBERT 最佳實踐</td>
+<td>業界（HuggingFace / Weaviate）</td>
+<td>2024–2026</td>
+</tr>
+<tr>
+<td>Speculative decoding 綜述（Medusa / EAGLE）</td>
+<td><a
+href="https://arxiv.org/abs/2211.17192（Classic）/">https://arxiv.org/abs/2211.17192（Classic）/</a>
+projects</td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>GQA：Multi-Query Attention 變體</td>
+<td><a
+href="https://arxiv.org/abs/2305.13245">https://arxiv.org/abs/2305.13245</a></td>
+<td>2023</td>
+</tr>
+<tr>
+<td>KV-Cache 量化（KV quant）</td>
+<td><a
+href="https://github.com/vllm-project/vllm/blob/main/docs/features/kv_quantization.md">https://github.com/vllm-project/vllm/blob/main/docs/features/kv_quantization.md</a></td>
+<td>頁面日</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：效能倍數（RPS 20×、spec
+2–3×）、命中率（cached/prompt 50–95%、隱式 ~20%）、AFP 折算、KV
+記憶估算係參考估算，以實戰 <code>usage_metadata</code> +
+控制台「用量明細」為準。各模型/功能存在性、價、Plan 門檻（如 seedance
+只限 Large/Max、kimi-k3 只限
+Medium+）、下線狀態以方舟控制台當刻為準（本文 2.0-pro/2.0-code
+下線風險屬 2026-08 參考）。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · 模型/Plan/引擎版本常常郁，引用前
+refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

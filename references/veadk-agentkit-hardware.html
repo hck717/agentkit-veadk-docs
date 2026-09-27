@@ -1,0 +1,581 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>硬體 Hardware</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>硬體 Hardware</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-硬體選型指南vm--gpu--cpu">VeADK + AgentKit
+硬體選型指南（VM / GPU / CPU）</h1>
+<p>呢份文件解答自建或規劃 Agent 基建時最實際嘅問題：<strong>揀咩 VM /
+GPU / CPU，自建要點諗</strong>。</p>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>AgentKit + 火山方舟托管</strong>：GPU 打包喺 Agent Plan
+度，你揀 <code>model_name</code> 就得，唔使碰硬件。</li>
+<li><strong>自建 / 私有化部署</strong>：先要識 VRAM、頻寬、算力、VM
+規格——呢份就係你嘅揀機聖經。</li>
+<li>底層硬件知識用途 = <strong>理解性能點嚟、預估成本、同 client 講
+infrastructure story</strong>。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-一句定位--快睇表">0. 一句定位 + 快睇表</h2>
+<table>
+<thead>
+<tr>
+<th>硬件類型</th>
+<th>主要用喺邊</th>
+<th>邊個場景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VM（通用雲服務器）</strong></td>
+<td>Agent runtime、web server、API gateway、workflow orchestration、無需
+GPU 嘅推理（細 model / CPU 推理）</td>
+<td>所有 Agent 項目嘅基礎；托管方案底下火山方舟已經幫你搞掂</td>
+</tr>
+<tr>
+<td><strong>GPU（加速卡）</strong></td>
+<td>LLM 推理（model inference）、embedding 大模型、vision model、訓練 /
+精調（finetune）</td>
+<td>大語言模型 serve；AgentKit 方舟已經打包，自建先要自己搞</td>
+</tr>
+<tr>
+<td><strong>CPU</strong></td>
+<td>細 model 推理（embedding、reranker、細
+classifier）、邊緣部署（edge）、llama.cpp 級 demo</td>
+<td>輕量 workload、成本敏感、唔想碰 GPU</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「用 AgentKit 托管 = GPU 俾火山包咗，你管
+context 同 model；自建 = 你連 GPU
+都要自己排——硬件知識就係你多出嚟嘅操心。」</p>
+</blockquote>
+<hr />
+<h2 id="1-框架層-vs-底層邊個負責硬件">1. 框架層 vs
+底層：邊個負責硬件</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>誰話事</th>
+<th>你控制？</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>框架層</strong>（AgentKit / VeADK）</td>
+<td>Agent runtime、context、model、A2A</td>
+<td>✅ 你控制</td>
+</tr>
+<tr>
+<td><strong>API 層</strong>（火山方舟 model API）</td>
+<td><code>model_name</code>（<code>doubao-*</code>）</td>
+<td>⚠️ 只控制名</td>
+</tr>
+<tr>
+<td><strong>推理引擎</strong>（vLLM / SGLang）</td>
+<td>batch、prefill、KV-cache 管理</td>
+<td>❌ 托管；自建先輪到你</td>
+</tr>
+<tr>
+<td><strong>硬件</strong>（GPU / VM / CPU）</td>
+<td>計算、記憶體、網路</td>
+<td>❌ 托管；自建先輪到你</td>
+</tr>
+</tbody>
+</table>
+<p><strong>決策點</strong>：</p>
+<ul>
+<li>托管方案（AgentKit + 方舟）：硬件全部收埋，你唔需要諗 GPU
+型號、唔需要排 VM。</li>
+<li>自建方案：你必須自己處理——VM 開幾大、GPU 揀邊張、CPU 用幾多 core、點
+scale。</li>
+<li>識呢個分層先唔會搞亂：<strong>框架層可操作嘅 infra
+槓桿</strong>係模型選擇、context 管理、Runtime
+資源（<code>--cpu-milli / --memory-mb / --max-concurrency</code>），見
+<code>veadk-agentkit-performance.md</code>。</li>
+</ul>
+<hr />
+<h2 id="2-gpu-揀機三大數字">2. GPU 揀機三大數字</h2>
+<table>
+<thead>
+<tr>
+<th>數字</th>
+<th>代表咩</th>
+<th>對 inference 嘅影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VRAM（顯存）</strong></td>
+<td>裝得落幾大模型 + KV-Cache</td>
+<td>唔夠 = 放唔落 / 要量化 / 要拆卡</td>
+</tr>
+<tr>
+<td><strong>Memory bandwidth（HBM 頻寬）</strong></td>
+<td>每秒讀寫速度（GB/s）</td>
+<td><strong>decode 快慢</strong>（memory-bound）</td>
+</tr>
+<tr>
+<td><strong>FP16/BF16 TFLOPS</strong></td>
+<td>每秒捭幾多算力（稠密）</td>
+<td><strong>prefill / 訓練快慢</strong>（compute-bound）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>白話排序</strong>：</p>
+<ul>
+<li><strong>推理（inference）</strong> → 首重 <strong>memory bandwidth +
+VRAM</strong>，其次算力。（原因：decode 逐 token 出，每次要讀晒成個
+KV-cache → memory-bound，見 <code>veadk-agentkit-serving-kit.md</code>
+§3）</li>
+<li><strong>訓練 / 精調（finetune）</strong> → 首重 <strong>TFLOPS +
+VRAM</strong>（同埋 NVLink 互連）。</li>
+</ul>
+<blockquote>
+<p>⚠️ 淨睇 TFLOPS 就買卡做推理係常見錯——decode 係
+memory-bound，卡「算得快但讀得慢」一樣唔快。</p>
+</blockquote>
+<hr />
+<h2 id="3-2026-主流-ai-gpu-速查表">3. 2026 主流 AI GPU 速查表</h2>
+<table>
+<thead>
+<tr>
+<th>GPU</th>
+<th>VRAM</th>
+<th>HBM 頻寬 (參考)</th>
+<th>FP16/BF16 (參考)</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H100 SXM</strong></td>
+<td>80GB HBM3</td>
+<td>~3.3 TB/s</td>
+<td>~990 TFLOPs (sparse)</td>
+<td>server 抓牙，訓練/推理通吃</td>
+</tr>
+<tr>
+<td><strong>H200</strong></td>
+<td>141GB HBM3e</td>
+<td>~4.8 TB/s</td>
+<td>同 H100 代</td>
+<td>大 VRAM 係佢特價，長 context 友好</td>
+</tr>
+<tr>
+<td><strong>B200 / GB200</strong></td>
+<td>192GB HBM3e</td>
+<td>~8 TB/s</td>
+<td>大幅領先</td>
+<td>Blackwell 新代，貴</td>
+</tr>
+<tr>
+<td><strong>A100 (80GB)</strong></td>
+<td>80GB HBM2e</td>
+<td>~2.0 TB/s</td>
+<td>~312 TFLOPs</td>
+<td>上代，平、成熟</td>
+</tr>
+<tr>
+<td><strong>L40S / L40</strong></td>
+<td>48GB</td>
+<td>~0.86 TB/s</td>
+<td>推力為主</td>
+<td><strong>推理抵玩</strong>，VRAM/價好</td>
+</tr>
+<tr>
+<td><strong>RTX 4090 / 5090</strong></td>
+<td>24GB / 32GB</td>
+<td>~1 TB/s (GDDR)</td>
+<td>強</td>
+<td>自建 playground / dev</td>
+</tr>
+<tr>
+<td><strong>L4</strong></td>
+<td>24GB</td>
+<td>細</td>
+<td>細</td>
+<td>純推理、入門、慳電</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 數字係第三方參考（2026，見來源），<strong>唔係 Agent Plan
+報價</strong>。托管方案 GPU 錢已入
+plan；呢張表只係「如果自建，預算幾多卡、幾多錢」。引用時標「參考
+2026，見來源」以免過期。</p>
+</blockquote>
+<hr />
+<h2 id="4-揀-gpu-決策樹自建場景">4. 揀 GPU 決策樹（自建場景）</h2>
+<pre><code>模型權重 + KV-Cache &lt;= 一張卡 VRAM？
+├── 可以 → 單卡（最簡單）
+└── 唔可以 → 量化（FP8/AWQ）再睇
+        ├── 仲係大 → 多卡（model/tensor parallel）
+        └── 想慳卡數 → 4-bit 量化 or 揀更細 model
+
+按 workload：
+├── 純推理（serve API）→ memory bandwidth 優先：H100/H200/L40S
+├── 多租戶長 context → VRAM 優先：H200 (141GB) 或 量化
+├── 訓練/精調 → TFLOPS+互連優先：H100/B200 + NVLink
+└── dev / demo → RTX 4090/5090 或雲 spot</code></pre>
+<p><strong>常見錯</strong></p>
+<ul>
+<li>淨睇 TFLOPS 買卡做推理 → 但 decode 係
+memory-bound，卡「算得快但讀得慢」一樣唔快。</li>
+<li>淨睇「模型幾多 B」就買卡 → 冇計 <strong>KV-Cache</strong>（context
+越長 / 並行越多，VRAM 需求越大）。</li>
+<li>托管場景仲喺度諗 GPU → 直接講「打包咗喺 Agent Plan」就得。</li>
+<li>唔理 memory bandwidth → 買張算力爆燈但 HBM 細嘅卡，decode
+一樣慢。</li>
+</ul>
+<hr />
+<h2 id="5-vram-計數唔使背識晒">5. VRAM 計數（唔使背，識晒）</h2>
+<pre><code>VRAM ≈ 權重(weights) + KV-Cache + 額外 overhead（activation/framework）</code></pre>
+<ul>
+<li><strong>權重</strong>：參數數 × 每參數 byte。BF16 = 2B/參數 → 7B
+model ≈ <strong>14GB</strong>；70B ≈ <strong>140GB</strong>。</li>
+<li><strong>KV-Cache</strong>：≈ 2 × layers × KV頭 × head_dim × 2B ×
+tokens × 並行數（見 <code>veadk-agentkit-serving-kit.md</code>
+§3）。</li>
+<li><strong>4-bit 量化（AWQ/GPTQ）</strong> ≈ 0.5–0.6B/參數 → 70B ≈
+<strong>40–45GB</strong> → 一張 48GB/80GB 卡都掂。</li>
+</ul>
+<blockquote>
+<p>自建先要計數；托管由方舟計。你只需要識「7B 唔使拆卡、70B
+要量化或多卡」呢個量級 sense。</p>
+</blockquote>
+<hr />
+<h2 id="6-量化quantization-記憶體嘅減肥">6. 量化（Quantization）—
+記憶體嘅減肥</h2>
+<p>模型權重用 float16/bf16 存佔晒 VRAM。量化 = 用更低位元去存：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>位元</th>
+<th>主要目的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FP8</strong></td>
+<td>8-bit 浮點</td>
+<td>高吞吐加速、幾乎唔失真</td>
+</tr>
+<tr>
+<td><strong>AWQ</strong></td>
+<td>4-bit（權重感知）</td>
+<td>佔 VRAM 大減，慳 GPU 數</td>
+</tr>
+<tr>
+<td><strong>GPTQ</strong></td>
+<td>4-bit 逐層</td>
+<td>舊啲、做得好都係 4-bit 路</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>量化嘅 AI 唔會你撞，平台收埋咗 → <strong>唔使問</strong>。</li>
+<li>但<strong>知</strong>佢先唔會喺 client 面前鬧「點解咁食
+VRAM」——係平台唔等你管。</li>
+</ul>
+<blockquote>
+<p>對 client：「你買嘅 Agent Plan 已經幫你『買咗個會量化的
+server』，唔使你喺 GPU 上左唸右唸。」</p>
+</blockquote>
+<hr />
+<h2 id="7-vm--cpu-揀機">7. VM / CPU 揀機</h2>
+<h3 id="byteplus--火山雲-vm-產品對照">BytePlus / 火山雲 VM 產品對照</h3>
+<table>
+<thead>
+<tr>
+<th>產品</th>
+<th>用途</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Elastic Compute Service（ECS）</strong></td>
+<td>通用雲服務器，跑 Agent runtime、web、API、workflow</td>
+<td>火山雲 ECS / BytePlus 同源，彈性 vCPU + memory</td>
+</tr>
+<tr>
+<td><strong>GPU Compute Service</strong></td>
+<td>GPU 加速服務器，跑推理 / 訓練 / embedding</td>
+<td>有 H100/A100/L40S 等選項，按時或按量計</td>
+</tr>
+<tr>
+<td><strong>Vital Kubernetes Engine（VKE）</strong></td>
+<td>托管 Kubernetes，容器化 Agent 部署</td>
+<td>適合大規模、多副本、自動 scale</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cpu-揀機場景">CPU 揀機場景</h3>
+<table>
+<thead>
+<tr>
+<th>vCPU</th>
+<th>Memory</th>
+<th>適合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>8 vCPU</strong></td>
+<td>16–32 GB</td>
+<td>輕量 Agent runtime、API gateway、小型 workflow</td>
+</tr>
+<tr>
+<td><strong>16 vCPU</strong></td>
+<td>32–64 GB</td>
+<td>多模型 orchestrator、中等並發、embedding + reranker</td>
+</tr>
+<tr>
+<td><strong>32 vCPU</strong></td>
+<td>64–128 GB</td>
+<td>高並發 agent、大 context 處理、多租戶</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「AgentKit 托管嘅 Runtime
+資源（<code>--cpu-milli / --memory-mb / --max-instance</code>）其實就係火山方舟幫你排
+VM——自建先要自己開 ECS / VKE。」</p>
+</blockquote>
+<h3 id="scaling-要點">Scaling 要點</h3>
+<ul>
+<li><strong>ECS</strong>：手動或 auto scaling group；適合穩定
+workload。</li>
+<li><strong>VKE</strong>：HPA（Horizontal Pod Autoscaler）+ node auto
+provisioning；適合波動大、多 model。</li>
+<li><strong>CPU 推理可行場景</strong>：embedding model（如
+<code>doubao-embedding-vision</code> 細
+model）、reranker、classifier；但大 LLM 推理（7B+）一定要 GPU。</li>
+</ul>
+<hr />
+<h2 id="8-自建-vs-托管決策表">8. 自建 vs 托管決策表</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>自建 vLLM/SGLang + VM/GPU（底層）</th>
+<th>VeADK/AgentKit + 方舟（托管框架）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開運成本</td>
+<td>GPU + VM + 部署 + 維運</td>
+<td>Agent Plan + Runtime</td>
+</tr>
+<tr>
+<td>靈活度</td>
+<td>高（量化 / AWQ / SGLang multi-LoRA）</td>
+<td>低（平台決定）</td>
+</tr>
+<tr>
+<td>你管嘅</td>
+<td>排 request、GPU、VM、networking</td>
+<td>context、model、runtime</td>
+</tr>
+<tr>
+<td>硬件揀機</td>
+<td>✅ 自己搞（ECS / GPU Compute / VKE）</td>
+<td>❌ 打包喺 Agent Plan</td>
+</tr>
+<tr>
+<td>量化 / KV 優化</td>
+<td>✅ 自己搞</td>
+<td>方舟自動</td>
+</tr>
+<tr>
+<td>適合</td>
+<td>自家 model / 極端 SLA / 數據不出域</td>
+<td>快速交付、多模態、要 eval/audit 全家桶</td>
+</tr>
+<tr>
+<td>ServingKit（推理托管）</td>
+<td>可以做嘅選項（見 <code>veadk-agentkit-serving-kit.md</code>）</td>
+<td>方舟已收埋</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sales 判斷</strong>：「要控 100% 唔出我域 → 自建；要『快 + 準
++ 已經 package』→ AgentKit。」兩條生意都有人做。</p>
+<blockquote>
+<p>⚠️ 自建唔淨係買 GPU——仲要排 VM（ECS/VKE）、管
+networking（RDMA/NVLink）、做 monitoring。成本同複雜度係幾何級上升。</p>
+</blockquote>
+<hr />
+<h2 id="9-硬件詞彙速查">9. 硬件詞彙速查</h2>
+<table>
+<thead>
+<tr>
+<th>詞</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VRAM</td>
+<td>顯存，裝模型 + KV + parallel</td>
+</tr>
+<tr>
+<td>Memory bandwidth</td>
+<td>每秒讀寫，決定 decode 快慢</td>
+</tr>
+<tr>
+<td>TFLOPS</td>
+<td>算力，決定 prefill / 訓練快慢</td>
+</tr>
+<tr>
+<td>NVLink</td>
+<td>GPU 之間高速互連（多卡訓練 / tensor parallel）</td>
+</tr>
+<tr>
+<td>RDMA</td>
+<td>遠端直接記憶體存取，多節點 GPU cluster 互連</td>
+</tr>
+<tr>
+<td>FP8 / AWQ / GPTQ</td>
+<td>低位 bit 存權重：VRAM 慳、token/s 升</td>
+</tr>
+<tr>
+<td>ECS</td>
+<td>BytePlus / 火山雲 Elastic Compute Service（通用 VM）</td>
+</tr>
+<tr>
+<td>VKE</td>
+<td>Vital Kubernetes Engine（托管 K8s）</td>
+</tr>
+<tr>
+<td>GPU Compute Service</td>
+<td>BytePlus GPU 加速服務器</td>
+</tr>
+<tr>
+<td>PD（Prefill-Decode）</td>
+<td>推理兩階段分離部署（見 <code>veadk-agentkit-serving-kit.md</code>
+§3）</td>
+</tr>
+<tr>
+<td>GQA / MQA</td>
+<td>共享 KV 頭，慳 KV 記憶</td>
+</tr>
+<tr>
+<td>KV-Cache</td>
+<td>記住之前 token 嘅 attention 中間值</td>
+</tr>
+<tr>
+<td>PagedAttention</td>
+<td>vLLM 嘅 KV 分頁，慳碎片</td>
+</tr>
+<tr>
+<td>RadixAttention</td>
+<td>SGLang 嘅 prefix 樹複用</td>
+</tr>
+<tr>
+<td>Continuous batching</td>
+<td>唔落 idle、即插 next request → RPS 20×</td>
+</tr>
+<tr>
+<td>Speculative decoding</td>
+<td>細 model 估 + 大 model verify → 2–3×</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-資料來源">10. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU 規格 / 價參考（H100/H200/L40S/A100/4090）</td>
+<td><a href="https://www.vast.ai">https://www.vast.ai</a> / <a
+href="https://cloud.gpux.ai">https://cloud.gpux.ai</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus GPU Compute Service</td>
+<td><a
+href="https://byteplus.com/product/gpu">https://byteplus.com/product/gpu</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus Vital Kubernetes Engine（VKE）</td>
+<td><a
+href="https://byteplus.com/product/vke">https://byteplus.com/product/vke</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>vLLM 官方（PagedAttention / continuous batching）</td>
+<td><a href="https://docs.vllm.ai">https://docs.vllm.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>SGLang 官方（RadixAttention / prefix cache）</td>
+<td><a href="https://docs.sglang.ai">https://docs.sglang.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>量化 AWQ / GPTQ / FP8 簡介</td>
+<td><a
+href="https://huggingface.co/docs/transformers/quantization">https://huggingface.co/docs/transformers/quantization</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>引擎內部（prefill / decode / KV / spec，已合併）</td>
+<td><code>references/veadk-agentkit-serving-kit.md</code> §3</td>
+<td>2026-08-15</td>
+</tr>
+<tr>
+<td>框架 vs 底層宏觀地圖</td>
+<td><code>references/veadk-agentkit-serving-kit.md</code> 同
+<code>veadk-agentkit-hardware.md</code></td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>Cache 管理（tokens / inputs / memory）</td>
+<td><code>references/veadk-agentkit-cache-management.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Agent Plan / AFP 計價（GPU 已入 plan）</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08-09</td>
+</tr>
+<tr>
+<td>Performance 同 Runtime 資源</td>
+<td><code>references/veadk-agentkit-performance.md</code></td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>AI 基礎概念</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：GPU 價、規格、bandwidth/TFLOPS 數字屬第三方
+2026 參考估算；唔係 Agent Plan 報價。托管方案 GPU 已打包於 Agent
+Plan，唔好將 GPU 價直接加落方案報價——真錢用
+<code>veadk-agentkit-pricing.md</code> 三條線。引用前 check 一遍，GPU
+型號同價會走。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · GPU 型號、BytePlus
+產品同價會走，引用前 check 一遍。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

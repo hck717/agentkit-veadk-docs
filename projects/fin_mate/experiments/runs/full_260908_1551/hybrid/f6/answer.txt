@@ -1,0 +1,7 @@
+Barclays 嘅資料中未提及 Microsoft 新 E7 SKU 嘅定價及包含內容。【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evol】
+
+Wells Fargo 嘅資料提到，Microsoft 新 E7 SKU 定價為每用戶每月 99 美元，包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，於 2026 年 5 月 1 日正式推出。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】
+
+## 來源
+- <20260313_Barclays_MSFT_Microsoft_Corp.-_Evol>
+- <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>

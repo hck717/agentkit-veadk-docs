@@ -1,0 +1,14 @@
+2. New E7 SKU announced at $99 per user per month, incl M365 E5, Entra Suite, 
+Agent 365, and M365 Copilot. New SKU will be generally available on May 1, 2026.
+3. M365 Copilot Wave 3 released, built in "close collaboration" with Anthropic's Cowork.
+ 
+ 
+Expect E7 bundle upsells drive M365 Copilot, Agent 365 adoption; price hikes timely:
+New Agent 365 offer brings agent registry/agent ID (in Entra), observability, risk signals, 
+etc.—all important prerequisites for agentic adoption. Similar to M365 Copilot, see Agent 
+365 adoption as unlikely standalone (via $30/mo, $15/mo SKUs) and instead expect 
+both see accelerated adoption via E7 SKU. Note: recent M365 price hikes already force 
+enterprise negotiations in 2H26, creating NT adoption catalyst.
+ 
+Quantifying E7 opp: est ~325M enterprise seats, incl ~150M E3/E5 seats; est E7 = 
+$100B annual upsell opp: See existing E3/E5 seats as highest propensity to adopt E7.

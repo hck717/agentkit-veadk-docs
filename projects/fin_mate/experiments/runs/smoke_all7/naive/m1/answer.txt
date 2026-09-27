@@ -1,0 +1,8 @@
+### 1. 供應受限下 Azure 增長策略調整  
+Azure 面臨 GPU 供應約束，管理層優先將 GPU 分配給第一方應用（如 Copilot）和 R&D，以加速高邊際重複軟件機會的產品創新，因此 Azure 增速雖達 38%（CC）但低於市場預期。此時，Microsoft 轉向高邊際的應用層（如 M365 Copilot、Agent 365）和企業訂閱 SKU 升級，藉此維持收入增長質量。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+### 2. E7 SKU 提供高邊際 upsell 機會  
+E7 SKU 將 M365 E5、Entra Suite、Agent 365 和 M365 Copilot 打包，定價 $99/用戶/月，較單獨訂購更具吸引力。基於 3250 萬企業座席（其中 1500 萬為 E3/E5 座席），估計 E7 每年可帶來 $1000 億的升級機會。此舉不僅能彌補 Azure 供應受限的增速缺口，還能提升用戶 ARPU（每用戶平均收入）。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+### 3. AI 驅動的產品生態布局  
+Agent 365 作為管理代理的控制平面，包含代理注冊、可觀察性和風險信號等功能，是 Agentic  adoption 的關鍵前提。E7 SKU 將其與 Copilot 捆綁，加速企業對 AI 驅動工具的 adoption。此外，M365 Copilot Wave 3 與 Anthropic 合作開發，進一步增強產品競爭力，推動訂閱升級。【KB:20260316_Wells

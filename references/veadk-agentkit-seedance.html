@@ -1,0 +1,906 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seedance 視頻生成</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>Seedance 視頻生成</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="seedance--視頻生成家族深潛video-generation">Seedance —
+視頻生成家族深潛（Video Generation）</h1>
+<p>Seedance 係 <strong>ByteDance / BytePlus
+自家嘅多模態視頻生成模型家族</strong>：由 1.0 去到而家嘅
+<strong>2.5</strong>，支援「文字→片」「圖→片」「參考融合」「編輯＋延伸」同
+<strong>原生音畫同步</strong>。呢份係<strong>成個家族深潛</strong>：歷代演進、而家拎到嘅型號、規格、定價（LAS
+per-second）、平台／解決方案（<strong>Dreamina / CapCut / ModelArk /
+火山方舟 / BytePlus VideoOne</strong>），同埋用 <strong>VeADK /
+AgentKit</strong> 點喺 agent 入面撳佢。</p>
+<blockquote>
+<p><strong>Sale 一句</strong>：「唔使同十間公司駁十個 API——Seedream
+生圖打底、Seedance 一條過生 30 秒片仲有音、VideoOne
+幫你上線短劇同直播。」</p>
+</blockquote>
+<hr />
+<h2 id="1-快睇seedance-家族全家">1. 快睇：Seedance 家族全家</h2>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>Model ID（BytePlus LAS）</th>
+<th>主打</th>
+<th>長度</th>
+<th>解像度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Seedance 2.5</strong></td>
+<td><code>dreamina-seedance-2-5-260628</code></td>
+<td><strong>30 秒一條過</strong>、50 參考、timestamp 級編輯</td>
+<td>4–30s</td>
+<td>480p / 720p</td>
+</tr>
+<tr>
+<td><strong>Seedance 2.0</strong></td>
+<td><code>dreamina-seedance-2-0-260128</code></td>
+<td><strong>4K（10-bit）+ 原生音</strong>、編輯＋延伸</td>
+<td>4–15s</td>
+<td>480p→<strong>4K</strong></td>
+</tr>
+<tr>
+<td><strong>Seedance 2.0 Fast</strong></td>
+<td><code>dreamina-seedance-2-0-fast-260128</code></td>
+<td>快、啱迭代初稿</td>
+<td>4–15s</td>
+<td>480p / 720p</td>
+</tr>
+<tr>
+<td><strong>Seedance 2.0 Mini</strong></td>
+<td><code>dreamina-seedance-2-0-mini-260615</code></td>
+<td>~2× 快過 Fast、~50% 價、<strong>量產</strong></td>
+<td>4–15s</td>
+<td>480p / 720p</td>
+</tr>
+<tr>
+<td>Seedance 1.5-pro</td>
+<td>（方舟 <code>doubao-seedance-1.5-pro</code>）</td>
+<td>音畫同步、對話</td>
+<td>—</td>
+<td><strong>方舟標「即將下線」</strong></td>
+</tr>
+<tr>
+<td>Seedance 1.0-pro</td>
+<td><code>seedance-1-0-pro-250528</code></td>
+<td>早期座標</td>
+<td>—</td>
+<td>$2.5 / M tokens</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>揀型號唔係睇 version number，係睇出片規格</strong>：要
+1080p/4K → <strong>2.0</strong>（2.5 而家得 480p/720p 做人）；要長故事 →
+<strong>2.5</strong>；要量產慳錢 → <strong>2.0 Mini</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="2-家族歷代演進">2. 家族歷代演進</h2>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>時間</th>
+<th>做主啲咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.0 / 1.0-pro</strong></td>
+<td>2025</td>
+<td>文字/圖→片、1080p、多鏡頭故事</td>
+</tr>
+<tr>
+<td><strong>1.5-pro</strong></td>
+<td>2025-12-18</td>
+<td><strong>音畫同步</strong>主角：多語對話、鏡頭級導演控制（方舟而家標「即將下線」）</td>
+</tr>
+<tr>
+<td><strong>2.0</strong></td>
+<td>2026-02-12</td>
+<td>文字/圖/片/音<strong>混合參考</strong>、編輯＋延伸、15 秒；2026-06
+喺 Volcano FORCE 確認 <strong>4K</strong></td>
+</tr>
+<tr>
+<td><strong>2.0 Fast</strong></td>
+<td>2026（同 2.0 一系）</td>
+<td>快鏡頭迭代</td>
+</tr>
+<tr>
+<td><strong>2.0 Mini</strong></td>
+<td>2026-06 中</td>
+<td><strong>最快最平</strong>：量產型</td>
+</tr>
+<tr>
+<td><strong>2.5</strong></td>
+<td>2026-06-23 公佈（FORCE）· <strong>2026-07-16 API 上線</strong> ·
+2026-08 BytePlus blog</td>
+<td><strong>30 秒 one-take</strong>、<strong>50
+多模態參考</strong>、timestamp 級精準編輯、3D blockout 輸入</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 2.0 → 2.5 係「<strong>製片思維</strong>」跳升：2.0 做「一段
+clip」，2.5 做「一個完整故事單元」——銀幕情節、品牌片、長旁白一次過。</p>
+</blockquote>
+<hr />
+<h2 id="3-而家拎到嘅型號model-id-表">3. 而家拎到嘅型號（Model ID
+表）</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>Model ID</th>
+<th>規格</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BytePlus LAS / ModelArk（國際）</strong></td>
+<td><code>dreamina-seedance-2-5-260628</code> / <code>-2-0-260128</code>
+/ <code>-2-0-fast-260128</code> / <code>-2-0-mini-260615</code></td>
+<td>全部文本/圖/片/音輸入 + 編輯 + 延伸 + 原生音</td>
+</tr>
+<tr>
+<td><strong>火山方舟（中國）</strong></td>
+<td><code>doubao-seedance-2.0</code> / <code>2.0-fast</code> /
+<code>2.0-mini</code> / <code>1.5-pro</code>（即將下線）</td>
+<td>AgentKit 嘅 AFP 就係呢度燒</td>
+</tr>
+<tr>
+<td><strong>ModelArk classic</strong></td>
+<td><code>seedance-1-0-pro-250528</code></td>
+<td>舊續；按 tokens 計（$2.5/M）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Video generation
+係異步接口</strong>：<code>create task</code> → 用 task ID
+查結果，唔係同步返片（ModelArk docs 講明）。</p>
+</blockquote>
+<hr />
+<h2 id="4-核心能力逐個拆">4. 核心能力逐個拆</h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>2.5</th>
+<th>2.0</th>
+<th>Fast</th>
+<th>Mini</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Text-to-video</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Image-to-video（首幀）</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>Image-to-video（首＋尾幀）</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>多模態參考</strong>（圖/片/音組合）</td>
+<td>✅（<strong>最多 50</strong>）</td>
+<td>✅（9 圖+3 片+3 音）</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>純音頻參考</strong>（齋歌）</td>
+<td>✅</td>
+<td>❌（要搭圖/片）</td>
+<td>❌</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>編輯影片 Edit</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>延伸影片 Extend</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>原生生成音</strong>（<code>generate_audio: true</code>）</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><strong>3D blockout 輸入</strong></td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3 id="規格速記">規格速記</h3>
+<ul>
+<li>全 2.x 系列：<strong>24 fps</strong>、輸出
+mp4、<code>resolution</code> 可揀 480p/720p（預設）/1080p/4k。</li>
+<li><strong>4K 只有 Seedance 2.0</strong>；<strong>1080p
+喺「參考圖」場景唔 support</strong>（2.5/fast/mini 沙面）。</li>
+<li><strong>Aspect ratio</strong>：width/height 限 [0.4, 2.5]；總像素限
+[640×640, 8295044]，即 2K/4K 以上要返 2.0。</li>
+<li>音頻參考：mp3、每段 2–30s（2.5 最多 10 段），request body ≤64
+MB。</li>
+</ul>
+<hr />
+<h2 id="5-定價計錢">5. 定價（計錢）</h2>
+<h3 id="51-byteplus-las國際per-second">5.1 BytePlus
+LAS（國際，per-second）</h3>
+<p><strong>Enhanced（2.0 / 2.5）= $0.303 / 秒 × 分辨率
+factor</strong></p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>480p</th>
+<th>720p</th>
+<th>1080p</th>
+<th>4K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2.0</strong>（無輸入片）</td>
+<td>×0.4651</td>
+<td>×1</td>
+<td>×2.5</td>
+<td>×5.0761</td>
+</tr>
+<tr>
+<td><strong>2.5</strong>（無輸入片）</td>
+<td>×0.6785</td>
+<td><strong>×1.525</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>有輸入片</td>
+<td>2.0 ×0.2830 / 2.5 ×0.406</td>
+<td>2.0 ×0.6098 / 2.5 ×0.9125</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>計法範例：<strong>720p × 10s 無輸入片</strong> → 2.0 =
+<code>0.303×10×1 = $3.03</code>；2.5 =
+<code>0.303×10×1.525 ≈ $4.62</code>。</p>
+<p><strong>Basic（Fast / Mini）= $0.242 / 秒</strong></p>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>480p</th>
+<th>720p</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2.0 Fast</strong>（無輸入片）</td>
+<td>×0.465</td>
+<td>×1</td>
+</tr>
+<tr>
+<td><strong>2.0 Mini</strong>（無輸入片）</td>
+<td>×0.2907</td>
+<td>×0.625</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-方舟--agentkit-afp-層面docset-沿用">5.2 方舟 / AgentKit AFP
+層面（docset 沿用）</h3>
+<table>
+<thead>
+<tr>
+<th>嘢</th>
+<th>單價</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doubao-seedance-2.0-fast</code></td>
+<td><strong>~2,000 AFP/clip</strong></td>
+<td>常用</td>
+</tr>
+<tr>
+<td><code>doubao-seedance-2.0</code> 標準版</td>
+<td>~6,000 AFP/clip</td>
+<td>4K 級</td>
+</tr>
+<tr>
+<td><strong>Tier 限制</strong></td>
+<td><strong>只有 Large/Max Plan 先用得</strong></td>
+<td>Medium 得 1.5-pro（即將下線）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>報價最易錯</strong>：Seedance 2.0
+全系列（2.0/fast/mini）<strong>只有 Large/Max</strong>——想幫 client
+做片，起碼計 Large ¥500/月（pricing doc §4.1 原話）。</p>
+</blockquote>
+<hr />
+<h2 id="6-平台全覽喺邊度用到">6. 平台全覽（喺邊度用到）</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>類型</th>
+<th>有咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dreamina</strong></td>
+<td>消費者 App</td>
+<td>Seedance 官方嘅消費面；免費每日額度 + 訂閱（Light / Production
+Plan，2.5 有 per-token 計價偏移 ~1:1.8）</td>
+</tr>
+<tr>
+<td><strong>CapCut</strong></td>
+<td>消費者 App</td>
+<td>剪片期間順手生片</td>
+</tr>
+<tr>
+<td><strong>BytePlus ModelArk / LAS</strong></td>
+<td><strong>企業 API</strong></td>
+<td>異步 task 接口；正式支援 · <strong>公司主力呢個</strong></td>
+</tr>
+<tr>
+<td><strong>火山方舟</strong></td>
+<td>中國 API</td>
+<td><code>doubao-seedance-*</code>；AgentKit AFP 喺呢度燒</td>
+</tr>
+<tr>
+<td><strong>fal.ai</strong></td>
+<td>第三方</td>
+<td>2.0 per-second 計費</td>
+</tr>
+<tr>
+<td><strong>seedance2.so</strong>（Seedance Web）</td>
+<td>消費者 Web</td>
+<td>每日 free credits + 訂閱</td>
+</tr>
+<tr>
+<td><strong>BytePlus VideoOne</strong></td>
+<td><strong>視頻解決方案平台</strong></td>
+<td>見下 §7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-byteplus-videoone-平台代表deep-dive">7. BytePlus VideoOne
+——「平台」代表（deep-dive）</h2>
+<blockquote>
+<p>你問「平台／解決方案」——<strong>VideoOne 就係 BytePlus
+嘅視頻業務解決方案</strong>，Seedance/Seedream
+係佢下面嘅引擎層。佢唔係另一個模型，係「<strong>教你點樣用班仔做嘢</strong>」嘅平台。</p>
+</blockquote>
+<h3 id="71-videoone-係咩">7.1 VideoOne 係咩</h3>
+<p>BytePlus Video One Solution = <strong>一鑊過嘅短視頻 / 直播 /
+媒體業務平台</strong>，四個支柱：</p>
+<table>
+<thead>
+<tr>
+<th>支柱</th>
+<th>講咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Days 上線</strong></td>
+<td>預建 solutions：<strong>短劇 short drama、對話式
+AI、互動直播</strong>——開發週期由月變日</td>
+</tr>
+<tr>
+<td><strong>Production-ready code</strong></td>
+<td>開源 <strong>BytePlus VideoOne Demo</strong>：多媒體 SDK
+pre-integrated、解決 dependency 衝突</td>
+</tr>
+<tr>
+<td><strong>一站式端到端</strong></td>
+<td><strong>Content creation（上傳/直播）→ Cloud processing（VOD/RTC）→
+消費（播放/互動）</strong> 一個平台搞掂</td>
+</tr>
+<tr>
+<td><strong>Solution vs 產品能力</strong></td>
+<td>全套 solution 行到最快，或者自由撿拾基本產品能力（VOD / RTC / 媒體
+SDK）砌自己嘢</td>
+</tr>
+</tbody>
+</table>
+<h3 id="72-同-seedanceseedream-嘅關係">7.2 同 Seedance/Seedream
+嘅關係</h3>
+<ul>
+<li><strong>Seedance 2.5/2.0</strong>
+喺下面幫你<strong>自動生成內容</strong>（廣告片、短劇場次、商品片）。</li>
+<li><strong>Seedream</strong> 做<strong>縮圖 / 素材圖 /
+分鏡幀</strong>，Feed 入 VideoOne 嘅 media pipeline。</li>
+<li>VideoOne 負責<strong>雲端處理（轉碼/存儲/直播 RTC）+
+出街</strong>——即「識得生」＋「識得送」，一條龍。</li>
+</ul>
+<h3 id="73-幾時用-videoone決策">7.3 幾時用 VideoOne（決策）</h3>
+<table>
+<thead>
+<tr>
+<th>情況</th>
+<th>用咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>淨係要「生一段片返嚟旁住」</td>
+<td>直接 Seedance API（ModelArk/LAS）</td>
+</tr>
+<tr>
+<td>要「上線一個短劇 / 帶自家 App 播放 + 直播」</td>
+<td><strong>VideoOne</strong>（VOD/RTC/SDK + solutions）</td>
+</tr>
+<tr>
+<td>要「生片 + 出街 + 統計」一條龍</td>
+<td>VideoOne + Seedance 組合</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>對客一句</strong>：Seedance/Seedream 係「引擎」，VideoOne
+係「車架」——引擎馬力勁，都要車架先上到路。</p>
+</blockquote>
+<hr />
+<h2 id="8-agent-點用veadk--agentkit">8. Agent 點用（VeADK /
+AgentKit）</h2>
+<h3 id="81-內建工具video_generation">8.1
+內建工具：<code>video_generation</code></h3>
+<p>AgentKit 內建 <code>video_generation</code> 工具（背後撳
+Seedance）：</p>
+<ul>
+<li>每個 scene 一條 clip（~2,000 AFP/clip）</li>
+<li><strong>mood board（Seedream 生圖）→ 首幀 → Seedance
+生片</strong>——圖→片流水線</li>
+<li>語音旁白 / 歌曲同步（<code>generate_audio</code>）</li>
+</ul>
+<h3 id="82-veadk-實例電影-generator-思路">8.2 VeADK 實例（電影 generator
+思路）</h3>
+<pre class="python"><code># veadk-python：研究 → 劇本 → 分鏡 → 生成（鳴謝 projects/movie-generator.md）
+from veadk import Agent
+
+## 前期：Seedream 負責分鏡圖
+storyboard = Agent(model_name=&quot;doubao-seed-2.1-pro-260628&quot;, tools=[
+    {&quot;type&quot;: &quot;image_generation&quot;, &quot;instruction&quot;: &quot;生分鏡電影分鏡圖（每幕一張）&quot;},
+])
+
+## 生成：Seedance 負責每一幕
+render = Agent(model_name=&quot;doubao-seed-2.1-pro-260628&quot;, tools=[
+    {&quot;type&quot;: &quot;video_generation&quot;, &quot;instruction&quot;: &quot;用 Seedance 按配合 picture 生每幕 5–10 秒片&quot;},
+])
+
+## render agent call；攞返 task id → 異步查結果
+resp = render.invoke(&quot;幕 3：主角喺天台，黃昏，氛圍感，生成 8 秒 720p&quot;)
+# → {&quot;task_id&quot;: &quot;...&quot;, &quot;status&quot;: &quot;queued&quot;} ；再 poll status → 攞 mp4 url</code></pre>
+<blockquote>
+<p>💡 <strong>異步係關鍵</strong>：Seedance 唔係同步返片。agent
+要設計成「批完 job → poll / callback」，唔好卡住個
+loop。想慳：<strong>唔好 12 幕全部 4K</strong>——初稿用 Fast/Mini，Tail
+先上 2.0。</p>
+</blockquote>
+<h3 id="83-決策揀邊部">8.3 決策：揀邊部</h3>
+<table>
+<thead>
+<tr>
+<th>交付要求</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>要 1080p / 4K 交付</strong></td>
+<td><strong>2.0</strong>（2.5 而家得 480p/720p）</td>
+</tr>
+<tr>
+<td><strong>長故事 / 品牌片 / 旁白 30 秒</strong></td>
+<td><strong>2.5</strong></td>
+</tr>
+<tr>
+<td>初稿 / 快 iteration</td>
+<td>2.0 Fast</td>
+</tr>
+<tr>
+<td>大量量產（幾百條）</td>
+<td><strong>2.0 Mini</strong>（~50% 價、~2× 快）</td>
+</tr>
+<tr>
+<td>有配音/對白</td>
+<td>2.5 / 2.0（原生音同步）</td>
+</tr>
+<tr>
+<td>純歌劇目（冇圖/片）</td>
+<td>2.5（2.0 唔收齋音）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-eval-點量點知生得好唔好">9. Eval 點量（點知生得好唔好）</h2>
+<p>BytePlus 對 video gen 嘅評測維度（砌 rubric 用）：</p>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>測咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instruction adherence</strong></td>
+<td>有冇跟 prompt（動作/風格/分鏡）</td>
+</tr>
+<tr>
+<td><strong>Motion realism / 物理真實</strong></td>
+<td>重力、撞擊、流體運動係咪合理</td>
+</tr>
+<tr>
+<td><strong>Temporal coherence / 時間一致性</strong></td>
+<td>前後幀場景穩定，唔閃變</td>
+</tr>
+<tr>
+<td><strong>Character / scene stability</strong></td>
+<td>角色外觀、環境一路維持</td>
+</tr>
+<tr>
+<td><strong>Audio-visual alignment</strong></td>
+<td>音畫同步（毫秒級），對白/環境聲同畫面啱</td>
+</tr>
+<tr>
+<td><strong>Multi-shot consistency</strong></td>
+<td>多鏡頭同一故事一致</td>
+</tr>
+</tbody>
+</table>
+<p>落地做法（詳見 eval tab §10）：</p>
+<ul>
+<li><strong>抽樣人工 HITL</strong> 為主（影片質素 LLM-as-judge
+只做初篩）</li>
+<li>用 <code>video_generation</code> 前，先衡量「可用率」：一條 5s
+片出嚟有幾高機率直接收貨</li>
+<li>對應 movie-generator：研究/劇本 agent 用文字 eval，<strong>生成
+agent 用人工抽片</strong></li>
+</ul>
+<hr />
+<h2 id="10-使用技巧--prompt-skills--tricks">10. 使用技巧 / Prompt Skills
+&amp; Tricks</h2>
+<blockquote>
+<p>呢節係「點樣先用到佢靚」——Seedance 唔係「寫劇本」，係「<strong>寫分鏡
++ 導演指令 +
+供料</strong>」：主體、動作、鏡頭運動、場景、音。揀啱輸入（首幀 /
+首＋尾幀 / 多模態參考 / 音軌）先係控制力所在。</p>
+</blockquote>
+<h3 id="101-prompt-五件式一貼即用">10.1 Prompt 五件式（一貼即用）</h3>
+<table>
+<thead>
+<tr>
+<th>件</th>
+<th>問自己</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subject 主體</strong></td>
+<td>邊個 / 咩嘢喺畫面？</td>
+<td>一個穿紅色風褸嘅男人</td>
+</tr>
+<tr>
+<td><strong>Action 動作</strong></td>
+<td>佢做緊乜（動詞要明確）？</td>
+<td>行向鏡頭，回頭</td>
+</tr>
+<tr>
+<td><strong>Camera 鏡頭運動</strong></td>
+<td>鏡頭點郁？</td>
+<td>慢推近（dolly in），輕搖</td>
+</tr>
+<tr>
+<td><strong>Environment 環境</strong></td>
+<td>場景 / 氛圍 / 光影？</td>
+<td>雨夜霓虹街，暖窗光</td>
+</tr>
+<tr>
+<td><strong>Audio 聲音（可選）</strong></td>
+<td>要唔要原生音？</td>
+<td>落雨聲 + 腳步聲（<code>generate_audio</code>）</td>
+</tr>
+</tbody>
+</table>
+<pre class="text"><code>主體：一個穿紅色風褸嘅男人
+動作：一路回頭一路行向鏡頭
+鏡頭：慢推近（dolly in），手持微微晃
+環境：雨夜霓虹街頭，暖黃窗光
+音：雨聲 + 皮鞋踏地聲</code></pre>
+<blockquote>
+<p>🎯
+<strong>動作動詞要「能驗證」</strong>：寫「行街」唔及「由左至右行過鏡頭、望住個招牌」——後者模型知你有
+direction + 視線 + 鏡頭關係，output 先受控。</p>
+</blockquote>
+<h3 id="102-首尾幀keyframe做精準過場">10.2
+首＋尾幀（keyframe）做精準過場</h3>
+<p><strong>最有控制力嘅技巧</strong>：提供<strong>開始圖（首幀）＋
+結束圖（尾幀）</strong>，Seedance 自動補中間嘅 motion——S
+型過場、before/after、產品變形、換衫換景都靠呢招：</p>
+<pre class="text"><code>首幀：一張產品未開箱圖
+尾幀：同一產品已展開嘅圖
+→ 用首＋尾幀模式，生 6 秒「開箱瞬間」過場片</code></pre>
+<blockquote>
+<p>💡 <strong>用途</strong>：品牌 reveal（Logo 由暗到光）、產品
+morph、場景/季節切換、角色換衫——<strong>尾幀一錘定音，唔使估。</strong></p>
+</blockquote>
+<h3 id="103-多模態參考25-最多-50">10.3 多模態參考（2.5 最多 50）</h3>
+<p>2.5 收<strong>圖 / 片 /
+音</strong>混合參考：角色圖、環境圖、動作片段、純音樂軌一次過塞。技巧：</p>
+<ul>
+<li>每張/每段參考<strong>命名 + 講用途</strong>（似 Seedream
+多圖融合）：<code>Ref A＝演員樣貌 / Ref B＝場景 / Ref C＝動作範本</code>。</li>
+<li>純音頻參考（齋歌）<strong>淨係 2.5 收到</strong>——2.0
+要搭張圖/段片先得。</li>
+<li>音頻每段 2–30s、2.5 最多 10 段、request ≤64 MB。</li>
+</ul>
+<blockquote>
+<p>⚠️
+參考多唔代表好——<strong>唔講用途嘅參考等如噪音</strong>，反而令主體漂移。5–10
+個「各自無名有命」嘅最佳。</p>
+</blockquote>
+<h3 id="104-camera-語言想控制鏡頭就講-cam-唔係劇情">10.4 Camera
+語言：想控制鏡頭就講 cam 唔係劇情</h3>
+<p>要鏡頭受控，直接寫 cam 分鏡術語（跟住 Scene 生成時餵）：</p>
+<pre class="text"><code>「先 wide shot 交代場景 → dolly in 到主角 → 主角起身 OTS（過肩）同佢講嘢 → 最後 zoom 到招牌、出 3D blockout 空間」</code></pre>
+<table>
+<thead>
+<tr>
+<th>要咩效果</th>
+<th>寫</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>由遠到近</td>
+<td>dolly in / 句號前移</td>
+</tr>
+<tr>
+<td>拍跟住主角</td>
+<td>tracking shot</td>
+</tr>
+<tr>
+<td>先交代再聚焦</td>
+<td>wide shot → cut in</td>
+</tr>
+<tr>
+<td>對話感</td>
+<td>over-the-shoulder（OTS）</td>
+</tr>
+<tr>
+<td>運動感 / 手持</td>
+<td>handheld，輕微晃</td>
+</tr>
+</tbody>
+</table>
+<h3 id="105-編輯--延伸一條片改到位25-timestamp-級">10.5 編輯 /
+延伸：一條片改到位（2.5 timestamp 級）</h3>
+<ul>
+<li><strong>Edit</strong>：撳住「改呢一段」→
+只改目標片段，其他唔郁（timestamp 級，2.5 主打）。</li>
+<li><strong>Extend</strong>：已出嘅片<strong>向後延伸 4–15
+秒</strong>——長片分幾段延伸砌，唔係一次過生好耐。</li>
+<li>技巧：<strong>先用 Fast/Mini 出 draft → 鏡頭啱先上 2.5/2.0 出
+final</strong>（慳錢見 §5；Mini ~50% 價）。</li>
+</ul>
+<pre class="python"><code># image_generation 出 draft → video_generation（異步 task）：
+resp = render.invoke(&quot;幕 3 先用 Fast 出 4 秒 draft（720p）；鏡頭確認後先用 2.5 出 30 秒 final&quot;)</code></pre>
+<blockquote>
+<p>💡 <strong>30 秒連環</strong>想長過 4–15 秒單段？<strong>2.5 可以直接
+4–30s</strong>；又或者「首＋尾幀 + Extend」夾段，維持連貫性。</p>
+</blockquote>
+<h3 id="106-人物片portrait特別提示">10.6 人物片（portrait）特別提示</h3>
+<ul>
+<li>用<strong>首幀近照</strong>做起點（表情/角度有保證），再搭 2.5 補
+motion。</li>
+<li>對白 / 口形同步 → 開 <code>generate_audio</code> + 淨係
+2.5/2.0（原生音畫同步）。</li>
+<li>表情變化幅度唔好太大（2.5
+對大變形仍會微漂移）——<strong>分鏡逐格鎖，唔好靠一步到位</strong>。</li>
+</ul>
+<h3 id="107-常見反模式">10.7 常見反模式</h3>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>執法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>得「寫劇本」冇鏡頭/動作指令</td>
+<td>每幕帶 camera + action 動詞（§10.1）</td>
+</tr>
+<tr>
+<td>生 4K 先試都試</td>
+<td>初稿 Fast/Mini 720p，final 先 4K（§5 價差 ~10 倍）</td>
+</tr>
+<tr>
+<td>參考圖唔命名唔講用途</td>
+<td>全部 Ref A/B/C + 用途</td>
+</tr>
+<tr>
+<td>齋歌參考餵 2.0</td>
+<td>只適用 2.5</td>
+</tr>
+<tr>
+<td>12 幕一次過生 4K</td>
+<td>分幕 + 異步批 + draft/final 分流</td>
+</tr>
+<tr>
+<td>尾幀都用唔上</td>
+<td>過場先係首＋尾幀主場（§10.2）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-風險--免責">11. 風險 / 免責</h2>
+<ul>
+<li><strong>Proprietary</strong>：冇權重、冇 technical report。</li>
+<li><strong>規格郁得快</strong>：2.5 API 2026-07 先上黎，價錢/region
+未齊；<code>1.5-pro</code> 方舟標「即將下線」。</li>
+<li><strong>BytePlus 唔喺美國</strong>；中國 international 名
+<code>dola-*</code> / <code>doubao-*</code> 分流。</li>
+<li><strong>Tier 鎖死</strong>：2.0 系得 Large/Max——報價唔好報
+Medium。</li>
+<li>冇公開標準 benchmark → 憑樣本 + 內部可用率衡量。</li>
+</ul>
+<hr />
+<h2 id="12-資料來源">12. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BytePlus Seedance 產品頁（2.5 發佈）</td>
+<td><a
+href="https://www.byteplus.com/en/product/seedance">https://www.byteplus.com/en/product/seedance</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus blog：Dreamina Seedance 2.5 上線</td>
+<td><a
+href="https://www.byteplus.com/en/blog/dreamina-seedance2-5">https://www.byteplus.com/en/blog/dreamina-seedance2-5</a></td>
+<td>2026-08-06</td>
+</tr>
+<tr>
+<td>BytePlus LAS 文檔（模型表/規格/計費）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/byteplus_las/video_gen_enhanced">https://docs.byteplus.com/en/docs/byteplus_las/video_gen_enhanced</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk Seedance 2.5 tutorial</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2607688">https://docs.byteplus.com/en/docs/ModelArk/2607688</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk Seedance 2.5 prompt guide（五件式 + 參考）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2607689">https://docs.byteplus.com/en/docs/ModelArk/2607689</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk Seedance 2.0 series prompt guide</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2222480">https://docs.byteplus.com/en/docs/ModelArk/2222480</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk：portrait 人物片指南</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2608626">https://docs.byteplus.com/en/docs/ModelArk/2608626</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk Seedance tutorial</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2291680">https://docs.byteplus.com/en/docs/ModelArk/2291680</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>seedance.tv：首＋尾幀 keyframe 指南</td>
+<td><a href="https://seedance.tv/blog">https://seedance.tv/blog</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus blog：Seedance 2.0 上線</td>
+<td><a
+href="https://www.byteplus.com/en/blog/dreamina-seedance2-0">https://www.byteplus.com/en/blog/dreamina-seedance2-0</a></td>
+<td>2026-04-14</td>
+</tr>
+<tr>
+<td>BytePlus blog：Seedance 1.5 pro</td>
+<td><a
+href="https://www.byteplus.com/en/blog/seedance-1-5-pro">https://www.byteplus.com/en/blog/seedance-1-5-pro</a></td>
+<td>2025-12-18</td>
+</tr>
+<tr>
+<td>BytePlus VideoOne 解決方案</td>
+<td><a
+href="https://docs.byteplus.com/api/docs/byteplus-vos/docs-why-byteplus-video-one-solution">https://docs.byteplus.com/api/docs/byteplus-vos/docs-why-byteplus-video-one-solution</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>corenexis：Seedance 2.0→2.5 完整指南</td>
+<td><a
+href="https://blog.corenexis.com/seedance-2">https://blog.corenexis.com/seedance-2</a></td>
+<td>2026-07-22</td>
+</tr>
+<tr>
+<td>aifreeapi：Seedance 2026 揀型號</td>
+<td><a
+href="https://www.aifreeapi.com/en/posts/seedance-video-models-2026">https://www.aifreeapi.com/en/posts/seedance-video-models-2026</a></td>
+<td>2026-08-26</td>
+</tr>
+<tr>
+<td>方舟/AgentKit AFP（<code>~2,000 AFP/clip</code>、tier 鎖位）</td>
+<td><code>references/veadk-agentkit-pricing.md</code> §4.1</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>電影 generator project（Seedance 用法）</td>
+<td><code>projects/movie-generator.md</code></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：LAS $0.303/$0.242 per-second + factor
+以當刻文檔；AFP 數字係 docset 內部估算；model ID 同 tier 限制以
+Console（<code>agentkit model list</code>）為準。Seedance 2.5 價錢同某些
+region 未公開，落地前 refetch。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-09-06 · Seedance 2.5 上線後初建 +
+用技巧節（五件式 prompt / 首＋尾幀 keyframe / 多模態參考 / camera 語言 /
+edit-extend / 人物片）。規格/價錢/region 仍在郁，落地前
+refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

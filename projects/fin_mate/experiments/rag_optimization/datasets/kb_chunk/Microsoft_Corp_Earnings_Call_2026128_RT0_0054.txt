@@ -1,0 +1,16 @@
+All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 13 of 16
+
+
+the way the networking works at rack scale that's optimized with memory for this particular
+workload.
+And the other thing is we're obviously round-tripping and working very closely with our own
+Superintelligence Team with all of our models, as you can imagine. Whatever we build will be all
+optimized for Maia. So we feel great about it. And I think the way to think about all up is, we're in
+such early innings. I mean, even just look at the amount of silicon innovation and systems
+innovation. Even since December, I think the new thing is everybody is talking about low latency
+inference, right? And so one of the things we want to make sure is we're not locked into any one
+thing.
+If anything, we have great partnership with NVIDIA, with AMD, they're innovating, we're
+innovating. We want your fleet at any given point in time to have access to the best TCO. And it's
+not a one-generation game.

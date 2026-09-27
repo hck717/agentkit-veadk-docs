@@ -1,0 +1,13 @@
+And OpenEvidence used Foundry to create its AI powered clinical assistant,
+which surfaces relevant medical information to physicians and help streamline charting.
+When it comes to our first-party models, we are excited by the performance of our new MAI
+models for text, voice and image generation, which debuted among the top in the industry
+leaderboards. And we continue to make great progress with our Phi family of SLMs, which now
+have been downloaded over 60 million times, up 3x year-over-year. Beyond models and Foundry,
+we're providing everything developers need to design, customize and manage AI applications
+and agents at scale. Our new Microsoft Agent Framework helps developers orchestrate multi-
+agent systems with compliance, observability and deep integration out-of-the-box. For example,
+KPMG used the Framework to modernize the audit process connecting agents to internal data
+with enterprise-grade governance and observability. These kinds of real production scale AI
+deployments are driving Azure's overall growth. And once again, this quarter, Azure took share.
+Now, let's turn to applications and agents we ourselves are building on this platform.

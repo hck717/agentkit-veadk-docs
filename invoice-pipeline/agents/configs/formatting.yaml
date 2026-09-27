@@ -1,0 +1,16 @@
+agent:
+  name: formatting_agent
+  model: seed-2-0-mini-260428
+  mock: true
+  reasoning_effort: minimal
+short_term_memory:
+  backend: sqlite
+  local_database_path: ./stm_dev.db
+image_generation:
+  model: seedream-5-0-260128
+  api_base: https://ark.ap-southeast.bytepluses.com/api/v3/
+  size: 2048x2048
+  watermark: false
+  output_format: jpeg
+  output_dir: data/formatted
+  template: clean_business_invoice

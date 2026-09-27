@@ -1,0 +1,13 @@
+custom-built processor for cloud-native workloads. Sovereignty is increasingly top of mind for
+customers, and we are expanding our solutions and global footprint to match. We announced DC
+Investments in seven countries this quarter alone, supporting local data residency needs.
+And we offer the most comprehensive set of sovereignty solutions across public, private, and
+national partner clouds so customers can choose the right approach for each workload with the
+local control they require. Next, I want to talk about the Agent platform. Like in every platform
+shift, all software is being rewritten, a new app platform is being born. You can think of agents as
+the new apps. And to build, deploy, and manage agents, customers will need a model catalog,
+tuning services, harness for orchestration, services for context engineering, AI safety,
+management, observability, and security.
+It starts with having broad model choice. Our customers expect to use multiple models as part of
+any workload that they can fine-tune and optimize based on cost, latency, and performance
+requirements. And we offer the broadest selection of models of any hyperscaler.

@@ -1,0 +1,4 @@
+Deutsche Bank 形容 Microsoft F2Q 結果「short of more lofty market expectations, in particular for Azure growth」【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。主要原因包括供應限制（mgmt. prioritize GPU allocation in support of AI usage in first-party apps and R&D），若 F1H26 所有增量 GPU 容量分配給 Azure，增長可能超過 40%，但實際 Azure 增長為 38% y/y @CC，低於買方預期的 39%+【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+## 來源
+20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt

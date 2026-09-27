@@ -1,0 +1,11 @@
+At the time, it seemed MSFT wanted to make Copilot available to a
+broader audience (not just the high-end SKU customers) and hence the separate pricing.
+However, it does create friction in the sales process, especially for the enterprise level, if two
+different pricing agreements (an Office SKU and the Copilot commitment) and discount levels
+need to be discussed. In this respect, the new E7 offerings is just a natural extension. E7 includes
+E5 plus Copilot and Agent 365. At $99 per user, the offering is above the $60 E5 price (price
+update on July 2026) but is cheaper than the individual components (E5 $60 plus Copilot $30
+plus Agent 365 $15). We note that in recent quarters, E5 was mentioned as the main growth
+driver for Office growth, followed by Copilot.
+With its product announcements today, Microsoft also provides an answer for another recent
+investor discussion point around the evolution of work.

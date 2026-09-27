@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "China Renaissance 2026E EPS 預測幾多？vs 市場共識？"}], "text": "KB 無資料", "prompt_tokens": 67, "completion_tokens": 4, "cached_tokens": 0, "ms": 531.5141250030138}

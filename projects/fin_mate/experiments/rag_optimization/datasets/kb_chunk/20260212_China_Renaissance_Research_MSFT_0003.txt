@@ -1,0 +1,13 @@
+In the continuing situation of supply 
+constraints, Azure cannot fully expand its business to serve all the potential demand on 
+the market, which would have helped it deliver over 40% growth for the quarter. 
+Management also disclosed incremental achievements in other businesses supported by 
+its AI investments. For example, its paid Microsoft 365 Copilot seats reached 15mn in the 
+quarter, and the number of business customers with over 35k seats tripled YoY. By nature, 
+SaaS projects/subscriptions usually have higher margin than pure cloud rental business. 
+F2Q26 financial highlights: Total revenue growth was 17% YoY, 1% higher than FactSet 
+consensus. Total commercial Remaining Performance Obligation (RPO) was US$625bn 
+by quarter end, +230% YoY, with weighted avg duration of 2.5 years. Within that, about 
+45% is from the recent multi-year Azure services commitment from OpenAI. The remaining 
+55% is from a broad-based customer base and represents a healthy 28% YoY growth. 
+Operating margin was 47.1% for the quarter, vs 45.5% in F2Q25.

@@ -1,0 +1,9 @@
+Deutsche Bank 對 Microsoft F2Q 的 Azure 增長預測及與指引對比情況如下：
+
+### 收入增長預測
+- **Intelligent Cloud 部分 Y/Y 增長**：新預測為+28.0%，舊預測為+27.5%，新 vs 舊增長+0.5個百分點【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+- **Intelligent Cloud 公司指引部分 Y/Y 增長**：新預測為+28.1%，舊預測為+26.2%，新 vs 舊增長+1.9個百分點【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+### 資料限制
+- 未提及 Azure 具體季度收入數字（如 $mn 單位），僅有增長百分比及與新舊預測的對比。
+- 無直接將 Azure 收入增長與公司整體指引中的具體數字進行對比（如公司指引的 Intelli

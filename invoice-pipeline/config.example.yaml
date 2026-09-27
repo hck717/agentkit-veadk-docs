@@ -1,0 +1,50 @@
+# VeADK 配置（官方推薦格式）— example，唔好直接填真 key
+# 複製做 config.yaml 再填返你嘅 credential（config.yaml 已 gitignore，唔會 push）
+# 參考: https://github.com/volcengine/veadk-python
+#
+# 用法:
+#   1. 喺火山方舟控制台 (https://console.volcengine.com/ark) 開通模型 + 建立 API Key
+#   2. 填返下面 model.agent.api_key（volcengine ／ feishu 係可選）
+#   3. 或者全部用環境變數覆蓋，唔寫喺檔入面：
+#      MODEL_AGENT_API_KEY / MODEL_AGENT_NAME / MODEL_AGENT_API_BASE
+#      FEISHU_APP_ID / FEISHU_APP_SECRET / FEISHU_WEBHOOK_URL / FEISHU_ENABLED
+
+# ==================== LLM 模型（默認）====================
+# 注意：VeADK import 時會將 config.yaml 壓平寫入環境變數（例：model.agent.name -> MODEL_AGENT_NAME）。
+# 為咗畀每個 agent 用 agents/configs/*.yaml 自訂模型，呢度唔設 `name`（有 MODEL_AGENT_NAME
+# 環境變數都一樣會覆蓋全部分支）。API Key / Base 係全 project 共用，留喺度。
+model:
+  agent:
+    provider: openai            # VeADK 用 OpenAI 兼容協議連 BytePlus ModelArk
+    api_base: https://ark.ap-southeast.bytepluses.com/api/v3/
+    api_key: <your-modelark-api-key>   # BytePlus ModelArk API Key
+  embedding:
+    name: skylark-embedding-vision-251215
+    api_base: https://ark.ap-southeast.bytepluses.com/api/v3/
+    api_key: <your-modelark-api-key>
+
+# ==================== 數據庫 / 記憶後端（可選）====================
+# self-hosted OpenViking server：LTM 記憶用 backend: openviking 時讀呢度
+database:
+  openviking:
+    url: http://127.0.0.1:1933
+    api_key: <your-openviking-user-token>
+
+# ==================== 火山引擎雲服務（TOS / VikingDB 等，可選）====================
+# 純用 LLM API 嘅話留空就得；用 TOS 儲存 / VikingDB 先需要
+volcengine:
+  access_key: <your-ak>
+  secret_key: <your-sk>
+
+# ==================== 飛書 / Lark 審批通知 ====================
+feishu:
+  channel:
+    app_id: <your-feishu-app-id>
+    app_secret: <your-feishu-app-secret>
+  webhook:
+    url: <your-feishu-webhook-url>
+  approval:
+    enabled: true
+    # 當 Feishu interactive button 被㩒，callback 會 POST 去呢個 URL
+    # 開發可以先用 ngrok expose localhost:8000
+    callback_url: https://your-ngrok-url.ngrok.io/feishu/callback

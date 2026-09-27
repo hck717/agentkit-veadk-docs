@@ -1,0 +1,4 @@
+Deutsche Bank 指 Microsoft F2Q（截至 2026 年 1 月 29 日的季度）的 Azure 按固定匯率計算同比增長 38%，高於指導區間的 37%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。不過，這一增速低於買方預期的約 39%，且若將 2026 財年上半年的所有增量 GPU 容量分配給 Azure，增速可能超過 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+[20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L](viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/)

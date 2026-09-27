@@ -1,0 +1,15 @@
+M: This issuer is, or during the past 12 months has been, a non-investment banking client (securities related services) of Barclays Bank PLC and/or an
+affiliate.
+N: This issuer is, or during the past 12 months has been, a non-investment banking client (non-securities related services) of Barclays Bank PLC and/or
+an affiliate.
+O: Not in use.
+P: A partner, director or officer of Barclays Capital Canada Inc. has, during the preceding 12 months, provided services to the subject company for
+remuneration, other than normal course investment advisory or trade execution services.
+Q: Barclays Bank PLC and/or an affiliate is a Corporate Broker to this issuer.
+R: Barclays Capital Canada Inc. has received compensation for investment banking services from this issuer in the past 12 months.
+S: This issuer is a Corporate Broker to Barclays PLC.
+T: Barclays Bank PLC and/or an affiliate is providing investor engagement services to this issuer.
+U: The equity securities of this Canadian issuer include subordinate voting restricted shares.
+V: The equity securities of this Canadian issuer include non-voting restricted shares.
+Risk Disclosure(s)
+Master limited partnerships (MLPs) are pass-through entities structured as publicly listed partnerships.

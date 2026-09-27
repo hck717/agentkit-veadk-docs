@@ -1,0 +1,12 @@
+Already, we have roughly 10x-ed our investment. OpenAI has contracted an incremental $250
+billion of Azure services. Our rev share, exclusive IP rights and API exclusivity for Azure continue
+until AGI or through 2030, and we have extended the model and product IP rights through 2032.
+And we are also energized to innovate and pursue AI advancements with both talent and
+compute investments that have real-world impact.
+With that, let's turn to our momentum across our AI platform and Copilots as well as with agents.
+We have the most expansive data center fleet for the AI era and we are adding capacity at an
+unprecedented scale. We will increase our total AI capacity by over 80% this year and roughly
+double our total data center footprint over the next two years, reflecting the demand signals we
+see. Just this quarter, we announced the world's most powerful AI data center, Fairwater in
+Wisconsin, which will go online next year and scale to 2 gigawatts alone.
+And we have deployed the world's first large scale cluster of NVIDIA GB300s.

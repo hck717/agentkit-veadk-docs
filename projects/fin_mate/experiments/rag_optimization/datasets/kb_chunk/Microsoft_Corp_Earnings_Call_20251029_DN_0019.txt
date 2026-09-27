@@ -1,0 +1,14 @@
+And earnings per share was $4.13, an increase of 23% and 21% in constant
+currency when adjusted for the impact of our investments in OpenAI.
+FX impact was roughly in line with guidance. Company gross margin percentage was 69%, down
+slightly year-over-year, driven by investments in AI, including the impact of scaling our AI
+infrastructure and the growing usage of our AI product features. This was partially offset by
+ongoing efficiency gains, particularly in Azure and M365 Commercial cloud.
+Operating expenses increased 5% and 4% in constant currency, driven by investments in Cloud
+and AI engineering, including compute capacity and AI talent to support product development
+across the portfolio. Operating margins increased year-over-year to 49% and were ahead of
+expectations with stronger than anticipated results in high-margin businesses this quarter.
+When adjusted for the impact from our investments in OpenAI, other income and expense was
+$401 million as interest income more than offset interest expense, which includes the interest
+payments related to datacenter finance leases. Capital expenditures were $34.9 billion, driven by
+growing demand for our cloud and AI offerings.

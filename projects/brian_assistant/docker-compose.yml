@@ -1,0 +1,24 @@
+services:
+  # OpenViking：開源 Context Database for AI Agents（AGPLv3 自架，唔使 VikingDB cloud）
+  # 呢個係 brian_assistant 專用嘅獨立實例（port 1934、獨立 volume），
+  # 同 fin_mate 嘅 :1933 完全隔離。
+  # storage.vectordb.backend = local（內建 local index），embedding 用宿主機 Ollama。
+  openviking:
+    container_name: brian-assistant-openviking
+    image: ghcr.io/volcengine/openviking:latest
+    ports:
+      - "1934:1934"
+    volumes:
+      - ~/.openviking-brian-assistant:/app/.openviking
+    environment:
+      OPENVIKING_SERVER_PORT: "1934"
+      OPENVIKING_WITH_BOT: "0"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "openviking-entrypoint", "--healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    restart: unless-stopped

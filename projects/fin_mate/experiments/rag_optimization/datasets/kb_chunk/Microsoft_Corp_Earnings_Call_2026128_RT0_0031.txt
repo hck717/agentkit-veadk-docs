@@ -1,0 +1,15 @@
+Operating margins
+should be down slightly year-over-year. Excluding any impact from our investments in OpenAI,
+other income and expense is expected to be roughly $700 million, driven by a fair market gain in
+our equity portfolio and interest income, partially offset by interest expense, which includes the
+interest payments related to data center finance leases.
+And we expect our adjusted Q3 effective tax rate to be approximately 19%. Next, we expect
+capital expenditures to decrease on a sequential basis due to the normal variability from cloud
+infrastructure buildouts and the timing of delivery of finance leases. As we work to close the gap
+between demand and supply, we expect the mix of short-lived assets to remain similar to Q2.
+Now our commercial business. In commercial bookings, we expect healthy growth in the core
+business on a growing expiry base when adjusted for the OpenAI contracts in the prior year.
+As a reminder, the significant OpenAI contract signed in Q2 represents multi-year demand needs
+from them, which will result in some quarterly volatility in both bookings and RPO growth rates
+going forward. Microsoft Cloud gross margin percentage should be roughly 65%, down year-
+over-year, driven by continued investments in AI.

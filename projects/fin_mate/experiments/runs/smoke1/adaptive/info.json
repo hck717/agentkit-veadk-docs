@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 5,
+  "desc": "LLM router 決定查唔查（trap/SKIP 就唔查）"
+}

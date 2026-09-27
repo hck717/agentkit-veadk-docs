@@ -1,0 +1,4 @@
+根據資料，Microsoft（MSFT）F2Q 的 Intelligent Cloud 部分 Y/Y 增長為 28.0%（New Estimates）、27.5%（Old Estimates）、26.2%（New vs. Old），但資料中未明確提及 Azure 的具體增長數據。另外，Intelligent Cloud 部分的公司指引（Company guidance）New Estimates 為 136,139（mn），Old Estimates 為 134,795（mn），New vs. Old 為 +1.0%。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

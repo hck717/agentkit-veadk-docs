@@ -1,0 +1,14 @@
+These kinds of real production scale AI
+deployments are driving Azure's overall growth. And once again, this quarter, Azure took share.
+Now, let's turn to applications and agents we ourselves are building on this platform. We now
+have 900 million monthly active users of our AI features across our products. And our first-party
+family of Copilots now has surpassed 150 million monthly active users across information work,
+coding, security, science, health and consumer. When it comes to information work, we continue
+to innovate with Microsoft 365 Copilot. Copilot is becoming the UI for the agentic AI experience.
+We have integrated chat and agentic workflows into everyday tools like Outlook, Word, Excel,
+PowerPoint and Teams. Just nine months since release, tens of millions of users across Microsoft
+365 customer base are already using chat. Adoption is accelerating rapidly, growing 50% quarter-
+over-quarter and we continue to see usage intensity increase. This quarter, we also introduced
+Agent Mode, which turns single prompts into expert quality Word Documents, Excel
+Spreadsheets, PowerPoint Presentation and then iterate to deliver the final product, much like
+Agent Mode in coding tools today.

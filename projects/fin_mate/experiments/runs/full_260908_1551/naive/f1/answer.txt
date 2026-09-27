@@ -1,0 +1,6 @@
+Deutsche Bank 指 Microsoft F2Q（2026 財年第二季度）嘅 Azure 增長按不變幣種計為同比增長 38%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。呢個增速比指引高出 1 個百分點（指引為 37%），但低於買方預期（買方預期約為 39%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。若果 Microsoft 將 F1H26（2026 財年上半年）所有額外 GPU 容量分配給 Azure，Azure 增速有望超過 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

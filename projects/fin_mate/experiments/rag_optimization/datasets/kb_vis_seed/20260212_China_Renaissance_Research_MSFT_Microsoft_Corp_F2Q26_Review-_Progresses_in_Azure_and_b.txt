@@ -1,0 +1,1174 @@
+s
+1
+China Renaissance Securities (US) Inc. and/or one of its affiliates does and seeks to do business with companies covered in its research reports. Investors should consider this report 
+as only a single factor in making their investment decision.
+ 
+PLEASE SEE ANALYST CERTIFICATION(S) AND IMPORTANT DISCLOSURES BEGINNING IN APPENDIX A
+ 
+February 2, 2026
+Software & Services: Overweight
+Earnings Review
+Microsoft Corp (MSFT US, BUY, TP: US$630.00)
+Target Price: US$630.00
+Price: US$430.29
+Potential up/downside to TP +/-%
++46%
+Price as of close on January 30, 2026.
+Source: FactSet
+Key Changes
+New
+Old
+Diff
+Rating
+BUY
+BUY
+N/A
+Target Price (US$)
+630.00
+630.00
+0%
+2026E EPS (US$)
+17.11
+15.80
+8%
+2027E EPS (US$)
+18.83
+18.72
+1%
+2028E EPS (US$)
+21.79
+21.64
+1%
+Price Performance
+Source: FactSet 
+Note: Consensus estimates displayed, sourced from 
+Visible Alpha. Positive % diff = CR estimate above 
+consensus; negative = CR estimate below consensus.
+S 
+F2Q26 Review: Progresses in Azure and beyond Azure
+•
+F2Q26 results largely in line; Azure growth affected by supply constraints.
+•
+Company achieved solid performance beyond Azure supported by its AI 
+investments. 
+•
+Reiterate BUY and TP of US$630.00 (34x FY27E P/E).
+Azure and capital investments: Azure delivered 39% (38% in forex neutral) YoY growth 
+in the quarter, slightly above the 37% guidance but below Visible Alpha’s consensus of 
+40%. Management guided 37-38% YoY growth for the next quarter, also below 39% 
+consensus. Capex of the quarter was US$37.5bn (vs.US$34.9bn last quarter), of which 
+2/3 was for CPUs and GPUs (increased from ~50% mix last quarter yet is expected to 
+remain at this level for next quarter, per mgmt), and the remaining 1/3 of spending is for 
+long-term assets such as datacenters. The company added about 1 gigawatt of total 
+capacity this quarter but still faces supply constraints as demand remains strong. 
+It’s not just Azure. As management highlighted on the call, its capex spending is for 
+multiple purposes: 1) first-party AI usage services such as M365 Copilot and GitHub 
+Copilot, 2) internal R&D teams, and 3) Azure business. In the continuing situation of supply 
+constraints, Azure cannot fully expand its business to serve all the potential demand on 
+the market, which would have helped it deliver over 40% growth for the quarter. 
+Management also disclosed incremental achievements in other businesses supported by 
+its AI investments. For example, its paid Microsoft 365 Copilot seats reached 15mn in the 
+quarter, and the number of business customers with over 35k seats tripled YoY. By nature, 
+SaaS projects/subscriptions usually have higher margin than pure cloud rental business. 
+F2Q26 financial highlights: Total revenue growth was 17% YoY, 1% higher than FactSet 
+consensus. Total commercial Remaining Performance Obligation (RPO) was US$625bn 
+by quarter end, +230% YoY, with weighted avg duration of 2.5 years. Within that, about 
+45% is from the recent multi-year Azure services commitment from OpenAI. The remaining 
+55% is from a broad-based customer base and represents a healthy 28% YoY growth. 
+Operating margin was 47.1% for the quarter, vs 45.5% in F2Q25. Management anticipates 
+FY26 full-year operating margin to be slightly up YoY, which would mark FY26 as the third 
+year of margin expansion despite AI investments. 
+Financial revisions: We keep our FY26E/ 27E revenue and operating income forecasts 
+largely unchanged. FY26 GAAP net income/ EPS now includes a US$4.5bn/ US$0.61 
+impact from its OpenAI investment net gain in other income in F1H26. Our FY26E capex 
+forecast remains at ~US$150bn.
+Reiterate BUY and TP of US$630.00, based on 34x FY27E P/E (prior: 40x FY26E) to 
+reflect strong Azure momentum. Risks include: slower AI adoption, lagging 
+innovation/competition in AI, weak macro picture, regulatory hurdles, and higher-than-
+expected operating expenditure.
+Note: Historical valuation ratios calculated on yearly average price.  
+52-Week High/Low (US$)
+555.45/344.79
+Market Cap (US$mn)
+3,209,963
+Shares Outstanding (mn)
+7,460
+3-mth ADTV (US$mn)
+12,621
+Free Float (%)
+100
+Major Shareholder (%)
+Vanguard Group
+9
+Blackrock
+7
+Jan-25
+May-25
+Jul-25
+Oct-25
+Jan-26
+300.0
+362.5
+425.0
+487.5
+550.0
+Microsoft Corp
+NASDAQ
+China Renaissance vs Consensus (% Diff)
+2026E
+2027E
+Rev (US$mn)
+323,767 (+1%)
+371,303 (+1%)
+EPS (US$)
+15.49 (+10%)
+18.13 (+4%)
+Research Team
+Ella Ji, CFA
+China Renaissance Securities (US) Inc.
++1 212 554 2966
+ellaji@chinarenaissance.com
+Summary Financial Data
+FY to Jun 30
+2024A
+2025A
+2026E
+2027E
+2028E
+Revenue (US$mn)
+245,122
+281,724
+327,727
+375,918
+430,289
+EBIT (US$mn)
+107,787
+123,627
+155,031
+170,138
+196,321
+Net Income (US$mn)
+88,136
+101,832
+127,126
+139,513
+160,983
+EPS (US$)
+11.86
+13.76
+17.11
+18.83
+21.79
+P/E (x)
+31.9
+30.8
+25.1
+22.8
+19.7
+
+
+February 2, 2026
+Earnings Review
+2
+Financial analysis 
+Exhibit 1: MSFT – F2Q26 actual vs. consensus estimates
+Source: Company data, FactSet consensus estimates
+(US$mn)
+Actual
+Consensus
+% difference 
+Total revenue 
+81,273
+80,309
+1%
+% change YoY
+17%
+15%
+Segment revenue 
+IC
+32,907
+32,403
+2%
+% change YoY
+29%
+27%
+PBP
+34,116
+33,405
+2%
+% change YoY
+16%
+13%
+MPC
+14,250
+14,369
+-1%
+% change YoY
+-3%
+-2%
+Key product revenue growth % YoY (CC)
+Azure
+39%
+40%
+M365 Commerical Cloud 
+16%
+14%
+M365 Consumer Cloud 
+29%
+20%
+Gross profit 
+55,295
+53,855
+3%
+% gross margin
+68.0%
+67%
+Operating income
+38,275
+36,562
+5%
+% operating margin 
+47.1%
+46%
+Net income
+38,458
+28,858
+33%
+% net margin 
+47.3%
+36%
+EPS (diluted)
+5.18
+3.83
+35%
+
+
+February 2, 2026
+Earnings Review
+3
+Estimate revisions
+Exhibit 2: Microsoft – Estimate revisions 
+Source: CRSUS estimates
+We largely keep our FY26E/ 27E revenue and operating income forecasts unchanged. Our FY26E 
+net income and EPS estimates are increased by 8% due to the gain from OpenAI’s recapitalization 
+recorded in other income, which contributed US$4.5bn in net income and US$0.61 in EPS for 
+F1H26. 
+Valuation
+We value Microsoft using a P/E-based methodology as we believe earnings and earnings growth 
+are the most important financial factors for the company, and well reflect Microsoft’s strategy and 
+execution.
+We roll over our target P/E valuation to FY27. We currently value MSFT at 34x FY27E P/E, vs 40x 
+FY26E P/E previously. We remain constructive about Microsoft’s earnings growth sustainability and 
+AI leadership among global tech companies.
+Exhibit 3: Microsoft – P/E valuation
+Note: Price as of Jan 30, 2026 close. Source: Bloomberg, company data, CRSUS estimates
+(US$mn)
+FY26E
+FY27E
+FY28E
+FY26E
+FY27E
+FY28E
+FY26E
+FY27E
+FY28E
+Total revenue 
+327,727
+375,918
+430,289
+326,233
+374,383
+428,175
+0%
+0%
+0%
+% change YoY
+16%
+15%
+14%
+16%
+15%
+14%
+IC revenue
+135,987
+167,480
+205,633
+133,773
+165,219
+202,788
+2%
+1%
+1%
+% change YoY
+28%
+23%
+23%
+26%
+24%
+23%
+PBP revenue
+137,052
+151,157
+165,255
+136,698
+150,757
+164,806
+0%
+0%
+0%
+% change YoY
+13%
+10%
+9%
+13%
+10%
+9%
+MPC revenue
+54,688
+57,281
+59,401
+55,761
+58,407
+60,581
+-2%
+-2%
+-2%
+% change YoY
+0%
+5%
+4%
+2%
+5%
+4%
+Gross profit 
+222,537
+253,745
+290,445
+219,812
+252,708
+291,159
+1%
+0%
+0%
+% Gross margin
+68%
+68%
+68%
+67%
+68%
+68%
+Operating income
+152,220
+172,938
+198,521
+151,819
+172,046
+197,359
+0%
+1%
+1%
+% Operating margin
+46%
+46%
+46%
+47%
+46%
+46%
+Net income
+127,126
+139,513
+160,983
+117,390
+138,781
+160,030
+8%
+1%
+1%
+% Net margin
+93%
+83%
+78%
+36%
+37%
+37%
+EPS (basic)
+17.11
+18.83
+21.79
+15.80
+18.72
+21.64
+8%
+1%
+1%
+EPS (diluted)
+17.04
+18.76
+21.70
+15.74
+18.65
+21.55
+8%
+1%
+1%
+Capex
+151,494
+159,758
+165,219
+150,826
+159,118
+164,422
+0%
+0%
+0%
+% change YoY
+-55%
+89%
+83%
+-67%
+149%
+92%
+New estimates
+Old estimates
+% change
+US$(mn)
+FY27E
+139,513
+Target PE multiple 
+34
+Target market cap 
+4,701,602
+No. of shares (mn)
+7,460
+Target price (US$)
+630.00
+Current price (US$)
+430.29
+Potential upside 
+46%
+
+
+February 2, 2026
+Earnings Review
+4
+Risks
+•
+Slower-than-expected AI adoption. Slower-than-expected AI adoption by enterprises and 
+consumers alike would pose a risk to our revenue and earnings forecasts and likely dampen 
+sentiment on Microsoft’s investment value.
+•
+Innovation and competition risks in AI technology development. Microsoft’s leading position 
+in AI is built on its generative-AI capabilities. Any disruption from competitors or innovation from 
+other streams of AI technology in this rapidly developing field may weaken Microsoft’s leadership 
+in this area, posing a risk to our forecasts for revenue growth.
+•
+Macro weakness. Macro headwinds weigh on IT spending in both the enterprise and personal 
+segments, and Microsoft has exposure to most verticals and geographies. Any downturn in the 
+global macroeconomic environment would likely lead to weaker revenue and earnings growth 
+for Microsoft.
+•
+Regulatory risks. Microsoft operates in a complex regulatory environment, subject to various 
+laws and regulations across the locations it operates in, regarding AI, data privacy, antitrust, 
+intellectual property, taxation and ESG, among others. Microsoft may face legal challenges or 
+investigations from regulators across the world, which may cause unexpected disruption to its 
+business strategy, revenue and earnings growth.
+•
+Higher-than-expected operating spending. Ongoing improvement of operational efficiency 
+has been one of the key drivers of Microsoft’s earnings growth in recent years. We forecast 
+operating margin to continue to improve during our forecast period. Higher-than-expected 
+operating expenditure would weigh on Microsoft’s earnings growth outlook and pose a risk to our 
+forecasts.
+
+
+February 2, 2026
+Earnings Review
+5
+Financials
+Note: Historical valuation ratios calculated on yearly average price. 
+Source: Company data, CRSUS estimates 
+Year to Jun 30
+Income Statement
+(US$mn)
+2025A
+2026E
+2027E
+2028E
+More Personal Computing
+54,649
+54,688
+57,281
+59,401
+Productivity & Business Process
+120,810
+137,053
+151,157
+165,255
+Intelligent Cloud
+106,265
+135,987
+167,480
+205,633
+Sales
+281,724
+327,727
+375,918
+430,289
+Cost of Goods Sold
+(87,831)
+(105,190)
+(122,173)
+(139,844)
+Gross Profit
+193,893
+222,537
+253,745
+290,445
+SG&A (incl. R&D)
+(65,365)
+(70,317)
+(80,806)
+(91,924)
+EBIT
+123,627
+155,031
+170,138
+196,321
+EBITDA
+157,780
+200,972
+238,307
+286,250
+Net interest income
+0
+0
+0
+0
+Net interest expense
+0
+0
+0
+0
+Pretax profit
+123,627
+155,031
+170,138
+196,321
+Income Tax
+(21,795)
+(27,906)
+(30,625)
+(35,338)
+Reported net income
+101,832
+127,126
+139,513
+160,983
+EPS (reported) (US$)
+13.76
+17.11
+18.83
+21.79
+Balance Sheet
+(US$mn)
+2025A
+2026E
+2027E
+2028E
+Current assets
+191,131
+195,100
+231,004
+303,256
+Cash & equivalents
+94,565
+80,468
+94,695
+152,242
+Account receivables
+69,905
+73,756
+93,090
+97,888
+Inventories
+938
+4,826
+1,869
+5,794
+Other current assets
+25,723
+36,050
+41,351
+47,332
+Non-current assets
+399,394
+498,201
+587,131
+659,368
+PPE
+212,053
+312,686
+400,516
+471,311
+Intangible assets
+22,604
+22,524
+23,284
+24,778
+Goodwill
+119,220
+119,220
+119,220
+119,220
+Other non-current assets
+30,917
+29,171
+29,511
+29,459
+Total assets
+590,525
+693,301
+818,135
+962,623
+Total Current Liabilities
+134,007
+155,316
+174,807
+195,097
+ST interest bearing debt
+2,999
+9,249
+6,249
+3,249
+Unearned revenue
+64,555
+75,096
+86,139
+98,598
+Accounts Payable
+27,724
+31,643
+37,309
+41,616
+LT interest bearing debt
+39,688
+30,438
+30,438
+30,438
+Other Liabilities
+79,756
+84,083
+88,624
+93,433
+Total Liabilities
+260,662
+277,004
+300,988
+326,031
+Common Stock/Ordinary Capital
+102,979
+102,979
+102,979
+102,979
+Share Premium
+0
+0
+0
+0
+Retained Earnings
+226,884
+313,318
+414,168
+533,614
+Shareholders Equity
+329,863
+416,297
+517,147
+636,593
+Minority Interest
+0
+0
+0
+0
+Total Liabilities & Sh. Equity
+590,525
+693,301
+818,135
+962,623
+Cash Flow
+(US$mn)
+2025A
+2026E
+2027E
+2028E
+Reported net income
+101,832
+127,126
+139,513
+160,983
+Depreciation & amortization
+34,153
+45,941
+68,168
+89,929
+Net interest (income) / expenses
+609
+3,500
+3,500
+3,500
+Other non-cash items (+/-)
+0
+0
+0
+0
+Others (+/-)
+4,918
+6,573
+5,201
+5,861
+Change in Working Capital
+(5,350)
+(7,050)
+(3,735)
+4,029
+Cash Flow from operations
+136,162
+176,089
+212,648
+264,303
+Capex
+(88,200)
+(151,494)
+(159,758)
+(165,219)
+Acquisitions & Investments
+(4,387)
+0
+0
+0
+Disposal of Fixed Assets & Invst
+0
+0
+0
+0
+Other Investing Activities
+19,988
+5,000
+3,000
+3,000
+Net Cash Flow from Investments
+(72,599)
+(146,494)
+(156,758)
+(162,219)
+Dividends paid
+(24,571)
+(27,042)
+(29,663)
+(32,538)
+Change in Debt
+(8,962)
+(3,000)
+(3,000)
+(3,000)
+Equity raised / (purchased)
+2,056
+0
+0
+0
+Other Financial Activities
+(20,222)
+(13,650)
+(9,000)
+(9,000)
+Net Cash Flow from Financing
+(51,699)
+(43,692)
+(41,663)
+(44,538)
+Net Cash Flow
+11,927
+(14,097)
+14,227
+57,546
+Free Cash Flow
+47,962
+24,595
+52,890
+99,084
+Key Assumptions
+2025A
+2026E
+2027E
+2028E
+Azure YoY growth (%)
+34.1
+38.9
+30.0
+28.0
+Financial Ratios
+2025A
+2026E
+2027E
+2028E
+YoY (%)
+Revenue
+14.9
+16.3
+14.7
+14.5
+Gross Profit
+13.4
+14.8
+14.0
+14.5
+EBITDA
+21.3
+27.4
+18.6
+20.1
+Net Profit
+15.5
+24.8
+9.7
+15.4
+EPS
+16.0
+24.4
+10.1
+15.7
+Profitability (%)
+Gross Margin
+68.8
+67.9
+67.5
+67.5
+EBITDA Margin
+56.0
+61.3
+63.4
+66.5
+EBIT Margin
+43.9
+47.3
+45.3
+45.6
+Net Margin
+36.1
+38.8
+37.1
+37.4
+ROE
+30.9
+30.5
+27.0
+25.3
+ROA
+17.2
+18.3
+17.1
+16.7
+Liquidity (x)
+Current ratio
+1.4
+1.3
+1.3
+1.6
+Quick ratio
+1.4
+1.2
+1.3
+1.5
+Valuation Ratios (x)
+P/E
+30.8
+25.1
+22.8
+19.7
+P/B
+9.5
+7.7
+6.2
+5.0
+P/S
+11.4
+9.8
+8.5
+7.5
+
+
+February 2, 2026
+Earnings Review
+6
+Appendix A
+Analyst Certification
+I, Ella Ji, CFA, certify that the views expressed in this research report accurately reflect my personal views about any and all of the 
+subject securities or issuers featured in this report. Furthermore, no part of my compensation was, is, or will be directly or indirectly 
+related to the specific recommendations or views expressed in this report.
+Important Disclosures
+Legal entities disclosures for global distribution
+China Renaissance Securities (US) Inc. (“CRSUS”) is registered with the Securities and Exchange Commission as a U.S. broker-
+dealer under Section 15 of the Securities Exchange Act of 1934 and is a member of FINRA and SIPC (http://www.sipc.org). CRSUS
+is located at 295 Madison Avenue, 18th Floor, New York, NY 10017.  China Renaissance Securities (Hong Kong) Limited (“CRSHK”) 
+is licensed by the Securities and Futures Commission for the conduct of dealing in securities, advising on securities, and advising on
+corporate finance. CRSHK is located at Units 8107-08, Level 81 International Commerce Centre, 1 Austin Road West, Kowloon, Hong
+Kong. China Renaissance Securities (China) Co., Ltd. (“CR Securities”) is licensed by the China Securities Regulatory Commission
+for conducting securities investment consulting business. CR Securities is located at 23rd Floor, East Tower, Raffles City The Bund,
+1089 East Daming Road, 200082 Shanghai, China. China Renaissance (Singapore) Pte. Ltd. (“CR Singapore”) is licensed by the
+Monetary Authority of Singapore under the Securities and Futures Act 2001 (“SFA”) to deal in capital markets products that are 
+securities and holds an exemption under the Financial Advisers Act 2001 (“FAA”) allowing it to provide financial advice and issue or 
+promulgate research analyses or research reports. CR Singapore is located at 12 Marina View, #11-01, Asia Square Tower 2, 
+Singapore 018961. (CRSUS, CRSHK, CR Securities and CR Singapore are referred to as “China Renaissance” collectively).
+The research group of China Renaissance produces and distributes research products for clients of China Renaissance on a global 
+basis. Analysts based in China Renaissance offices around the world produce equity research on industries and companies, and 
+research on macroeconomics and portfolio strategy. This research report is disseminated in Hong Kong by CRSHK; in the United
+States of America by CRSUS; and in Singapore by CR Singapore. CRSUS has approved and agreed to take responsibility for any
+research report prepared by CRSHK or CR Securities if and to the extent CRSUS distributes it in the United States.
+Country and Region-specific Disclosures
+Distribution in the United States: See Company-specific Regulatory Disclosures below for any of the following disclosures required
+for companies referred to in this report: manager or co-manager in a pending transaction; 1% or other ownership; compensation for
+certain services; types of client relationships; managed/co-managed public offerings in prior periods; directorships; for equity 
+securities, market making and/or specialist role. China Renaissance trades or may trade as a principal in debt securities (or in related
+derivatives) of issuers discussed in this report. In addition to 1% ownership positions in covered companies that are required to be 
+specifically disclosed in this report, China Renaissance, its affiliates, and their respective officers, directors or employees, other than 
+the analyst(s) who prepared this report, may have a long position of less than 1% or a short position or make purchases or sales as
+principal or agent in the securities discussed herein, related securities or in options, futures or other derivative instruments based
+thereon. Recipients of this report are advised that any or all of the foregoing arrangements, as well as more specific disclosures set 
+forth below, may at times give rise to potential conflicts of interest.
+Unless prohibited by the provisions of Regulation S of the U.S. Securities Act of 1933, this publication is distributed in the U.S. in
+accordance with the provisions of Rule 15a-6, under the U.S. Securities Exchange Act of 1934 for Major Institutional Investors, as 
+such term is defined in Rule 15a-6. To the extent that this publication is distributed to U.S. Institutional Investors other than Major
+Institutional Investors, this publication is distributed by CRSUS but not CRSHK or CR Securities (whether directly or indirectly). Any 
+transactions by U.S. persons with CRSHK or CR Securities in any security discussed in this research report will be effected through 
+CRSUS, in compliance with the requirements of paragraph (a)(3) of Rule 15a-6 of the U.S. Securities Exchange Act of 1934.
+The following are additional required disclosures: Ownership and material conflicts of interest: China Renaissance’s policy 
+prohibits its analysts, professionals reporting to analysts and members of their households from owning positions in securities of any
+company in the analyst’s area of coverage. Analyst compensation: Analysts are paid in part based on overall revenues of China 
+Renaissance, which includes investment banking revenues. Analyst as officer or director: China Renaissance’s policy prohibits its
+analysts, persons reporting to analysts or members of their households from serving as an officer, director, advisory board member 
+or employee of any company in the analyst’s area of coverage. Non-U.S. Analysts: Non-U.S. analysts are not registered or qualified
+as research analysts with FINRA. They may not be associated persons of CRSUS and therefore may not be subject to FINRA Rule 
+2241 or FINRA Rule 2242 restrictions on communications with subject company, public appearances and trading securities held by 
+the analyst.
+
+
+February 2, 2026
+Earnings Review
+7
+Distribution in Hong Kong: This research report has been prepared solely for professional investors (as defined in the Securities 
+and Futures Ordinance (CAP 571 of the Laws of Hong Kong) whose business involves the acquisition, disposal or holding of securities
+whether as principal or agent. This research report is not intended for disclosure to, and should not be relied upon by, any person 
+other than a professional investor. For professional investors in Hong Kong, please contact CRSHK for all matters and queries relating
+to this report.
+See Company-specific Regulatory Disclosures below for the disclosures which are made by CRSHK as per paragraph 16 of the Code
+of Conduct for Persons Licensed by or Registered with the Securities and Futures Commission (“SFC Code of Conduct”), and 
+capitalized terms used below bear the same meanings as defined in paragraph 16 of the SFC Code of Conduct. A copy of the SFC
+Code of Conduct can be found on: www.sfc.hk.
+Distribution in Singapore: This research report is distributed in Singapore only to institutional investors and accredited investors as
+defined in the SFA. Recipients of this report should contact representatives of CR Singapore at EnquiriesSG@chinarenaissance.com
+in respect of any matters arising from, or in connection with, this research report. By virtue of distributing only to the aforementioned
+institutional investors and accredited investors, CR Singapore does not accept legal responsibility for the contents of the report
+(pursuant to Regulation 32C(1)(d) of the Financial Advisers Regulations). CR Singapore and/or its representatives are exempt from
+complying with certain requirements under the FAA pursuant to certain exemptions under the FAA and one or more subsidiary
+legislations of the FAA when providing financial advisory services to an institutional investor or an accredited investor. 
+Analyst Conflict of Interest
+The research analyst(s) responsible for the preparation of this report receives compensation based upon a variety of factors, including
+the quality and accuracy of research, internal/client feedback, and overall firm revenues, which include investment banking revenues.
+Research analysts do not receive compensation based upon revenues from specific investment banking transactions.
+Company-specific Regulatory Disclosures 
+In the next three months, China Renaissance expects to receive or intends to seek compensation for investment banking services 
+from :  Microsoft Corp (MSFT US)
+Distribution of Ratings and Investment Banking Relationships
+Below is the distribution of research recommendations as of February 02, 2026.
+China Renaissance assigns stock ratings of Buy, Hold and Sell. See ‘Stock ratings and definitions’ and ‘Sector ratings and definitions’
+below. 
+Stock ratings and definitions: Stock ratings of Buy, Hold and Sell have a time horizon of twelve to eighteen months from the 
+publishing date of the initiation or subsequent rating/price target change report issued for the subject company’s stock. The following
+rating definitions were last updated on December 31, 2019:
+Buy – The expected return on the subject company’s stock price should outperform the typical benchmark market index for the subject
+company’s primary listing exchange (e.g. the S&P 500 for U.S.-listed stocks) over the above-defined time horizon from the publishing
+date of the initiation of coverage or subsequent report announcing a rating change.
+Hold – The stock price of the subject company is not expected to either appreciate or depreciate meaningfully from the typical 
+benchmark market index for the subject company’s primary listing exchange (e.g. the S&P 500 for U.S.-listed stocks) during the 
+above-stated time horizon.
+Sell – The expected return on the subject company’s stock price should underperform the typical benchmark market index for the 
+subject company’s primary listing exchange (e.g. the S&P 500 for U.S.-listed stocks) over the above-defined time horizon from the 
+publishing date of the initiation of coverage or subsequent report announcing a rating change.
+Rating
+Count
+Percent
+IB Count
+IB%
+Buy
+150
+77%
+4
+3%
+Hold
+43
+22%
+0
+0%
+Sell
+2
+1%
+0
+0%
+
+
+February 2, 2026
+Earnings Review
+8
+Rating Suspended – China Renaissance has temporarily suspended the rating and, if applicable, the price target, for the subject 
+company’s stock because there is not a sufficient fundamental basis for determining, or there are legal, regulatory or policy constraints
+around publishing, an investment rating or price target. The previous rating and, if applicable, the price target, should no longer be 
+relied upon. A Rating Suspended designation is not a recommendation or a rating.
+Not Covered – a company for which China Renaissance research report has not been published.
+Sector ratings and definitions: Sector Ratings of Overweight, Neutral and Underweight are applied to the designated sector 
+coverage group with a time horizon of twelve to eighteen months from the date of report publication. The following rating definitions 
+were last updated on January 19, 2019:
+Overweight – Expect sector to outperform the relevant market. Neutral – Expect sector to perform in line with the relevant market. 
+Underweight – Expect sector to underperform the relevant market.
+Stocks Mentioned (Stock Code / Date / Price / Rating)
+Microsoft Corp (MSFT US, Jan 30, 2026, US$430.29, BUY)
+History of investment rating and target price – Microsoft Corp
+Valuation and Risks - Microsoft Corp (MSFT US)
+Valuation: Our target price of US$630.00 is based on 34x FY27E net income.
+Risks: Key downside risks include: 1) slower-than-expected AI adoption; 2) innovation and competition risks in AI technology 
+development; 3) macro weakness; 4) regulatory risks; and 5) higher-than-expected operating expenditure.
+General Disclosures
+This research report is for institutional investors and accredited investors only. If you are an unintended recipient, you are requested 
+to immediately notify and directly return this report to China Renaissance.
+Other than disclosures relating to China Renaissance, this research report is based on current public information that we consider 
+reliable, but we do not represent that any of the information contained herein is accurate, complete or up to date, nor shall China 
+Renaissance have any responsibility to update any opinions or other information contained herein. The information, opinions, 
+estimates and forecasts contained herein are as of the date hereof and are subject to change without prior notification. We seek to 
+update our research report as appropriate, but various regulations may prevent us from doing so. Other than certain industry reports 
+to be published on a periodic basis, the large majority of reports are published at irregular intervals as appropriate.
+China Renaissance conducts a global integrated investment banking, investment management, and brokerage business. We have 
+investment banking and other business relationships with a substantial percentage of the companies covered by our research group.
+Date
+CP (US$)
+TP (US$)
+Rating
+03-Nov-25
+514.33
+630.00
+Buy
+03-Aug-25
+535.64
+607.00
+Buy
+06-May-25
+433.31
+519.00
+Buy
+28-Apr-25
+391.16
+510.00
+Buy
+04-Feb-25
+412.37
+511.00
+Buy
+28-Jan-25
+447.20
+506.00
+Buy
+31-Jul-24
+418.35
+510.00
+Buy
+24-Jul-24
+428.90
+520.00
+Buy
+29-Apr-24
+402.25
+470.00
+Buy
+17-Apr-24
+404.27
+480.00
+Buy
+31-Jan-24
+397.58
+487.00
+Buy
+04-Dec-23
+372.52
+466.00
+Buy
+XLFT
+C20542
+KEY
+D,0
+DIM
+11
+0
+132
+Disc_PriceRCODE
+Microsoft Corp (MSFT US) - Rating Plotter as at 02 Feb 2026
+02/23
+08/23
+02/24
+08/24
+02/25
+08/25
+200
+250
+300
+350
+400
+450
+500
+550
+600
+650
+BUY
+
+
+February 2, 2026
+Earnings Review
+9
+Our salespeople, traders, and other professionals may provide oral or written market commentary or trading strategies to our clients 
+and principal trading desks that reflect opinions that are contrary to the opinions expressed in this research report. Our asset 
+management area and investing businesses may make investment decisions that are inconsistent with the recommendations or views
+expressed in this research report.
+The analysts named in this report may have from time to time discussed with our clients, including China Renaissance salespersons
+and traders, or may discuss in this report trading strategies that reference catalysts or events that may have a near-term impact on 
+the market price of the equity securities discussed in this report, which impact may be directionally counter to the analysts’ published
+price target expectations for such stocks. Any such trading strategies are distinct from and do not affect the analysts’ fundamental 
+equity rating for such stocks, which reflects a stock's return potential relative to its coverage group as described herein.
+We and our affiliates, officers, directors, and employees, excluding research analysts named in this report, may from time to time 
+have long or short positions in, act as principal in, and buy or sell, the securities or derivatives, if any, referred to in this research 
+report.
+The views attributed to third-party presenters at China Renaissance arranged conferences, including individuals from other parts of 
+China Renaissance, do not necessarily reflect those of the research group and are not an official view of China Renaissance.
+Any third party referenced herein, including any salespeople, traders and other professionals or members of their household, may 
+have positions in the products mentioned that are inconsistent with the views expressed by analysts named in this report.
+This research report is not an invitation or offer to sell or the solicitation of an offer to buy any security or related financial instrument.
+Any security or related financial instrument discussed herein may not be eligible for distribution or sale in all jurisdictions and/or to all
+types of investors. This research report is provided for information purposes only. It does not constitute a personal recommendation 
+or take into account the particular investment objectives, financial situations, or needs of individual clients. Clients should consider 
+whether any advice or recommendation in this research report is suitable for their particular circumstances and, if appropriate, seek
+professional advice, including tax advice. The price and value of investments referred to in this research report and the income from
+them may fluctuate. Past performance is not a guide to future performance, future returns are not guaranteed, and a loss of original 
+capital may occur. Fluctuations in exchange rates could have adverse effects on the value or price of, or income derived from, certain
+investments.
+Certain transactions, including those involving futures, options, and other derivatives, give rise to substantial risk and are not suitable
+for all investors. Investors should review current options disclosure documents, which are available from China Renaissance sales 
+representatives or at http://www.theocc.com/about/publications/character-risks.jsp.
+Transaction costs may be significant in option strategies calling for multiple purchase and sales of options such as spreads. Supporting
+documentation will be supplied upon request.
+All research reports are disseminated and available to all clients simultaneously through electronic publication to our internal client 
+websites. Not all research content is redistributed to our clients or available to third-party aggregators, nor is China Renaissance 
+responsible for the redistribution of our research by third party aggregators. For research, models or other data available on a particular
+security, please contact your China Renaissance sales representative.
+No part of this report may be reproduced or redistributed in any manner without the written permission of China Renaissance. China
+Renaissance specifically prohibits the redistribution of this report, via the Internet or otherwise, and accepts no liability whatsoever for
+the actions of third parties in this respect.
+Disclosure information is also available from Compliance, 295 Madison Avenue, 18th Floor, New York, NY 10017 or at 
+https://research.chinarenaissance.com/en/disclaimer.
+©2026. China Renaissance.
+All rights reserved. This publication or any portion hereof shall not be sold, reprinted or redistributed without the prior written consent 
+of China Renaissance.

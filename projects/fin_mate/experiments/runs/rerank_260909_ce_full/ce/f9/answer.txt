@@ -1,0 +1,5 @@
+Microsoft Cloud revenue surpassed $50 billion in revenue for the first time in the quarter mentioned in [1] <Microsoft_Corp_Earnings_Call_2026128_RT00000>, up 26% year-over-year. In [2] <Microsoft_Corp_Earnings_Call_20251029_DN0000>, it was stated that Microsoft Cloud revenue surpassed $49 billion in the fiscal year start, up 26% year-over-year. However, the question specifically refers to "F2Q26 call" (likely fiscal 2026 second quarter), and the first data point for Q2 2026 is not explicitly stated, but the annualized Q2 2026 figure from [1] is $50 billion with 26% YoY growth. 
+
+## 來源
+[1] <Microsoft_Corp_Earnings_Call_2026128_RT00000>
+[2] <Microsoft_Corp_Earnings_Call_20251029_DN0000>

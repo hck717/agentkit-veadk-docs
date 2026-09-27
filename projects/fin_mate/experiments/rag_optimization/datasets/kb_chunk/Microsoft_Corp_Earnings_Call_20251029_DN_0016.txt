@@ -1,0 +1,17 @@
+Cloud migrations are accelerating. In data and analytics, Fabric revenue grew
+60%, which is faster than any other data and analytics platform in the industry. We now have
+28,000 paid Fabric customers.
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 4 of 17
+
+
+In databases, SQL DB, hyperscale revenue was up nearly 75%, 50% in Cosmos DB. In business
+applications, Dynamics 365 gained share. In security, our end-to-end stack is now informed by
+100 trillion daily signals, 1 billion monthly active users of Entra, 16 billion Copilot interactions
+audited by Purview, up 72% quarter-over-quarter, 40,000 sentinel customers and we took share
+across all categories we serve in security.
+In LinkedIn, nearly 1.3 billion members. And finally, in gaming, we expanded our reach across every
+endpoint focused on our high margin content and services.

@@ -1,0 +1,70 @@
+consensus estimates
+Source: Company data, FactSet consensus estimates
+(US$mn)
+Actual
+Consensus
+% difference 
+Total revenue 
+81,273
+80,309
+1%
+% change YoY
+17%
+15%
+Segment revenue 
+IC
+32,907
+32,403
+2%
+% change YoY
+29%
+27%
+PBP
+34,116
+33,405
+2%
+% change YoY
+16%
+13%
+MPC
+14,250
+14,369
+-1%
+% change YoY
+-3%
+-2%
+Key product revenue growth % YoY (CC)
+Azure
+39%
+40%
+M365 Commerical Cloud 
+16%
+14%
+M365 Consumer Cloud 
+29%
+20%
+Gross profit 
+55,295
+53,855
+3%
+% gross margin
+68.0%
+67%
+Operating income
+38,275
+36,562
+5%
+% operating margin 
+47.1%
+46%
+Net income
+38,458
+28,858
+33%
+% net margin 
+47.3%
+36%
+EPS (diluted)
+5.18
+3.83
+35%

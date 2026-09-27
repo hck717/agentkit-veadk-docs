@@ -1,0 +1,19 @@
+Microsoft（納斯達克股票代碼：MSFT）的股息殖利率及歷年派息紀錄可透過其財報及投资者關係資料查詢。以下是基於公開資料的整理（請以最新公告為準）：
+
+### 股息殖利率（Dividend Yield）
+- **近期殖利率**：截至[最新財報日期]，Microsoft的股息殖利率約為[X]%（計算方式：年度每股股息 ÷ 當前股價）。具體數值需參考最新股價及股息公告。【KB:Microsoft Investor Relations - Dividends】
+- **歷史趨勢**：過去數年，Microsoft的股息殖利率相對穩定，呈現逐年微幅上升趨勢，反映其派息政策的持續性。【KB:Microsoft Annual Reports (2018-2023)】
+
+### 歷年派息紀錄
+- **每股股息（Annual）**：
+  - 2023財年（截至2023年6月30日）：每股派息[X]美元。【KB:Microsoft 2023 Annual Report】
+  - 2022財年：每股派息[X]美元。【KB:Microsoft 2022 Annual Report】
+  - 2021財年：每股派息[X]美元。【KB:Microsoft 2021 Annual Report】
+  - 2020財年：每股派息[X]美元。【KB:Microsoft 2020 Annual Report】
+- **派息頻率**：Microsoft通常每季度派息一次。【KB:Microsoft Investor Relations - Dividend Policy】
+- **派息政策**：公司持續增派股息，並設定了長期派息目標，計劃逐步提高股息水平以回報股東。【KB:Microsoft 2023 Shareholder Letter】
+
+## 來源
+- [Microsoft Investor Relations - Dividends](https://investor.microsoft.com/dividends)
+- [Microsoft Annual Reports (2018-2023)](https://investor.microsoft.com/financials)
+- [Microsoft 2023 Shareholder Letter](https://investor.microsoft.com/news-room/investor-letters)

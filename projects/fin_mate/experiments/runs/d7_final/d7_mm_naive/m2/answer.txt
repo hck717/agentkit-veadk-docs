@@ -1,0 +1,4 @@
+因為Agent 365提供了代理登記冊/代理ID（在Entra之中）、可觀察性、風險信號等功能，這些都是代理型 adoption 的重要前提條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。而E7 SKU包含了M365 E5、Entra Suite、Agent 365和M365 Copilot，其中Entra Suite等安全相關套件有助于保障代理型AI應用的安全，從而促進其 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。
+
+## 來源
+[1] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt>

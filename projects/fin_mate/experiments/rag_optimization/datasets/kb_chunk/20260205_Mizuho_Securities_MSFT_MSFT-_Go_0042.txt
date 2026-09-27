@@ -1,0 +1,17 @@
+Company Report
+Microsoft Corporation (MSFT)
+Companies Mentioned (prices as of 1/28/2026)
+Atlassian Corp Plc (TEAM- Outperform $134.76)
+Confluent, Inc. (CFLT- Neutral $30.53)
+CrowdStrike Holdings, Inc. (CRWD- Neutral $469.19)
+Fortinet, Inc. (FTNT- Underperform $82.08)
+OpenAI Global, LLC (OpenAI Global, LLC)
+Procore Technologies, Inc. (PCOR- Neutral $62.20)
+Snowflake Inc. (SNOW- Outperform $216.00)
+Cloudflare, Inc. (NET- Outperform $184.88)
+CoreWeave, Inc. (CRWV- Neutral 106.02)
+Datadog, Inc. (DDOG- Outperform $140.56)
+GitLab Inc. (GTLB- Neutral $37.23)
+Palantir Technologies Inc. (PLTR- Neutral $157.35)
+Rubrik, Inc. (RBRK- Outperform $63.19)
+Zscaler, Inc.

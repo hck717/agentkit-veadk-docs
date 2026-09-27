@@ -1,0 +1,1077 @@
+{
+  "tag": "260909_2254",
+  "ts": "2026-09-09 22:55:14",
+  "models": {
+    "primary": "seed-1-6-flash-250715"
+  },
+  "suite": "all",
+  "no_judge": false,
+  "max_tokens_budget": 250000,
+  "used_tokens": 68779,
+  "sets": {
+    "fact_single": {
+      "n": 11,
+      "passed": 2,
+      "score": 0.1448171792680211,
+      "exact_mean": 0.1448171792680211,
+      "judge_rate": null,
+      "tokens": 52265,
+      "usd": 0.0013242349999999998,
+      "ms": 16503.27558495337
+    },
+    "fact_multi": {
+      "n": 4,
+      "passed": 4,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": 1.0,
+      "tokens": 13856,
+      "usd": 0.0004961760000000001,
+      "ms": 11803.070416965056
+    },
+    "calc_expr": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 773,
+      "usd": 3.8653e-05,
+      "ms": 2216.863832960371
+    },
+    "news_extract": {
+      "n": 3,
+      "passed": 3,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 443,
+      "usd": 2.7542999999999997e-05,
+      "ms": 1478.2705419929698
+    },
+    "sent_3way": {
+      "n": 6,
+      "passed": 6,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 744,
+      "usd": 7.604399999999999e-05,
+      "ms": 4707.841040100902
+    },
+    "sent_score": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 698,
+      "usd": 5.4557999999999995e-05,
+      "ms": 3145.5565419164486
+    }
+  },
+  "rows": [
+    {
+      "id": "qa_fs_01",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？",
+      "pred": "Deutsche Bank 提及 Microsoft F2Q 的 Azure 按不計入匯率波動計算（@cc）增長為 38% 年率，高於指導的 37%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。但低於買方預期的約 39%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。若將 F1H26 的所有額外 GPU 容量分配給 Azure，增長可能超過 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。\n\n## 來源\n<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/",
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/",
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 5270,
+        "completion": 199,
+        "cached": 0
+      },
+      "ms": 3273.4687500051223,
+      "skipped": false,
+      "score": 0.06779661016949153,
+      "passed": false,
+      "note": "f1=0.068",
+      "golden": {
+        "answer": "Azure grew 38% year over year on a constant currency basis, 1 point above guidance",
+        "gold_docs": [
+          "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_02",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Deutsche 點樣形容 F2Q 結果 vs 市場預期？主要原因？",
+      "pred": "Deutsche Bank 形容 F2Q 結果中 Azure 增長 (+38% y/y @CC) 高於指導 (37%)，但略低於買方預期 (約+39%)【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。主要原因是 Azure 需求因供應限制而受限，管理層需平衡 Azure 需求與 1P 服務、研發投入及設備更換的需求【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。\n\n## 來源\n<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/",
+        "viking://resources/fin_kb/20260212_China_Renaissance_Research_MSFT__b36a0cfd/",
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 4316,
+        "completion": 170,
+        "cached": 0
+      },
+      "ms": 1875.2658339799382,
+      "skipped": false,
+      "score": 0.037037037037037035,
+      "passed": false,
+      "note": "f1=0.037",
+      "golden": {
+        "answer": "solid result but fell short of lofty market expectations, mainly Azure growth constrained by GPU and supply constraints",
+        "gold_docs": [
+          "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_03",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Mizuho 話 MSFT F2Q 總收入幾多？同 Street 預期比？",
+      "pred": "Mizuho 對 Microsoft（MSFT）2025 財年第二季度（Q2'25）總收入的預期在其模型中顯示為 69,63200 萬美元（$69,632M）【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good_O】。但資料中未提及 Mizuho 的預期與 Street（市場一致）預期的對比情況【KB:無資料】。\n\n## 來源\n- <20260205_Mizuho_Securities_MSFT_MSFT-_Good_O>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/",
+        "viking://resources/fin_kb/20260212_China_Renaissance_Research_MSFT__b36a0cfd/",
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 4159,
+        "completion": 147,
+        "cached": 0
+      },
+      "ms": 1761.0603329958394,
+      "skipped": false,
+      "score": 0.04081632653061224,
+      "passed": false,
+      "note": "f1=0.041",
+      "golden": {
+        "answer": "total revenue of 81.3 billion up 17% reported and 15% constant currency, above the Street's 80.3 billion estimate",
+        "gold_docs": [
+          "20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_04",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Mizuho 對 MSFT 嘅評級係咩？",
+      "pred": "KB 無資料\n## 來源\n<20260205_Mizuho_Securities_MSFT_MSFT-_Good_O>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/",
+        "viking://resources/fin_kb/20260212_China_Renaissance_Research_MSFT__b36a0cfd/",
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 4194,
+        "completion": 33,
+        "cached": 0
+      },
+      "ms": 753.7149999989197,
+      "skipped": false,
+      "score": 0.0,
+      "passed": false,
+      "note": "f1=0.000",
+      "golden": {
+        "answer": "Outperform",
+        "gold_docs": [
+          "20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_05",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "China Renaissance 2026E EPS 預測幾多？vs 市場共識？",
+      "pred": "KB 無資料\n## 來源\n<20260212_China_Renaissance_Research_MSFT_Mic>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260212_China_Renaissance_Research_MSFT__b36a0cfd/",
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/",
+        "viking://resources/fin_kb/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 3416,
+        "completion": 30,
+        "cached": 0
+      },
+      "ms": 681.9589579827152,
+      "skipped": false,
+      "score": 0.0,
+      "passed": false,
+      "note": "f1=0.000",
+      "golden": {
+        "answer": "2026E EPS of 17.11 vs consensus 15.80, 8 percent above",
+        "gold_docs": [
+          "20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_06",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Barclays 講 Microsoft 新 E7 SKU 定價幾多？包含乜？",
+      "pred": "Barclays 嘅資料中未提及 Microsoft 新 E7 SKU 嘅定價及包含內容。**KB 無資料**\n\n## 來源\n無",
+      "uris_top": [
+        "viking://resources/fin_kb/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/",
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/",
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 6020,
+        "completion": 38,
+        "cached": 0
+      },
+      "ms": 744.8354170192033,
+      "skipped": false,
+      "score": 0.08333333333333333,
+      "passed": false,
+      "note": "f1=0.083",
+      "golden": {
+        "answer": "E7 at 99 dollars per user, above the 60 dollar E5 price, bundling E5 plus Copilot and Agent 365",
+        "gold_docs": [
+          "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_07",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Wells Fargo 講 E7 新 SKU 每月每位用戶幾多錢？包含咩？",
+      "pred": "Wells Fargo 指出，Microsoft 的新 E7 SKU 每月每位用戶收費 99 美元，包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。\n\n## 來源\n<20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/",
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/",
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 3749,
+        "completion": 110,
+        "cached": 0
+      },
+      "ms": 1322.5389589788392,
+      "skipped": false,
+      "score": 0.2790697674418604,
+      "passed": true,
+      "note": "f1=0.279",
+      "golden": {
+        "answer": "E7 at 99 dollars per user per month, including M365 E5 and Entra Suite",
+        "gold_docs": [
+          "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_08",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "Wells Fargo 認為 agentic adoption 取決於咩？",
+      "pred": "Wells Fargo 認為 agentic adoption（代理型態 adoption）取決於安全（Security）。具體而言，Agent 365 提供了代理登記/代理 ID（in Entra）、可觀察性、風險信號等重要前提，這些都是代理型態 adoption 的關鍵要素。此外，預期 Agent 365 和 M365 Copilot 將通過 E7 SKU 加速 adoption，而非作為獨立方案。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】",
+      "uris_top": [
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/",
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/",
+        "viking://resources/fin_kb/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 6449,
+        "completion": 133,
+        "cached": 0
+      },
+      "ms": 1951.8141250009649,
+      "skipped": false,
+      "score": 0.18750000000000003,
+      "passed": false,
+      "note": "f1=0.188",
+      "golden": {
+        "answer": "agentic adoption hinges on security",
+        "gold_docs": [
+          "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_09",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "F2Q26 call 話 Microsoft Cloud 季度收入首次突破幾多？同比升幾多？",
+      "pred": "Microsoft Cloud revenue surpassed $50 billion for the first time in F2Q26, up 26% year-over-year.【KB:Microsoft_Corp_Earnings_Call_2026128_RT00000】\n## 來源\nMicrosoft_Corp_Earnings_Call_2026128_RT00000",
+      "uris_top": [
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/",
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/",
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 3859,
+        "completion": 83,
+        "cached": 0
+      },
+      "ms": 1028.42516702367,
+      "skipped": false,
+      "score": 0.6666666666666667,
+      "passed": true,
+      "note": "f1=0.667",
+      "golden": {
+        "answer": "Microsoft Cloud surpassed 50 billion dollars in revenue for the first time, up 26 percent year over year",
+        "gold_docs": [
+          "Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_10",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "F2Q26 call 入面 Microsoft 365 Copilot 付費席位有幾多？",
+      "pred": "根據資料顯示，在2026財年第二季度（F2Q26）的電話會議中，微軟公佈Microsoft 365 Copilot的付費席位為1500萬個【KB:Microsoft_Corp_Earnings_Call_2026128_RT00000】。\n\n## 來源\n[Microsoft_Corp_Earnings_Call_2026128_RT00000]",
+      "uris_top": [
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/",
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/",
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 5781,
+        "completion": 109,
+        "cached": 0
+      },
+      "ms": 1326.0347920004278,
+      "skipped": false,
+      "score": 0.23076923076923078,
+      "passed": false,
+      "note": "f1=0.231",
+      "golden": {
+        "answer": "15 million paid Microsoft 365 Copilot seats",
+        "gold_docs": [
+          "Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fs_11",
+      "set": "fact_single",
+      "type": "qa",
+      "evaluator": "f1",
+      "prompt": "DeMatteo idea note 嘅 MSFT 市值大約幾多？（presented 02/25/2026）",
+      "pred": "根據資料，DeMatteo Research LLC 於 2026 年 2 月 25 日呈現的 MSFT 相關觀點中，提及的市值信息如下：  \n- 2026 年 2 月 19 日的股價為 $401.72，市值為 $2,986B【KB:20260227_DeMatteo_Research_MSFT_MSFT_Long_In】。  \n\n## 來源  \n<20260227_DeMatteo_Research_MSFT_MSFT_Long_In>",
+      "uris_top": [
+        "viking://resources/fin_kb/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f/",
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/",
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 3859,
+        "completion": 141,
+        "cached": 0
+      },
+      "ms": 1784.1582499677315,
+      "skipped": false,
+      "score": 0.0,
+      "passed": false,
+      "note": "f1=0.000",
+      "golden": {
+        "answer": "market cap of approximately 2977 billion dollars",
+        "gold_docs": [
+          "20260227_DeMatteo_Research_MSFT_MSFT_Long_Informal_Idea_Bberg_02.27.26.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fm_01",
+      "set": "fact_multi",
+      "type": "qa",
+      "evaluator": "llm_judge",
+      "prompt": "Azure 供應受限時，Microsoft 點解仲有力推 E7 加價式 upsell？",
+      "pred": "### 1. **AI 戰略優先，GPU 分配傾斜**  \n   面對供應約束，微軟將 GPU 優先分配給第一方應用程序（如 M365 Copilot、GitHub Copilot）和 AI R&D，以加速產品創新和高毛利 recurring 軟件機會。這並非完全放棄 Azure，而是平衡短期增長與長期戰略。E7 套件將 AI 功能（如 Agent 365、Copilot）與現有 E5 套件捆綁，既利用 GPU 投入提升用戶體驗，又通過加價 upsell 獲取更高利潤。**KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L**，**KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop**  \n\n### 2. **E7 套件的高價值定位**  \n   E7 套件定價 $99/用戶/月，包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，將 AI 功能打包成一站式解決方案。微軟認為，企業更願意為整合的高價值套件付費，而非單獨購買 AI 工具。此外，M365 Copilot 的快速 adoption（如 150 萬 paid seats）證明企業對 AI 功能的需求旺盛，E7 套件可藉此擴大用戶基盤並提升 ARPU。**KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop**  \n\n### 3. **應對 Macro 和競爭壓力**  \n   面對 Azure 增長放緩的潛在風險（如供應約束、競爭加劇），微軟通過 E7 套件的 upsell  diversify 收入來源，提升利潤率。加價策略也可部分抵消 AI 投入的成本，同時利用企業 negotiate 壓力（如 M365 漲價）加速 NT adoption。**KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q",
+      "uris_top": [
+        "viking://resources/fin_kb/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/",
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/",
+        "viking://resources/fin_kb/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 6693,
+        "completion": 512,
+        "cached": 0
+      },
+      "ms": 5056.840499979444,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "verdict='PASS' ms=2214",
+      "golden": {
+        "answer": "Azure is growing well despite GPU supply constraints at 38 percent constant currency, and E7 bundles more value like Copilot and Agent 365 at a higher 99 dollar price point, supporting an upsell growth strategy",
+        "gold_docs": [
+          "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt",
+          "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fm_02",
+      "set": "fact_multi",
+      "type": "qa",
+      "evaluator": "llm_judge",
+      "prompt": "點解 security 對 agentic adoption 同 E7 bundle 咁關鍵？",
+      "pred": "安全對 agentic adoption 及 E7 bundle 至關重要，原因如下：\n\n### **Agentic Adoption 方面**  \nAgent 365 作為管理代理的控制平面，需具備**代理注冊/身份識別、可觀察性、風險信號**等功能，而這些均依賴安全機制保障。若缺乏安全措施，代理可能面臨身份欺詐、數據洩露或異常操作等風險，導致企業對 agentic 技術的採用持保留態度。因此，安全是 agentic adoption 的**前提條件**，否則單獨推出的 $15/月 Agent 365 難以被企業接受【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。\n\n### **E7 Bundle 方面**  \nE7 SKU 將 M365 E5、Entra Suite、Agent 365 和 M365 Copilot 打包，其中**Entra Suite 本身包含身份管理和安全功能**，而 Agent 365 和 Copilot 的 adoption 需依賴 E7 的安全架構。此外，企業因近期 M365 漲價進入談判階段，安全合規成為談判中的關鍵議題，E7 整合安全功能可滿足企業對**數據安全、身份治理和操作可追溯性**的需求，從而加速 E7 的 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop, KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evol】。\n\n### **額外因素**  \n- **Copilot 的安全審計**：240 億次 Copilot 交互由 Purview 審計，年增長 9 倍，顯示安全審計在 AI 代理應用中的重要性【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  \n- **Azure AI 的安全架構**：Azure 提供全面的數字主權平台，支持本地數據駐留和安全合規，而 Agent Framework 內置",
+      "uris_top": [
+        "viking://resources/fin_kb/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/",
+        "viking://resources/fin_kb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/",
+        "viking://resources/fin_kb/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/"
+      ],
+      "n_events": 2,
+      "usage": {
+        "prompt": 5933,
+        "completion": 512,
+        "cached": 0
+      },
+      "ms": 5559.3714590067975,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "verdict='PASS' ms=2000",
+      "golden": {
+        "answer": "agentic adoption hinges on security, and E7 bundles Entra Suite for security along with M365 E5 Copilot and Agent 365 to drive adoption and upsell",
+        "gold_docs": [
+          "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt",
+          "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt"
+        ]
+      }
+    },
+    {
+      "id": "qa_fm_03",
+      "set": "fact_multi",
+      "type": "qa",
+      "evaluator": "trap",
+      "prompt": "Microsoft 嘅股息殖利率同歷年派息紀錄係點？",
+      "pred": "無資料\n（注：根据背景信息，KB检索结果显示无相关资料，因此按照要求回答“无资料”。） ",
+      "usage": {
+        "prompt": 73,
+        "completion": 29,
+        "cached": 0
+      },
+      "ms": 597.1683329553343,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "hit=['無資料']",
+      "golden": {
+        "answer": "KB 無資料",
+        "gold_docs": []
+      }
+    },
+    {
+      "id": "qa_fm_04",
+      "set": "fact_multi",
+      "type": "qa",
+      "evaluator": "trap",
+      "prompt": "Microsoft 喺日本搜尋市場嘅份額同 Yahoo Japan 合作詳情？",
+      "pred": "無資料\n（說明：背景資料已表明「無相關資料」，因此直接依據此內容作答。） ",
+      "usage": {
+        "prompt": 77,
+        "completion": 27,
+        "cached": 0
+      },
+      "ms": 589.6901250234805,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "hit=['無資料']",
+      "golden": {
+        "answer": "KB 無資料",
+        "gold_docs": []
+      }
+    },
+    {
+      "id": "tc_calc_01",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Deutsche 話 MSFT F2Q 嘅 Azure 增長 38% 係 constant currency，高過 guidance 1 point。計返 Azure guidance 增長率。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"38 - 1\"}}",
+      "usage": {
+        "prompt": 134,
+        "completion": 19,
+        "cached": 0
+      },
+      "ms": 414.163000008557,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 37.0 vs want 37.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "38-1"
+        },
+        "result": 37.0,
+        "variants": [
+          "38-1",
+          "38 - 1",
+          "38.0-1.0"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_02",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Mizuho 話 MSFT F2Q 總收入 81.3B，Street 預期 80.3B。計 beat 咗幾多 billion。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"81.3 - 80.3\"}}",
+      "usage": {
+        "prompt": 134,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 421.7221669969149,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 1.0 vs want 1.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "81.3-80.3"
+        },
+        "result": 1.0,
+        "variants": [
+          "81.3-80.3",
+          "81.3 - 80.3"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_03",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "China Renaissance 話 2026E EPS 17.11 係 consensus 15.80 嘅 8% 之上。驗證：consensus × 1.08 幾多？用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"15.80 * 1.08\"}}",
+      "usage": {
+        "prompt": 143,
+        "completion": 25,
+        "cached": 0
+      },
+      "ms": 434.01583295781165,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 17.064000000000004 vs want 17.064",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "15.80*1.08"
+        },
+        "result": 17.064,
+        "variants": [
+          "15.8*1.08",
+          "15.80*1.08",
+          "15.8 * 1.08"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_04",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Microsoft E7 定 $99，E5 定 $60。E7 高過 E5 幾多 percent？用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"(99-60)/60*100\"}}",
+      "usage": {
+        "prompt": 123,
+        "completion": 26,
+        "cached": 0
+      },
+      "ms": 480.8412920101546,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 65.0 vs want 65.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "(99-60)/60*100"
+        },
+        "result": 65.0,
+        "variants": [
+          "(99-60)/60*100",
+          "(99-60)/60",
+          "(99.0-60.0)/60.0*100"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_05",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Microsoft Cloud 季度收入首破 $50B、同比升 26%。計返上年同期幾多 B。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"50 / (1 + 26%)\"}}",
+      "usage": {
+        "prompt": 121,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 466.1215409869328,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 39.682539682539684 vs want 39.6825396825",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "50/1.26"
+        },
+        "result": 39.6825396825,
+        "variants": [
+          "50/1.26",
+          "50.0/1.26"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_news_01",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "用 read_news_file 讀 data/news/sample_news.csv 嘅第一行新聞，話我知佢嘅 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\"}}",
+      "usage": {
+        "prompt": 121,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 468.51062501082197,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 0: MSFT/positive",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "MSFT",
+          "sentiment": "positive"
+        },
+        "row": 0,
+        "check": "fields"
+      }
+    },
+    {
+      "id": "tc_news_02",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "read_news_file 讀 data/news/sample_news.csv 第二行，報告 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\", \"line\": 2, \"columns\": [\"ticker\", \"sentiment\"]}}",
+      "usage": {
+        "prompt": 113,
+        "completion": 42,
+        "cached": 0
+      },
+      "ms": 533.6654999991879,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 1: 005930/negative",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "005930",
+          "sentiment": "negative"
+        },
+        "row": 1,
+        "check": "fields"
+      }
+    },
+    {
+      "id": "tc_news_03",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "read_news_file 讀 data/news/sample_news.csv 第三行，報告 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\", \"line\": 3}}",
+      "usage": {
+        "prompt": 113,
+        "completion": 30,
+        "cached": 0
+      },
+      "ms": 476.09441698295996,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 2: TSM/neutral",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "TSM",
+          "sentiment": "neutral"
+        },
+        "row": 2,
+        "check": "fields"
+      }
+    },
+    {
+      "id": "sent_3w_01",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft Cloud revenue tops $50 billion, up 26% year over year",
+      "pred": "positive\nThe title states that Microsoft Cloud revenue has exceeded $50 billion and increased by 26% year over year, which is clearly a positive development. So the classification is positive. ",
+      "usage": {
+        "prompt": 76,
+        "completion": 40,
+        "cached": 0
+      },
+      "ms": 612.1995419962332,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_02",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft shares fall 4% after Azure growth misses expectations",
+      "pred": "negative\n解析：標題中提到“Microsoft shares fall 4%”（微軟股價下跌4%）以及“Azure growth misses expectations”（Azure增長低於預期），這些都是負面信息，表明微軟面臨股價下跌和業績未達預期的情況，因此分類為negative。 ",
+      "usage": {
+        "prompt": 70,
+        "completion": 74,
+        "cached": 0
+      },
+      "ms": 965.0170830427669,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_03",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nTaiwan Semiconductor holds its guidance steady this quarter",
+      "pred": "neutral\n標題表明臺灣半導體本季度維持指導方針不變，未明確體現積極或消極的情緒傾向，屬於客觀陳述業績相關情況，因此分類為neutral。 ",
+      "usage": {
+        "prompt": 69,
+        "completion": 58,
+        "cached": 0
+      },
+      "ms": 921.9313330249861,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "neutral",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_04",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft wins big government cloud deal, shares surge",
+      "pred": "positive\n解析：標題中提到“Microsoft wins big government cloud deal”（微軟贏得大型政府雲服務合約）以及“shares surge”（股價上漲），均是積極的表述，因此分類為positive。 ",
+      "usage": {
+        "prompt": 68,
+        "completion": 57,
+        "cached": 0
+      },
+      "ms": 708.9649580302648,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_05",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nBank warns of AI capex bubble, cuts cloud estimates",
+      "pred": "negative\n解析：标题中“warns of AI capex bubble”（警告人工智能资本支出泡沫）和“cuts cloud estimates”（削减云业务预估）均传达了负面的预警和不利信息，因此分类为negative。 ",
+      "usage": {
+        "prompt": 70,
+        "completion": 50,
+        "cached": 0
+      },
+      "ms": 819.6452080155723,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_06",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nWells Fargo upgrades Microsoft, raises price target to $600",
+      "pred": "positive\nWells Fargo upgrades Microsoft（Wells Fargo上調微軟評級），通常被視為對微軟股票的正面評價，因此分類為positive。 ",
+      "usage": {
+        "prompt": 73,
+        "completion": 39,
+        "cached": 0
+      },
+      "ms": 680.0829159910791,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_sc_01",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Microsoft Cloud revenue tops $50 billion, up 26% year over year",
+      "pred": "{\"label\": \"positive\", \"score\": 0.8, \"driver\": \"Microsoft Cloud revenue exceeds $50 billion with a 26% year-over-year increase, indicating strong growth and market performance\"}",
+      "usage": {
+        "prompt": 102,
+        "completion": 44,
+        "cached": 0
+      },
+      "ms": 644.5488749886863,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          0.3,
+          1.0
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_02",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Microsoft shares fall 4% after Azure growth misses expectations",
+      "pred": "{\"label\": \"negative\", \"score\": -0.6, \"driver\": \"Microsoft shares fall 4% due to Azure growth missing expectations\"}",
+      "usage": {
+        "prompt": 96,
+        "completion": 31,
+        "cached": 0
+      },
+      "ms": 458.4185000276193,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -1.0,
+          -0.3
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_03",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Taiwan Semiconductor holds its guidance steady this quarter",
+      "pred": "{\"label\": \"neutral\", \"score\": 0.0, \"driver\": \"標題僅表明台積電本季度維持指引不變，未提及具體的積極或消極業績信息，因此情緒為中性\"}",
+      "usage": {
+        "prompt": 95,
+        "completion": 55,
+        "cached": 0
+      },
+      "ms": 840.7623329549097,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "neutral",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -0.2,
+          0.2
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_04",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Bank warns of AI capex bubble, cuts cloud estimates",
+      "pred": "{\"label\": \"negative\", \"score\": -0.7, \"driver\": \"銀行警告AI資本支出泡沫，並下調雲計算預期，釋放負面信號\"}",
+      "usage": {
+        "prompt": 96,
+        "completion": 42,
+        "cached": 0
+      },
+      "ms": 591.8259589816444,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -1.0,
+          -0.3
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_05",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Wells Fargo upgrades Microsoft, raises price target to $600",
+      "pred": "{\"label\": \"positive\", \"score\": 0.8, \"driver\": \"Wells Fargo upgrades Microsoft and raises its price target, indicating positive sentiment towards the company's prospects\"}",
+      "usage": {
+        "prompt": 99,
+        "completion": 38,
+        "cached": 0
+      },
+      "ms": 610.000874963589,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          0.3,
+          1.0
+        ],
+        "require_driver": true
+      }
+    }
+  ]
+}

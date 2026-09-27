@@ -1,0 +1,17 @@
+Bull Case/PT
+Core Azure growth accelerates further, and MSFT’s GenAI contribution becomes stronger
+and more diversified via faster adoption of Microsoft 365 Copilot, GitHub Copilot, and
+Security Copilot. Impressive operating margin expansion persists even as the company
+invests in key growth areas (GenAI, Fabric, etc.). Our bull case valuation utilizes a
+CY26-27E P/E multiple of 40x and 33x, equating to $700.
+Bear Case/PT
+Core Azure growth decelerates more than expected due to increasing competition, an
+execution misstep and/or a worsening macro environment. Adoption of GenAI offerings
+shows signs of plateauing after the initial adoption wave. Operating margins are lower
+than expected, as MSFT cannot remotely offset investments that increasingly impact the
+model. Our bear case valuation utilizes a CY26-27E P/E multiple of 24x and 20x, equating
+to $420.
+Risks
+Core consumption growth decelerates more than anticipated as macro challenges
+resurface. Competition among cloud infrastructure providers materially increases, leading
+to pricing pressure. GenAI adoption and monetization is slower than expected.

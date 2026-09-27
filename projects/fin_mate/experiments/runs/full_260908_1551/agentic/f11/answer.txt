@@ -1,0 +1,15 @@
+我现在需要处理用户的问题：“DeMatteo idea note 嘅 MSFT 市值大約幾多？（presented 02/25/2026）”。首先，我要确认用户的问题是关于DeMatteo的想法笔记中提到的微软（MSFT）在2026年2月25日的市值。
+
+根据规则，我需要使用load_knowledgebase工具查询相关资料，最多两次。第一次调用已经完成，返回的结果中包含一个IDEA NOTE条目，其中提到“Cap: $2,977B”，并且标注了日期是2026年2月27日，而演示时间是2026年2月25日。这似乎符合用户的问题要求。
+
+接下来，我需要检查是否有必要进行第二次查询。返回的结果中只有一个相关条目，没有其他冲突或需要补充的信息。因此，不需要再次调用工具。
+
+然后，我需要将结果整理成自然语言回答，并添加inline标注。根据规则，每个claim需要标注来源，这里的来源是KB中的文件URI。同时，结尾需要列出完整的URI。
+
+最后，确认回答是否准确，是否符合所有规则。用户的问题已经得到明确回答，市值为2,977B，来源正确，没有使用calc工具，因为不需要计算。因此，最终的回答应该包含这些信息，并正确标注来源。
+DeMatteo 於 2026 年 2 月 25 日發表的想法筆記中提到，微軟（MSFT）的市值約為 2,9770 億美元（Cap: $2,977B）【KB:viking://resources/fin_kb/msft_txt/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f_1.md】。  
+*注：筆記發布日期為 2026 年 2 月 27 日，演示時間為 2 月 25 日，市值數據為演示時點或附近的估算值。*
+
+## 來源
+- <viking://resources/fin_kb/msft_txt/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f_1.md>  
+- <viking://resources/fin_kb/msft_txt/20260227_DeMatteo_Research_MSFT_MSFT_Long_0e096d5f/.overview.md>（目錄摘要，輔助定位文件）

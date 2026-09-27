@@ -1,0 +1,11 @@
+Because in
+some sense -- take any agent, the agent will then spawn through tools used, maybe a container,
+which runs obviously on compute. In fact, whenever we think about even the building out of the
+fleet, we think of in ratios. Even for a training job, by the way, an AI training job requires a bunch of
+compute and a bunch of storage, very close to compute. And so therefore -- and the same thing
+in inferencing as well. So in inferencing with agent mode would require you to essentially
+provision a computer or computing resources to the agent.
+So they don't need GPUs. They're running on GPUs, but they need computers which are compute
+and storage. So that's what's happening even in the new workload. The other thing you
+mentioned is the cloud migrations are still going on. In fact, one of the stats I had was SQL -- our
+latest SQL Server growing as an IaaS service in Azure.

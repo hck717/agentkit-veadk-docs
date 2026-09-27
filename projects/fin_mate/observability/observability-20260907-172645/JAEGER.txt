@@ -1,0 +1,3 @@
+Open Jaeger UI: http://localhost:16686
+Select service (e.g. "veadk" / agent service) -> Find Traces.
+OpenViking internals: use the openviking_*.json files in this folder.

@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Microsoft 喺日本搜尋市場嘅份額同 Yahoo Japan 合作詳情？"}], "text": "KB 無資料", "prompt_tokens": 66, "completion_tokens": 4, "cached_tokens": 0, "ms": 418.53708296548575}

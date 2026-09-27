@@ -1,0 +1,39 @@
+{
+  "tag": "d7_final",
+  "ts": "2026-09-14 22:00:02",
+  "embed": "BAAI/bge-small-en-v1.5",
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "rrf_k": 60,
+  "n_items_text": 15,
+  "n_items_mm": 20,
+  "axes": {
+    "default": {
+      "chunk_size": 512,
+      "vis": false,
+      "gen": "normal"
+    },
+    "chunk": {
+      "chunk_size": 256,
+      "vis": false,
+      "gen": "normal"
+    },
+    "mm": {
+      "chunk_size": 512,
+      "vis": true,
+      "gen": "normal"
+    },
+    "gen": {
+      "chunk_size": 512,
+      "vis": false,
+      "gen": "normalized"
+    }
+  },
+  "max_tokens_budget": 500000,
+  "model": "seed-1-6-flash-250715 (Ark)",
+  "retrieve_only": false,
+  "used_tokens": 358101
+}

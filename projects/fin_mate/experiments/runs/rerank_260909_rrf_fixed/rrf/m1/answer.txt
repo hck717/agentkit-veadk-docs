@@ -1,0 +1,8 @@
+當Azure供應受限時，Microsoft力推E7加價式upsell可能基於以下原因：  
+1. **優先GPU資源分配**：面對供應約束，公司優先將GPU分配給第一方應用程序的AI使用和R&D，以加速產品創新並追求更高利潤的重複軟件收入，因此Azure增長雖高但未達預期【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+2. **AI驅動的軟件層戰略**：軟件層（如M365 Copilot、GitHub Copilot等）被視為具有戰略優勢，但AI貨幣化需逐步向上游傳導。E7 SKU整合了多項AI相關功能（如Agent 365、M365 Copilot），可藉此推廣AI產品，從而在Azure供應受限時尋求新的增長點【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L, 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+3. **上調價格的時機合適**：2025年下半年企業將面臨M365價格上調，這可能成為NT（新技術）採用的催化劑，而E7 SKU的加價式銷售可在價格上調前推廣，從而抓住這一機遇【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+4. **Addressable Market龐大**：E7 SKU的目標用戶群（約3.25億企業用戶，其中1.5億為E3/E5用戶）龐大，預計帶來1000億美元的年度銷售額，這一潛力可彌補Azure供應受限帶來的影響【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+## 來源  
+[20260205_Deutsche_Bank_MSFT_M

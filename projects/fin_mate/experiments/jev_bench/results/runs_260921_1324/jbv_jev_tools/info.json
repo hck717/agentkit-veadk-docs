@@ -1,0 +1,8 @@
+{
+  "variant": "jev_tools",
+  "desc": "原裝，淨係工具調用改用 Jev",
+  "flags": {
+    "tool": "jev",
+    "desc": "原裝，淨係工具調用改用 Jev"
+  }
+}

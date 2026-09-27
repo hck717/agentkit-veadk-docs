@@ -1,0 +1,17 @@
+Q - Raimo Lenschow {BIO 4664646 <GO>}
+Yes. Yes, yes. Sorry. So I was wondering about the CPU side of Azure, because we had some
+operational changes there, and we also hear from the field a lot that people are realizing they
+need to be in the cloud if you want to do proper AI and that's kind of driving momentum. Thank
+you.
+FINAL TRANSCRIPT
+2026-01-28
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 15 of 16
+
+
+A - Satya Nadella {BIO 3224315 <GO>}
+Yes. I think I get it. So first of all, I had mentioned in my remarks that when you think about AI
+workloads, you shouldn't think of AI workloads as just AI accelerator compute, right? Because in
+some sense -- take any agent, the agent will then spawn through tools used, maybe a container,
+which runs obviously on compute.

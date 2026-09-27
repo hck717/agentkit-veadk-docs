@@ -1,0 +1,16 @@
+MSFT also expects capex to be down sequentially.
+More broadly, we remain ever-confident that MSFT's revenue growth opportunities over
+the medium-term and beyond are greater than many realize, and we remain very bullish
+on its tangible AI adoption and monetization levers. We reiterate our Outperform rating
+and $620 PT.
+Key Points
+The Numbers
+Total revenue of $81.3B (+17% Y/Y reported and 15% on a CC basis) was nicely above our
+$80.2B forecast and the Street's similar $80.3B estimate (+15% Y/Y). This also equated
+to a roughly 1.2% revenue beat, although below the average 2.4% beat over the prior
+4 quarters. By segment, Intelligent Cloud (incl. Azure) and PBP exceeded expectations,
+although MPC was surprisingly only roughly in line. Much more detail below.
+Good Azure Performance, But with Allocations Constraining Growth Somewhat
+Azure revenue growth of 38% Y/Y CC exceeded mgmt's guidance that had called for
+37% growth, although this did fall shy of buy-side expectations (and slightly below the
+39% growth in F1Q).

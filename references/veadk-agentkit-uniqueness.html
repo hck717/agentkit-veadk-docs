@@ -1,0 +1,673 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>獨特賣點</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>獨特賣點</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit--byteplus-獨特賣點全覽vs-其他-provider">VeADK +
+AgentKit + BytePlus 獨特賣點全覽（vs 其他 provider）</h1>
+<p>呢份文件回答一條問題：<strong>「我哋個 stack
+到底有咩係人哋冇？」</strong>——俾你 sales / 方案直接用，唔使佮估。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>獨特 = 四層疊埋，唔係單一
+feature</strong>：VeADK（framework）+ AgentKit（平台）+ BytePlus（雲）+
+自家模型（doubao/Seed
+家族）——<strong>同一個供應商</strong>，先係真正嘅「一體化」賣點。</li>
+<li><strong>要分「真獨特」同「行貨」</strong>：A2A / MCP / OTel / OAuth2
+/ RAG / cache 全部都係市場標準（行貨），攞嚟充當賣點會穿煲。§5
+專登列出嚟。</li>
+<li><strong>每個「獨特位」要講到「客戶見到咩」</strong>：唔係為 tech 而
+tech，係「慳幾多 $$ / 少幾多張單 / 幾快上線」。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-快睇四層各有咩係人哋冇">0. 快睇：四層各有咩係人哋冇</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>真獨特（人哋冇）</th>
+<th>一句客戶價值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VeADK framework</strong></td>
+<td>基於 Google ADK 但火山托管；自帶 7×LTM + 8×RAG
+backend；<code>model_name</code> list 自動 fallback；默認上下文緩存</td>
+<td>唔使自砌記憶/RAG，框架「諗埋」</td>
+</tr>
+<tr>
+<td><strong>AgentKit 平台</strong></td>
+<td><code>create_agentkit_app</code> 一 call 由框架上雲；CLI
+全套；出站憑證托管（Agent Identity）；chain-hash 審計 7 年；zero-code
+Harness</td>
+<td>本地 → 上雲 → 審計一條龍</td>
+</tr>
+<tr>
+<td><strong>BytePlus 雲</strong></td>
+<td><strong>AFP 封頂月費</strong>；多模態獨家；GPU/sandbox 已包；隱式
+cache；中文+粵語第一身</td>
+<td>成本可預測，帳單不散</td>
+</tr>
+<tr>
+<td><strong>自家模型</strong></td>
+<td>Seed 全梯度文字 + Seedream 圖 + Seedance 片 + TTS/ASR +
+多模態向量<strong>一個平台玩晒</strong>（詳情 → <strong>seedream /
+seedance tab</strong>）</td>
+<td>唔使駁第三方圖/片/語音 API</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-心法獨特唔係功能係四層同一間廠">1.
+心法：獨特唔係功能，係「四層同一間廠」</h2>
+<p>逐個 feature 比較，每間平台都有一兩樣做得好。但<strong>冇一間好似
+BytePlus 咁：框架 + 部署 + GPU + 模型全部第一方</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>你要砌嘅嘢</th>
+<th>BytePlus stack</th>
+<th>Azure/AWS/Google</th>
+<th>自架（LangChain/LangGraph）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td><strong>VeADK</strong>（基於 Google ADK）</td>
+<td>各家 SDK 各自為政</td>
+<td>你用邊個都得但自己管版本</td>
+</tr>
+<tr>
+<td>部署/Runtime</td>
+<td><strong>AgentKit</strong>（一 call 上雲）</td>
+<td>Agent Service/AgentCore 分開買</td>
+<td>自己攞 EC2/VM 行</td>
+</tr>
+<tr>
+<td>GPU/sandbox</td>
+<td><strong>已包入 Plan</strong></td>
+<td>PTU / EC2 H100 另開單</td>
+<td>自己租 GPU</td>
+</tr>
+<tr>
+<td>模型（圖/片/語音）</td>
+<td><strong>自家一條龍</strong></td>
+<td>AWS 駁第三方、Azure 冇視頻</td>
+<td>逐個供應商駁</td>
+</tr>
+<tr>
+<td>帳單</td>
+<td><strong>一個數封頂</strong></td>
+<td>五張單浮動</td>
+<td>CPU/GPU/模型逐項</td>
+</tr>
+<tr>
+<td>記憶/RAG/向量化</td>
+<td>框架內建 backend</td>
+<td>各廠拆分</td>
+<td>自己嵌 vector DB</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>銷售一句</strong>：「我哋嘅賣點唔係『某一粒 model
+好勁』，係<strong>成條 agent
+鏈都係同一間廠</strong>——framework、平台、GPU、模型，一齊買、一個數、一條
+support 線。」</p>
+</blockquote>
+<hr />
+<h2
+id="2-veadkframework獨特位--vs-openai-agents-sdk--langgraph--google-adk">2.
+VeADK（framework）獨特位 — vs OpenAI Agents SDK / LangGraph / Google
+ADK</h2>
+<blockquote>
+<p>對照基準：最常被問嘅三個「自己都要寫嘢」嘅 framework。</p>
+</blockquote>
+<h3 id="21-基於-google-adk唔係自研-runtime">2.1 基於 Google
+ADK，唔係自研 runtime</h3>
+<pre class="python"><code>from veadk import Agent   # 內部基於 google.adk 嘅 App / Runner</code></pre>
+<ul>
+<li>VeADK 係**建基於 Google ADK（蚼底
+<code>google.adk</code>）**嘅框架，唔係由零自研 runtime →
+<strong>生態繼承 Google/ADK
+大社群</strong>（MCP、LongRunningFunctionTool、EventsCompactionConfig
+等）。</li>
+<li>但佢<strong>唔止係 ADK
+fork</strong>：疊加咗火山托管後端（模型、記憶、KB、可觀測性）。</li>
+<li>對比：OpenAI Agents SDK（無 framework 層嘅記憶/KB
+abstraction）、LangGraph（有 abstractions 但要自己接
+hosting/模型）、Google
+ADK（原生但<strong>冇火山托管模型/Feishu/方舟後端</strong>）。</li>
+</ul>
+<h3 id="22-自帶-7ltm--8rag-backend唔使自己砌-vector-db">2.2 自帶 7×LTM +
+8×RAG backend（唔使自己砌 vector DB）</h3>
+<table>
+<thead>
+<tr>
+<th>記憶維度</th>
+<th>數量</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LongTermMemory backend</td>
+<td><strong>7 種</strong></td>
+<td>local / opensearch / redis / viking / mem0 / openviking /
+tos_context</td>
+</tr>
+<tr>
+<td>KnowledgeBase backend</td>
+<td><strong>8 種</strong></td>
+<td>local / opensearch / redis / milvus / tos_vector / viking /
+context_search / openviking</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>托管後端（viking / context_search / openviking / mem0 /
+tos_context）唔使你裝 embedding</strong>——服務端切分 + 向量化 +
+檢索，直接計「雲資源向量化」費用。</li>
+<li>對比：LangChain/LlamaIndex 要自己揀 vector store + embedding model +
+自己管 migration；Azure AI Search / Bedrock KB
+係<strong>收費服務</strong>（Bedrock KB 有 $345/月 floor）。</li>
+</ul>
+<h3 id="23-model_name-收-list--自動-fallback">2.3
+<code>model_name</code> 收 list → 自動 fallback</h3>
+<pre class="python"><code>agent = Agent(
+    model_name=[&quot;doubao-seed-2-1-pro-260628&quot;, &quot;deepseek-r1-250528&quot;],
+)</code></pre>
+<ul>
+<li>主 model 掛咗自動落第二個——<strong>agent
+帶自我修復</strong>，唔使自己寫 retry / circuit breaker。</li>
+<li>對比：多數 framework 要自己 try/except + 手動切 model。</li>
+</ul>
+<h3 id="24-默認上下文緩存responses-api">2.4 默認上下文緩存（Responses
+API）</h3>
+<ul>
+<li>VeADK Responses API 模式<strong>默認開 session
+上下文緩存</strong>（<code>output_schema</code>
+指定時先關閉）——慳錢主要靠呢度（見 vc tab §4）。</li>
+<li>對比：自己砌 prompt 管理先做到同款 caching。</li>
+</ul>
+<h3 id="25-可選依賴組唔使一支裝到肥晒">2.5
+可選依賴組，唔使一支裝到肥晒</h3>
+<pre class="bash"><code>pip install &quot;veadk-python[extensions]&quot;  # 飛書 + Cozeloop + LlamaIndex
+pip install &quot;veadk-python[codex]&quot;       # Codex 運行時
+pip install &quot;veadk-python[database]&quot;    # Redis/MySQL/VikingDB/mem0
+pip install &quot;veadk-python[eval]&quot;        # DeepEval
+pip install &quot;veadk-python[a2ui]&quot;        # A2UI 富界面
+pip install &quot;veadk-python[harness]&quot;     # Harness 服務</code></pre>
+<ul>
+<li>需要先裝——<strong>唔會一支 package
+拖晒全部重依賴</strong>。對比大部分框架一裝全家。</li>
+</ul>
+<h3 id="26-configyaml-一鍵零-env-噪音">2.6 <code>config.yaml</code>
+一鍵，零 <code>.env</code> 噪音</h3>
+<pre class="yaml"><code>model:
+  agent:
+    provider: openai
+    name: doubao-seed-2-1-pro-260628
+    api_base: https://ark.cn-beijing.volces.com/api/v3/
+    api_key: &lt;your-api-key&gt;
+volcengine:
+  access_key: &lt;your-ak&gt;
+  secret_key: &lt;your-sk&gt;</code></pre>
+<ul>
+<li>一份 YAML 搞掂模型 + 火山鑒權；環境變數只是另類快速起動。</li>
+<li>對比：多數框架要 <code>.env</code> + 環境變數 + secret
+管理分開搞。</li>
+</ul>
+<hr />
+<h2
+id="3-agentkit平台獨特位--vs-azure-foundry--bedrock-agents--langgraph-cloud--openai-agents-sdk">3.
+AgentKit（平台）獨特位 — vs Azure Foundry / Bedrock Agents / LangGraph
+Cloud / OpenAI Agents SDK</h2>
+<blockquote>
+<p>對照基準：市面上「agent 上雲」嘅主流做法。</p>
+</blockquote>
+<h3 id="31-由框架到上雲一-callcreate_agentkit_app">3.1 由框架到上雲一
+call：<code>create_agentkit_app</code></h3>
+<ul>
+<li><code>veadk.studio.deploy</code> 或 <code>create_agentkit_app</code>
+直接<strong>把現有 VeADK Agent 包裝成 AgentKit
+部署項目</strong>——framework → 平台零 rewrite。</li>
+<li>對比：Azure Foundry Agent Service / Bedrock AgentCore
+要你用佢哋自己嘅 abstraction 重建 agent；LangGraph Cloud 用 LangChain
+API 綁死生態。</li>
+</ul>
+<h3 id="32-cli-全套單一工具由-init-到-destroy">3.2 CLI 全套，單一工具由
+init 到 destroy</h3>
+<pre class="bash"><code>agentkit init myagent
+agentkit config
+agentkit deploy myagent
+agentkit runtime logs myagent --limit 200</code></pre>
+<ul>
+<li>init（模板 / <code>--from-agent</code> 包裝）/ config / deploy /
+launch / invoke / status / destroy / runtime release / attach webshell /
+scp / mount / web preview / logs——一個 binary 搞掂成個 lifecycle。</li>
+<li>對比：Azure/Bedrock <strong>控制台 + 多 CLI</strong> 分散；LangGraph
+Cloud <strong>冇咁完整嘅本地→雲 workflow</strong>。</li>
+</ul>
+<h3 id="33-出站憑證托管agent-identity-secret-唔入-repo">3.3
+出站憑證托管（Agent Identity）— secret 唔入 repo</h3>
+<ul>
+<li><code>VeIdentityFunctionTool</code> /
+<code>VeIdentityMcpToolset</code> 注入出站 API
+Key/OAuth；<strong>自動緩存、刷新、輪換</strong>；憑據唔寫入 code。</li>
+<li><pre class="python"><code>tool = VeIdentityFunctionTool(fn=call_crm_api, auth_config=api_key_auth(&quot;your-outbound-cred-name&quot;))</code></pre></li>
+<li><strong>Sales 一句</strong>：「你哋出站嘅 key 唔會入 repo——Agent
+Identity 幫你轉緊，你哋啲 dev 唔使貼 secret 落 code。」——呢個同自架
+LangGraph 最唔同。</li>
+<li>對比：Azure Key Vault / AWS Secrets Manager
+係<strong>你要自己接</strong>；Agent Identity 係 <strong>framework
+內建</strong>。</li>
+</ul>
+<h3 id="34-出站認証覆蓋機器對機器同用戶委託">3.4
+出站認証覆蓋「機器對機器」同「用戶委託」</h3>
+<ul>
+<li>OAuth2 M2M（服務之間）+ 用戶委託（用戶授權→自動 token
+交換+刷新，撤銷提示重新授權）——<strong>覆蓋成個 outbound
+憑證光譜</strong>。</li>
+</ul>
+<h3 id="35-入站身份一體化authrequestprocessor--runtime-identity">3.5
+入站身份一體化（AuthRequestProcessor + Runtime identity）</h3>
+<ul>
+<li>框架層：<code>AuthRequestProcessor</code>（VeIdentity 用戶池）直接掛
+<code>run_processor</code>。</li>
+<li>Runtime 層：<code>create_agentkit_app(identity=...)</code> 喺
+agent/tool 執行前驗證 +
+綁定用戶身份；<code>/ping</code>/<code>/health</code>/<code>/metrics</code>
+exempt。</li>
+<li>對比：Azure Entra / AWS Cognito
+係<strong>額外服務</strong>要自己串。</li>
+</ul>
+<h3 id="36-內容安全-4-點--piicategory-103內建掛鈎">3.6 內容安全 4 點 +
+PII（category 103）內建掛鈎</h3>
+<ul>
+<li><code>content_safety</code> 四點審查：Before Model / After Model /
+Before Tool / After Tool，借火山 LLM-FW。</li>
+<li><code>category 103</code> =
+<strong>敏感資訊（PII）實時偵測</strong>（身份證、手機號）——入/出/工具三點都封。</li>
+<li>對比：Azure Content Safety / AWS Guardrails
+係<strong>逐次計費</strong>嘅額外服務（Bedrock $0.15/1K units）；LLM-FW
+掛鈎內置 close-to-free。</li>
+</ul>
+<h3 id="37-chain-hash-審計-7-年--身份關聯">3.7 chain-hash 審計 7 年 +
+身份關聯</h3>
+<ul>
+<li>Audit ≠ log：OTel span + session trace dump JSON +
+**chain-hash（hash 鏈，防篡改）**落 DB；TOS archive + PostgreSQL 保留 7
+年；每 span 綁入站用戶（<code>identity=...</code>）。</li>
+<li>對比：多數平台只有 logging；要「可重現 + 防篡改 +
+保留期」要自己搭。</li>
+</ul>
+<h3 id="38-otel-一條-trace-出多-exporter">3.8 OTel 一條 trace 出多
+exporter</h3>
+<pre class="python"><code>tracer = OpentelemetryTracer(exporters=[APMPlusExporter(), CozeloopExporter(), TLSExporter()])</code></pre>
+<ul>
+<li>一份 span 同時送 APMPlus / Cozeloop / TLS /
+InMemory——<strong>唔使揀，可以疊</strong>；仲有
+<code>trace_content</code> 開關（敏感場景唔寫 prompt）。</li>
+<li>對比：其他平台通常單一 observability 或者要自己串 exporter。</li>
+</ul>
+<h3 id="39-rbac--iam-一體">3.9 RBAC + IAM 一體</h3>
+<ul>
+<li>Studio <code>--admin</code>/<code>--developer</code> 角色（admin
+見全部、developer 見自己）；部署默認建
+<code>VeADKFrontendServiceRole</code>/<code>Policy</code>，可用
+<code>--iam-role</code> 指定。</li>
+<li>對比：Azure/AWS 要自己在 IAM/Entra 另配。</li>
+</ul>
+<h3 id="310-zero-code-harness--sandbox">3.10 zero-code Harness +
+sandbox</h3>
+<ul>
+<li><code>agentkit init my-agent -t harness</code>：<strong>唔使寫
+code</strong> 開 harness；Harness 仲可指模型精調 endpoint（LoRA）。</li>
+<li>Sandbox 支援 CodeEnv / Private / tmux / YAML orchestration /
+model-login——測試環境一條龍。</li>
+</ul>
+<hr />
+<h2 id="4-byteplus雲獨特位--vs-各雲">4. BytePlus（雲）獨特位 — vs
+各雲</h2>
+<blockquote>
+<p>呢層密集引用跨廠商對照（cmp tab
+§3.1/§5）——呢度只列「獨特位」，價做詳細陣列喺 cmp。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>獨特位</th>
+<th>係咩</th>
+<th>人哋有冇</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AFP 統一燃料</strong></td>
+<td>一個額度單位包起 tokens/工具/向量化</td>
+<td>冇（各家逐項收）</td>
+</tr>
+<tr>
+<td><strong>封頂月費</strong></td>
+<td>Small ¥40 → Max ¥1,000 <strong>封頂</strong></td>
+<td>Azure/Bedrock 浮動；DeepSeek 純 API 冇包</td>
+</tr>
+<tr>
+<td><strong>GPU/sandbox 已包</strong></td>
+<td>唔使另開 EC2/Vertex GPU 單（H100 $10–11/h）</td>
+<td>Azure PTU $2,448/月、AWS 另計</td>
+</tr>
+<tr>
+<td><strong>多模態獨家</strong></td>
+<td>Seedance 2.0 / Seedream 只有 BytePlus 有 API</td>
+<td>OpenAI 冇視頻、AWS 駁第三方、GEMINI Veo 另收</td>
+</tr>
+<tr>
+<td><strong>隱式 cache ~20%</strong></td>
+<td>自動 cache，唔使開（<code>output_schema</code> 先關）</td>
+<td>Azure/Gemini 收費制；DeepSeek cache $0.0028 但手動</td>
+</tr>
+<tr>
+<td><strong>中文 + 粵語第一身</strong></td>
+<td>doubao 中英+粵語表現</td>
+<td>其他家要特登調</td>
+</tr>
+<tr>
+<td><strong>方舟托管第三方同價</strong></td>
+<td>DeepSeek ¥1/¥2 同官方價 + 企業並發/TTFT保穩</td>
+<td>直連 DeepSeek 並發/峰谷要自己搞</td>
+</tr>
+<tr>
+<td><strong>雙軌 Plan</strong></td>
+<td>Coding Plan（按次）+ Agent Plan（AFP 封頂）分開</td>
+<td>冇直接對應</td>
+</tr>
+<tr>
+<td><strong>ModelArk 免費 tokens</strong></td>
+<td>500K/LLM + 2M/視覺 + 企業 5M（國際版）</td>
+<td>百煉 1M×90日、Gemini Agent Compute 50h free—量級不同</td>
+</tr>
+</tbody>
+</table>
+<p><strong>誠實講</strong>：圖/影片好貴（Seedream ≈100 AFP/張、Seedance
+2.0 ≈2,000 AFP/clip）——封頂但<strong>好使就浮動</strong>，報「上限 +
+buffer」。</p>
+<hr />
+<h2 id="5-獨特唔一定獨家-行貨一覧唔好-over-sell">5. 「獨特唔一定獨家」—
+行貨一覧（唔好 over-sell）</h2>
+<p>以下全部都係<strong>市場標準 /
+各大廠都有</strong>，攞嚟當賣點會穿煲：</p>
+<table>
+<thead>
+<tr>
+<th>行貨</th>
+<th>邊個都有</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A2A protocol</td>
+<td>Google 有、超大量 agent 互通</td>
+</tr>
+<tr>
+<td>MCP / toolset</td>
+<td>OpenAI/Azure/Bedrock 全部支持</td>
+</tr>
+<tr>
+<td>OTel / tracing</td>
+<td>業界標準</td>
+</tr>
+<tr>
+<td>OAuth2 / JWT / SSO</td>
+<td>標準</td>
+</tr>
+<tr>
+<td>IAM / RBAC</td>
+<td>每家雲都有</td>
+</tr>
+<tr>
+<td>RAG / 知識庫</td>
+<td>各家都有（收費方式唔同）</td>
+</tr>
+<tr>
+<td>Cache / compaction</td>
+<td>各家都有</td>
+</tr>
+<tr>
+<td>model fallback</td>
+<td>各家 SDK 都有唔同程度</td>
+</tr>
+<tr>
+<td>sandbox / 代碼執行</td>
+<td>多家有</td>
+</tr>
+<tr>
+<td>free tier</td>
+<td>各家都有</td>
+</tr>
+<tr>
+<td>function calling / streaming</td>
+<td>兩樣都係行貨</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>呢啲係「唔輸」嘅底線，唔係「贏」嘅理由。</strong> 真正贏喺
+§2–§4 嗰啲「一體化」位。</p>
+</blockquote>
+<hr />
+<h2 id="6-四層疊埋--真獨特一包乾checklist">6. 四層疊埋 =
+真獨特：「一包乾」checklist</h2>
+<table>
+<thead>
+<tr>
+<th>你 client 要呢樣…</th>
+<th>BytePlus stack</th>
+<th>Azure</th>
+<th>AWS</th>
+<th>Google</th>
+<th>自架</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework（唔使自己揀 vector DB/記憶）</td>
+<td>✅ VeADK 內建</td>
+<td>❌ 自己接 AI Search</td>
+<td>❌ 自己接 KB</td>
+<td>✅ Vertex 部分</td>
+<td>❌ 自己揀</td>
+</tr>
+<tr>
+<td>部署上雲（一 call）</td>
+<td>✅ <code>create_agentkit_app</code></td>
+<td>⚠️ Agent Service 重建</td>
+<td>⚠️ AgentCore 重建</td>
+<td>⚠️ 自建</td>
+<td>❌ 自己砌</td>
+</tr>
+<tr>
+<td>GPU/sandbox 已包</td>
+<td>✅ 已入 Plan</td>
+<td>❌ PTU 另收</td>
+<td>❌ EC2 另收</td>
+<td>❌ Agent Compute 另計</td>
+<td>❌ 自己租</td>
+</tr>
+<tr>
+<td>圖/片/語音/向量一個供應商</td>
+<td>✅ 自家</td>
+<td>❌ 駁第三方</td>
+<td>❌ 駁第三方</td>
+<td>⚠️ Veo 但另收</td>
+<td>❌ 逐個駁</td>
+</tr>
+<tr>
+<td>出站 secret 托管（唔入 repo）</td>
+<td>✅ Agent Identity</td>
+<td>⚠️ Key Vault 自接</td>
+<td>⚠️ Secrets Mgr 自接</td>
+<td>⚠️ 自接</td>
+<td>❌ 自己管</td>
+</tr>
+<tr>
+<td>Audit 7 年 + chain-hash</td>
+<td>✅ 內建</td>
+<td>⚠️ 自己搭</td>
+<td>⚠️ 自己搭</td>
+<td>⚠️ 自己搭</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>封頂月費可預測</td>
+<td>✅ AFP</td>
+<td>❌ 浮動</td>
+<td>❌ 浮動</td>
+<td>❌ 浮動</td>
+<td>❌ 逐項</td>
+</tr>
+<tr>
+<td>PII 內建攔截</td>
+<td>✅ LLM-FW 103</td>
+<td>⚠️ Content Safety 另收</td>
+<td>⚠️ Guardrails 另收</td>
+<td>⚠️ 另收</td>
+<td>❌</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>結論</strong>：呢張表就係 selling
+story——<strong>人哋每一行都要自己砌/另收，BytePlus 係「✓
+內建」</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="7-要誠實講嘅反面定位文件必寫">7.
+要誠實講嘅反面（定位文件必寫）</h2>
+<table>
+<thead>
+<tr>
+<th>反面</th>
+<th>影響</th>
+<th>點處理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大陸數據主權</strong></td>
+<td>火山方舟係大陸服務（數據落大陸）；HK PDPO / 金融跨境對口要另傾</td>
+<td>國際 BytePlus edition / Azure/AWS HK region 並列方案</td>
+</tr>
+<tr>
+<td><strong>超額浮動</strong></td>
+<td>AFP 封頂但好使（Seedance、大量 OCR）超出按量浮動</td>
+<td>報「上限 + buffer」</td>
+</tr>
+<tr>
+<td><strong>國際 SLA / 文檔 / 全球 region 弱</strong></td>
+<td>出海、24×7 全球 SLA 客戶要早知</td>
+<td>用國際版/另一間做全球</td>
+</tr>
+<tr>
+<td><strong>FX</strong></td>
+<td>¥/$ 波動</td>
+<td>打入 1 年期方案</td>
+</tr>
+<tr>
+<td><strong>圖/片貴</strong></td>
+<td>Seedream ≈100 AFP/張、Seedance ≈2,000 AFP/clip</td>
+<td>先問 client 有冇多模態、鎖 tier（Large/Max）</td>
+</tr>
+<tr>
+<td><strong>模型下線快</strong></td>
+<td><code>seed-2.0-pro/code</code>、<code>seedance-1.5-pro</code>
+即將下線</td>
+<td>新項目唔好用標「即將下線」模型</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-一句市場定位">8. 一句市場定位</h2>
+<blockquote>
+<p><strong>VeADK + AgentKit + BytePlus = 「成條 agent stack +
+全部模型」同一間廠嘅一體化平台</strong>——framework 唔使自砌、GPU
+已包、多模態獨家、帳單一個數封頂。其他廠每樣都好，但你要自己嵌四、五個供應商先砌到同一嚿嘢；我哋係「<strong>一個數、一條線、一個
+support</strong>」。唔喺人哋嘅戰場（全球合規、標價最低、最大模型數）硬撼，喺我哋嘅戰場（一體化、封頂、中文/粵語、多模態一條龍）贏。</p>
+</blockquote>
+<hr />
+<h2 id="9-資料來源">9. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VeADK API 參考（install/依賴/config/fallback/Responses API）</td>
+<td>本 repo <code>veadk-api.html</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>AgentKit CLI 指令大全</td>
+<td>本 repo <code>agentkit-cli.html</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>安全/RBAC/PII/Audit/Observability</td>
+<td>本 repo <code>veadk-agentkit-rbac-observability.html</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Vector DB / Cache 管理（8×KB + 7×LTM backend）</td>
+<td>本 repo <code>veadk-agentkit-vector-cache.html</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>跨廠商成本對照（AFP / 封頂 / 多模態結論）</td>
+<td>本 repo <code>veadk-vendor-cost-comparison.html</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>模型可用性矩陣（Seed 家族 / Seedance tier 鎖位）</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/2366394">https://www.volcengine.com/docs/82379/2366394</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>火山方舟 Agent Plan 套餐概覽</td>
+<td><a
+href="https://www.volcengine.com/docs/82379">https://www.volcengine.com/docs/82379</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk 方案（國際版免費 tokens）</td>
+<td><a
+href="https://www.byteplus.com/modelark">https://www.byteplus.com/modelark</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>火山方舟 Coding Plan 概覽</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/1925114">https://www.volcengine.com/docs/82379/1925114</a></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：功能/型號細節係 2026-08-16
+公開資訊快照，各平台可能已郁；<strong>功能存在性以各平台官網/控制台為準</strong>。行貨
+vs 獨特位嘅判斷係定性（本 repo 觀點），引用前對返官方文檔。HK
+定位內容係定性，落 contract 前同法務確認。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-16 · 模型/Plan 常常郁，引用前
+refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

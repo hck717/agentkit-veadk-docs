@@ -1,0 +1,5 @@
+Agent 365 提供了代理註冊表/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些都是代理型採用的重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。而 E7 SKU 包含了 Agent 365，其安全相關功能對於確保代理在企業環境中的安全運行至關重要，否則代理型採用可能面臨風險。此外，在 E7 bundle 中，安全是整合各種功能（如 M365 Copilot、Entra Suite 等）並實現企業級部署的關鍵因素，只有解決安全問題，才能讓企業放心採用 E7 來驅動 M365 Copilot 和 Agent 365 的 adoption【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evol】。
+
+## 來源
+[1] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>
+[3] <20260313_Barclays_MSFT_Microsoft_Corp.-_Evol>

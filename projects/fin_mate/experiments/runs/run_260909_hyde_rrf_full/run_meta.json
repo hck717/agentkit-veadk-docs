@@ -1,0 +1,45 @@
+{
+  "tag": "run_260909_hyde_rrf_full",
+  "ts": "2026-09-09 09:59:03",
+  "models": {
+    "primary": "?",
+    "agent": "?"
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "gate": 0.35,
+  "rrf_k": 60,
+  "max_tokens_budget": 500000,
+  "strats": {
+    "naive": "dense find top_k=5 + L2 hydrate（= prod baseline）",
+    "advanced": "dense find k=15 粗水化 + grep 擴 query + dedupe + score gate",
+    "hybrid": "dense find k=15 + sparse grep terms -> RRF(k=60) 融合",
+    "corrective": "find -> LLM self-check -> rewrite -> re-find -> 再差 skip 注入",
+    "adaptive": "LLM router 決定查唔查（trap/SKIP 就唔查）",
+    "hyde": "LLM 生成 hypothetical doc -> 用埋當 query dense find（HyDE，k=5）",
+    "hyde_rrf": "HyDE hypothesis → 3-channel RRF(dense_q + dense_h + grep) → answer"
+  },
+  "n_items": 15,
+  "items": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "t1",
+    "t2",
+    "m1",
+    "m2"
+  ],
+  "retrieve_only": false,
+  "used_tokens": 48702
+}

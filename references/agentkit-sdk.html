@@ -1,0 +1,458 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AgentKit SDK</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>AgentKit SDK</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="agentkit-sdk-參考">AgentKit SDK 參考</h1>
+<p>呢份文件記錄晒 <code>agentkit-sdk-python</code>（PyPI
+套件）嘅程式碼範例，用粵語解釋用途同用法。</p>
+<hr />
+<h2 id="安裝">安裝</h2>
+<pre class="bash"><code># 已發佈版本
+pip install &quot;agentkit-sdk-python&gt;=0.3.0&quot;
+
+# 可選：A2A 支援
+pip install &quot;agentkit-sdk-python[a2a]&quot;</code></pre>
+<hr />
+<h2 id="agentkitsimpleapp基礎架構">AgentkitSimpleApp（基礎架構）</h2>
+<h3 id="最簡單嘅程式">最簡單嘅程式</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+
+simple_app = AgentkitSimpleApp(
+    name=&quot;test_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+response = asyncio.run(simple_app.invoke(
+    text=&quot;用一句話介紹火山引擎。&quot;,
+    uid=&quot;test_user&quot;,
+    sid=&quot;test_session&quot;,
+))
+print(response.get_message())
+# 輸出：「火山引擎係字節跳動旗下嘅企業級雲服務平台...」</code></pre>
+<h3 id="流式輸出sse">流式輸出（SSE）</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+
+simple_app = AgentkitSimpleApp(
+    name=&quot;stream_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+async def main():
+    async for event in simple_app.invoke_stream(
+        text=&quot;講個故仔&quot;,
+        uid=&quot;test_user&quot;,
+        sid=&quot;session-1&quot;,
+    ):
+        # event 可以係 Message、ToolCall、ToolResult、Error 等
+        print(event)
+
+asyncio.run(main())</code></pre>
+<h3 id="帶工具嘅-app">帶工具嘅 App</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+from google.adk.tools.tool_context import ToolContext
+
+# 定義工具函數
+def get_weather(location: str, unit: str = &quot;celsius&quot;, tool_context: ToolContext = None) -&gt; str:
+    &quot;&quot;&quot;獲取指定城市嘅天氣資訊
+
+    Args:
+        location: 城市名（例如：北京、上海）
+        unit: 溫度單位（celsius/fahrenheit）
+    &quot;&quot;&quot;
+    # 呢度模擬天氣查詢
+    weather_data = {&quot;北京&quot;: &quot;晴天，25°C&quot;, &quot;上海&quot;: &quot;多雲，22°C&quot;}
+    return weather_data.get(location, f&quot;{location} 嘅天氣數據暫未提供&quot;)
+
+app_with_tools = AgentkitSimpleApp(
+    name=&quot;weather_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    tools=[get_weather],
+)
+
+response = asyncio.run(app_with_tools.invoke(
+    text=&quot;北京天氣如何？&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<h3 id="帶記憶嘅-app">帶記憶嘅 App</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+from agentkit.memory import AgentkitMemory
+from agentkit.knowledge import AgentkitKnowledge
+
+# 記憶客戶端
+memory = AgentkitMemory(
+    host=&quot;http://localhost:8000&quot;,
+    token=&quot;&lt;your-token&gt;&quot;,
+)
+
+app_with_memory = AgentkitSimpleApp(
+    name=&quot;memory_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    memory=memory,
+)</code></pre>
+<h3 id="帶知識庫嘅-app">帶知識庫嘅 App</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+from agentkit.knowledge import AgentkitKnowledge
+
+# 知識庫客戶端
+knowledge = AgentkitKnowledge(
+    host=&quot;http://localhost:8000&quot;,
+    token=&quot;&lt;your-token&gt;&quot;,
+)
+
+app_with_knowledge = AgentkitSimpleApp(
+    name=&quot;knowledge_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    knowledge=knowledge,
+    knowledge_query_intro=&quot;請利用知識庫回答用戶問題。&quot;,
+)</code></pre>
+<h3 id="帶-mcp-嘅-app">帶 MCP 嘅 App</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+
+app_with_mcp = AgentkitSimpleApp(
+    name=&quot;mcp_app&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    mcp_service_host=&quot;http://localhost:8001&quot;,
+    mcp_service_token=&quot;&lt;your-mcp-token&gt;&quot;,
+)</code></pre>
+<h3 id="完整參數production-grade">完整參數（production-grade）</h3>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+from agentkit.memory import AgentkitMemory
+from agentkit.knowledge import AgentkitKnowledge
+
+full_app = AgentkitSimpleApp(
+    name=&quot;production_agent&quot;,
+    # LLM
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    # Agent
+    instruction=&quot;你係一個專業助手。&quot;,
+    tools=[get_weather],
+    max_input_tokens=4000,
+    max_output_tokens=2000,
+    # 附加
+    memory=AgentkitMemory(host=&quot;http://localhost:8000&quot;, token=&quot;&lt;token&gt;&quot;),
+    knowledge=AgentkitKnowledge(host=&quot;http://localhost:8000&quot;, token=&quot;&lt;token&gt;&quot;),
+    knowledge_query_intro=&quot;請利用知識庫回答。&quot;,
+    mcp_service_host=&quot;http://localhost:8001&quot;,
+    mcp_service_token=&quot;&lt;mcp-token&gt;&quot;,
+    # 回調
+    on_start=lambda req: print(f&quot;收到請求: {req}&quot;),
+    on_end=lambda req, resp: print(f&quot;請求完成: {resp}&quot;),
+)</code></pre>
+<hr />
+<h2 id="agentkitmcpappmcp-一鍵變-agent">AgentkitMCPApp（MCP 一鍵變
+Agent）</h2>
+<h3 id="基本用法">基本用法</h3>
+<pre class="python"><code>import asyncio
+from agentkit.mcp_app import AgentkitMCPApp
+
+# 將 MCP Server 變成 Agent
+mcp_app = AgentkitMCPApp(
+    name=&quot;mcp_agent&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    mcp_service_host=&quot;http://localhost:8001&quot;,
+    mcp_service_token=&quot;&lt;mcp-token&gt;&quot;,
+)
+
+response = asyncio.run(mcp_app.invoke(
+    text=&quot;幫我查下數據庫用戶表有咩記錄&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<h3 id="apptool-裝飾器">@app.tool 裝飾器</h3>
+<pre class="python"><code>import asyncio
+from agentkit.mcp_app import AgentkitMCPApp
+
+mcp_app = AgentkitMCPApp(
+    name=&quot;mcp_with_tools&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+@mcp_app.tool
+def get_stock_price(symbol: str) -&gt; str:
+    &quot;&quot;&quot;獲取股票即時價格
+
+    Args:
+        symbol: 股票代號（例如：AAPL、GOOGL）
+    &quot;&quot;&quot;
+    prices = {&quot;AAPL&quot;: &quot;150.25&quot;, &quot;GOOGL&quot;: &quot;2800.50&quot;}
+    return f&quot;{symbol} 嘅即時價格係 ${prices.get(symbol, &#39;N/A&#39;)}&quot;
+
+response = asyncio.run(mcp_app.invoke(
+    text=&quot;AAPL 股價幾多？&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<h3 id="appagent_as_a_tool-裝飾器">@app.agent_as_a_tool 裝飾器</h3>
+<p>將一個子 Agent 封裝成工具，畀主 Agent 調用：</p>
+<pre class="python"><code>import asyncio
+from agentkit.mcp_app import AgentkitMCPApp
+
+mcp_app = AgentkitMCPApp(
+    name=&quot;main_agent&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+@mcp_app.agent_as_a_tool(
+    name=&quot;weather_search&quot;,
+    description=&quot;搜索天氣資訊&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+)
+async def weather_search_agent(text: str) -&gt; str:
+    # 呢個子 Agent 會收到 text 參數並執行
+    return f&quot;[天氣搜索結果: {text}]&quot;
+
+response = asyncio.run(mcp_app.invoke(
+    text=&quot;今日北京天氣如何？用 weather_search 工具查詢&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<hr />
+<h2 id="agentkita2aappa2a-互操作性">AgentkitA2aApp（A2A 互操作性）</h2>
+<h3 id="基本用法-1">基本用法</h3>
+<pre class="python"><code>import asyncio
+from agentkit.a2a_app import AgentkitA2aApp
+
+a2a_app = AgentkitA2aApp(
+    name=&quot;a2a_agent&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+response = asyncio.run(a2a_app.invoke(
+    text=&quot;Hello from A2A&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<h3 id="appagent_executor-裝飾器">@app.agent_executor 裝飾器</h3>
+<pre class="python"><code>import asyncio
+from agentkit.a2a_app import AgentkitA2aApp
+
+a2a_app = AgentkitA2aApp(
+    name=&quot;a2a_with_executor&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+)
+
+@a2a_app.agent_executor(name=&quot;math_executor&quot;)
+async def execute_math(problem: str) -&gt; str:
+    &quot;&quot;&quot;解數學題
+
+    Args:
+        problem: 數學問題描述
+    &quot;&quot;&quot;
+    return f&quot;解題完成: {problem}&quot;
+
+response = asyncio.run(a2a_app.invoke(
+    text=&quot;用 math_executor 計算 25 * 4&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+))
+print(response.get_message())</code></pre>
+<h3 id="apptask_store-裝飾器">@app.task_store 裝飾器</h3>
+<pre class="python"><code>import json
+from agentkit.a2a_app import AgentkitA2aApp
+
+a2a_app = AgentkitA2aApp()
+
+@a2a_app.task_store(name=&quot;file_task_store&quot;)
+def save_task(task_data: dict) -&gt; dict:
+    task_json = json.dumps(task_data, ensure_ascii=False)
+    print(f&quot;[Task Store] Saving: {task_json}&quot;)
+    return {&quot;status&quot;: &quot;saved&quot;, &quot;data&quot;: task_data}</code></pre>
+<hr />
+<h2 id="平台客戶端-api">平台客戶端 API</h2>
+<h3 id="agentkitmemory">AgentkitMemory</h3>
+<pre class="python"><code>from agentkit.memory import AgentkitMemory
+
+memory = AgentkitMemory(
+    host=&quot;http://localhost:8000&quot;,
+    token=&quot;&lt;your-token&gt;&quot;,
+)
+
+# 保存記憶
+memory.save_memory(
+    app_id=&quot;test_app&quot;,
+    uid=&quot;user-42&quot;,
+    memory_type=&quot;conversation_history&quot;,
+    content=&quot;用戶話佢鍾意藍色。&quot;,
+)
+
+# 檢索記憶
+history = memory.retrieve_memory(
+    app_id=&quot;test_app&quot;,
+    uid=&quot;user-42&quot;,
+    memory_type=&quot;conversation_history&quot;,
+    top_k=10,
+)
+
+# 刪除記憶
+memory.clear_memory(
+    app_id=&quot;test_app&quot;,
+    uid=&quot;user-42&quot;,
+    memory_type=&quot;conversation_history&quot;,
+)</code></pre>
+<h3 id="agentkitknowledge">AgentkitKnowledge</h3>
+<pre class="python"><code>from agentkit.knowledge import AgentkitKnowledge
+
+knowledge = AgentkitKnowledge(
+    host=&quot;http://localhost:8000&quot;,
+    token=&quot;&lt;your-token&gt;&quot;,
+)
+
+# 查詢知識庫
+results = knowledge.query(
+    app_id=&quot;test_app&quot;,
+    query=&quot;年假政策&quot;,
+    top_k=5,
+)
+
+# 上傳文件（可選）
+from agentkit.knowledge import AgentkitKnowledge
+knowledge.add_document(
+    app_id=&quot;test_app&quot;,
+    file_path=&quot;./policy.pdf&quot;,
+)</code></pre>
+<h3 id="agentkitmcp">AgentkitMCP</h3>
+<pre class="python"><code>from agentkit.mcp import AgentkitMCP
+
+mcp_client = AgentkitMCP(
+    host=&quot;http://localhost:8001&quot;,
+    token=&quot;&lt;your-mcp-token&gt;&quot;,
+)
+
+# 列出可用工具
+tools = mcp_client.list_tools()
+for tool in tools:
+    print(tool.name, tool.description)
+
+# 調用工具
+result = mcp_client.call_tool(
+    tool_name=&quot;database_query&quot;,
+    arguments={&quot;query&quot;: &quot;SELECT * FROM users&quot;, &quot;params&quot;: {}},
+)</code></pre>
+<h3 id="agentkitruntime">AgentkitRuntime</h3>
+<pre class="python"><code>from agentkit.runtime import AgentkitRuntime
+
+runtime = AgentkitRuntime(
+    host=&quot;http://localhost:8002&quot;,
+    token=&quot;&lt;your-runtime-token&gt;&quot;,
+    auto_reconnect=True,
+    timeout_seconds=30,
+)
+
+# 註冊 Agent
+runtime.register_agent(
+    app_name=&quot;my_app&quot;,
+    agent_type=&quot;simple&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+)
+
+# 執行 Agent
+response = runtime.invoke_agent(
+    app_name=&quot;my_app&quot;,
+    input=&quot;Hello&quot;,
+    uid=&quot;user-42&quot;,
+    sid=&quot;session-1&quot;,
+)</code></pre>
+<hr />
+<h2 id="完整-production-grade-範例">完整 Production-Grade 範例</h2>
+<pre class="python"><code>import asyncio
+from agentkit import AgentkitSimpleApp
+from agentkit.memory import AgentkitMemory
+from agentkit.knowledge import AgentkitKnowledge
+from agentkit.mcp import AgentkitMCP
+from agentkit.runtime import AgentkitRuntime
+from google.adk.tools.tool_context import ToolContext
+
+# 平台客戶端
+memory = AgentkitMemory(host=&quot;http://demo-cn.agentkit.ai&quot;, token=&quot;&lt;token&gt;&quot;)
+knowledge = AgentkitKnowledge(host=&quot;http://demo-cn.agentkit.ai&quot;, token=&quot;&lt;token&gt;&quot;)
+
+# 自定義工具（含 tool_context 取用狀態）
+def order_query(order_id: str, tool_context: ToolContext = None) -&gt; str:
+    &quot;&quot;&quot;查詢訂單狀態
+
+    Args:
+        order_id: 訂單編號
+    &quot;&quot;&quot;
+    user_id = tool_context.state.get(&quot;user_id&quot;, &quot;unknown&quot;) if tool_context else &quot;unknown&quot;
+    orders = {&quot;ORD-001&quot;: &quot;已發貨&quot;, &quot;ORD-002&quot;: &quot;處理中&quot;}
+    status = orders.get(order_id, &quot;唔存在&quot;)
+    return f&quot;用戶 {user_id} 嘅訂單 {order_id} 狀態：{status}&quot;
+
+# 構建 Agent App
+app = AgentkitSimpleApp(
+    name=&quot;production_demo&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    api_key=&quot;&lt;your-api-key&gt;&quot;,
+    api_base=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;,
+    instruction=&quot;你係一個專業嘅購物助手，用工具查訂單，用知識庫答 FAQ。&quot;,
+    tools=[order_query],
+    memory=memory,
+    knowledge=knowledge,
+    knowledge_query_intro=&quot;請利用知識庫幫手回答。&quot;,
+    max_input_tokens=4000,
+    max_output_tokens=2000,
+    on_start=lambda req: print(f&quot;[START] {req.uid} 查詢&quot;),
+    on_end=lambda req, resp: print(f&quot;[END] 已回應用戶 {req.uid}&quot;),
+)
+
+async def main():
+    response = await app.invoke(
+        text=&quot;ORD-001 訂單狀態？&quot;,
+        uid=&quot;user-42&quot;,
+        sid=&quot;session-1&quot;,
+    )
+    print(response.get_message())
+
+asyncio.run(main())</code></pre>
+<hr />
+<h2 id="重要提示">重要提示</h2>
+<ul>
+<li><code>agentkit-sdk-python</code> 透過 <code>agentkit</code> 頂層
+import（唔係 <code>agentkit_sdk</code>）</li>
+<li>所有 App 類型（SimpleApp、MCPApp、A2aApp）都支援
+<code>.invoke()</code> 同 <code>.invoke_stream()</code></li>
+<li>平台客戶端（Memory、Knowledge、MCP、Runtime）係獨立 REST
+客戶端，連去 AgentKit Platform</li>
+<li>用 <code>agent_as_a_tool</code> 可以整多層 Agent 結構（Agent 入面再
+call Agent）</li>
+</ul>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

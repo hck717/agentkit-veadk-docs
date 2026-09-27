@@ -1,0 +1,11 @@
+### 1. E7 SKU 整合多項高價值服務，提升單用戶收入（ARPU）
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，定價為每用戶每月 99 美元，相比單獨購買這些服務更具吸引力。高價值服務的整合可驅動企業用戶升級，從而提高 ARPU。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】
+
+### 2. 現有 E3/E5 用戶升級意願高，存在龐大 Upsell 機會
+據估計，全球約有 1.5 億 E3/E5 用戶，是 E7 升級的主要對象。E7 提供的 Agent 365 和 Copilot 等功能可滿足企業對 AI 管理和協同工具的需求，因此 E3/E5 用戶升級 E7 的可能性較高，有望帶來每年 960 億美元的額外收入。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】
+
+### 3. 近期 M365 漲價推動企業談判，創造採用催化劑
+2026 年下半年，Microsoft 對 M365 進行了漲價，這迫使企業重新談判合約。E7 SKU 的推出為企業提供了一個升級平台，可在談判中獲得更好的條件，從而加速 E7 的採用。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】
+
+### 4. Agent 365 作為獨立產品 adoption 困難，依賴 E7 套件推廣
+Agent 365 單獨定價為每用戶每月 15 美元，企業用戶通常不會單獨

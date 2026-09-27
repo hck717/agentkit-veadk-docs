@@ -1,0 +1,18 @@
+Very helpful.
+A - Jonathan Neilson
+Thanks, Brad. Operator, we have time for one last question.
+Operator
+And the last question will come from the line of Raimo Lenschow with Barclays. Please proceed.
+Q - Raimo Lenschow {BIO 4664646 <GO>}
+Perfect. Thanks for squeezing me in. The last few quarters, we talked -- besides the GPU side, we
+talked about CPU as well on the Azure side and you had some operational changes at the
+beginning of January last year. Can you speak what you saw there, and maybe put it more in a
+bigger picture in terms of clients realizing that their move to the cloud is important if they want to
+deliver proper AI? So what are we seeing in terms of cloud transitions? Thank you.
+A - Satya Nadella {BIO 3224315 <GO>}
+I didn't quite --
+A - Jonathan Neilson
+Sorry, Raimo, you were asking about the SNC CPU side, or can you just repeat the question,
+please?
+Q - Raimo Lenschow {BIO 4664646 <GO>}
+Yes. Yes, yes.

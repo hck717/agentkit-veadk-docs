@@ -1,0 +1,18 @@
+我现在需要处理用户的问题：“MSFT 三大主要業務係咩？（overview）”。首先，根据系统提示，我应该使用load_knowledgebase工具来查询相关信息，最多调用两次。用户的问题明确指向微软的三大主要业务，属于需要知识库支持的内容，因此必须调用该工具。
+
+接下来，检查工具返回的结果。第一次调用load_knowledgebase后，返回了多个知识库条目。其中第一个条目来自“viking://resources/fin_kb/msft_overview/msft_overview.md”，内容中提到了微软的关键业务：Azure智能云、生产力与商业流程、更多个人计算。这三个部分正好对应了用户所问的三大业务，并且描述详细，包括每个业务的具体内容和增长驱动因素。因此，这个条目的信息足够回答用户的问题，不需要进行第二次查询。
+
+然后，根据规则，每句claim都需要添加inline标注。例如，“Microsoft Corporation（NASDAQ: MSFT）係全球最大軟件公司之一，亦係雲端基建（Azure）、生產力工具（Microsoft 365 / Office）、作業系統（Windows）、遊戲（Xbox）同 AI 基建領域嘅主要玩家。” 这句话需要标注【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。同样，关于三大业务的描述也需要标注对应的URI。
+
+最后，确保结尾列出完整的来源URI。在这个案例中，只有第一个条目提供了有效信息，因此来源应为该URI。同时，检查是否有需要计算的部分，但用户的问题不涉及数学计算，因此不需要调用calc工具。
+
+总结，用户的问题已经通过一次知识库查询得到解答，信息准确且完整，无需进一步操作。
+Microsoft Corporation（NASDAQ: MSFT）係全球最大軟件公司之一，亦係雲端基建（Azure）、生產力工具（Microsoft 365 / Office）、作業系統（Windows）、遊戲（Xbox）同 AI 基建領域嘅主要玩家【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。
+
+## 關鍵業務
+- **Azure 智能雲**：雲端服務同企業 AI 基建，收入增長靠企業雲遷移同 Copilot / OpenAI 合作帶動【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。
+- **生產力與商業流程**：Microsoft 365、LinkedIn、Dynamics【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。
+- **更多個人計算**：Windows、Surface、Xbox、搜尋廣告（Bing）【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。
+
+## 來源
+viking://resources/fin_kb/msft_overview/msft_overview.md

@@ -1,0 +1,349 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>重點唔係「邊個平一毫子」，係<strong>同一條 agent pipeline，每個
+platform
+收你幾層錢</strong>。呢頁將十個平台攤開：模型、embedding、RAG/知識庫、agent
+hosting、安全+可觀測、微調——逐層睇。詳細數字喺下面文件（逐廠檔案 +
+同-model 對照 + 全棧 P&amp;L）。</p>
+<blockquote>
+<p>名義 FX：<strong>¥1 ≈ $0.14</strong> · 時點 2026-08-16（DeepSeek
+峰谷價 2026-08-17 起）· 大額報價前一定要去官網 rate 再 check。</p>
+</blockquote>
+<h2 id="it-cmp-一五層成本--同一個-agent五張單">一、五層成本 —— 同一個
+agent，五張單</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>收咩錢</th>
+<th>邊個平台收</th>
+<th>快評</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① <strong>Model tokens</strong></td>
+<td>in / out + cache-read</td>
+<td>全部</td>
+<td>主力消費，價差成 10–100×</td>
+</tr>
+<tr>
+<td>② <strong>Embedding</strong></td>
+<td>每 1M token</td>
+<td>RAG 先有</td>
+<td>Gemini $0.15–0.20 大廠最平</td>
+</tr>
+<tr>
+<td>③ <strong>RAG / 知識庫</strong></td>
+<td>KB 儲存 + 每 query 額外 input token</td>
+<td>百煉、Azure、Bedrock…</td>
+<td>Bedrock 有集團 $345/月底（KB）</td>
+</tr>
+<tr>
+<td>④ <strong>Agent hosting / runtime / tools</strong></td>
+<td>vCPU·h / session / 工具次數</td>
+<td>Azure、Gemini、Tencent…</td>
+<td><strong>BytePlus 已包入 Plan</strong></td>
+</tr>
+<tr>
+<td>⑤ <strong>安全 + 可觀測 + 微調</strong></td>
+<td>guardrail 每 request / PII / 監控</td>
+<td>Azure、Bedrock…</td>
+<td>BytePlus LLM-FW 內置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-cmp-二模型牌價一覽cheap--top1m">二、模型牌價一覽（cheap →
+top，$/1M）</h2>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>Cheap</th>
+<th>Typical</th>
+<th>Top-tier</th>
+<th>cache-read 慳幾多</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BytePlus 方舟</strong></td>
+<td>mini ¥0.2/¥2</td>
+<td>turbo ¥3/¥15</td>
+<td>evolving ¥6/¥30</td>
+<td>隱式 ~20%</td>
+</tr>
+<tr>
+<td><strong>Azure OpenAI</strong></td>
+<td>GPT-5-nano $0.05/$0.40</td>
+<td>mini $0.25/$2.00</td>
+<td>GPT-5 Pro $15/$120</td>
+<td>$0.025–0.125</td>
+</tr>
+<tr>
+<td><strong>AWS Bedrock</strong></td>
+<td><strong>Nova Micro $0.035/$0.14</strong></td>
+<td>Sonnet 4.6 $3/$15</td>
+<td>Opus 4.8 $5/$25</td>
+<td>高（90%）</td>
+</tr>
+<tr>
+<td><strong>Google Gemini</strong></td>
+<td>Flash-Lite $0.10/$0.40</td>
+<td>2.5 Flash $0.30/$2.50</td>
+<td>3.1 Pro $2/$12</td>
+<td>$0.125 + batch 半價</td>
+</tr>
+<tr>
+<td><strong>DeepSeek</strong>（離峰）</td>
+<td>flash $0.22/$0.66</td>
+<td>—</td>
+<td>pro $0.66/$1.98</td>
+<td><strong>$0.007 極狠</strong></td>
+</tr>
+<tr>
+<td><strong>Alibaba 百煉</strong></td>
+<td>open 8B ¥0.5/¥2</td>
+<td>qwen3-max ¥2.5/¥10</td>
+<td>qwen3.7-max ¥12/¥36</td>
+<td>≈20%</td>
+</tr>
+<tr>
+<td><strong>Tencent 混元</strong></td>
+<td>a13b ¥0.5/¥2</td>
+<td>role ¥2.4/¥9.6</td>
+<td>Vision ¥3/¥9</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Zhipu GLM</strong></td>
+<td>GLM-5 ¥4/¥18</td>
+<td>GLM-5.1 ¥6/¥24</td>
+<td>—</td>
+<td>¥1–1.3</td>
+</tr>
+<tr>
+<td><strong>Mistral</strong></td>
+<td>Min3B $0.1/$0.1</td>
+<td>Small 4 $0.15/$0.6</td>
+<td>Medium 3.5 $1.5/$7.5</td>
+<td>~90%</td>
+</tr>
+<tr>
+<td><strong>開源快推理</strong></td>
+<td>DeepInfra Llama $0.35/$0.35</td>
+<td>Groq $0.59/$0.79</td>
+<td>Cerebras $0.85/$1.20</td>
+<td>無（但快）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-cmp-三同一個-model十間-host-差-10--講畀客聽嘅故事">三、同一個
+model，十間 host 差 10× —— 講畀客聽嘅故事</h2>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>Llama 3.3 70B（$ in/out）</th>
+<th>速度</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenRouter（路由）</td>
+<td>低至 $0.10/$0.32</td>
+<td>—</td>
+<td>另一個 5.5% fee</td>
+</tr>
+<tr>
+<td>DeepInfra</td>
+<td>$0.35/$0.35</td>
+<td>27 tok/s</td>
+<td>意志價</td>
+</tr>
+<tr>
+<td><strong>Groq</strong></td>
+<td>$0.59/$0.79</td>
+<td>~315 tok/s</td>
+<td>RT 對話</td>
+</tr>
+<tr>
+<td><strong>AWS Bedrock</strong></td>
+<td>$0.72/$0.72</td>
+<td>~190</td>
+<td>大廠</td>
+</tr>
+<tr>
+<td><strong>Cerebras</strong></td>
+<td>$0.85/$1.20</td>
+<td>~2000 tok/s</td>
+<td>最快開源</td>
+</tr>
+<tr>
+<td>Together</td>
+<td>$1.04/$1.04</td>
+<td>45</td>
+<td>微調基建</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>同一 model，OpenRouter ↔︎ Cerebras 差 4×</strong>；加上另一邊
+DeepSeek V4-flash
+方舟同官方同價（¥1/¥2）但企業並發穩——<strong>「買嘅係房東，唔係
+model」</strong>。</p>
+</blockquote>
+<h2 id="it-cmp-四快算1000-個-query4-agent-loop差幾多">四、快算：1,000 個
+query（4× agent loop）差幾多</h2>
+<p>假設每 query 2k in + 400 out × 4 inner calls ⇒ 1,000 queries ≈ 8M in
++ 1.6M out（cache 50%）：</p>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>約 $</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DeepSeek flash 離峰</strong></td>
+<td><strong>~$2.1</strong></td>
+</tr>
+<tr>
+<td><strong>BytePlus 按量 mini</strong></td>
+<td><strong>~$3.6</strong>（AFP 封頂就另講）</td>
+</tr>
+<tr>
+<td>Mistral Small 4</td>
+<td>~$1.7</td>
+</tr>
+<tr>
+<td>Groq Llama 3.3</td>
+<td>~$6.3</td>
+</tr>
+<tr>
+<td>Azure GPT-5-mini</td>
+<td>~$4.5</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Flash</td>
+<td>~$6.0</td>
+</tr>
+<tr>
+<td>百煉 qwen3-max</td>
+<td>~$4.1</td>
+</tr>
+<tr>
+<td><strong>Bedrock Claude Sonnet 4.6</strong></td>
+<td><strong>~$39</strong>（貴 10–20×）</td>
+</tr>
+<tr>
+<td>BYTEPLUS AFP（封頂月費）</td>
+<td>課金型的：¥500–1,000/月 包乾</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="it-cmp-五全棧一個月招數唔喺-token喺啲隱形嘢">五、全棧「一個月」——招數唔喺
+token，喺啲隱形嘢</h2>
+<table>
+<thead>
+<tr>
+<th>隱形位</th>
+<th>點伏</th>
+<th>點解 BytePlus 唔中</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAG KB 底價</td>
+<td>Bedrock OpenSearch <strong>$345/月</strong>（零 query 照收）</td>
+<td>KB 儲存計 GB·h、向量化計 AFP，細量平</td>
+</tr>
+<tr>
+<td>Tools/MCP</td>
+<td>Tencent 網頁解析 <strong>¥120/1M</strong>；Azure Code Interpreter
+$0.03/session</td>
+<td>Harness ≤500 次/月 free，超出扣 AFP</td>
+</tr>
+<tr>
+<td>Guardrails</td>
+<td>Bedrock $0.15/1K units × in+out 各一</td>
+<td><strong>LLM-FW 內置近免費</strong></td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Azure <strong>Defender $0.80/1M·月</strong> + AGENT 365 另收</td>
+<td>IAM/AK-SK/JWT/審計內置（sec tab）</td>
+</tr>
+<tr>
+<td>GPU / runtime</td>
+<td>H100 $10–11/h（Vertex）、PTU $2,448/月</td>
+<td><strong>已入 Plan</strong>，唔好另加</td>
+</tr>
+<tr>
+<td>微調</td>
+<td>Azure SFT $2–3.3/1M tok + <strong>$1.70/hr hosting</strong></td>
+<td>LoRA 收 AFP/按量，輕身</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-cmp-六邊個場景揀邊間決策規則">六、邊個場景揀邊間（決策規則）</h2>
+<table>
+<thead>
+<tr>
+<th>你個 client…</th>
+<th>揀</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>要封頂月費 + 多模態/video + GPU 已包 + 中文/粵語</td>
+<td><strong>BytePlus AFP</strong></td>
+<td>¥500–1,000 包乾，預測到</td>
+</tr>
+<tr>
+<td>全球盤 + 想要 GPT-5 家族 + Batch 離線壓量</td>
+<td>Azure / OpenAI</td>
+<td>nano→Pro 全系 + batch −50%</td>
+</tr>
+<tr>
+<td>極平純推理 + 唔介意自砌 infra</td>
+<td>DeepSeek（離峰）/ DeepInfra</td>
+<td>cache $0.007、標價最低</td>
+</tr>
+<tr>
+<td>已用 AWS、想要 62+ model</td>
+<td>Bedrock</td>
+<td>彈性開源→Claude，KB/guardrails 成熟</td>
+</tr>
+<tr>
+<td>已用 GCP、ultra 長文 + 平價 runtime</td>
+<td>Gemini</td>
+<td>Flash + Agent Compute 50h free</td>
+</tr>
+<tr>
+<td>語言/合規綁死歐洲</td>
+<td>Mistral</td>
+<td>EU 主權 + batch −50%</td>
+</tr>
+<tr>
+<td>淘系/大陸、要 Qwen 生態</td>
+<td>百煉</td>
+<td>90 日 1M free、微調平</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-cmp-sales-一句">Sales 一句</h2>
+<p>「成本唔係比『粒 model 幾錢』——係比『<strong>同一條 agent 成條
+pipeline 幾錢</strong>』。BytePlus 用 <strong>封頂月費 + 多模態 + GPUs
+包晒</strong>，畀你一個<strong>可預測嘅
+cost-per-outcome</strong>；其他家標價靚，帳單散喺
+KB/guardrails/runtime/security
+五張單度浮動。大客戶主權/合規啲要另傾，但香港做 MVP
+想快、想平、想封頂——BytePlus 喺佢自己個戰場贏。」</p>
+<hr />
+<p><em>最後審計：2026-08-16 · 價會郁；詳見
+<code>veadk-vendor-cost-comparison.html</code> 逐廠檔案 +
+來源。</em></p>

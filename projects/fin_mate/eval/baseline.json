@@ -1,0 +1,77 @@
+{
+  "ts": "2026-09-09 22:55:14",
+  "tag": "260909_2254",
+  "suite": "all",
+  "model": "seed-1-6-flash-250715",
+  "margin": 0.03,
+  "judge_margin": 0.1,
+  "overall": {
+    "n": 34,
+    "passed": 25,
+    "score": 0.7233232050573009,
+    "exact_mean": 0.7060309053733822,
+    "judge_rate": 1.0
+  },
+  "sets": {
+    "fact_single": {
+      "n": 11,
+      "passed": 2,
+      "score": 0.1448171792680211,
+      "exact_mean": 0.1448171792680211,
+      "judge_rate": null,
+      "tokens": 52265,
+      "usd": 0.0013242349999999998,
+      "ms": 16503.27558495337
+    },
+    "fact_multi": {
+      "n": 4,
+      "passed": 4,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": 1.0,
+      "tokens": 13856,
+      "usd": 0.0004961760000000001,
+      "ms": 11803.070416965056
+    },
+    "calc_expr": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 773,
+      "usd": 3.8653e-05,
+      "ms": 2216.863832960371
+    },
+    "news_extract": {
+      "n": 3,
+      "passed": 3,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 443,
+      "usd": 2.7542999999999997e-05,
+      "ms": 1478.2705419929698
+    },
+    "sent_3way": {
+      "n": 6,
+      "passed": 6,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 744,
+      "usd": 7.604399999999999e-05,
+      "ms": 4707.841040100902
+    },
+    "sent_score": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 698,
+      "usd": 5.4557999999999995e-05,
+      "ms": 3145.5565419164486
+    }
+  }
+}

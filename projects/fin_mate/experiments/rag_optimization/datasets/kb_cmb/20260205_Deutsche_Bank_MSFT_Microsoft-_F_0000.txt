@@ -1,0 +1,15 @@
+T2se3r0Ot6kwoPa
+T2se3r0Ot6kwoPa
+Distributed on: 29/01/2026 08:03:28 GMT
+Distributed on: 29/01/2026 08:03:28 GMT
+29 January 2026
+Microsoft reported another solid result for F2Q, but it ultimately fell short of more 
+lofty market expectations, in particular for Azure growth. While most investors 
+continue to hone in on this as the most important KPI, mgmt. again made it clear 
+Azure is bearing the brunt of current supply constraints as they prioritize GPU 
+allocation in support of AI usage in first-party apps and R&D to accelerate product 
+innovation in pursuit of higher margin, recurring software opportunities up the 
+stack. So while Azure growth still came in 1pt above guidance at +38% y/y @CC, 
+this was shy of what we believe was a buyside bogey of >39%+ and what mgmt. 
+indicated would have been >40% had they allocated all incremental GPU capacity 
+in F1H26 to Azure.

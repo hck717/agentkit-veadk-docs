@@ -1,0 +1,390 @@
+{
+  "reports": {
+    "ocr_eval": {
+      "ocr_field_f1": 1.0,
+      "cer_invoice_number": 0.0,
+      "cer_vendor": 0.0,
+      "per_field": {
+        "invoice_number": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "date": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "vendor": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "amount": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "tax": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "currency": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        },
+        "line_items": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "n": 3
+        }
+      },
+      "cases": [
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "predicted": {
+            "invoice_number": null,
+            "date": "30/07/2026",
+            "vendor": "Brian",
+            "amount": 2000.0,
+            "tax": 0.0,
+            "currency": "USD",
+            "line_items": [
+              {
+                "description": "iPad",
+                "quantity": 2,
+                "unit_price": 1000.0,
+                "amount": 2000.0
+              }
+            ],
+            "detected_language": "en",
+            "image_key": "invoice_upload/IMG_0403.jpg"
+          },
+          "truth": {
+            "invoice_number": null,
+            "date": "30/07/2026",
+            "vendor": "Brian",
+            "amount": 2000.0,
+            "tax": 0.0,
+            "currency": "USD",
+            "line_items": [
+              {
+                "description": "iPad x 2",
+                "quantity": 2,
+                "unit_price": 1000,
+                "amount": 2000
+              }
+            ]
+          },
+          "invoice_number_match": true,
+          "date_match": true,
+          "vendor_match": true,
+          "amount_match": true,
+          "tax_match": true,
+          "currency_match": true,
+          "line_items": {
+            "line_items_precision": 1.0,
+            "line_items_recall": 1.0,
+            "matched": 1,
+            "predicted": 1,
+            "truth": 1
+          },
+          "cer_invoice_number": 0.0,
+          "cer_vendor": 0.0
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "predicted": {
+            "invoice_number": "",
+            "date": "30/7/2026",
+            "vendor": "Brian",
+            "amount": 2000.0,
+            "tax": 0.0,
+            "currency": "USD",
+            "line_items": [
+              {
+                "description": "iPad",
+                "quantity": 2,
+                "unit_price": 1000,
+                "amount": 2000
+              }
+            ],
+            "detected_language": "English",
+            "image_key": "invoice_upload/IMG_0404.jpg"
+          },
+          "truth": {
+            "invoice_number": null,
+            "date": "30/7/2026",
+            "vendor": "Brian",
+            "amount": 2000.0,
+            "tax": 0.0,
+            "currency": "USD",
+            "line_items": [
+              {
+                "description": "iPad",
+                "quantity": 2,
+                "unit_price": 1000,
+                "amount": 2000
+              }
+            ]
+          },
+          "invoice_number_match": true,
+          "date_match": true,
+          "vendor_match": true,
+          "amount_match": true,
+          "tax_match": true,
+          "currency_match": true,
+          "line_items": {
+            "line_items_precision": 1.0,
+            "line_items_recall": 1.0,
+            "matched": 1,
+            "predicted": 1,
+            "truth": 1
+          },
+          "cer_invoice_number": 0.0,
+          "cer_vendor": 0.0
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "predicted": {
+            "invoice_number": "",
+            "date": "31/07/2026",
+            "vendor": "",
+            "amount": 1000.0,
+            "tax": 0.0,
+            "currency": "HKD",
+            "line_items": [
+              {
+                "description": "iPad 10",
+                "quantity": 2,
+                "unit_price": 500,
+                "amount": 1000
+              }
+            ],
+            "detected_language": "zh",
+            "image_key": "invoice_upload/IMG_0405.jpg"
+          },
+          "truth": {
+            "invoice_number": "",
+            "date": "31/07/2026",
+            "vendor": "",
+            "amount": 1000.0,
+            "tax": 0.0,
+            "currency": "HKD",
+            "line_items": [
+              {
+                "description": "iPad",
+                "quantity": 2,
+                "unit_price": 500,
+                "amount": 1000
+              }
+            ]
+          },
+          "invoice_number_match": true,
+          "date_match": true,
+          "vendor_match": true,
+          "amount_match": true,
+          "tax_match": true,
+          "currency_match": true,
+          "line_items": {
+            "line_items_precision": 1.0,
+            "line_items_recall": 1.0,
+            "matched": 1,
+            "predicted": 1,
+            "truth": 1
+          },
+          "cer_invoice_number": 0.0,
+          "cer_vendor": 0.0
+        }
+      ],
+      "num_invoices": 3,
+      "status": "ok"
+    },
+    "translation_eval": {
+      "numeric_preservation_rate": 1.0,
+      "translation_bleu": null,
+      "has_expected_translation": false,
+      "cases": [
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "numeric_preservation": 1.0,
+          "bleu": null,
+          "missing_numbers": [
+            "1000",
+            "2000"
+          ]
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "numeric_preservation": 1.0,
+          "bleu": null,
+          "missing_numbers": []
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "numeric_preservation": 1.0,
+          "bleu": null,
+          "missing_numbers": []
+        }
+      ],
+      "num_invoices": 3,
+      "status": "ok"
+    },
+    "validation_eval": {
+      "bug_finding_rate": 0.2222,
+      "false_positive_rate": 0.3333,
+      "correction_accuracy": 1.0,
+      "clean_flagged": 1,
+      "clean_total": 3,
+      "bugs_found": 2,
+      "bugs_total": 9,
+      "corrections_correct": 1,
+      "corrections_checked": 1,
+      "cases": [
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "variant": "amount_tampered",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "variant": "line_item_tampered",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "variant": "invalid_date",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "variant": "amount_tampered",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "variant": "line_item_tampered",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "variant": "invalid_date",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "variant": "amount_tampered",
+          "flagged": true,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": [
+            {
+              "field": "amount",
+              "corrected_value": "1000.0",
+              "original_value": "1500.0"
+            }
+          ]
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "variant": "line_item_tampered",
+          "flagged": true,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": [
+            {
+              "field": "line_item.amount",
+              "corrected_value": "1000.0",
+              "original_value": "1100.0"
+            }
+          ]
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "variant": "invalid_date",
+          "flagged": false,
+          "issues": [],
+          "corrections": [],
+          "implicit_corrections": []
+        }
+      ],
+      "num_invoices": 3,
+      "status": "ok"
+    },
+    "aggregation_eval": {
+      "total_error_rate": 0.0,
+      "predicted_total_amount": 5000.0,
+      "expected_total_amount": 5000.0,
+      "duplicate_detection_accuracy": 1.0,
+      "duplicate_flags": [
+        {
+          "invoice_numbers": [
+            null,
+            null,
+            ""
+          ],
+          "reason": "Multiple invoices have null or empty invoice numbers, indicating potential duplicates from the same source"
+        }
+      ],
+      "invoice_count": 3,
+      "num_invoices": 3,
+      "status": "ok"
+    },
+    "approval_eval": {
+      "anomaly_precision": 0.0,
+      "anomaly_recall": null,
+      "confusion": {
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "tn": 0
+      },
+      "cases": [
+        {
+          "image": "invoice_upload/IMG_0403.jpg",
+          "status": "pending_review",
+          "predicted_anomaly": true,
+          "actual_anomaly": false,
+          "reviewer_notes": "The invoice number field is missing, which is a critical required field for valid invoices. There was also an error in date extraction where 'July 30, 2026' was incorrectly identified, requiring correction to the actual DD/MM/YYYY date from the image. These issues need human verification to confirm the invoice's validity."
+        },
+        {
+          "image": "invoice_upload/IMG_0404.jpg",
+          "status": "pending_review",
+          "predicted_anomaly": true,
+          "actual_anomaly": false,
+          "reviewer_notes": "This invoice lacks a valid invoice number, which is a mandatory field for processing and validation. No other issues are identified, but the missing identifier requires human resolution before approval."
+        },
+        {
+          "image": "invoice_upload/IMG_0405.jpg",
+          "status": "pending_review",
+          "predicted_anomaly": true,
+          "actual_anomaly": false,
+          "reviewer_notes": "Critical field 'invoice_number' is still missing despite the vendor being identified (as '收據 (iPad)'). The invoice number is a mandatory, unique identifier for processing and cannot be derived from the current vendor label."
+        }
+      ],
+      "num_invoices": 3,
+      "num_anomalies": 0,
+      "status": "ok"
+    }
+  }
+}

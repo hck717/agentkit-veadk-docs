@@ -1,0 +1,14 @@
+And it's -- is something about to
+change? And I think AGI is kind of a nomenclature or shorthand for that and it's something that's
+still included in your guys' OpenAI agreement.
+So Satya, when we think about AGI or we think about how application and computing
+architectures are changing, is there anything that you see on the horizon, whether it's AGI or
+something else that could potentially change what appears to be a really strong positioning for
+Microsoft in the marketplace today where that strength will perhaps weaken on a go-forward
+basis. Is there anything that you're worrying about in that evolution and particularly the evolution
+of these generative AI models?
+A - Satya Nadella {BIO 3224315 <GO>}
+Yeah, thank you, Keith, for the question. So here's how I'd say that I think there are two parts. We
+feel very, very good about even this, I'd say, the new agreement that we now have with OpenAI
+because I think even it just creates more certainty to all the IP relationship we have as it relates to
+even this definition of AGI.

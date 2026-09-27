@@ -1,0 +1,202 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>安全喺 Agent 世界分四軸，逐樣搞掂先叫「企業可落地」。唔係睇住某個單一
+switch——係四樣都開齊。</p>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>問嘅問題</th>
+<th>主力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inbound（入站認證）</strong></td>
+<td>邊個入嚟？</td>
+<td>平台認證（OAuth2 / 群組 / rate limit）</td>
+</tr>
+<tr>
+<td><strong>Outbound（出站憑證）</strong></td>
+<td>Agent 攞資料嘅鑰匙點管？</td>
+<td>憑證注入（AK/SK / OAuth / JWT 白名單）</td>
+</tr>
+<tr>
+<td><strong>Content Safety / PII</strong></td>
+<td>內容有冇亂嚟 / 泄私隱？</td>
+<td>火山 LLM-FW（防火牆 + 敏感資料檢查）</td>
+</tr>
+<tr>
+<td><strong>RBAC / Audit / Observability</strong></td>
+<td>邊個有權？出事點重現？點監控？</td>
+<td>Studio RBAC、Audit trail（簽名+保留）、APMPlus/Metrics</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-sec-一inbound--先鎖門口">一、Inbound — 先鎖門口</h2>
+<ul>
+<li><strong>API/認證</strong>：AgentKit Runtime 用 <strong>AK/SK 或
+OAuth2</strong>；飛書 bot 用 Bot token。</li>
+<li><strong>平台層</strong>：在 Agent 前加
+<strong>認證/限流/群組</strong> gate，唔好只靠 client 自己 check。</li>
+<li><strong>JWT</strong>：自訂 MCP 服務支援
+JWT（白名單簽名），冇得估。</li>
+</ul>
+<h2 id="it-sec-二outbound--管鑰匙唔好散落-code">二、Outbound — 管鑰匙，唔好散落
+code</h2>
+<ul>
+<li>Agent 要 call 外部 API（DB / CRM / 郵件）時，<strong>唔好 hardcode
+密鑰入 prompt/code</strong>。</li>
+<li>用平台<strong>出站憑證注入</strong>：<code>ak</code> 幫你建/托管
+credential（AK/SK、OAuth、JWT），agent runtime 啟動時安全注入。</li>
+<li>撈「最小權限」原則：Agent 淨係得嗰幾把匙，唔好成條 AK 鏈。</li>
+</ul>
+<h2 id="it-sec-三content-safety--pii--用火山-llm-fw">三、Content Safety / PII —
+用火山 LLM-FW</h2>
+<ul>
+<li>內容安全 = 唔想 agent 輸出有害內容 / 唔想漏
+PII（姓名、身份證、信用卡、地址…）。</li>
+<li>火山 <strong>LLM-FW</strong> 提供：內容過濾（毒性 / 主觀/客觀）·
+敏感資料檢查（漏 PII 攔截）。</li>
+<li>接入方式：平台層開 LLM-FW（預設/自訂規則集）。</li>
+<li><strong>做得過唔過唔關 agent prompt 事</strong>——係平台層 + 前置
+hook 保證，Sales 講故事有得包。</li>
+</ul>
+<h2 id="it-sec-四rbacstudio--前端-邊個有權做嘢">四、RBAC（Studio / 前端）—
+邊個有權做嘢</h2>
+<ul>
+<li>Studio / Frontend 用平台群組 + 角色鎖權：邊個可以開 agent、改
+prompt、睇 audit、攞憑證。</li>
+<li>分「開發者 / 營運 / 審計員」三組係基本盤；審計員只睇唔改。</li>
+</ul>
+<h2 id="it-sec-五audit--出事要重現--簽名--保留">五、Audit — 出事要重現 + 簽名 +
+保留</h2>
+<ul>
+<li><strong>Trail</strong>：每單
+request（輸入/輸出/模型/時間/用戶/版本）要記低，出事先可以重現。</li>
+<li><strong>簽名 / 保留</strong>：audit
+日誌要<strong>不可篡改</strong>（簽名）＋<strong>長期保留</strong>（合規期）。</li>
+<li>連接：CLI <code>agentkit runtime logs</code> 只係 quick
+view；長期留存要用集中 log（TLS 等）。</li>
+</ul>
+<h2 id="it-sec-六observability--trace--metrics--log-三合一">六、Observability —
+trace / metrics / log 三合一</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>睇咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>APMPlus</strong></td>
+<td>模型調用、token、操作耗時、異常、工具耗時、推理內容標注</td>
+</tr>
+<tr>
+<td><strong>Cozeloop</strong></td>
+<td>trace + 評測</td>
+</tr>
+<tr>
+<td><strong>TLS</strong></td>
+<td>集中日誌、長期留存</td>
+</tr>
+<tr>
+<td><strong>Studio</strong></td>
+<td>prompt 版本、評價回流、Good/Bad case</td>
+</tr>
+</tbody>
+</table>
+<p>接入：<code>OpentelemetryTracer([APMPlusExporter(), CozeloopExporter(), TLSExporter()])</code>
+或 <code>ENABLE_APMPLUS=true</code>。</p>
+<blockquote>
+<p>⚠️ <code>LOGGING_LEVEL=DEBUG</code>
+會記錄模型輸出、思考內容、工具參數結果 —— <strong>生產一定要轉
+INFO</strong>，唔係 audit 都補唔返。</p>
+</blockquote>
+<h2
+id="it-sec-七一頁式開到盡示例符合嘢直接引用">七、一頁式「開到盡」示例（符合嘢直接引用）</h2>
+<pre class="text"><code>Inbound:  平台認證 + OAuth2 + rate limit
+Outbound: 平台憑證注入 + JWT 白名單
+Content:  LLM-FW（自訂規則）
+RBAC:     開發者/營運/審計員三組
+Audit:    trail 開啟 + 簽名 + 長期保留（TLS）
+Observ:   APMPlus + Cozeloop（trace）+ TLS（log）</code></pre>
+<h2 id="it-sec-實作四軸一次過落地cli--yaml--veadk">實作：四軸一次過落地（CLI /
+YAML / VeADK）</h2>
+<h3 id="it-sec-①-cli認證--可觀測--留意-logging_level">① CLI：認證 + 可觀測 +
+留意 LOGGING_LEVEL</h3>
+<div class="sourceCode" id="it-sec-cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-sec-cb2-1"><a href="#it-sec-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 登入 + 確認身份</span></span>
+<span id="it-sec-cb2-2"><a href="#it-sec-cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> login <span class="at">--scopes</span> full</span>
+<span id="it-sec-cb2-3"><a href="#it-sec-cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> whoami</span>
+<span id="it-sec-cb2-4"><a href="#it-sec-cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb2-5"><a href="#it-sec-cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># MCP 服務上認證（公網 = API Key / 私網 / 自訂 JWT）</span></span>
+<span id="it-sec-cb2-6"><a href="#it-sec-cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> mcp service create my-svc <span class="dt">\</span></span>
+<span id="it-sec-cb2-7"><a href="#it-sec-cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--auth-type</span> api-key <span class="dt">\</span></span>
+<span id="it-sec-cb2-8"><a href="#it-sec-cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--endpoint</span> https://my-agent.example.com</span>
+<span id="it-sec-cb2-9"><a href="#it-sec-cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb2-10"><a href="#it-sec-cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 開可觀測（APMPlus 追蹤）</span></span>
+<span id="it-sec-cb2-11"><a href="#it-sec-cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime update my-agent <span class="at">--apmplus</span> <span class="at">--auto-release</span></span>
+<span id="it-sec-cb2-12"><a href="#it-sec-cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb2-13"><a href="#it-sec-cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit / 驗證日誌（quick view；長期留存要 TLS）</span></span>
+<span id="it-sec-cb2-14"><a href="#it-sec-cb2-14" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime logs my-agent <span class="at">--limit</span> 200</span></code></pre></div>
+<h3 id="it-sec-②-agentkityamllogging--env-級安全設定">② agentkit.yaml：logging
+/ env 級安全設定</h3>
+<div class="sourceCode" id="it-sec-cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-sec-cb3-1"><a href="#it-sec-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agentkit.yaml —— 生產安全基線</span></span>
+<span id="it-sec-cb3-2"><a href="#it-sec-cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">agent_name</span><span class="kw">:</span><span class="at"> secure-agent</span></span>
+<span id="it-sec-cb3-3"><a href="#it-sec-cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">entry_point</span><span class="kw">:</span><span class="at"> agent_app.py</span></span>
+<span id="it-sec-cb3-4"><a href="#it-sec-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_type</span><span class="kw">:</span><span class="at"> cloud</span></span>
+<span id="it-sec-cb3-5"><a href="#it-sec-cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">region</span><span class="kw">:</span><span class="at"> cn-beijing</span></span>
+<span id="it-sec-cb3-6"><a href="#it-sec-cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="it-sec-cb3-7"><a href="#it-sec-cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> MODEL_AGENT_NAME=seed-2-0-mini-260428</span></span>
+<span id="it-sec-cb3-8"><a href="#it-sec-cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> LOGGING_LEVEL=INFO</span><span class="co">        # 禁止 DEBUG（DEBUG 會記模型輸出/思考/工具參數）</span></span>
+<span id="it-sec-cb3-9"><a href="#it-sec-cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">  # - ENABLE_APMPLUS=true     # 或者用 `ak runtime update --apmplus` 開</span></span>
+<span id="it-sec-cb3-10"><a href="#it-sec-cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">  # 唔好喺呢度寫任何 AK/SK —— 用 `ak config -e` /平台憑證注入</span></span></code></pre></div>
+<h3 id="it-sec-③-veadk-pythontracer-三合一--出站憑證唔好-hardcode">③ VeADK
+Python：tracer 三合一 + 出站憑證（唔好 hardcode）</h3>
+<div class="sourceCode" id="it-sec-cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-sec-cb4-1"><a href="#it-sec-cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.tracing.telemetry.opentelemetry_tracer <span class="im">import</span> OpentelemetryTracer</span>
+<span id="it-sec-cb4-2"><a href="#it-sec-cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.tracing.telemetry.exporters.apmplus_exporter <span class="im">import</span> APMPlusExporter</span>
+<span id="it-sec-cb4-3"><a href="#it-sec-cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.tracing.telemetry.exporters.cozeloop_exporter <span class="im">import</span> CozeloopExporter</span>
+<span id="it-sec-cb4-4"><a href="#it-sec-cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.tracing.telemetry.exporters.tls_exporter <span class="im">import</span> TLSExporter</span>
+<span id="it-sec-cb4-5"><a href="#it-sec-cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb4-6"><a href="#it-sec-cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 一開就 trace/metric/log 三合一（自動加 InMemory 落盤本地 debug）</span></span>
+<span id="it-sec-cb4-7"><a href="#it-sec-cb4-7" aria-hidden="true" tabindex="-1"></a>tracer <span class="op">=</span> OpentelemetryTracer(</span>
+<span id="it-sec-cb4-8"><a href="#it-sec-cb4-8" aria-hidden="true" tabindex="-1"></a>    exporters<span class="op">=</span>[APMPlusExporter(), CozeloopExporter(), TLSExporter()]</span>
+<span id="it-sec-cb4-9"><a href="#it-sec-cb4-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="it-sec-cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-sec-cb5-1"><a href="#it-sec-cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 出站憑證：用平台托管 credential，唔好寫 AK/SK 入 code</span></span>
+<span id="it-sec-cb5-2"><a href="#it-sec-cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># （AK/SK、OAuth、JWT 一律經 ak 建 credentials，runtime 啟動時注入）</span></span>
+<span id="it-sec-cb5-3"><a href="#it-sec-cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 喺 VeADK call 外部 API 前，檢查&quot;只拎要嗰把匙&quot;（最小權限），唔好成條 AK chain</span></span></code></pre></div>
+<div class="sourceCode" id="it-sec-cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-sec-cb6-1"><a href="#it-sec-cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Audit 場景：出一件事 → 出返 request id / 版本先可以重現</span></span>
+<span id="it-sec-cb6-2"><a href="#it-sec-cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="it-sec-cb6-3"><a href="#it-sec-cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent, Runner</span>
+<span id="it-sec-cb6-4"><a href="#it-sec-cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb6-5"><a href="#it-sec-cb6-5" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> Agent(model_name<span class="op">=</span><span class="st">&quot;seed-2-0-mini-260428&quot;</span>)</span>
+<span id="it-sec-cb6-6"><a href="#it-sec-cb6-6" aria-hidden="true" tabindex="-1"></a>runner <span class="op">=</span> Runner(agent)</span>
+<span id="it-sec-cb6-7"><a href="#it-sec-cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-sec-cb6-8"><a href="#it-sec-cb6-8" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> asyncio.run(runner.run(messages<span class="op">=</span><span class="st">&quot;用戶查詢退款&quot;</span>, session_id<span class="op">=</span><span class="st">&quot;s1&quot;</span>, user_id<span class="op">=</span><span class="st">&quot;u-42&quot;</span>))</span>
+<span id="it-sec-cb6-9"><a href="#it-sec-cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resp.request_id)            <span class="co"># 記低，出事攞呢個去 audit / APMPlus 追</span></span>
+<span id="it-sec-cb6-10"><a href="#it-sec-cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resp.model_name)            <span class="co"># 版本都係 trace 一部分</span></span></code></pre></div>
+<h2 id="it-sec-八隱性成本sales-必讀--人哋唔講嘅">八、隱性成本（Sales 必讀 —
+人哋唔講嘅）</h2>
+<ul>
+<li><strong>Shadow eval（10% 流量）</strong> = +10% 模型消耗 → 額外
+AFP。</li>
+<li><strong>Audit / trace 長期留存</strong> =
+儲存流量成本（第二三條線）。</li>
+<li><strong>PII 過濾 + LLM-FW</strong>：通常按量，可能有額外費用。</li>
+<li>報價時呢啲<strong>都要</strong>開唔開嘅選項，唔可以扮有。</li>
+</ul>
+<h2 id="it-sec-sales-一句">Sales 一句</h2>
+<p>「我哋安全係四軸齊：入嚟驗證、出嚟管鑰匙、內容過濾唔漏
+PII、出事有唔篡改 audit 加 trace 重現——唔係『個 agent
+得』就算，係成個平台層守得住。」</p>
+<h2 id="it-sec-記住">記住</h2>
+<ul>
+<li>安全 = <strong>默認關、要手動開</strong>。開齊先叫
+enterprise-ready。</li>
+<li>隱性成本要一早 plan 入第二三條線，唔好上線先彈出嚟。</li>
+</ul>

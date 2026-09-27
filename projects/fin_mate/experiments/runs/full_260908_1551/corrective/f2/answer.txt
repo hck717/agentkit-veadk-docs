@@ -1,0 +1,8 @@
+Deutsche Bank 形容 F2Q 結果中 Azure 增長高于指導，但可鞏固遠低于買方預期（買方預期約為 +39%，而實際為 +38%）。主要原因是機隊效率提升，使部分容量從其他部門重新分配到可盈利的 Azure 需求中【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。至於 M365 Commercial Cloud 增長符合指導中段【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。Server Products 增長 1%，遠好于預期的 LSD-MSD 下降【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。收入方面，F2Q 收入為 813 億美元，高於指導中點 1.5%，上漲集中在 PBP 和 IC 部門，按固定匯率計算，同比增長較上一季度下降約 1.5 個百分點至 +15%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

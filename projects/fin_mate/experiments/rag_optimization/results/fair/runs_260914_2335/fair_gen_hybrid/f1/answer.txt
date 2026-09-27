@@ -1,0 +1,7 @@
+### 一、Deutsche Bank 對 Microsoft F2Q（假設為財政年第二季度）Azure 增長及指導意見的提及情況
+1. **增長數據**：資料中並未提及 Deutsche Bank 對 Microsoft F2Q Azure 增長的具體百分比數據。
+2. **與指導意見對比**：資料中同樣無提及 Deutsche Bank 對 Microsoft F2Q Azure 增長與公司指導意見的對比情況。
+
+## 來源
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>  
+- 其餘檔案（如 Barclays、Mizuho、 earnings call 相關檔案）無提及相關內容。 

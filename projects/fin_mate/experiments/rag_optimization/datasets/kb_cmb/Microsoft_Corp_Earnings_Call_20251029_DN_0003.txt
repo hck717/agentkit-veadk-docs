@@ -1,0 +1,15 @@
+If you ask a question, it will be included in our live transmission, in
+the transcript and in any future use of the recording. You can replay the call and view the
+transcript on the Microsoft Investor Relations website.
+During this call, we will be making forward-looking statements, which are predictions, projections
+or other statements about future events. These statements are based on current expectations
+and assumptions that are subject to risks and uncertainties. Actual results could materially differ
+because of factors discussed in today's earnings press release, in the comments made during
+this conference call and in the Risk Factors section of our Form 10-K, Forms 10-Q and other
+reports and filings with the Securities and Exchange Commission. We do not undertake any duty
+to update any forward-looking statements.
+And with that, I'll turn the call over to Satya.
+Satya Nadella {BIO 3224315 <GO>}
+Thank you, Jonathan. It is a very strong start to our fiscal year. Microsoft Cloud revenue surpassed
+$49 billion, up 26% year-over-year and our commercial RPO increased over 50% to nearly $400
+billion with a weighted average duration of only two years.

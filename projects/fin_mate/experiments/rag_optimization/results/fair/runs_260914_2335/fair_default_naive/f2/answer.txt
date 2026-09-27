@@ -1,0 +1,11 @@
+### 形容 F2Q 結果 vs 市場預期  
+1. **總收入**：新預測為 81,18900 萬美元，舊預測為 81,58800 萬美元，新 vs 舊下降 0.5%；市場一致預期（Cons.）新舊分別為 81,36000 萬美元和 80,65000 萬美元，新 vs 舊上升 0.9%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+2. **淨利潤**：非 GAAP 淨利潤新預測 30,23900 萬美元，舊預測 30,16800 萬美元，新 vs 舊上升 0.2%；市場一致預期新舊分別為 29,52900 萬美元和 123,71500 萬美元（此處可能為資料格式問題，原資料中「123,715」對應非 GAAP 淨利潤，需結合檔案具體內容判斷，若按字面，新 vs 舊上升 0.3%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+
+### 主要原因（資料未提及）  
+KB 無資料  
+
+## 來源  
+[1] 20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt  
+[2] 20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt  
+[3] 20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt 

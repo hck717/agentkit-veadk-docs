@@ -1,0 +1,34 @@
+common:
+  agent_name: fin-mate
+  entry_point: fin-mate.py
+  description: AgentKit project fin-mate - Basic Agent App
+  language: Python
+  language_version: '3.12'
+  agent_type: Basic App
+  dependencies_file: requirements.txt
+  launch_type: hybrid
+  cloud_provider: byteplus
+  runtime_envs:
+    MODEL_AGENT_PROVIDER: openai
+    MODEL_AGENT_API_BASE: https://ark.ap-southeast.bytepluses.com/api/v3
+    MODEL_AGENT_NAME: seed-1-6-flash-250715
+
+launch_types:
+  local:
+    image_tag: dev
+    invoke_port: 8000
+    ports:
+      - "8000:8000"
+  hybrid:
+    region: ap-southeast-1
+    image_tag: "{{timestamp}}"
+    cr_instance_name: Auto
+    cr_namespace_name: agentkit
+    cr_repo_name: fin-mate
+    runtime_name: Auto
+    runtime_role_name: Auto
+    runtime_apikey_name: Auto
+
+docker_build:
+  base_image: agentkit-prod-public-ap-southeast-1.cr.bytepluses.com/base/py-simple:python3.12-bookworm-slim-latest
+  platform: linux/amd64

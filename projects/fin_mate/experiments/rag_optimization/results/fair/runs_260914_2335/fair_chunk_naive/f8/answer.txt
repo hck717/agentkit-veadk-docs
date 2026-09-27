@@ -1,0 +1,3 @@
+Wells Fargo認為agentic adoption取決於安全因素，具體體現在新的E7 SKU包含了相關安全功能，並且Agent 365提供了代理註冊表/代理ID（在Entra中）、可觀察性、風險信號等重要前提條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。
+## 來源
+20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt

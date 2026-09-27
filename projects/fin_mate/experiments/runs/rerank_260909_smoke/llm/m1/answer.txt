@@ -1,0 +1,8 @@
+### 1. E7 SKU 整合多項關鍵功能，驅動 adoption  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，每月收費 $99，相比單獨購買 Agent 365（$15/用戶/月）和 M365 Copilot（$30/用戶/月）更具吸引力【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。Agent 365 作為管理代理的控制平面，提供代理註冊、可觀測性和風險信號等關鍵功能，是代理式 adoption 的前提，而 M365 Copilot Wave 3 則與 Anthropic 的 Cowork 緊密合作，這些功能的整合降低了企業單獨採用的門檻，促進 E7 的 upsell。  
+
+### 2. 現有 E3/E5 用戶升級意願高，upsell 潛力龐大  
+MSFT 現有約 1.5 億 E3/E5 用戶，這些用戶是 E7 的高潛在升級對象。2023 年 9 月披露 premium SKU 約 1.6 億座位，2025 年 6 月 E5 座位約 4500 萬，E3/E5 總計約 1.5 億【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。E7 的加價式 upsell 可將這部分用戶轉化，帶來每年約 960 億美元的收入提升，加上其他潛在用戶，總 upsell 機會達 1000 億美元【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+### 3. 價格上漲催化 NT adoption  
+MSFT 近期對 M365 進行了價格上漲，迫使企業在 2H26 進行談判，這反而成為 NT adoption 的催化劑

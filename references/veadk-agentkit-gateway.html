@@ -1,0 +1,552 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>閘道 / 網關 Gateway</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>閘道 / 網關 Gateway</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-閘道--ai-gateway-解構agentkit-gateway--byteplus-ai-gateway--方舟-ai-加速網閘">VeADK
++ AgentKit 閘道 / AI Gateway 解構（AgentKit Gateway + BytePlus AI
+Gateway + 方舟 AI 加速網閘）</h1>
+<p>「閘道（Gateway）」喺 AI stack
+入面係<strong>所有流量嘅控制點</strong>：邊啲 agent 可以 call 乜、用邊個
+model、幾時 fallback、幾多 cache、點計量。BytePlus / Volcengine
+有<strong>三層閘</strong>——工具閘、模型閘、API
+閘——呢份文件一次過拆清楚三者分工同幾時用。</p>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>閘唔係「多咗一層嘢」，係「集中控制點」</strong>：統一 entry
+→ 統一 key 管理 → 統一用量 → 統一 fallback/緩存。</li>
+<li><strong>喺 AgentKit / VeADK 框架層，你 call <code>model_name</code>
+就自動行方舟
+endpoint</strong>——唔使你自己整閘。閘係俾<strong>多供應商、多
+project、要管人管數</strong>嗰啲場景用。</li>
+<li><strong>三隻閘各自為政</strong>：工具閘（MCP）睇
+<code>veadk-agentkit-tools-capabilities.md</code>，模型閘 / API
+閘就係呢份。唔好撈亂。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-快睇三層閘定位30-秒記住">0. 快睇：三層閘定位（30 秒記住）</h2>
+<table>
+<thead>
+<tr>
+<th>閘</th>
+<th>管啲咩</th>
+<th>BytePlus / Volcengine 產品</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① 工具閘（Tool Gateway / MCP Gateway）</strong></td>
+<td>Agent 點 call 外部工具 / 數據源，REST ↔︎ MCP</td>
+<td><strong>AgentKit Gateway</strong>（MCP service / MCP toolset）</td>
+<td>Agent 要連公司現有 API、第三方 MCP Server、Sandbox 工具</td>
+</tr>
+<tr>
+<td><strong>② 模型閘（Model / AI Gateway）</strong></td>
+<td>統一多模型入口、路由、fallback、緩存、限流</td>
+<td><strong>BytePlus API Gateway · AI Gateway</strong>；<strong>方舟 AI
+加速網閘 / 邊緣大模型閘</strong></td>
+<td>多供應商 / 多模型、要自動 failover、要慳 cache、要睇清用量</td>
+</tr>
+<tr>
+<td><strong>③ API 閘（API Management）</strong></td>
+<td>成間公司 API 流量：編認證、限流、監控、版本</td>
+<td><strong>BytePlus API Gateway（APIG 主體）</strong></td>
+<td>企業級 API 管治、跨集群 north-south 流量、對外開放 API</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「BytePlus 一次過俾齊三層閘——AgentKit
+Gateway 管工具、AI Gateway 管模型、APIG 管成間公司
+API。唔使自己砌三套嘢。」</p>
+</blockquote>
+<hr />
+<h2 id="1-工具閘agentkit-gatewaymcp-統一入口">1. 工具閘：AgentKit
+Gateway（MCP 統一入口）</h2>
+<p>AgentKit 內置一個 <strong>MCP-compliant、high-performance
+gateway</strong>，用嚟將<strong>外部服務同數據源變成 agent-ready
+tools</strong>：</p>
+<blockquote>
+<p>官方原句（byteplus.com/product/agentkit）：<em>"An MCP-compliant,
+high-performance gateway connects external services and data sources,
+turning existing APIs into agent-ready tools."</em></p>
+</blockquote>
+<h3 id="agentkit-gateway-做三件事">AgentKit Gateway 做三件事</h3>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>點做</th>
+<th>文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>REST API / OpenAPI → MCP tools</strong></td>
+<td>上傳 OpenAPI spec，Gateway 自動轉成 MCP tools，Agent 以 MCP 方式
+call</td>
+<td>Integrating existing REST API/OpenAPI as MCP tools</td>
+</tr>
+<tr>
+<td><strong>接入現有 MCP Server</strong></td>
+<td>你已有 MCP server（第三方便可以），直接掛入 AgentKit
+Gateway，統一入面</td>
+<td>Integrating existing MCP Servers into AgentKit Gateway</td>
+</tr>
+<tr>
+<td><strong>統一身分認證 + 監控</strong></td>
+<td>每個 MCP service / toolset 可配 inbound identity
+authentication、log、monitoring</td>
+<td>Gateway / MCP service / MCP toolset management docs</td>
+</tr>
+</tbody>
+</table>
+<h3 id="兩個核心單位mcp-service-vs-mcp-toolset">兩個核心單位：MCP
+Service vs MCP Toolset</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>MCP Service</strong></th>
+<th><strong>MCP Toolset</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>係啲咩</td>
+<td>一個後端服務（一個 source of tools）</td>
+<td>手動揀好嘅一組 MCP tools，配 tool-calling 模式</td>
+</tr>
+<tr>
+<td>點建立</td>
+<td>Create MCP service → 加 tools</td>
+<td>Create MCP toolset → 加/減 MCP tools</td>
+</tr>
+<tr>
+<td>邊個用</td>
+<td>一個 agent 直接接成個 service</td>
+<td>多個 agent 共享同一 group 嘅 tools，可控 tool 邊個 call 邊個唔
+call</td>
+</tr>
+<tr>
+<td>認證</td>
+<td>可設 inbound identity authentication</td>
+<td>可設 inbound identity authentication + tool calling mode</td>
+</tr>
+<tr>
+<td>監控</td>
+<td>MCP service monitoring</td>
+<td>MCP toolset monitoring</td>
+</tr>
+</tbody>
+</table>
+<h3 id="喺-stack-邊個位">喺 stack 邊個位</h3>
+<pre><code>Agent (runtime)
+   │  MCP call
+   ▼
+AgentKit Gateway  ──(REST/OpenAPI)──► 公司現有 API / 第三方 REST 服務
+   │     │  ──(MCP)──────────────► 外部 MCP Server
+   │     └──(Sandbox)─────────────► Code/Browser/Skills Sandbox 工具
+   ▼
+VeADK / AgentKit SDK (MCPToolset / mcp service 接入)</code></pre>
+<blockquote>
+<p>✅ 對照：<strong>工具 / 能力
+tab</strong>（<code>veadk-agentkit-tools-capabilities.md</code>）講
+MCP/Tools/Skills/A2A 嘅<strong>概念同點喺 code
+用</strong>；<strong>呢份</strong>講嗰個「閘」點建、點轉發、點認證、點監控——係平台營運視角。</p>
+</blockquote>
+<hr />
+<h2 id="2-模型閘byteplus-api-gateway--ai-gateway">2. 模型閘：BytePlus
+API Gateway · AI Gateway</h2>
+<p>BytePlus <strong>API Gateway（APIG）</strong> 有專屬 <strong>AI
+Gateway</strong> 子能力，將「模型接入」提升到「企業 API 管治」級別。</p>
+<h3 id="ai-gateway-六大能力全部內置插件式">AI Gateway
+六大能力（全部內置插件式）</h3>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>做咩</th>
+<th>對應 APIG 功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI multi-model proxy</strong></td>
+<td>一個入面、多個模型 / 多個 provider，統一 OpenAI 兼容協議</td>
+<td>AI Multi-Model Proxy</td>
+</tr>
+<tr>
+<td><strong>AI Model Fallbacks</strong></td>
+<td>上游掛 → 自動行 fallback 模型（例如 2.0-pro → 2.0-lite），唔使改
+client</td>
+<td>AI Model Fallbacks</td>
+</tr>
+<tr>
+<td><strong>LLM load-aware routing</strong></td>
+<td>按上游負載 / 延遲路由到最鬆嗰個（避免單一 provider 爆 TPM）</td>
+<td>LLM Load-Aware Routing</td>
+</tr>
+<tr>
+<td><strong>LLM session affinity</strong></td>
+<td>同一 session 綁定同一模型 instance（長時間 conversation
+唔斷上下文）</td>
+<td>LLM Session Affinity Routing</td>
+</tr>
+<tr>
+<td><strong>MCP session persistence</strong></td>
+<td>經 APIG 嘅 MCP 流量做到 session 持續</td>
+<td>MCP Session Persistence</td>
+</tr>
+<tr>
+<td><strong>Global rate limiting</strong></td>
+<td>成個閘統一限流，唔使逐模型逐 key 各自限</td>
+<td>Global Rate Limiting Plugin</td>
+</tr>
+</tbody>
+</table>
+<h3 id="同開源-ai-gateway比較">同「開源 AI Gateway」比較</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>BytePlus APIG AI Gateway</th>
+<th>自建開源（LiteLLM/AISIX/Bifrost 等）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署</td>
+<td>托管，免運維</td>
+<td>你自己行，要管高可用</td>
+</tr>
+<tr>
+<td>流量管治</td>
+<td>APIG 全套：鑑權、限流、監控、日誌、版本出晒</td>
+<td>要另一套嘢夾</td>
+</tr>
+<tr>
+<td>模型接入</td>
+<td>Ark 原生 + OpenAI 兼容，識得方舟協議透傳</td>
+<td>一般 OpenAI 兼容，方舟特殊 protocol 要自己 patch</td>
+</tr>
+<tr>
+<td>LLM-aware 插件</td>
+<td>load-aware routing / session affinity 內置</td>
+<td>要自己開發</td>
+</tr>
+<tr>
+<td>適合</td>
+<td>企業要管治、多 provider、要 SLA</td>
+<td>玩票、內部實驗、要極端客制</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ APIG 係<strong>要錢嘅獨立產品</strong>（計 Gateway 實例 +
+流量），而<strong>方舟上嘅模型 call 本身</strong>先係 Agent Plan / AFP
+收費。閘同模型係兩張單——quote 畀客要分開講。</p>
+</blockquote>
+<hr />
+<h2 id="3-方舟-ai-加速網閘統一多模型入口--加速緩存">3. 方舟 AI
+加速網閘（統一多模型入口 + 加速/緩存）</h2>
+<p>Volcengine <strong>AI 加速網閘（DCDN
+產品線下）</strong>，以及<strong>邊緣大模型閘（Edge AI
+Gateway）</strong>，解決「call 好多個唔同 provider
+嘅模型」嘅痛：<strong>一個地址、OpenAI 兼容、自動 failover
+同緩存</strong>。</p>
+<h3 id="核心特性">核心特性</h3>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>說明</th>
+<th>影響</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>統一多模型入口</strong></td>
+<td>方舟、第三方供應商、自部署模型全部收到一個 <code>BaseUrl</code></td>
+<td>客戶端淨係識一個 address，SDK 唔使改</td>
+</tr>
+<tr>
+<td><strong>兩大調用協議</strong></td>
+<td>① <strong>OpenAI 兼容</strong>（自帶 key 由閘管）；②
+<strong>協議透傳</strong>（保留供應商原生 API Key 同協議）</td>
+<td>透傳 = 淨係加速，冇緩存/路由/限流</td>
+</tr>
+<tr>
+<td><strong>語義緩存</strong></td>
+<td>相似請求喺邊緣直接回覆，唔使再 call 上游 model</td>
+<td><strong>慳成本 + 慳延遲</strong>（兩者都慳）</td>
+</tr>
+<tr>
+<td><strong>負載均衡 / 主備容災</strong></td>
+<td>多條上游 model 之間分流，掛自動切</td>
+<td>高可用</td>
+</tr>
+<tr>
+<td><strong>故障轉移 / 自動重試</strong></td>
+<td>上游 fail → 自動行 fallback / 重試</td>
+<td>唔使 code 做 retry</td>
+</tr>
+<tr>
+<td><strong>邊緣就近接入</strong></td>
+<td>全球邊緣節點就近收 request，送到最近上游</td>
+<td>端側體驗（例如出海 app）</td>
+</tr>
+<tr>
+<td><strong>支援 15+ 模型供應商</strong></td>
+<td>方舟 + 第三方 + 私有化部署模型</td>
+<td>一個閘全覆蓋</td>
+</tr>
+</tbody>
+</table>
+<h3 id="接入方式淨係換-endpoint">接入方式：淨係換 endpoint</h3>
+<pre class="python"><code>from veadk import Agent
+
+# 原本直接 call 方舟：
+import os
+os.environ[&quot;MODEL_AGENT_API_BASE&quot;] = &quot;https://ark.cn-beijing.volces.com/api/v3/&quot;
+os.environ[&quot;MODEL_AGENT_KEY&quot;] = os.getenv(&quot;ARK_API_KEY&quot;)
+agent = Agent(
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    model_provider=&quot;openai&quot;,      # 方舟係 OpenAI 兼容協議
+    enable_responses=True,
+)
+
+# 行 AI 加速網閘：淨係換 API base + 閘 key，code 一行唔使改
+os.environ[&quot;MODEL_AGENT_API_BASE&quot;] = &quot;&lt;你的網閘實例 BaseUrl&gt;&quot;
+os.environ[&quot;MODEL_AGENT_KEY&quot;] = os.getenv(&quot;GATEWAY_API_KEY&quot;)
+agent = Agent(
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    model_provider=&quot;openai&quot;,
+    enable_responses=True,
+)</code></pre>
+<blockquote>
+<p>🎯
+<strong>透傳模式記住</strong>：協議透傳唔支援模型路由、語義緩存同限速——淨係「加速」。要齊功能，一定要行
+OpenAI 兼容模式並喺閘配置 API Key。AgentKit Serving（agentkit build /
+deploy）揀 endpoint 時，都係喺部署配置入面填網閘 BaseUrl 就完事。</p>
+</blockquote>
+<h3 id="邊緣大模型閘edge-ai-gateway額外件事">邊緣大模型閘（Edge AI
+Gateway）額外件事</h3>
+<ul>
+<li>部署喺<strong>全球邊緣計算節點</strong>，端側 app
+就近接入，延遲明顯低。</li>
+<li>支援四類<strong>調用渠道</strong>：平台預置智能體、平台預置模型、自有三方模型、自有三方智能體。</li>
+<li>內置<strong>語義緩存</strong>減少回源；支援<strong>故障轉移 +
+調用順序配置</strong>。</li>
+<li>用「<strong>網閘訪問密鑰</strong>」做授權/鑑權/限流——一個 key
+就管晒。</li>
+</ul>
+<hr />
+<h2 id="4-coding-plan-網閘ai-coding-專用">4. Coding Plan 網閘（AI Coding
+專用）</h2>
+<p>方舟 <strong>Coding Plan</strong> 有個專門網閘，將多款 Code
+模型（Doubao-Seed-Code、GLM、Kimi-K2.5 等）接入主流編程工具（Claude Code
+/ Cursor / Cline / OpenCode / TRAE / Roo
+Code），<strong>套餐額度喺所有工具之間共享</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>工具協議</th>
+<th>必須用嘅 Base URL</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anthropic 兼容工具</td>
+<td><code>https://ark.cn-beijing.volces.com/api/coding</code></td>
+<td>例如 Claude Code</td>
+</tr>
+<tr>
+<td>OpenAI 兼容工具</td>
+<td><code>https://ark.cn-beijing.volces.com/api/coding/v3</code></td>
+<td>例如 Cursor / OpenCode</td>
+</tr>
+<tr>
+<td>模型</td>
+<td><code>doubao-seed-2.0-code</code> / <code>glm-4.7</code> /
+<code>kimi-k2.5</code>；或
+<code>ark-code-latest</code>（控制台統一管理，3–5 分鐘生效，支援 Auto
+智能匹配）</td>
+<td>支援實時切模型</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>必讀避雷</strong>：唔好用一般網閘 URL 去 call Coding
+Plan——咁樣唔會扣套餐額度，反而會<strong>照 API
+計費</strong>，仲可能被當成違規使用導致訂閱停用。Coding Plan
+一定要用專屬 URL。</p>
+</blockquote>
+<hr />
+<h2 id="5-決策樹我到底需唔需要閘">5. 決策樹：我到底需唔需要「閘」？</h2>
+<pre><code>我用緊啲咩？
+│
+├─ 淨係用 AgentKit + 方舟一個 provider（最常見）
+│     └─ 唔使閘。framework 層 model_name 直連方舟，算力/計費由 Agent Plan 包。
+│
+├─ Agent 要 call 公司現有 REST API / 第三方 MCP server
+│     └─ 用 AgentKit Gateway（MCP service / MCP toolset），唔使買第二樣嘢。
+│
+├─ 多 supplier / 多 model，怕掛、想統一 key、想慳 error retry
+│     └─ 方舟 AI 加速網閘（統一入口 + fallback + 語義緩存）——最貼、最慳。
+│
+├─ 企業級：要管 API 認證、限流、監控、版本、跨集群流量
+│     └─ BytePlus API Gateway（APIG）AI Gateway——管治第一優先。
+│
+└─ 係咪要你嘅 client / SDK 淨睇一個 endpoint 就搞掂晒所有模型
+      └─ 全部都要——AI 加速網閘或者 APIG AI Gateway 都做到，視乎要唔要企業管治。</code></pre>
+<hr />
+<h2 id="6-同幾個-tab-嘅邊界一圖分清楚">6. 同幾個 tab
+嘅邊界（一圖分清楚）</h2>
+<table>
+<thead>
+<tr>
+<th>呢份 tab</th>
+<th>其他 tab</th>
+<th>分界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>閘道 Gateway</strong></td>
+<td>ServingKit（<code>veadk-agentkit-serving-kit.md</code>）</td>
+<td>ServingKit =
+<strong>自建/私人模型上線跑推理</strong>（vLLM/SGLang/Dynamo）；閘 =
+<strong>統一入口控唔同 provider
+嘅模型同工具</strong>。自建咗模型都係掛喺閘後面俾人 call。</td>
+</tr>
+<tr>
+<td><strong>閘道 Gateway</strong></td>
+<td>工具 /
+能力（<code>veadk-agentkit-tools-capabilities.md</code>）</td>
+<td>工具 tab 講 MCP/Tools/Skills <strong>概念 + code 點用</strong>；閘
+tab 講 <strong>平台營運</strong>（點建閘、認證、監控）。</td>
+</tr>
+<tr>
+<td><strong>閘道 Gateway</strong></td>
+<td>安全 /
+可觀測（<code>veadk-agentkit-rbac-observability.md</code>）</td>
+<td>閘係<strong>執行入口</strong>（認證/限流喺閘做）；安全 tab
+係<strong>成個 stack
+嘅策略</strong>（RBAC/PII/Audit/Guardrail）。閘閘住入，個別 agent
+權限另計。</td>
+</tr>
+<tr>
+<td><strong>閘道 Gateway</strong></td>
+<td>計價（<code>veadk-agentkit-pricing.md</code>）</td>
+<td>模型 call 本身行 Agent Plan / AFP；閘行 APIG
+獨立計費（攞得清清楚楚）。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-避雷--成本意識">7. 避雷 + 成本意識</h2>
+<blockquote>
+<p>⚠️ <strong>避雷五連</strong>：</p>
+<ol type="1">
+<li><strong>Coding Plan 一定用專屬 URL</strong>，否則照計費 + 可能封。
+（§4）</li>
+<li><strong>協議透傳冇緩存冇路由冇限流</strong>——淨係加速。見 §3。</li>
+<li><strong>閘唔代替 key 管理責任</strong>：閘集中咗
+key，但泄密責任喺你；API Key 照樣要用環境變量，唔好 commit。</li>
+<li><strong>模型 fallback 要同價位</strong>：fallback 到平 model
+慳錢，fallback 到貴 model 會喺你唔覺時爆成本——fallback list 排好「平 →
+貴」。</li>
+<li><strong>語義緩存唔係萬能</strong>：高動態
+prompt（用戶名、日期、隨機數）命中率低；系統 prompt 穩定先有得慳。</li>
+</ol>
+<p>🎯 <strong>慳錢角度</strong>：行 AI 加速網閘，system prompt + 固定
+prefix 行語義緩存，配合方舟隱式 cache（cached input ≈ 標準價
+~20%），命中嗰部分慳得好多。成本明細仍然睇
+<code>veadk-agentkit-pricing.md</code>——<strong>閘費同模型費係兩張單</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="8-資料來源">8. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AgentKit 產品頁（MCP gateway 原句）</td>
+<td><a
+href="https://www.byteplus.com/en/product/agentkit">https://www.byteplus.com/en/product/agentkit</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>AgentKit Gateway overview</td>
+<td><a
+href="https://docs.byteplus.com/api/docs/agentkit/MCP_Overview">https://docs.byteplus.com/api/docs/agentkit/MCP_Overview</a></td>
+<td>2026-08-17</td>
+</tr>
+<tr>
+<td>Gateway FAQ</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/agentkit/Gateway_FAQ">https://docs.byteplus.com/en/docs/agentkit/Gateway_FAQ</a></td>
+<td>2026-02-10</td>
+</tr>
+<tr>
+<td>BytePlus API Gateway · What is the AI Gateway</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/apig/What_is_the_AI_Gateway">https://docs.byteplus.com/en/docs/apig/What_is_the_AI_Gateway</a></td>
+<td>2026-08-12</td>
+</tr>
+<tr>
+<td>AI Gateway 功能清單（Multi-Model Proxy / Fallbacks / routing /
+MCP）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/apig">https://docs.byteplus.com/en/docs/apig</a>
+（AI Gateway 章節）</td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Volcengine AI 加速網閘創建實例</td>
+<td><a
+href="https://www.volcengine.com/docs/6559/2288086">https://www.volcengine.com/docs/6559/2288086</a></td>
+<td>2026-08-06</td>
+</tr>
+<tr>
+<td>Volcengine 邊緣大模型閘 FAQ</td>
+<td><a
+href="https://www.volcengine.com/docs/6893/1263408">https://www.volcengine.com/docs/6893/1263408</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>方舟 Coding Plan API 網閘（兩個 Base URL + ark-code-latest）</td>
+<td><a
+href="https://www.volcengine.com/article/37839、37843">https://www.volcengine.com/article/37839、37843</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>方舟 OpenAI 兼容接入（base_url / api_key / 模型開通）</td>
+<td><a
+href="https://therouter.ai/zh/blog/volcengine-ark-doubao-api-complete-guide/">https://therouter.ai/zh/blog/volcengine-ark-doubao-api-complete-guide/</a></td>
+<td>2026-06</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：閘嘅功能、要唔要獨立訂閱、定價會隨 BytePlus /
+Volcengine 產品迭代而變；§3 語義緩存命中率、§2 fallback
+行為屬官方特性描述，實際效果視乎 prompt 同流量。引用前 check
+一遍最新文檔同價目。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · Gateway 產品線（APIG AI Gateway、AI
+加速網閘、邊緣大模型閘）功能同價格會隨產品迭代而變，引用前 check
+一遍。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

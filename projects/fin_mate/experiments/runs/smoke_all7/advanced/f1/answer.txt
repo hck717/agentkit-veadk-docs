@@ -1,0 +1,7 @@
+Deutsche Bank 報告顯示，Microsoft 2026 財年第二季度（F2Q）的 Azure 收入按不變幣種計算同比增長 38%（+38% y/y @CC），高於指導區間（37%）1 個百分點。不過，低於買方預期的約 39%，若假設在 F1H26 將所有額外 GPU 容量分配給 Azure，增長有望超過 40%。
+
+**依據**：
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L> 第 2 頁、第 3 頁
+## 來源
+[2] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+[3] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

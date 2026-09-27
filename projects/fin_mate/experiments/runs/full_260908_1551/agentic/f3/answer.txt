@@ -1,0 +1,29 @@
+我现在需要回答用户的问题：“Mizuho 话 MSFT F2Q 總收入幾多？同 Street 預期比？” 首先，我需要确定用户的问题是关于Mizuho对微软（MSFT）财季（F2Q）总收入的估计，以及与市场预期的比较。
+
+接下来，我回顾之前的对话历史，发现用户已经调用了load_knowledgebase工具，参数是“Mizuho MSFT F2Q revenue estimate”。现在工具返回了多个知识库条目，我需要从中提取相关信息。
+
+查看返回的知识库条目，特别是第一个条目，里面包含了Mizuho的财务预测数据。在“Total Revenue”部分，Q2'25（即F2Q）的收入是70,066百万美元。然后，在另一个条目（可能是研究报告）中提到，MSFT F2Q的实际收入为81.3B，超过了市场预期的80.3B。这里需要注意单位是否一致，70,066百万美元等于70.066B，而81.3B可能是另一个来源的数据？或者可能存在不同财季的混淆？
+
+仔细检查知识库中的第一个条目，发现里面的表格可能对应不同的财年。例如，表格中的Q2'25可能是指2025财年的第二季度，而另一个条目提到的F2Q可能是指2026财年的第二季度？需要确认时间范围。例如，第一个条目的metadata中的日期是2026年2月5日，而另一个条目是2026年1月29日，可能涉及不同的预测版本。
+
+在第二个条目（研究报告）中，明确提到“MSFT reported a good overall F2Q, as total revenue of $81.3B (+15% Y/Y CC) was above the Street's $80.3B estimate.” 这里的F2Q应该是指最近的财季，即2026财年第二季度，因为报告日期是2026年1月29日。而第一个条目的表格中，Q2'25可能是2025财年第二季度，收入为70,066百万美元，但这个数据可能不是最新的。
+
+因此，需要区分不同的财季。用户的问题中的F2Q应该是指最新的财季，即2026财年第二季度。根据第二个条目，Mizuho的估计可能没有直接给出，但研究报告中提到实际收入为81.3B，超过市场预期的80.3B。但需要确认Mizuho的具体估计是多少。
+
+在第二个条目的“Key Points”部分，提到“Total revenue of $81.3B (+17% Y/Y reported and 15% on a CC basis) was nicely above our $80.2B forecast and the Street's similar $80.3B estimate.” 这里的“our”指的是Mizuho，所以Mizuho预测的F2Q收入是80.2B，而市场预期是80.3B，实际收入为81.3B，超过了两者。
+
+因此，综合两个条目的信息，Mizuho对MSFT F2Q的总收入预测为80.2B，而市场预期为80.3B，实际收入超过了两者。需要确认是否有冲突，比如第一个条目的表格中的数据是否属于不同的财季。如果第一个条目的Q2'25是2025财年第二季度，那么时间上可能较早，而用户的问题中的F2Q是指2026财年第二季度，因此以第二个条目为准。
+
+最后，需要确保回答中正确引用来源，并标注KB和CALC。由于计算部分没有涉及，主要依赖知识库中的信息。因此，回答应包括Mizuho的预测、市场预期以及比较，并标注来源URI。
+Mizuho 對微軟（MSFT）2025 財年第二季度（F2Q）總收入的預期及與市場預期的對比如下：  
+- **Mizuho 預期**：802 億美元（80.2B）。  
+- **市場預期**：803 億美元（80.3B）。  
+- **實際收入**：813 億美元（81.3B），高於 Mizuho 預期及市場預期。  
+
+## 來源  
+1. <viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_1.md>  
+2. <viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_5.md>  
+
+### 註釋  
+- 財報日期為 2026 年 1 月 29 日，F2Q 對應 2026 財年第二季度（截至 2026 年 3 月 31 日）。  
+- 收入計量單位為十億美元（B），同比增長以不計入匯率影響的實質增長（CC）計。

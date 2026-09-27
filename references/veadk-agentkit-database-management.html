@@ -1,0 +1,901 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>資料庫管理</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>資料庫管理</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="資料庫管理database-management-本地-vs-雲端--sql--vector--nosql--記憶三層">資料庫管理（Database
+Management）— 本地 vs 雲端 · SQL / Vector / NoSQL · 記憶三層</h1>
+<p>Agent 唔止要 model——佢要讀、寫、查、記。呢份文件講清楚：<strong>喺
+BytePlus + AgentKit + VeADK 嘅 stack
+入面，幾時用邊種資料庫、本地定雲端、點接線</strong>；記憶管理（<strong>短期會話
+/ 長期記憶 / 知識庫</strong>）每個後端點撳，同埋<strong>知識庫檢索 /
+長期記憶檢索</strong>點流入 agent。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>一個 agent 方案通常唔止用一種 DB</strong>——SQL
+管事務事實、Vector 管語義、Redis 管快取、MongoDB 管文件、TOS
+管歸檔。混搭先係正路。</li>
+<li><strong>記憶分三層，各管各背</strong>：<strong>短期會話</strong>（STM）記住今次對話、<strong>長期記憶</strong>（LTM）跨
+session 記住用戶、<strong>知識庫</strong>（KB）管靜態知識做
+RAG——後端支持範圍唔一樣（見 §4–5 矩陣）。</li>
+<li><strong>托管 vs 自建嘅取捨</strong>：托管（RDS / NDB / VikingDB /
+Context Search）慳維運但月費高；自建慳月費但要人手管 backup / patch /
+scaling。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-一句定位--本地-vs-雲端總覽">0. 一句定位 + 本地 vs
+雲端總覽</h2>
+<h3 id="01-本地localvs-雲端byteplus-managed">0.1 本地（Local）vs
+雲端（BytePlus Managed）</h3>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>本地（自建 / 單機）</th>
+<th>雲端（BytePlus 托管）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>資料庫類型</strong></td>
+<td>SQLite、自建 PostgreSQL / MySQL、本地 Redis</td>
+<td>RDS MySQL、NDB MySQL、Cache for
+Redis、MongoDB、VikingDB、Milvus、TOS</td>
+</tr>
+<tr>
+<td><strong>Data locality</strong></td>
+<td>喺自己機 / VPC</td>
+<td>喺 BytePlus 可用區</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>零網絡延遲</td>
+<td>同 VPC &lt;1ms；跨可用區 1-3ms</td>
+</tr>
+<tr>
+<td><strong>合規</strong></td>
+<td>數據完全唔出域（政府 / 銀行）</td>
+<td>睇 region（cn-hongkong / cn-beijing）</td>
+</tr>
+<tr>
+<td><strong>成本</strong></td>
+<td>硬件 + 自己維</td>
+<td>托管月費；慳人力</td>
+</tr>
+<tr>
+<td><strong>維運</strong></td>
+<td>自己 backup / patch / scaling</td>
+<td>平台包辦（自動備份 / replica）</td>
+</tr>
+<tr>
+<td><strong>多實例共享</strong></td>
+<td>❌ SQLite 各一本</td>
+<td>✅ 所有實例讀同一個</td>
+</tr>
+<tr>
+<td><strong>幾時用</strong></td>
+<td>開發 / demo / 單機 / 合規唔出域</td>
+<td>生產、多實例、要 SLA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>取捨速查</strong>：本地 demo → SQLite；單機 + 合規唔出域 →
+自建 PostgreSQL；多實例 / 要 SLA → 托管；語義搜尋 / RAG → VikingDB 或
+OpenSearch / Redis。</p>
+<blockquote>
+<p><strong>Sale 一句</strong>：「本地起步零成本，但一講多實例 / SLA /
+合規，就要上雲端——BytePlus 成套 RDS / NDB / VikingDB / Context Search
+擺晒，揀邊個就得。」</p>
+</blockquote>
+<hr />
+<h2 id="1-sql關係型-byteplus-rds--ndb--postgresql">1. SQL（關係型）—
+BytePlus RDS / NDB / PostgreSQL</h2>
+<table>
+<thead>
+<tr>
+<th>你要做咩</th>
+<th>點解 SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用戶資料、訂單、交易</td>
+<td>要 ACID 事務（一半寫入唔得）</td>
+</tr>
+<tr>
+<td>審計日誌 + chain-hash</td>
+<td>要防篡改、保留 7 年</td>
+</tr>
+<tr>
+<td>合規要求（政府 / 銀行）</td>
+<td>ACID + 可審計 + 可立約</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>產品</th>
+<th>一句</th>
+<th>兼容性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RDS for MySQL</strong></td>
+<td>可靠 / 彈性 / 易用嘅關係型 DB 服務</td>
+<td>完全兼容原生 MySQL</td>
+</tr>
+<tr>
+<td><strong>NDB for MySQL</strong></td>
+<td>新一代自研雲原生關係型 DB</td>
+<td>100% 兼容 MySQL 8.0 引擎</td>
+</tr>
+<tr>
+<td><strong>自建 PostgreSQL</strong></td>
+<td>本地 VM 安裝</td>
+<td>合規唔出域 / 預算有限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ACID vs BASE</strong>：SQL 保證 atomicity / consistency /
+isolation / durability——審計 / 訂單 / 用戶唔可以「一半寫入」。KV /
+Vector / Object 係 BASE（最終一致、可用性優先）。</p>
+<blockquote>
+<p>⚠️ <strong>審計要用 ACID</strong>——chain-hash（hash 鏈防篡改）+ 7
+年保留 → 要落 SQL，唔可以落 Vector / KV。 💡 短期會話（STM）想落
+SQL？<code>sqlite</code> / <code>mysql</code> / <code>postgresql</code>
+後端例子見 §4.3。</p>
+</blockquote>
+<hr />
+<h2 id="2-vector-db語義-vikingdb--milvus--opensearch">2. Vector
+DB（語義）— VikingDB / Milvus / OpenSearch</h2>
+<h3 id="21-byteplus-vector-db-產品">2.1 BytePlus Vector DB 產品</h3>
+<table>
+<thead>
+<tr>
+<th>產品</th>
+<th>一句</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VikingDB</strong></td>
+<td>雲原生向量數據庫（2025-04 launch）；存 / 檢索海量高維向量</td>
+<td>RAG / 記憶 / 推薦 / 搜尋 / 標註 / 客服</td>
+</tr>
+<tr>
+<td><strong>Milvus for VectorDB</strong></td>
+<td>托管 Milvus</td>
+<td>已有 Milvus 生態 / 自建想上托管</td>
+</tr>
+<tr>
+<td><strong>自建 OpenSearch</strong></td>
+<td>開源搜尋引擎 + 向量</td>
+<td>已有 OpenSearch infra</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-vikingdb-深入">2.2 VikingDB 深入</h3>
+<ul>
+<li><strong>2025-04 launch</strong>：cloud-native vector DB，存 / 檢索
+massive high-dimensional vectors。</li>
+<li>支援：RAG、recommendation、search、memory、labeling、customer
+service；APIs / SDKs / SaaS（collection、data
+import、index、search、embedding）。</li>
+<li><strong>Region</strong>：BytePlus 模式下固定
+<code>cn-hongkong</code>。</li>
+</ul>
+<h3 id="23-嵌入-vs-托管成本放大器">2.3 嵌入 vs 托管：成本放大器</h3>
+<p>向量類後端（local / opensearch / redis / milvus /
+tos_vector）要<strong>自己配 embedding
+模型</strong>（<code>MODEL_EMBEDDING_API_BASE</code> /
+<code>MODEL_EMBEDDING_API_KEY</code>），每次檢索計多一次 embedding
+AFP；托管後端（viking / context_search / openviking / mem0 /
+tos_context）<strong>服務端做切分 + 向量化 +
+檢索</strong>，向量費入雲資源，唔 draw 你本地 GPU。</p>
+<blockquote>
+<p><strong>Sale 一句</strong>：「想喺方案度掃走『自建向量庫 + embedding
+模型』兩項成本，就揀 VikingDB / Context
+Search——服務端食晒，你只係買儲存同查詢用量。」</p>
+</blockquote>
+<blockquote>
+<p>💡 每個後端嘅 VeADK 例子見 §4.4（長期記憶）同 §4.5（知識庫）。</p>
+</blockquote>
+<hr />
+<h2 id="3-nosql--redis--mongodb--tos">3. NoSQL — Redis / MongoDB /
+TOS</h2>
+<h3 id="31-cache-for-rediskv--熱-session">3.1 Cache for Redis（KV / 熱
+session）</h3>
+<p>Session 快取（&lt;1ms 高吞吐）、熱數據 cache、已有 Redis 直接用做 LTM
+/ KB 向量（例子見 §4.4 / §4.5）。</p>
+<blockquote>
+<p>⚠️ Redis 向量後端要<strong>自己配 embedding</strong>（計多一次
+AFP）。唔想管就用 VikingDB 托管。</p>
+</blockquote>
+<h3 id="32-document-database-for-mongodb文件型">3.2 Document Database
+for MongoDB（文件型）</h3>
+<p>電商產品目錄 + 庫存（文件 schema 靈活、sharded cluster
+彈性）、社群貼文 +
+地理索引（geo-indexing）、半結構化日誌（JSON-like）。</p>
+<blockquote>
+<p>✅ <strong>BytePlus MongoDB 特點</strong>：完全兼容原生 MongoDB；DTS
+不停機遷移；sharded cluster 水平擴展；geo-indexing 支援社交 /
+地理場景。</p>
+</blockquote>
+<h3 id="33-tos--tinder-object-storage物件存儲">3.3 TOS — Tinder Object
+Storage（物件存儲）</h3>
+<p>圖片 / 影片 assets（大檔、低成本）、審計 archive 7
+年（冷存儲平大容量）、RAG 源文件（配合 <code>context_search</code> /
+<code>tos_vector</code> / <code>tos_context</code>）。</p>
+<hr />
+<h2 id="4-記憶管理memory-management-三層--檢索">4. 記憶管理（Memory
+Management）—— 三層 + 檢索</h2>
+<p>VeADK
+記憶系統分三層，<strong>每層有唔同後端、唔同檢索方式</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>管咩</th>
+<th>檢索點</th>
+<th>統一入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>短期會話（STM）</strong></td>
+<td>今次對話 context、session</td>
+<td>每輪直接入 context</td>
+<td><code>veadk.memory.short_term_memory.ShortTermMemory</code></td>
+</tr>
+<tr>
+<td><strong>長期記憶（LTM）</strong></td>
+<td>用戶偏好 / 事件，跨 session</td>
+<td>AgentKit 自動帶返（見 §4.2）</td>
+<td><code>veadk.memory.long_term_memory.LongTermMemory</code></td>
+</tr>
+<tr>
+<td><strong>知識庫（KB）</strong></td>
+<td>靜態知識文件做 RAG</td>
+<td><code>load_knowledgebase</code> 工具 / <code>kb.search</code>（見
+§4.1）</td>
+<td><code>veadk.knowledgebase.KnowledgeBase</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-知識庫檢索knowledgebase-retrieval">4.1
+知識庫檢索（KnowledgeBase Retrieval）</h3>
+<p>兩種檢索方法，揀其一：</p>
+<pre class="python"><code>from veadk import Agent
+from veadk.knowledgebase import KnowledgeBase
+
+kb = KnowledgeBase(backend=&quot;viking&quot;, index=&quot;my_kb&quot;, top_k=10)
+kb.add_from_directory(&quot;./docs&quot;)                       # 入資料
+
+# 方法 ① 自動工具：接落 Agent → 自動有 load_knowledgebase 工具
+agent = Agent(model_name=&quot;doubao-seed-2.1-pro-260628&quot;, knowledgebase=kb)
+# 喺對話度 Agent 自己睇幾時撳 knowledgebase → 攞相關片段 → 塞 context → 答
+
+# 方法 ② 程式化：直接用 kb.search 攞返相關片段
+hits = kb.search(&quot;公司年假有幾多日？&quot;, top_k=5)       # → 片段列表</code></pre>
+<blockquote>
+<p>🎯 檢索結果 = <strong>相關片段</strong>，唔係答案。Agent
+攞返片段之後再組織成答——所以要 evaluate「片段切唔切題」（see eval tab
+RAG 檢索層）。</p>
+</blockquote>
+<h3 id="42-長期記憶檢索long-term-memory-retrieval">4.2
+長期記憶檢索（Long-Term Memory Retrieval）</h3>
+<p><strong>LTM 檢索係自動嘅，唔使自己寫</strong>：</p>
+<ul>
+<li>對話進行中，AgentKit 按
+threshold（<code>MIN_MESSAGES_THRESHOLD</code> /
+<code>MIN_TIME_THRESHOLD</code>，預設約 10 條 event 或 60
+秒）累積後<strong>寫入 LTM</strong>。</li>
+<li><strong>轉 <code>session_id</code> 時自動把上一 session 寫入
+LTM</strong>；新 session 開場，過去嘅 events 自動帶返 context →
+用戶唔使重複講偏好。</li>
+<li>操作層面用 CLI
+管理：<code>agentkit memory create --name user-mem --provider-type VIKINGDB_MEMORY</code>，再由
+<code>agentkit config --memory_id mem-xxx</code> 綁定 Runtime。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>想攞返用戶歷史，就要揀啱 LTM
+後端</strong>：<code>local</code> 退出即冇、<code>opensearch</code>
+要自己配 embedding——生產多人 / 冚 session 直接上
+<strong><code>viking</code> / <code>mem0</code></strong>（見
+§4.4）。</p>
+</blockquote>
+<h3 id="43-短期會話short-term-session--stm後端">4.3 短期會話（Short-Term
+Session / STM）後端</h3>
+<p><strong>概覽</strong>：STM 記住「今次對話」——每輪 context、session
+資料。AgentKit Runtime instance
+之間唔共享，<strong>多實例部署（<code>min-instance &gt; 1</code>）要持久化
+DB</strong>，唔好 <code>local</code>。</p>
+<table>
+<thead>
+<tr>
+<th>後端</th>
+<th>例子</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本地記憶（local）</strong></td>
+<td><code>ShortTermMemory(backend="local")</code></td>
+<td>重啟 / 換 instance 即冇；開發 demo</td>
+</tr>
+<tr>
+<td><strong>SQLite 存儲</strong></td>
+<td><code>ShortTermMemory(backend="sqlite", local_database_path="./stm.db")</code></td>
+<td>單機持久化、零配置</td>
+</tr>
+<tr>
+<td><strong>MySQL 存儲</strong></td>
+<td><code>ShortTermMemory(backend="mysql", db_url="mysql://user:pass@localhost:3306/agent_db")</code></td>
+<td>自建 / RDS</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL 存儲</strong></td>
+<td><code>ShortTermMemory(backend="postgresql", db_url="postgresql://user:pass@localhost:5432/agent_db")</code></td>
+<td>自建 / 合規審計</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.memory.short_term_memory import ShortTermMemory
+
+stm = ShortTermMemory(backend=&quot;sqlite&quot;, local_database_path=&quot;./stm.db&quot;)</code></pre>
+<blockquote>
+<p>✅ PostgreSQL / MySQL = ACID 全套，chain-hash
+審計可以自己砌；壞處：backup / replication / failover 全自己搞。</p>
+</blockquote>
+<h3 id="44-長期記憶long-term-memory--ltm後端">4.4 長期記憶（Long-Term
+Memory / LTM）後端</h3>
+<p><strong>概覽</strong>：跨 session 記住用戶。<strong>預設係
+<code>opensearch</code></strong>（唔係
+local！）；<code>min_messages_threshold</code> /
+<code>min_time_threshold</code> 決定幾時寫入。</p>
+<table>
+<thead>
+<tr>
+<th>後端</th>
+<th>例子</th>
+<th>要 embedding</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本地記憶（local）</strong></td>
+<td><code>LongTermMemory(backend="local", app_name="my_agent")</code></td>
+<td>✅</td>
+<td><strong>退出即冇</strong>、唔能跨進程；開發</td>
+</tr>
+<tr>
+<td><strong>VikingDB 存儲</strong></td>
+<td><code>LongTermMemory(backend="viking", app_name="my_agent")</code></td>
+<td>❌</td>
+<td><strong>生產推薦</strong>；支援用戶畫像；region 固定
+<code>cn-hongkong</code>；<code>viking_mem</code> 已棄用→自動轉
+<code>viking</code></td>
+</tr>
+<tr>
+<td><strong>mem0 存儲</strong></td>
+<td><code>LongTermMemory(backend="mem0", app_name="my_agent")</code></td>
+<td>❌</td>
+<td>第三方托管；<code>pip install mem0</code> +
+<code>Mem0Config</code>（env <code>DATABASE_MEM0_*</code>）</td>
+</tr>
+<tr>
+<td><strong>OpenSearch 存儲</strong></td>
+<td><code>LongTermMemory(backend="opensearch", app_name="my_agent")</code></td>
+<td>✅</td>
+<td>預設值；已有 infra</td>
+</tr>
+<tr>
+<td><strong>Redis 存儲</strong></td>
+<td><code>LongTermMemory(backend="redis", app_name="my_agent")</code></td>
+<td>✅</td>
+<td>低延遲自建</td>
+</tr>
+<tr>
+<td><strong>OpenViking 存儲</strong></td>
+<td><code>LongTermMemory(backend="openviking", app_name="my_agent")</code></td>
+<td>❌</td>
+<td>生產；server 做策略</td>
+</tr>
+<tr>
+<td><strong>TOS ContextBucket 存儲</strong></td>
+<td><code>LongTermMemory(backend="tos_context", app_name="my_agent")</code></td>
+<td>❌</td>
+<td>火山托管 context</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.memory.long_term_memory import LongTermMemory
+
+ltm = LongTermMemory(backend=&quot;viking&quot;, app_name=&quot;my_agent&quot;)   # 生產推薦</code></pre>
+<blockquote>
+<p>🎯 要 <strong>multiprocess / 多實例共享</strong> → 唔好用
+<code>local</code>；要<strong>用戶畫像</strong>（檢索時按人篩）→ 淨係
+Viking 有（見 §4.5）。</p>
+</blockquote>
+<h3 id="45-知識庫knowledgebase--kb後端">4.5 知識庫（KnowledgeBase /
+KB）後端</h3>
+<p><strong>概述</strong>：靜態知識文件做 RAG（產品文檔 / FAQ /
+法規）。統一入口
+<code>veadk.knowledgebase.KnowledgeBase(backend=..., index=...)</code>；入資料
+<code>add_from_files</code> / <code>add_from_directory</code> /
+<code>add_from_text</code>；接住
+<code>Agent(..., knowledgebase=kb)</code> 就自動有
+<code>load_knowledgebase</code> 工具（見 §4.1）。</p>
+<table>
+<thead>
+<tr>
+<th>後端</th>
+<th>例子</th>
+<th>要 embedding</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本地記憶存儲（local）</strong></td>
+<td><code>KnowledgeBase(backend="local", index="my_kb")</code></td>
+<td>✅</td>
+<td>內存向量索引；程序死咗 data 冇</td>
+</tr>
+<tr>
+<td><strong>OpenSearch 存儲</strong></td>
+<td><code>KnowledgeBase(backend="opensearch", index="my_kb")</code></td>
+<td>✅</td>
+<td>已有 infra</td>
+</tr>
+<tr>
+<td><strong>Redis 存儲</strong></td>
+<td><code>KnowledgeBase(backend="redis", index="my_kb")</code></td>
+<td>✅</td>
+<td>低延遲自建</td>
+</tr>
+<tr>
+<td><strong>TOS 向量庫存儲（tos_vector）</strong></td>
+<td><code>KnowledgeBase(backend="tos_vector", index="my_kb")</code></td>
+<td>✅</td>
+<td>用緊火山 TOS</td>
+</tr>
+<tr>
+<td><strong>VikingDB 知識庫存儲</strong></td>
+<td><code>KnowledgeBase(backend="viking", index="my_kb", ...)</code></td>
+<td>❌</td>
+<td><strong>生產推薦</strong>；服務端切分+向量化+檢索；用戶畫像</td>
+</tr>
+<tr>
+<td><strong>Milvus 存儲</strong></td>
+<td><code>KnowledgeBase(backend="milvus", index="my_kb")</code></td>
+<td>✅</td>
+<td>自建 / 托管 Milvus、大規模</td>
+</tr>
+<tr>
+<td><strong>OpenViking 存儲</strong></td>
+<td><code>KnowledgeBase(backend="openviking", index="my_kb")</code></td>
+<td>❌</td>
+<td>服務端資源解析同檢索</td>
+</tr>
+<tr>
+<td><strong>Context Search 存儲</strong></td>
+<td><code>KnowledgeBase(backend="context_search", index="my_kb")</code></td>
+<td>❌</td>
+<td>托管 RAG；需 TOS 預簽名上傳</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.knowledgebase import KnowledgeBase
+
+# 生產推薦：VikingDB 知識庫（含用戶畫像檢索）
+kb = KnowledgeBase(
+    backend=&quot;viking&quot;,
+    index=&quot;my_kb&quot;,
+    enable_profile=True,              # 啟用用戶畫像
+    query_with_user_profile=True,     # 檢索時結合用戶畫像（限 Viking）
+    top_k=10,
+)</code></pre>
+<blockquote>
+<p>🎯 <strong>enable_profile / query_with_user_profile
+唔係度度有</strong>——只有 VikingDB 後端先支援「用戶畫像」檢索。揀
+OpenSearch / Redis / Milvus 嘅話冇呢個功能。</p>
+</blockquote>
+<hr />
+<h2 id="5-後端矩陣一張表">5. 後端矩陣（一張表）</h2>
+<p>融合 STM / LTM / KB 全部 backend，揀之前睇呢張：</p>
+<table>
+<thead>
+<tr>
+<th>backend</th>
+<th>STM</th>
+<th>LTM</th>
+<th>KB</th>
+<th>要本地 embedding</th>
+<th>幾時揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>local</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>開發 debug（退出即冇）</td>
+</tr>
+<tr>
+<td><code>sqlite</code></td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>單機持久化</td>
+</tr>
+<tr>
+<td><code>mysql</code></td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>自建 / RDS</td>
+</tr>
+<tr>
+<td><code>postgresql</code></td>
+<td>✅</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>自建 / 合規審計</td>
+</tr>
+<tr>
+<td><code>opensearch</code></td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>已有 infra（LTM 預設值）</td>
+</tr>
+<tr>
+<td><code>redis</code></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>低延遲自建</td>
+</tr>
+<tr>
+<td><code>milvus</code></td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>大規模</td>
+</tr>
+<tr>
+<td><code>tos_vector</code></td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>火山 TOS</td>
+</tr>
+<tr>
+<td><code>viking</code></td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td><strong>生產推薦</strong>、支援用戶畫像</td>
+</tr>
+<tr>
+<td><code>mem0</code></td>
+<td>—</td>
+<td>✅</td>
+<td>—</td>
+<td>❌</td>
+<td>第三方托管</td>
+</tr>
+<tr>
+<td><code>context_search</code></td>
+<td>—</td>
+<td>—</td>
+<td>✅</td>
+<td>❌</td>
+<td>托管 RAG、需 TOS 預簽名</td>
+</tr>
+<tr>
+<td><code>openviking</code></td>
+<td>—</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>生產</td>
+</tr>
+<tr>
+<td><code>tos_context</code></td>
+<td>—</td>
+<td>✅</td>
+<td>—</td>
+<td>❌</td>
+<td>火山托管</td>
+</tr>
+</tbody>
+</table>
+<p><strong>揀法速查</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>STM</th>
+<th>LTM</th>
+<th>KB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開發 / demo</td>
+<td><code>sqlite</code> / <code>local</code></td>
+<td><code>local</code></td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>多實例 / 要 SLA</td>
+<td><code>postgresql</code> / <code>mysql</code></td>
+<td><code>viking</code> / <code>mem0</code></td>
+<td><code>viking</code></td>
+</tr>
+<tr>
+<td>已有 Redis</td>
+<td>—</td>
+<td><code>redis</code></td>
+<td><code>redis</code></td>
+</tr>
+<tr>
+<td>合規唔出域</td>
+<td>自建 PostgreSQL</td>
+<td>自建 OpenSearch</td>
+<td><code>local</code> 或自建 Milvus</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-決策框架幾時用邊種">6. 決策框架（幾時用邊種）</h2>
+<h3 id="61-場景--db-對照">6.1 場景 → DB 對照</h3>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>揀</th>
+<th>唔揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用戶 / 訂單 / 審計（ACID）</td>
+<td>SQL（RDS MySQL / NDB / PostgreSQL）</td>
+<td>Vector / KV</td>
+</tr>
+<tr>
+<td>語義搜尋 / RAG / 知識庫</td>
+<td>Vector DB（VikingDB / Context Search / OpenSearch / Redis）</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>記憶（跨 session）</td>
+<td><code>viking</code> / <code>mem0</code>（托管）或
+<code>opensearch</code></td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>短期會話（生產多實例）</td>
+<td>SQLite 以外嘅持久化 DB（SQL / Redis）</td>
+<td>本地 <code>local</code></td>
+</tr>
+<tr>
+<td>熱 session / 快取</td>
+<td>Redis（Cache for Redis）</td>
+<td>MongoDB</td>
+</tr>
+<tr>
+<td>電商產品 / 庫存 / 社群</td>
+<td>MongoDB（sharded + geo-indexing）</td>
+<td>SQLite</td>
+</tr>
+<tr>
+<td>圖片 / 影片 / 7 年 archive</td>
+<td>TOS</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>關係問答（A 關連 B）</td>
+<td>Graph DB（第三方）</td>
+<td>單一 DB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-一個-stack-同時用幾種">6.2 一個 stack 同時用幾種</h3>
+<table>
+<thead>
+<tr>
+<th>嘢</th>
+<th>儲邊度</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用戶 / 訂單 / 審計寫入</td>
+<td>RDS MySQL / PostgreSQL</td>
+<td>ACID + chain-hash</td>
+</tr>
+<tr>
+<td>審計 archive 7 年</td>
+<td>TOS</td>
+<td>平、大容量冷存儲</td>
+</tr>
+<tr>
+<td>向量 / 語義記憶（LTM/用戶畫像）</td>
+<td>VikingDB</td>
+<td>托管、唔使管 embedding、用戶畫像</td>
+</tr>
+<tr>
+<td>知識庫 RAG</td>
+<td>VikingDB / Context Search</td>
+<td>托管、服務端向量化</td>
+</tr>
+<tr>
+<td>短期會話（多實例）</td>
+<td>PostgreSQL / Redis</td>
+<td>持久化 + &lt;1ms</td>
+</tr>
+<tr>
+<td>Session 熱數據</td>
+<td>Cache for Redis</td>
+<td>&lt;1ms 低延遲</td>
+</tr>
+<tr>
+<td>產品目錄 / 庫存</td>
+<td>MongoDB</td>
+<td>文件 schema 靈活 + sharded</td>
+</tr>
+</tbody>
+</table>
+<h3 id="63-一個-db-打天下陷阱">6.3 「一個 DB 打天下」陷阱</h3>
+<blockquote>
+<p>⚠️ <strong>每個資料類型都有唔同嘅平快準特性</strong>——用 SQL
+做向量搜、用 Redis 做 7 年 archive、用 MongoDB 做 ACID
+事務，全部唔啱。混搭先係正路，同埋<strong>一個方案唔止用一種
+DB</strong>係正常嘅。</p>
+</blockquote>
+<h3 id="64-本地-vs-雲端嘅最後決策線">6.4 本地 vs 雲端嘅最後決策線</h3>
+<pre><code>你要多實例共享？
+  ├─ Yes → 雲端托管（RDS / NDB / VikingDB / Cache for Redis / MongoDB / TOS）
+  └─ No → 你要合規唔出域？
+              ├─ Yes → 本地自建（PostgreSQL / MySQL / OpenSearch）
+              └─ No → 雲端托管（慳維運）</code></pre>
+<hr />
+<h2 id="7-sales-一句--資料來源">7. Sales 一句 + 資料來源</h2>
+<h3 id="sales-一句">Sales 一句</h3>
+<blockquote>
+<p>「Agent 唔係得個 model——佢同你嘅數據打交道。SQL 管冷硬事實，Vector
+管語義，Redis 管手快，MongoDB 管文件，TOS 管歸檔；記憶三層（短期 / 長期
+/ 知識庫）每個後端 VeADK 一句搞掂——成套 BytePlus + VikingDB
+一間過攞齊，唔使自己砌。」</p>
+</blockquote>
+<h3 id="資料來源">資料來源</h3>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BytePlus 產品總覽</td>
+<td><a
+href="https://byteplus.com/en/product/list">https://byteplus.com/en/product/list</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VikingDB（雲原生向量數據庫）</td>
+<td><a
+href="https://byteplus.com/en/product/VectorDatabase">https://byteplus.com/en/product/VectorDatabase</a></td>
+<td>2025-04 launch</td>
+</tr>
+<tr>
+<td>VikingDB API Overview</td>
+<td><a
+href="https://docs.byteplus.com/api/docs/VikingDB/Overview">https://docs.byteplus.com/api/docs/VikingDB/Overview</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>RDS for MySQL</td>
+<td><a
+href="https://byteplus.com/product/rds-mysql">https://byteplus.com/product/rds-mysql</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>NDB for MySQL</td>
+<td><a
+href="https://byteplus.com/product/ndb-for-mysql">https://byteplus.com/product/ndb-for-mysql</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Document Database for MongoDB</td>
+<td><a
+href="https://byteplus.com/product/mongodb">https://byteplus.com/product/mongodb</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK 記憶管理（短期會話 / 長期記憶後端）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK 長期記憶 mem0 後端</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/mem0">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/mem0</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK 長期記憶 VikingDB 後端</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/vikingdb">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/vikingdb</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK 知識庫（後端 + 檢索）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Context Search 後端（TOS 預簽名上傳）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK API 參考（STM / LTM / KB 後端）</td>
+<td><code>references/veadk-api.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>AgentKit CLI（knowledge / memory create）</td>
+<td><code>references/agentkit-cli.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>AI 概念百科 §7 Vector DB + §8 Database</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>Vector DB 與 Cache 管理指南（後端 + 緩存 + 壓縮）</td>
+<td><code>references/veadk-agentkit-vector-cache.md</code></td>
+<td>2026-08-13</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：VikingDB 價格 / region 以官方控制台為準；本
+doc 唔含計價承諾（見 pricing doc）。各產品功能存在性以 BytePlus
+官網當刻為準。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-09-06 · 按官方記憶三層（短期會話 / 長期記憶
+/ 知識庫）重組後端例子 + 檢索節。backend 清單同 env 會跟 SDK
+版本變，做方案前對返當刻 docs。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

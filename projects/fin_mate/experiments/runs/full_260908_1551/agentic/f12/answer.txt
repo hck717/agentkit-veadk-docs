@@ -1,0 +1,23 @@
+我现在需要回答用户的问题：“MSFT 三大主要業務係咩？（overview）”。首先，我要确定是否需要调用工具。根据规则，必须使用load_knowledgebase来查找资料，最多两次。用户的问题是关于微软的三大主要业务，这属于公司业务结构的信息，应该在知识库中存在。
+
+接下来，我调用了load_knowledgebase，参数是“MSFT 三大主要業務”。工具返回了几个知识库条目，其中第一个条目详细列出了微软的关键业务，包括Azure智能云、生产力与商业流程、更多个人计算。这三个业务正好对应问题中的“三大主要业务”。其他条目看起来是目录或摘要，没有提供更多信息。
+
+现在需要检查是否需要进一步调用工具。由于已经找到了相关的信息，并且覆盖了用户的问题，所以不需要再次调用。接下来要做的是整理结果，用inline标注来源，并列出完整的URI。
+
+确认每个claim都有标注。例如，“Azure 智能雲”对应的来源是viking://resources/fin_kb/msft_overview/msft_overview.md。然后，在结尾处列出所有来源的URI。
+
+最后，确保回答清晰，结构正确，没有使用calc工具，因为问题不需要计算。检查是否有遗漏的信息，确认所有业务都被正确提取。这样就完成了回答。
+MSFT 三大主要業務分別為：  
+1. **Azure 智能雲**：雲端服務同企業 AI 基建，收入增長靠企業雲遷移同 Copilot / OpenAI 合作帶動【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。  
+2. **生產力與商業流程**：包含 Microsoft 365、LinkedIn、Dynamics 【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。  
+3. **更多個人計算**：涉及 Windows、Surface、Xbox、搜尋廣告（Bing）【KB:viking://resources/fin_kb/msft_overview/msft_overview.md】。  
+
+## 來源  
+- viking://resources/fin_kb/msft_overview/msft_overview.md  
+- viking://resources/fin_kb/msft_overview/.overview.md  
+- viking://resources/fin_kb/msft_txt/.overview.md  
+- viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/.abstract.md  
+- viking://resources/fin_kb/msft_txt/20260212_China_Renaissance_Research_MSFT__b36a0cfd/.overview.md  
+
+
+**說明**：首次查詢已獲得核心業務信息，其餘來源因匹配度較低未進一步提取。

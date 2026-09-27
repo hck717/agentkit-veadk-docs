@@ -1,0 +1,1 @@
+{"llm": "stub", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Azure 供應受限時，Microsoft 點解仲有力推 E7 加價式 upsell？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}

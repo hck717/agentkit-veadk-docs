@@ -1,0 +1,13 @@
+The key metric
+we're optimizing for is tokens per watt per dollar, which comes down to increasing utilization and
+decreasing TCO using silicon, systems, and software.
+A good example of this is the 50% increase in throughput we were able to achieve in one of our
+highest volume workloads, OpenAI inferencing, powering our Copilots. And another example was
+the unlocking of new capabilities and efficiencies for our Fairwater data centers. In this instance,
+we connected both Atlanta and Wisconsin site through an AI WAN to build a first-of-its-kind AI
+super factory. Fairwater's two-story design and liquid cooling allow us to run higher GPU densities
+and thereby improve both performance and latencies for high-scale training.
+All up, we added nearly 1 gigawatt of total capacity this quarter alone. At the silicon layer, we have
+NVIDIA and AMD and our own Maia chips delivering the best all-up fleet performance, cost, and
+supply across multiple generations of hardware. Earlier this week, we brought online our Maia
+200 Accelerator.

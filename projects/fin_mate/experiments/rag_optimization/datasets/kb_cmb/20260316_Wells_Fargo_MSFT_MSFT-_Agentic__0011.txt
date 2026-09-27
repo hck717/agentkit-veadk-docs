@@ -1,0 +1,17 @@
+00
+01/08/2026
+BUY:$630.00
+01/21/2026
+BUY:$615.00
+01/29/2026
+Closing Price
+Price Target
+Initiation (I); Drop Coverage (D); Overweight (BUY); Equal Weight (HOLD); Underweight (SELL); Suspended (SR); Not Rated (NR); No Estimate (NE)
+Wells Fargo Securities, LLC, or its affiliates intends to seek or expects to receive compensation for investment banking services in the next three months from an 
+affiliate of Microsoft Corporation.
+Wells Fargo Securities, LLC, maintains a market in the common stock of Microsoft Corporation.
+Microsoft Corporation currently is, or during the 12-month period preceding the date of distribution of the research report was, a client of Wells Fargo Securities, 
+LLC. Wells Fargo Securities, LLC, provided non-investment banking securities-related services to Microsoft Corporation.
+Wells Fargo Securities, LLC, or any of its affiliates, intends to seek or expects to receive compensation for investment banking services from Microsoft Corporation 
+in the next three months.
+A director or officer of Wells Fargo & Company serves on the board of directors of Microsoft Corporation.

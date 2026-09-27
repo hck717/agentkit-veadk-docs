@@ -1,0 +1,9 @@
+WFSE does not deal with retail clients as defined in 
+the Directive 2014/65/EU (“MiFID2”). This report is not intended for, and should not be relied upon by, retail clients.
+Australia – Wells Fargo Securities, LLC and Wells Fargo Securities International Limited are exempt from the requirements to hold an Australian financial services 
+license in respect of the financial services they provide to wholesale clients in Australia. Wells Fargo Securities, LLC is regulated under the laws of the United 
+States and Wells Fargo Securities International Limited is regulated under laws of the United Kingdom. All such laws differ from Australian laws. Any offer or 
+documentation provided to Australian recipients by Wells Fargo Securities, LLC or Wells Fargo Securities International Limited in the course of providing the 
+financial services will be prepared in accordance with the laws of the United States or United Kingdom and not Australian laws.
+Canada – This report is distributed in Canada by Wells Fargo Securities Canada, Ltd., a registered investment dealer in Canada and member of the Canadian 
+Investment Regulatory Organization (CIRO) and, Member – Canadian Investor Protection Fund (CIPF).

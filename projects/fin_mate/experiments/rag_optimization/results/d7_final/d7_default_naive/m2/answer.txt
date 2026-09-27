@@ -1,0 +1,4 @@
+Agent 365 提供代理登記冊/代理 ID（在 Entra 中）、可觀察性、風險信號等，這些都是代理型採用的重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。而 E7 SKU 包含了 Agent 365，因此 security 是 E7 bundle 中驅動 M365 Copilot 和 Agent 365 採用的關鍵因素。
+
+## 來源
+20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt

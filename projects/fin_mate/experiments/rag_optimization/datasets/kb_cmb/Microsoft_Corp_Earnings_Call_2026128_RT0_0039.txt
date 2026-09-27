@@ -1,0 +1,12 @@
+I think the
+first thing, I think you really asked a very direct correlation that I do think many investors are doing,
+which is between the CapEx spend and seeing an Azure revenue number. And we tried last
+quarter, and I think, again, this quarter to talk more specifically about all the places that the CapEx
+spend, especially the short-lived CapEx spend across CPU and GPU and where that will show up.
+Sometimes I think it's probably better to think about the Azure guidance that we give as an
+allocated capacity guide about what we can deliver in Azure revenue because as we spend the
+capital and put GPUs specifically, it applies to CPUs, but GPUs more specifically, we're really
+making long-term decisions.
+And the first thing we're doing is solving for the increased usage and sales and the accelerating
+pace of M365 Copilot as well as GitHub Copilot, our first-party apps. Then we make sure we're
+investing in the long-term nature of R&D and product innovation.

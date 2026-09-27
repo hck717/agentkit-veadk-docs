@@ -1,0 +1,12 @@
+Commercial RPO of $625B also grew an impressive 110% Y/Y
+CC, materially above the 51% CC growth rate reported last quarter and the 35% Y/Y growth in the
+quarter before that. It's also important to note that roughly 45% of MSFT's commercial RPO is
+attributable to OpenAI, thus indicating that the remaining portion of commercial RPO grew by
+roughly 28% Y/Y this quarter (with Anthropic providing a boost).
+- Capex (including cap leases) of $37.5B was above the Street's $35.9B forecast and our $32.6B
+estimate. Interestingly, mgmt noted that roughly two-thirds of its Cloud and AI spend pertains to
+short-lived assets (CPUs/GPUs), up from roughly half last quarter. Long-lived assets including
+finance leases were $6.7B.
+- Windows OEM and device revenue was flat Y/Y on a CC basis (vs. 6% growth previously). And
+within that, Windows OEM grew by 5% Y/Y, which was due to strong execution, along with a
+continued benefit from Win10 EOS.

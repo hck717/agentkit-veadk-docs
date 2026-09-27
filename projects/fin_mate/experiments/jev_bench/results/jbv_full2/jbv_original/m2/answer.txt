@@ -1,0 +1,7 @@
+Security 對 agentic adoption 同 E7 bundle 關鍵，原因如下：  
+1. **Agentic adoption 的 prerequisites**：Agent 365 作為管理代理的控制平面，包含代理註冊表、代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些都是代理性 adoption 的重要前提【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **E7 bundle 的吸引力**：E7 SKU 將 M365 E5、Entra Suite、Agent 365 和 M365 Copilot 整合，企業用戶若單獨採用 Agent 365（$30/月）或 M365 Copilot（$15/月），成本較高，而 E7 提供了更經濟的整合方案，加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **安全需求驅動**：在 AI 部署中，安全是關鍵考量。Microsoft 已在 Defender、Entra、Intune 和 Purview 等產品中添加了十多個新的安全 Copilot 代理，例如 Icertis 的 SOC 團隊使用安全 Copilot 代理將手動分類時間減少 75%，這對面臨人才短缺的行業至關重要【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。此外，Purview 審計的 Copilot 交互次數在 2026 年一季度達到 240 億次，同比增長 9 倍，顯示安全審計在 Copilot 生態中的重要性【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+
+## 來源  
+[202603

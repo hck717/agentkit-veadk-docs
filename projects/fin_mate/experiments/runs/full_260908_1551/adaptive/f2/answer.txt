@@ -1,0 +1,8 @@
+Deutsche Bank 形容 Azure 第四財季（F2Q）業績高於指導，但可能略低於買方預期。Azure 按不變幣種計算同比增長 38%，高於指導的 37%，但買方預期接近 39%。主要原因是效率提升使部分容量從其他部門重新分配到可盈利的 Azure 需求中，但仍受供應限制，管理層需平衡 Azure 需求增長與 1P 服務、研發團隊投入及設備更新的需求。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】
+
+M365 商業雲計算增長 14%，符合指導的高端（13-14%），驅動因素包括席位增長（6%）和 ARPU 擴張，M365 Copilot 付費席位達 1500 萬。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】
+
+Server Products 按不變幣種計算同比增長 1%，遠好於指導的 LSD-MSD 下降，原因是 Micros（資料未完整顯示，餘下內容缺失）。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

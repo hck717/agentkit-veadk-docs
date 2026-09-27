@@ -1,0 +1,8 @@
+veadk-python[extensions]>=0.5.39
+yfinance
+pandas
+feedparser
+pymupdf
+# OpenViking SDK：pin 0.1.8 —— veadk 1.1.9 嘅 openviking backend 用 0.1.8 嘅 kwargs API
+# （0.1.9 改成 options dict，會 breaking）
+openviking-sdk==0.1.8

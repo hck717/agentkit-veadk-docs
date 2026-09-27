@@ -1,0 +1,222 @@
+{
+  "ts": "2026-09-10 09:23:07",
+  "model": "seed-1-6-flash-250715",
+  "iter": 3,
+  "live": true,
+  "prompts": [
+    {
+      "id": "p1",
+      "ticker": "MSFT"
+    },
+    {
+      "id": "p2",
+      "ticker": "NVDA"
+    },
+    {
+      "id": "p3",
+      "ticker": "AAPL"
+    },
+    {
+      "id": "p4",
+      "ticker": "TSM"
+    },
+    {
+      "id": "p5",
+      "ticker": "TSLA"
+    },
+    {
+      "id": "p6",
+      "ticker": "AMZN"
+    },
+    {
+      "id": "p7",
+      "ticker": "GOOGL"
+    },
+    {
+      "id": "p8",
+      "ticker": "META"
+    }
+  ],
+  "agg": {
+    "plain": {
+      "n": 24,
+      "parse": 1.0,
+      "valid": 1.0,
+      "field_rate": 1.0,
+      "prompt_tokens": 4161,
+      "completion_tokens": 3530,
+      "usd": 0.000832211
+    },
+    "schema": {
+      "n": 24,
+      "parse": 1.0,
+      "valid": 1.0,
+      "field_rate": 1.0,
+      "prompt_tokens": 9129,
+      "completion_tokens": 2510,
+      "usd": 0.000721319
+    }
+  },
+  "per_prompt": {
+    "p1": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 534,
+        "completion_tokens": 458,
+        "usd": 0.000107852
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1155,
+        "completion_tokens": 364,
+        "usd": 0.000101059
+      }
+    },
+    "p2": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 516,
+        "completion_tokens": 478,
+        "usd": 0.00011169399999999999
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1137,
+        "completion_tokens": 269,
+        "usd": 8.063599999999999e-05
+      }
+    },
+    "p3": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 528,
+        "completion_tokens": 450,
+        "usd": 0.00010603799999999998
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1149,
+        "completion_tokens": 334,
+        "usd": 9.460299999999999e-05
+      }
+    },
+    "p4": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 513,
+        "completion_tokens": 418,
+        "usd": 9.897100000000001e-05
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1134,
+        "completion_tokens": 299,
+        "usd": 8.690299999999999e-05
+      }
+    },
+    "p5": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 513,
+        "completion_tokens": 378,
+        "usd": 9.0531e-05
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1134,
+        "completion_tokens": 368,
+        "usd": 0.000101462
+      }
+    },
+    "p6": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 501,
+        "completion_tokens": 394,
+        "usd": 9.3655e-05
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1122,
+        "completion_tokens": 349,
+        "usd": 9.720099999999999e-05
+      }
+    },
+    "p7": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 552,
+        "completion_tokens": 492,
+        "usd": 0.000115404
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1173,
+        "completion_tokens": 230,
+        "usd": 7.3163e-05
+      }
+    },
+    "p8": {
+      "plain": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 504,
+        "completion_tokens": 462,
+        "usd": 0.000108066
+      },
+      "schema": {
+        "n": 3,
+        "parse": 1.0,
+        "valid": 1.0,
+        "field_rate": 1.0,
+        "prompt_tokens": 1125,
+        "completion_tokens": 297,
+        "usd": 8.629199999999999e-05
+      }
+    }
+  }
+}

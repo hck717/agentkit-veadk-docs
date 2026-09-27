@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 15,
+  "desc": "dense find k=15 + sparse grep terms -> RRF(k=60) 融合"
+}

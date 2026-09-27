@@ -1,0 +1,4 @@
+根據檔案 [4] <msft_azure_revenue.csv>，AzureRevenueB、AzureGrowthCC_pct 表格中 FY26Q4E 的 constant-currency YoY growth 預測係 35%。【KB:msft_azure_revenue.csv】
+
+## 來源
+msft_azure_revenue.csv

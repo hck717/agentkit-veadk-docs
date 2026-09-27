@@ -1,0 +1,7 @@
+security 對 agentic adoption 同 E7 bundle 關鍵，原因如下：  
+1. **agentic adoption 的 prerequisite**：Agent 365 作為管理代理的控制平面，包含代理注冊表/代理 ID（在 Entra 中）、可觀察性、風險信號等，這些都是 agentic adoption 的重要前提條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **standalone adoption 的限制**：Agent 365 若以單獨 SKU（$30/月或 $15/月）提供， adoption  unlikely，而透過 E7 SKU 則能加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **E7 bundle 的整合**：E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot， security 相關功能（如 Entra）是 bundle 的重要組成部分，助力企業管理 AI 部署【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+[20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt]

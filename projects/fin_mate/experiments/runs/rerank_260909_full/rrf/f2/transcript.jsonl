@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Deutsche 點樣形容 F2Q 結果 vs 市場預期？主要原因？"}], "text": "KB 無資料", "prompt_tokens": 66, "completion_tokens": 4, "cached_tokens": 0, "ms": 567.8459170158021}

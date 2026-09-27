@@ -1,0 +1,11 @@
+For an investor who is long fixed-rate instruments (thus receiving these cash flows), increases 
+in interest rates naturally lift the discount factors applied to the expected cash flows and thus cause a loss. The longer the 
+maturity of a certain cash flow and the higher the move in the discount factor, the higher will be the loss. Upside surprises in 
+inflation, fiscal funding needs, and FX depreciation rates are among the most common adverse macroeconomic shocks to 
+receivers. But counterparty exposure, issuer creditworthiness, client segmentation, regulation (including changes in assets 
+holding limits for different types of investors), changes in tax policies, currency convertibility (which may constrain currency 
+conversion, repatriation of profits and/or liquidation of positions), and settlement issues related to local clearing houses are 
+also important risk factors. The sensitivity of fixed-income instruments to macroeconomic shocks may be mitigated by 
+indexing the contracted cash flows to inflation, to FX depreciation, or to specified interest rates - these are common in 
+emerging markets.  The index fixings may - by construction - lag or mis-measure the actual move in the underlying variables 
+they are intended to track.

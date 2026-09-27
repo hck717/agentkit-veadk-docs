@@ -1,0 +1,501 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>呢個 Tab 係<strong>唔睇 code
+嘅全景圖</strong>：由「用戶喺前端撳掣」去到「答案經 GPU 出返嚟、再寫入
+audit」嘅<strong>成條鏈</strong>。Optimization、RAG、API、Endpoint、RBAC、PII、Security、Agentic
+Tools、MCP、Framework、GPU、Cache、Observability——全部喺返佢嘅位置，唔係散開嘅
+feature list。</p>
+<blockquote>
+<p>🎯 <strong>一句心法</strong>：Agent 唔係「一個 model call」。佢係
+<strong>Endpoint → Runtime → Framework → Tools/MCP → RAG → Memory →
+Model → Engine → GPU → Audit</strong>
+十段流水線。邊段出事，邊段做優化，要對返表先搵到位。</p>
+</blockquote>
+<h2 id="it-arch-一全景十二層架構地圖">一、全景：十二層架構地圖</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>層</th>
+<th>代表</th>
+<th>邊個管</th>
+<th>深探 Tab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>入口 Frontend</strong></td>
+<td>Web / 飛書 / Slack / CLI</td>
+<td>你</td>
+<td>CLI / 部署</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>端點 Endpoint</strong></td>
+<td>Gateway、inbound 認證、rate limit</td>
+<td>平台+你</td>
+<td>安全 §1</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Runtime（平台層）</strong></td>
+<td>部署、推理調度、Response cache、計費</td>
+<td>平台</td>
+<td>計價 Pricing</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Framework（VeADK）</strong></td>
+<td>五段 agent loop、事件、多 agent</td>
+<td>你</td>
+<td>開發 API</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Agentic Tools / MCP</strong></td>
+<td>內建工具、客製 tool、Remote MCP、A2A</td>
+<td>你</td>
+<td>AgentKit SDK</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>RAG / 知識庫</strong></td>
+<td>VectorDB、embedding、檢索、context 組裝</td>
+<td>你（後端可托管）</td>
+<td>記憶 §1–3</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Memory 記憶層</strong></td>
+<td>窗口、events 更新、壓縮、長期記憶</td>
+<td>你</td>
+<td>記憶 §5</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>模型路由</strong></td>
+<td>primary→fallback list、LoRA 部署、temperature</td>
+<td>你（發布模型係你）</td>
+<td>精調 LoRA</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>緩存 3 層</strong></td>
+<td>Token / Input-prefix / KV</td>
+<td>Token 你、KV 托管</td>
+<td>記憶 §4</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>引擎 + 推理</strong></td>
+<td>prefill/decode、連續 batch、spec-decode</td>
+<td>平台（自建先要理）</td>
+<td>AI Infra</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>GPU / Infra</strong></td>
+<td>VRAM、頻寬、量化、容量</td>
+<td>平台（自建先要理）</td>
+<td>AI Infra / GPU</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>後段：安全 / 監察</strong></td>
+<td>出站憑證、LLM-FW、RBAC、Audit、APMPlus、Eval 回流</td>
+<td>平台+你</td>
+<td>安全 / 可觀測</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="it-arch-二一單退貨查詢嘅端到端旅程逐站講">二、一單「退貨查詢」嘅端到端旅程（逐站講）</h2>
+<p><strong>站 0 — 用戶入嚟</strong></p>
+<ul>
+<li>用戶喺前端（Web / 飛書 / Slack / CLI）打字 → 出到個
+<strong>Endpoint</strong>。</li>
+<li>前端唔係你嘅 agent，佢只係「門口」；agent 嗰 part 係成條 backend
+chain。</li>
+</ul>
+<p><strong>站 1 — 端點 + Inbound 認證（鎖門口）</strong></p>
+<ul>
+<li><strong>Endpoint</strong> 即係你部署出嚟個 runtime URL（base 形如
+<code>https://ark.cn-beijing.volces.com/api/v3/</code>）。</li>
+<li>入嚟要過認證：<strong>OAuth2 / AK-SK / JWT 白名單</strong>，再加
+<strong>rate limit + 群組</strong>。</li>
+<li>呢度係第一條安全軸 <strong>Inbound</strong>：A 公司嘅 key 唔可以攞到
+B 公司 agent 嘅嘢。</li>
+<li>⏱ <strong>呢度慢/錯</strong> = 401 / 429 返出嚟，唔關 model
+事。</li>
+</ul>
+<p><strong>站 2 — AgentKit Runtime（平台層）</strong></p>
+<ul>
+<li>Runtime 收到 request：擷定<strong>用邊個部署</strong>（model agent /
+LoRA
+版本）、<strong>temperature</strong>、<strong>output_schema</strong>、<strong>開唔開
+Response cache</strong>。</li>
+<li>平台喺呢層做 <strong>上線前 sampling、推理調度、計費</strong>（你嘅
+AFP 就係呢度燒）。</li>
+<li>⚠️ 一個關鍵 tradeoff：<strong>設咗 <code>output_schema</code> →
+自動閂 Response 緩存</strong>（見站 9）。</li>
+<li>⏱
+<strong>想慳錢</strong>：喺呢層逐粒設定慳返成本；<strong>想快</strong>：呢層出題比
+engine 大。</li>
+</ul>
+<p><strong>站 3 — VeADK Framework（你自己嘅 agent loop）</strong></p>
+<ul>
+<li>VeADK 攞住嘅係<strong>五段流程</strong>：點樣企喺 <strong>Request →
+Blueprint / 拆解 → 落 tool call → 執行 → Reflection / 自我覆檢 → Final
+answer</strong>。</li>
+<li>呢層定義<strong>幾時收工</strong>、<strong>prompt
+點砌</strong>、<strong>幾多 turn</strong>、<strong>邊啲 agent
+合作</strong>（多 agent / A2A）。</li>
+<li><strong>Response cache 面白</strong>：喺呢段，機會喺成個 docset
+最核心——<code>model_name</code> 排好、<code>instruction</code>
+固定、動態嘢放後、唔好亂加 session id，先有 prefix hit。</li>
+</ul>
+<p><strong>站 4 — Agentic Tools + MCP（Agent 隻手）</strong></p>
+<ul>
+<li>兩類工具：<strong>內建工具</strong>（AgentKit 收埋）＋
+<strong>客製工具</strong>（你寫嘅 MCP）。</li>
+<li><strong>Remote MCP（SSE/HTTP）</strong>：Tool 唔使喺 agent 同一
+server，用 MCP 協議隔住——佢自己都有認證（AK-SK / OAuth / JWT
+白名單）。</li>
+<li><strong>A2A（agent-to-agent）</strong>：Agent 唔係淨 call tool，可以
+call 第二隻 agent（主 agent → 財報 agent / 語音 agent）。</li>
+<li>⏱ <strong>慢</strong>通常喺呢度：tool 返得慢、tool timeout、tool
+return 好肥。</li>
+<li>🔒 <strong>Outbound 憑證</strong>：工具攞外部 API（DB / CRM /
+郵件）嘅加密鑰，<strong>唔好 hardcode 入
+prompt/code</strong>，要經平台<strong>憑證注入</strong> + 最小權限（站
+12）。</li>
+</ul>
+<p><strong>站 5 — RAG / 知識庫（撳返公司嘢）</strong></p>
+<ul>
+<li>Query → embed → 去 <strong>VectorDB</strong>（Milvus / viking）→
+攞返最似嘅 <code>top_k</code> 片段 → 砌入
+<strong>context</strong>。</li>
+<li>揀後端係決策：<strong>Milvus 你要管 / viking
+托管</strong>，要權衡（見記憶 Tab §2–3）。</li>
+<li>優化位：<code>top_k</code> 唔好爆（10 以內）、只塞相關片段而唔係成篇
+KB 落 system——<strong>慳預唇錢 + 唔跌準</strong>。</li>
+</ul>
+<p><strong>站 6 — Memory 記憶層（多輪唔失憶）</strong></p>
+<ul>
+<li>短記憶（窗口）＋ <strong>events ABC 更新</strong>（每 turn 將重要嘢
+update 入 context）。</li>
+<li><strong>壓縮</strong>：窗口太長就用 <code>mini</code> summarizer
+壓（interval 10–20 最佳，逐輪壓反而貴）。</li>
+<li><strong>長期記憶 LTM</strong>：重要事實寫入 VectorDB
+後端，下次先記得你啲偏好。</li>
+<li>呢層同站 9 嘅 cache 係<strong>最佳拍檔</strong>：壓縮好 → context 短
+→ prefill 少 → cache hit 高。</li>
+</ul>
+<p><strong>站 7 — 模型路由（幾時用邊部機）</strong></p>
+<ul>
+<li><code>model_name</code> 可以係 <strong>list：primary →
+fallback</strong>。高頻簡單 call 行 mini，難題先上 pro（省 cost +
+降延遲）。</li>
+<li><strong>LoRA /
+精調模型</strong>：知「專有嘢固貫晒喺權重、唔使每輪搬落 prompt」——先行
+0-shot 深度，再行 LoRA（見 Tab 決策樹）。</li>
+<li>每個 model agent 都要 <strong>embed 測試</strong>（eval，站 12）先好
+rollout，唔好齋慳錢。</li>
+<li>🔒 模型輸出<strong>唔可以做安全界線</strong>之住——安全唔靠
+prompt，靠平台層（站 12）。</li>
+</ul>
+<p><strong>站 8 — 引擎 + 推理（平台收埋，自建先要理）</strong></p>
+<ul>
+<li><strong>Prefill vs Decode</strong>：prefill 係 compute-bound（首
+token 快慢睇 prompt 長短）；decode 係 memory-bound（出字速度睇 GPU
+頻寬）。</li>
+<li>引擎（vLLM / SGLang 級數）做 <strong>連續 batch、KV-Cache
+管理、spec-decode</strong>——呢啲嘢托管環境全部自動。</li>
+<li>你 framework 層做嘅嘢（prompt 短 → prefill 短 → KV
+需求降）會推到嚟呢度，慳錢係<strong>蝴蝶效應</strong>。</li>
+</ul>
+<p><strong>站 9 — 緩存 3 層（慳錢主戰場）</strong></p>
+<ul>
+<li>① <strong>Token / Response cache</strong>：唔使重算嘅 prompt token →
+<strong>直接慳錢</strong>（你控）。</li>
+<li>② <strong>Input-prefix cache</strong>：相同 prompt 前綴 → <strong>慳
+prefill 時間 + 錢</strong>（你靠 prompt 排位）。</li>
+<li>③ <strong>KV / Memory cache</strong>：decode 期間暫放 GPU VRAM →
+<strong>慳 VRAM / 並行度</strong>（托管）。</li>
+<li>命中率由 <code>usage_metadata.cached / prompt</code>
+睇；<strong>50–95% 係合理，100% 命中＝唔使跑 / 冇 output</strong>。</li>
+<li>⚠️ 兩刀：<code>output_schema=ON</code> → 對碰唔到；每輪加
+timestamp/session id → prefix break → 由慳變蝕。</li>
+</ul>
+<p><strong>站 10 — GPU /
+Infra（自建先要理；托管＝容量預算）</strong></p>
+<ul>
+<li>托管：GPU 係平台的事，你只須<strong>預算容量</strong>（你自己 deal
+唔到爽）。</li>
+<li>自建：揀機睇 <strong>VRAM（容唔容到 model+KV）/ 記憶體頻寬（decode
+快慢）/ TFLOPS（prefill 快慢）</strong>；長 context 同多並行＝KV
+暴漲。</li>
+<li>量度（算力工具）：量化、KV 量化、GQA
+可在自建做；托管環境你唔郁。</li>
+</ul>
+<p><strong>站 11 — 出站憑證 + Content Safety / PII</strong></p>
+<ul>
+<li><strong>Outbound</strong>：外部 API 嘅 AK/SK/OAuth/JWT
+一律<strong>平台托住憑證</strong>、runtime 啟動先注入——唔好寫入
+code/prompt。</li>
+<li><strong>Content Safety / PII</strong>：火山 <strong>LLM-FW</strong>
+喺平台層攔毒性內容同私隱（姓名 / 身份證 / 卡號 / 地址）。<strong>Bell
+唔可以靠優異 prompt</strong>——係平台層 + hook 保證。</li>
+</ul>
+<p><strong>站 12 — RBAC / Audit / Observability /
+Eval（後段收尾）</strong></p>
+<ul>
+<li><strong>RBAC</strong>：Studio ／前端分「開發者 / 營運 /
+審計員」三組，審計員只睇唔改。</li>
+<li><strong>Audit</strong>：每單 request（輸入 / 輸出 / model / 時間 /
+用戶 / 版本）<strong>簽名 + 長期保留</strong>，出事靠
+<code>request_id</code> 重現。</li>
+<li><strong>Observability</strong>：<strong>APMPlus</strong>（模型調用 /
+token / 異常 / 操作耗時）+ <strong>Cozeloop</strong>（trace / 評測）+
+<strong>TLS</strong>（集中日誌長留）。</li>
+<li><strong>Eval 回流</strong>：逐版 prompt / model 都跑 eval（相關性 /
+回答質量）→ 分數落返 Studio → 推下一個 loop。</li>
+</ul>
+<h2 id="it-arch-三逐層-optimization-地圖幾時用--預期-outcome">三、逐層
+Optimization 地圖（幾時用 + 預期 outcome）</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>優化</th>
+<th>幾時用</th>
+<th>預期 outcome</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3/8</td>
+<td><code>model_name</code> list 先 mini 後 pro</td>
+<td>高頻簡單 call 多</td>
+<td>大 model 用量 ↓~50%、TTFT ↓</td>
+<td>零</td>
+</tr>
+<tr>
+<td>3</td>
+<td>instruction 固定 + 動態放後</td>
+<td>長對話 / 命中率 &lt;50%</td>
+<td>prefix hit ↑、token ↓~60–75%</td>
+<td>零</td>
+</tr>
+<tr>
+<td>3</td>
+<td>prompt / tool return 抽 key</td>
+<td>instruction 好長</td>
+<td>每輪 token ↓（×萬輪）</td>
+<td>零</td>
+</tr>
+<tr>
+<td>5</td>
+<td>RAG <code>top_k</code> 收窄、淨塞相關片段</td>
+<td>成篇 KB 落 system</td>
+<td>token ↓~30%，accuracy 唔跌</td>
+<td>零</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>mini</code> summarizer 壓縮 interval 10–20</td>
+<td>context 越滾越大</td>
+<td>summary call ↓~10×</td>
+<td>零</td>
+</tr>
+<tr>
+<td>6</td>
+<td>LTM 記永久事實</td>
+<td>多輪偏好唔記得</td>
+<td>少重複問 / 少塞歷史</td>
+<td>零</td>
+</tr>
+<tr>
+<td>2/8</td>
+<td>唔設 <code>output_schema</code>（想要 cache）</td>
+<td>想慳錢而唔須結構化</td>
+<td>保持 Response cache</td>
+<td>零（取捨）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>A2A / 並行（多 agent）</td>
+<td>多步串行太慢</td>
+<td>總 latency ↓↓</td>
+<td>零</td>
+</tr>
+<tr>
+<td>3</td>
+<td>精調 LoRA（0-shot 深度後才有）</td>
+<td>專有嘢每輪搬 prompt 太嘥</td>
+<td>少 prompt、準啲</td>
+<td>中（訓練）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Runtime 加 concurrency / 資源</td>
+<td>backlog / 超時</td>
+<td>throughput ↑（未必慳錢）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>10/11</td>
+<td>自建 GPU：揀機 / 量化 / KV 量化</td>
+<td>自建先要理</td>
+<td>decode / VRAM 幾何級改善</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>先做清零成本，後買雲銀兩</strong>：3→5→6
+全部唔使加錢；LoRA / GPU 係「問題真喺嗰層」先郁。</p>
+</blockquote>
+<h2 id="it-arch-四cache-三層一次過管理思維">四、Cache
+三層一次過（管理思維）</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>存咩</th>
+<th>邊個控</th>
+<th>命中點睇</th>
+<th>慳咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token / Response</td>
+<td>唔重算嘅 prompt token</td>
+<td>你</td>
+<td><code>usage_metadata</code> cached/prompt</td>
+<td><strong>錢（AFP）</strong></td>
+</tr>
+<tr>
+<td>Input-prefix</td>
+<td>相同前綴 KV</td>
+<td>你（prompt 排位）</td>
+<td>同上</td>
+<td><strong>prefill 時間 + 錢</strong></td>
+</tr>
+<tr>
+<td>KV</td>
+<td>decode 期間 Key / Value</td>
+<td>托管（自建可量化）</td>
+<td>平台吞吐 / 延遲</td>
+<td><strong>VRAM / 並行</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>蝴蝶鏈</strong>：prompt 排位靚 → prefix hit → 平台唔重算 → KV
+需求降 → VRAM 壓力細 → 成本降。框架層一個決策，推到底層全程。</p>
+<h2 id="it-arch-五端到端-improvement-loop含-eval-回流">五、端到端 Improvement
+Loop（含 Eval 回流）</h2>
+<table>
+<thead>
+<tr>
+<th>步</th>
+<th>做咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 量基線</td>
+<td>eval 分 + usage_metadata + 每 task 成本</td>
+</tr>
+<tr>
+<td>② 揀槓桿</td>
+<td>清零成本優先（prompt 排位 → model 選 → RAG → cache → 壓縮）</td>
+</tr>
+<tr>
+<td>③ 改 + eval</td>
+<td>每改一版都跑（相關性 / 回答質量），慳到尾唔準就唔收貨</td>
+</tr>
+<tr>
+<td>④ Rollout</td>
+<td>新 prompt / model agent 版本上線（保留舊版本防 regress）</td>
+</tr>
+<tr>
+<td>⑤ 監視</td>
+<td>APMPlus：操作耗時 / token / 異常 / 工具耗時，一星期</td>
+</tr>
+<tr>
+<td>⑥ 回檢</td>
+<td>基線 vs 而家：有數先叫 improvement；落下一 sprint</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sprint 實例（RAG 客服）</strong> | 版 | 改咩 | Outcome |
+|---|---|---| | v1 | 基線：全 context 4k、大 model | latency ~3s、cost
+100% | | v2 | RAG top_k + 唔郁 prefix + mini 主 | token −30%、命中 ~70%
+| | v3 | 壓縮 interval=10 + pro fallback | token −50%、latency
+~1.5s、eval 唔跌 | | v4 | 上線 + APMPlus 監視一週 | 確認冇 regress，落
+sprint 2 |</p>
+<h2
+id="it-arch-六出事逐層追troubleshooting-由邊層開始">六、出事逐層追（troubleshooting
+由邊層開始）</h2>
+<table>
+<thead>
+<tr>
+<th>病徵</th>
+<th>先查邊層</th>
+<th>再查</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>401 / 429 / 超時</td>
+<td>1 入口認證 / rate limit</td>
+<td>2 Runtime 部署</td>
+</tr>
+<tr>
+<td>好貴</td>
+<td>9 緩存命中率 → 8 模型路由 → 3 prompt 排位</td>
+<td>6 壓縮</td>
+</tr>
+<tr>
+<td>首 token 慢</td>
+<td>8 prefill（prompt 太長）</td>
+<td>3 instruction 精簡</td>
+</tr>
+<tr>
+<td>出字慢</td>
+<td>10 GPU decode（memory-bound）</td>
+<td>自建加頻寬 / 托管加容量</td>
+</tr>
+<tr>
+<td>答得唔準</td>
+<td>12 eval 分 → 5 RAG top_k / 7 LoRA</td>
+<td>4 tool return 品質</td>
+</tr>
+<tr>
+<td>答得慢</td>
+<td>4 tool timeout / A2A 串行</td>
+<td>3 並行</td>
+</tr>
+<tr>
+<td>漏 PII / 內容越界</td>
+<td>11 LLM-FW 規則</td>
+<td>12 audit trail 重現</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>記住次序：慳錢 → 8/9/3/6；快 → prefill 3 先、decode 10 後；準 →
+5/7/4；安全 → 11/12 唔靠 prompt。</p>
+</blockquote>
+<h2 id="it-arch-sales-一句">Sales 一句</h2>
+<p>「我哋個 Agent 係一整套 pipeline：Endpoint 有認證限流、VeADK
+五段流程、工具走 MCP 標準、RAG 加記憶、模型自動
+fallback、緩存三層慳錢、GPU 由平台托、後台仲有 LLM-FW 防 PII、簽名
+audit、APMPlus 監察、Eval 每版回流——唔係『call 個 model
+就算』，係由門口到存檔都守得住。」</p>
+<hr />
+<p><em>最後審計：2026-08-15 · 呢頁係 docset
+合成版（no-code），細節以各子頁為準。</em></p>

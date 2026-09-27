@@ -1,0 +1,637 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>精調 / 優化</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>精調 / 優化</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-精調--優化精要框架-vs-底層">VeADK + AgentKit
+精調 / 優化精要（框架 vs 底層）</h1>
+<p>呢份文件講清楚一件事：<strong>喺 VeADK / AgentKit 架構入面做「精調 /
+優化」，你其實係喺邊一層做嘢。</strong></p>
+<p>答案好簡短——<strong>框架層（VeADK / AgentKit）本身冇任何微調
+API</strong>。精調模型係<strong>火山方舟「模型精調」功能</strong>嘅產物（底層、模型層），VeADK
+/ AgentKit 只係透過 <code>model_name</code> + endpoint
+將佢「消費」返嚟。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ul>
+<li><strong>底層（火山方舟模型平台）</strong> = 訓練
+LoRA、建任務、出模型、做推理渠道 —— 呢度先有「精調」。</li>
+<li><strong>框架層（VeADK / AgentKit）</strong> = 掛
+<code>model_name</code> 用精調後嘅模型；本身免費、冇微調概念、唔使知
+LoRA 原理。</li>
+<li>Sales 要懂另一條線：<strong>精調產物唔喺 Agent Plan
+包埋</strong>，屬「按量 / 模型單元」第二條收費線（見
+<code>veadk-agentkit-pricing.md</code>）。</li>
+<li><strong>呢個 tab 係「精調 + 優化」</strong>，唔淨係 LoRA —— prompt
+層、output_schema、compaction、routing、蒸餾、RL 全部都係優化武器。</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="0-先答三條最常被問嘅問題">0. 先答三條最常被問嘅問題</h2>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「VeADK 有冇得 fine-tune？」</td>
+<td><strong>冇。</strong> 精調喺火山方舟控制台 / OpenAPI 做，VeADK
+只係用精調後嘅 model_name。</td>
+</tr>
+<tr>
+<td>「精調模型用 Agent Plan 平唔平？」</td>
+<td><strong>唔包。</strong> Agent Plan
+包嘅係訂閱內列明嘅模型；精調後模型走<strong>按 token
+後付費</strong>（約基模
+2–2.5×）或<strong>模型單元在線推理</strong>（包時長）。</td>
+</tr>
+<tr>
+<td>「改 agent 行為一定要精調咩？」</td>
+<td><strong>唔一定。</strong> 改 prompt / output_schema / compaction /
+fallback routing 係零成本先做嘅；精調係進階武器，按場景決定。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-優化--精調全圖一張表全部武器排好">1. 優化 /
+精調全圖（一張表：全部武器排好）</h2>
+<p>呢個 tab 覆蓋由零成本到高成本嘅完整光譜——唔淨係 LoRA：</p>
+<table>
+<thead>
+<tr>
+<th>武器</th>
+<th>類型</th>
+<th>改啲咩</th>
+<th>成本</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>prompt / instruction 優化</strong></td>
+<td>Prompt 層</td>
+<td>語氣、格式、風格、少量規則</td>
+<td>零</td>
+<td>先做，八成場景夠用</td>
+</tr>
+<tr>
+<td><strong>output_schema / structured output</strong></td>
+<td>Prompt 層</td>
+<td>強制 JSON schema、欄位抽取</td>
+<td>零</td>
+<td>要穩定結構化輸出</td>
+</tr>
+<tr>
+<td><strong>compaction / context 管理</strong></td>
+<td>Prompt 層</td>
+<td>縮 context、排位、截斷策略</td>
+<td>零</td>
+<td>Context 滿、成本壓力大</td>
+</tr>
+<tr>
+<td><strong>fallback model routing</strong></td>
+<td>架構層</td>
+<td>主模掛時自動轉後備模型</td>
+<td>零</td>
+<td>提高可用性、壓成本</td>
+</tr>
+<tr>
+<td><strong>揀細 model</strong></td>
+<td>模型選擇</td>
+<td>揀更平更細嘅基模</td>
+<td>零/負</td>
+<td>效果夠就揀細</td>
+</tr>
+<tr>
+<td><strong>LoRA</strong></td>
+<td>精調</td>
+<td>領域知識 + 專用術語 + 穩定格式</td>
+<td>低</td>
+<td>大多數 vertical 場景</td>
+</tr>
+<tr>
+<td><strong>QLoRA</strong></td>
+<td>精調</td>
+<td>同 LoRA，但 4-bit 量化基模</td>
+<td>低（更低顯存）</td>
+<td>單卡 / 資源有限</td>
+</tr>
+<tr>
+<td><strong>全參數 SFT</strong></td>
+<td>精調</td>
+<td>整個 domain 改寫、極限效果</td>
+<td>高</td>
+<td>數據極多、最後先用</td>
+</tr>
+<tr>
+<td><strong>DPO</strong></td>
+<td>精調（偏好）</td>
+<td>對齊偏好（好/壞回答揀優）</td>
+<td>中</td>
+<td>要偏好對齊</td>
+</tr>
+<tr>
+<td><strong>RLHF / GRPO</strong></td>
+<td>精調（強化）</td>
+<td>推理能力、指令跟隨（rule-based reward）</td>
+<td>高</td>
+<td>要唔靠 prompt 嘅推理提升</td>
+</tr>
+<tr>
+<td><strong>Distillation（蒸餾）</strong></td>
+<td>精調</td>
+<td>大 model 輸出教細 model</td>
+<td>高（數據工程）</td>
+<td>細 model 做大 model 效果</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>Sales 一句</strong>：「優化唔淨係精調——prompt / schema /
+routing 係零成本先做；精調係進階，但唔係唯一選擇。」</p>
+</blockquote>
+<hr />
+<h2 id="2-概念層六種改模型方法對比">2.
+概念層：六種「改模型」方法對比</h2>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>更新幾多參數</th>
+<th>數據類型</th>
+<th>效果</th>
+<th>成本</th>
+<th>火山方舟 支援</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LoRA</strong></td>
+<td>&lt;1%（低秩旁路）</td>
+<td>指令→回應配對</td>
+<td>~98% of 全量</td>
+<td>低</td>
+<td>✅ SFT / DPO / GRPO</td>
+</tr>
+<tr>
+<td><strong>QLoRA</strong></td>
+<td>&lt;1%（4-bit 基模）</td>
+<td>同 LoRA</td>
+<td>≈ LoRA</td>
+<td>更低</td>
+<td>同 LoRA</td>
+</tr>
+<tr>
+<td><strong>全參數 SFT</strong></td>
+<td>100%</td>
+<td>指令→回應配對</td>
+<td>基準 100%</td>
+<td>高</td>
+<td>✅ SFT</td>
+</tr>
+<tr>
+<td><strong>DPO</strong></td>
+<td>LoRA 或全量</td>
+<td>偏好（好/壞回答）</td>
+<td>偏好對齊</td>
+<td>中</td>
+<td>✅ DPO</td>
+</tr>
+<tr>
+<td><strong>GRPO / RL</strong></td>
+<td>LoRA only</td>
+<td>Rule-based reward</td>
+<td>推理提升</td>
+<td>高</td>
+<td>✅ GRPO（只 LoRA）</td>
+</tr>
+<tr>
+<td><strong>Distillation</strong></td>
+<td>取決於目標模型</td>
+<td>大 model 輸出</td>
+<td>細 model ≈ 大 model</td>
+<td>高（數據）</td>
+<td>間接（用 SFT 流程）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>支援模型速查（2026-07）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型系列</th>
+<th>SFT</th>
+<th>DPO</th>
+<th>GRPO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doubao-seed-2.0-mini</code> / <code>2.0-lite</code></td>
+<td>✅ 全量 + LoRA</td>
+<td>✅</td>
+<td>✅（LoRA）</td>
+</tr>
+<tr>
+<td><code>doubao-1.5</code> 系列</td>
+<td>✅</td>
+<td>✅</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>RL（GRPO/PPO）</strong> 要 rule-based reward 做
+reasoning，通常需要 veRL 框架 + 超大 GPU 集群 → 係 <strong>TrainingKit
+場景</strong>（cross-ref
+<code>veadk-agentkit-training-kit.md</code>）。方舟 GRPO 只支援
+LoRA，全量 RL 要自己搞集群。成本係訓練 + 推理 sandbox
+雙食，唔係淨訓練費。</p>
+<p>⚠️ <strong>Distillation</strong> 本質係用大 model
+生成高質量訓練數據再 SFT 經細
+model——數據工程量大，效果極好但投入唔低。適合嘅場景：要用細 model
+大量跑推理（成本壓到最低），但唔想犧牲太多效果。</p>
+</blockquote>
+<hr />
+<h2 id="3-lora-原理底層概念30-秒版">3. LoRA 原理（底層概念，30
+秒版）</h2>
+<p><strong>LoRA（Low-Rank Adaptation）</strong>
+思路：唔改原模型嘅全部權重，而係喺某啲層<strong>旁邊</strong>加一個「低秩」嘅小矩陣
+<code>ΔW = A×B</code>，訓練期間只更新
+<code>A</code>、<code>B</code>，原權重凍結。</p>
+<table>
+<thead>
+<tr>
+<th>對比</th>
+<th>LoRA</th>
+<th>全參數 SFT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>更新參數</td>
+<td>極少（&lt;1%）</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>訓練成本</td>
+<td>低（幾張卡、幾小時）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>收斂速度</td>
+<td>快</td>
+<td>慢</td>
+</tr>
+<tr>
+<td>效果</td>
+<td>約全量 <strong>~98%+</strong></td>
+<td>基準 100%</td>
+</tr>
+<tr>
+<td>產物</td>
+<td>小巧 daemon 檔（<code>*.lora</code>）</td>
+<td>完整 checkpoint</td>
+</tr>
+</tbody>
+</table>
+<p><strong>QLoRA</strong>：將基模用 4-bit
+量化載入再訓練，顯存需求再降一大截，單卡都用得。同 LoRA
+效果差唔多，但顯存壓力細好多——對 GPU 資源有限嘅團隊好關鍵。</p>
+<blockquote>
+<p>對客戶講：<strong>「LoRA = 用 1% 嘅參數買返 98%
+嘅效果」</strong>。絕大多數 vertical
+場景（客服風格、行業術語、抽取格式）LoRA 已經夠，唔使燒全量。QLoRA
+係同一樣嘢但更慳顯存。</p>
+</blockquote>
+<p><strong>Distillation（蒸餾）原理</strong>：用一個大嘅「教師
+model」生成高質量回應，再用呢啲回應去 SFT 一個細嘅「學生 model」。學生
+model 用少好多嘅參數同推理成本，但可以學到教師 model
+大部分嘅能力。呢個方法嘅核心唔係訓練技巧，而係<strong>數據工程</strong>——教師
+model 輸出嘅質量直接決定學生 model 嘅上限。</p>
+<hr />
+<h2 id="4-火山方舟模型精調方法矩陣--支援模型底層">4.
+火山方舟「模型精調」方法矩陣 + 支援模型（底層）</h2>
+<p>官方來源：<a
+href="https://www.volcengine.com/docs/82379/1099459">火山方舟
+模型精調概述</a>（更新 2026-07-21）。</p>
+<table>
+<thead>
+<tr>
+<th>精調方法</th>
+<th>支援 LoRA</th>
+<th>支援全量</th>
+<th>一句說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SFT</strong>（有監督微調）</td>
+<td>✅</td>
+<td>✅</td>
+<td>最常用；用「問題→答案」配對教風格/格式/領域知識</td>
+</tr>
+<tr>
+<td><strong>DPO</strong>（人類偏好對齊）</td>
+<td>✅</td>
+<td>✅</td>
+<td>用「偏好」數據（好/壞回答）教模型揀更好輸出</td>
+</tr>
+<tr>
+<td><strong>GRPO</strong>（強化學習）</td>
+<td>✅ 只 LoRA</td>
+<td>❌</td>
+<td>用規則計算回報，優化推理、指令跟隨</td>
+</tr>
+<tr>
+<td><strong>CPT</strong>（領域繼續預訓練）</td>
+<td>—</td>
+<td>屬其他渠道</td>
+<td>大規模領域文本</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>新 model
+唔一定唔一定啱精調</strong>——揀基模前先查該模型頁面「精調支援」列。做新項目唔好揀「即將下線」模型做基模（見定價
+doc §4.1）。</p>
+</blockquote>
+<hr />
+<h2 id="5-精調後嘅三種推理渠道--價格底層">5. 精調後嘅三種推理渠道 +
+價格（底層）</h2>
+<p>精調完成唔等於用得——仲要揀「推理渠道」，<strong>價格同計費方式差好遠</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>推理渠道</th>
+<th>點計</th>
+<th>適合</th>
+<th>是否要「壓縮」產物</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>在線推理（模型單元）</strong></td>
+<td>包虛擬資源時長，睇控制台報價</td>
+<td>穩定高用量、SLA 要求高</td>
+<td>✅ <strong>要</strong>（LoRA 產物需壓縮後先買到模型單元）</td>
+</tr>
+<tr>
+<td><strong>按 token 後付費</strong></td>
+<td>精調後模型 ≈ <strong>2–2.5× 同參數基礎模型</strong>價格</td>
+<td>用量波動、起步期</td>
+<td>❌ 唔使壓縮（部分模型支援）</td>
+</tr>
+<tr>
+<td><strong>批量推理</strong></td>
+<td>夜間離線跑，最平</td>
+<td>離線大批量任務</td>
+<td>✅ <strong>要</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>LoRA 精調後按 token
+付費嘅參考倍率（2026-07，官方頁面）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>基模</th>
+<th>精調後按 token =</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doubao-seed-2.0-mini</code></td>
+<td>同窗口基礎模型 <strong>2 倍</strong></td>
+</tr>
+<tr>
+<td><code>doubao-1.5</code> 系列</td>
+<td>同窗口基礎模型 <strong>2.5 倍</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>價位對照（參考）</strong>：<code>doubao-seed-evolving</code>
+訂閱外約 ¥6/百萬輸入、¥30/百萬輸出（見定價 doc）。假設
+<code>seed-2.0-mini</code> 訂閱外更平，LoRA 後約 ~2×。</p>
+<blockquote>
+<p>✅ <strong>慳成本提示</strong>：精調前先問——用<strong>細 model +
+LoRA</strong>（平、快）定<strong>大 model +
+prompt</strong>（貴但零訓練）？好多時細 model + LoRA
+嘅效果夠好，推理單價細一個數量級。揀細 model
+本身就係「零成本」優化武器。</p>
+</blockquote>
+<blockquote>
+<p>⚠️
+報價時唔好淨講「精調貴少少」——要講清楚<strong>續命成本</strong>：在線/批量要壓縮
+≥1.5GB？按 token 唔使壓縮但貴 2–2.5×。每個 model
+唔同，<strong>以控制台精調「推理服務」頁面為準</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="6-框架層接入veadk--agentkit-點用精調模型">6. 框架層接入：VeADK /
+AgentKit 點用精調模型</h2>
+<p>框架層只做一件事：<strong>用 <code>model_name</code>
+指住精調後模型</strong>。三條路：</p>
+<h3 id="61-veadk-agentmodel_name-直接指">6.1 VeADK
+<code>Agent.model_name</code> 直接指</h3>
+<pre class="python"><code>from veadk import Agent, Runner
+
+agent = Agent(
+    name=&quot;tuned_faq_bot&quot;,
+    model_name=&quot;ep-2026080100000-lora&quot;,          # 精調後模型/推理 endpoint
+    model_provider=&quot;ark&quot;,
+    instruction=&quot;你是公司客服，用官方語氣回答，嚴格按 FAQ 格式出。&quot;,
+)
+
+runner = Runner(agent=agent, app_name=&quot;tuned_faq_bot&quot;)
+print(asyncio.run(runner.run(messages=&quot;保養期幾長？&quot;)))</code></pre>
+<p><code>model_name</code> 都接受 list（主模 +
+回退）：主模唔可用時自動轉 <code>deepseek-r1-250528</code>
+等後備，提高可用性。</p>
+<h3 id="62-環境變數deploy-時用">6.2 環境變數（Deploy 時用）</h3>
+<pre class="bash"><code>export MODEL_AGENT_NAME=&quot;ep-2026080100000-lora&quot;     # 或者 MODEL_NAME
+export MODEL_AGENT_API_KEY=&quot;sk-...&quot;                  # 方舟 API Key
+export MODEL_AGENT_API_BASE=&quot;https://ark.cn-beijing.volces.com/api/v3&quot;</code></pre>
+<p>控制台 / <code>ak config</code> 嘅環境變數係同一個
+namespace，<code>ModelAgentName</code> 等同上面。</p>
+<h3 id="63-zero-code-harness">6.3 Zero-code Harness</h3>
+<pre class="yaml"><code>harness:
+  harness_name: my-lora-faq
+  cloud: volt
+  model: ep-2026080100000-lora        # 精調後推理 endpoint 名
+  tools:
+    - web_search
+  system_prompt: &quot;你係公司客服，按 FAQ 知識庫回答。&quot;</code></pre>
+<blockquote>
+<p><strong>牽一髮動全身嘅位</strong>：Harness / Runtime
+上面其他區塊（knowledgebase、memory、auth）跟
+<code>veadk-agentkit-cli.md</code> 原樣照配，唯一分別就係
+<code>model</code> 欄揀精調 id。</p>
+</blockquote>
+<hr />
+<h2 id="7-幾時先要用咩優化武器--決策樹">7. 幾時先要用咩優化武器 →
+決策樹</h2>
+<pre><code>想改 agent 行為？
+├─ 只改語氣/格式/風格
+│   └─ ➜ 改 system prompt（Agent.instruction）—— 零成本，先做
+├─ 要結構化輸出（JSON schema、欄位抽取）
+│   └─ ➜ 用 output_schema（Responses API，見 vector/cache doc）
+├─ 要慳錢慳 context
+│   └─ ➜ compaction / prompt 排位 / fallback list
+├─ 領域知識 + 專用術語 + 穩定格式（仲係唔夠準）
+│   └─ ➜ 先試 `seed-2.0-mini` LoRA（平、按 token、唔使壓縮）
+├─ 要對齊偏好（好/壞回答揀優）
+│   └─ ➜ DPO（LoRA）
+├─ 要唔靠 prompt 嘅推理能力提升
+│   └─ ➜ GRPO / RL（veRL + TrainingKit，cross-ref veadk-agentkit-training-kit.md）
+├─ 要細 model 做到大 model 效果、成本壓到最低
+│   └─ ➜ Distillation（蒸餾：大 model 輸出 → SFT 經細 model）
+└─ 真係改寫成個 domain
+    └─ ➜ 全量 SFT + 在線推理（成本最高，最後先用）</code></pre>
+<blockquote>
+<p><strong>Sales 一句</strong>：「優化唔係一步到位——改 prompt / schema /
+routing 唔使錢先做；LoRA 係最平嘅精調路；RL / 蒸餾係最後手段。」</p>
+</blockquote>
+<p><strong>場景速判</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>推薦路線</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>客服語氣太機械</td>
+<td>prompt 優化 → 唔夠再 LoRA</td>
+<td>零 → 低</td>
+</tr>
+<tr>
+<td>JSON 抽取欄位唔穩定</td>
+<td>output_schema → 唔夠再 LoRA</td>
+<td>零 → 低</td>
+</tr>
+<tr>
+<td>要細 model 跑大量推理</td>
+<td>Distillation → SFT 經細 model</td>
+<td>高（前期）→ 低（推理）</td>
+</tr>
+<tr>
+<td>推理題正確率唔夠</td>
+<td>GRPO / RL（TrainingKit）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>整個 domain 要改寫</td>
+<td>全量 SFT</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-避雷--成本意識">8. 避雷 + 成本意識</h2>
+<table>
+<thead>
+<tr>
+<th>避雷點</th>
+<th>詳情</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>唔好用「即將下線」基模做精調</strong></td>
+<td><code>2.0-pro</code> / <code>2.0-code</code> 白做，精調咗都冇用</td>
+</tr>
+<tr>
+<td><strong>精調唔入 Agent Plan</strong></td>
+<td>精調後模型默認<strong>唔入訂閱</strong>，係第二條收費線</td>
+</tr>
+<tr>
+<td><strong>新基模未必即開精調</strong></td>
+<td>揀基模前睇「精調支援」標誌</td>
+</tr>
+<tr>
+<td><strong>RL 成本係雙食</strong></td>
+<td>訓練成本（超大 GPU 集群）+ 推理 sandbox 成本——唔係淨訓練</td>
+</tr>
+<tr>
+<td><strong>Distillation 要數據工程</strong></td>
+<td>蒸餾唔係一鍵——要大 model 生成數據、清洗、格式化、再
+SFT，數據質量決定效果</td>
+</tr>
+<tr>
+<td><strong>在線 / 批量要壓縮</strong></td>
+<td>LoRA 產物 ≥1.5GB 要壓縮先買到模型單元，按 token
+唔使（部分模型）</td>
+</tr>
+<tr>
+<td><strong>唔好同 Agent Plan 混埋計</strong></td>
+<td>精調後模型走按 token 或模型單元，同 Agent Plan 訂閱分開</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sales
+一句</strong>：「精調唔係功能掣，係<strong>一個模型換另一個模型</strong>。換之前，先確認你要改嘅嘢
+prompt 搞唔搞得掂。」</p>
+</blockquote>
+<hr />
+<h2 id="9-資料來源">9. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火山方舟 模型精調概述（方法矩陣 + 推理渠道 + LoRA 倍率）</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/1099459">https://www.volcengine.com/docs/82379/1099459</a></td>
+<td>更新 2026-07-21</td>
+</tr>
+<tr>
+<td>有監督微調最佳實踐</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/1221664">https://www.volcengine.com/docs/82379/1221664</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>火山方舟 SaaS 平台 SFT 教學（CSDN，社群範例）</td>
+<td><a
+href="https://blog.csdn.net/zhaoyuanh/article/details/145783407">https://blog.csdn.net/zhaoyuanh/article/details/145783407</a></td>
+<td>2026-02 前</td>
+</tr>
+<tr>
+<td>VeADK 模型配置（<code>model_name</code> / list +
+<code>MODEL_AGENT_*</code> env）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/model">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/model</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>定價指南（Agent Plan / 按量 / 模型可用性矩陣）</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08-09</td>
+</tr>
+<tr>
+<td>TrainingKit（veRL / GRPO 場景）</td>
+<td><code>references/veadk-agentkit-training-kit.md</code></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：LoRA 訓練費、按 token
+倍率、模型單元價屬「參考估算」，以火山方舟控制台「模型精調」+「用量明細」為準。RL
+/ 蒸餾成本視乎集群規模同數據量，更唔穩定。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 ·
+精調支援矩陣、模型同價格會變，賣之前對正官方頁。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

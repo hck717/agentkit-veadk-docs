@@ -1,0 +1,18 @@
+The other thing you
+mentioned is the cloud migrations are still going on. In fact, one of the stats I had was SQL -- our
+latest SQL Server growing as an IaaS service in Azure. And so that's one of the reasons why we
+have to think about our commercial cloud and keep it balanced with the rest of our AI cloud,
+because when clients bring their workloads and build new workloads, they need all of these
+infrastructure elements in the region in which they're deploying.
+Q - Raimo Lenschow {BIO 4664646 <GO>}
+Yes. Okay. Perfect. Thank you.
+A - Jonathan Neilson
+Thanks, Raimo. That wraps up the Q&A portion of today's earnings call. Thank you for joining us
+today, and we look forward to speaking with you all soon.
+A - Satya Nadella {BIO 3224315 <GO>}
+Thank you all.
+A - Amy Hood {BIO 18040963 <GO>}
+Thank you.
+Operator
+Thank you. This concludes today's conference. You may disconnect your lines at this time, and we
+thank you for your participation. Have a great night.

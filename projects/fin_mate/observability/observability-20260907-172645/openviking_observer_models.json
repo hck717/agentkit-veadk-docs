@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "result": {
+    "name": "models",
+    "is_healthy": true,
+    "has_errors": false,
+    "status": "\nEmbedding Models:\n+------------------+----------+-------+--------+------------+-------+--------------------------+\n|      Model       | Provider | Calls | Prompt | Completion | Total |       Last Updated       |\n+------------------+----------+-------+--------+------------+-------+--------------------------+\n| nomic-embed-text |  openai  |  174  | 75724  |     0      | 75724 | 2026-09-07T09:10:08.752Z |\n+------------------+----------+-------+--------+------------+-------+--------------------------+\n"
+  },
+  "error": null,
+  "telemetry": null,
+  "profile": null
+}

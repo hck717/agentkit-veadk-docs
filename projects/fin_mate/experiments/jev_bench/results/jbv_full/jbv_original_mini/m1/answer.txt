@@ -1,0 +1,5 @@
+Microsoft 力推 E7 加價式 upsell 的原因可能包括以下幾點：  
+1. **E7 SKU 整合多項關鍵功能**：E7 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，這些功能是 agentic 採用的關鍵 prerequisites，尤其是 Agent 365 提供的代理註冊、可觀察性和風險信號等，使得企業更難以單獨採用 Agent 365 或 Copilot，從而推動 E7 套件的銷售【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **現有 E3/E5 用戶升級潛力大**：估計有約 1500 萬 E3/E5 用戶，是 E7 的主要目標客戶，這些用戶升級到 E7 的可能性最高，帶來 $960 億的年 upsell 機會，整體 E7 套件帶來 $1000 億的年 upsell 機會【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **價格上漲的催化作用**：近期 M365 價格上漲迫使企業在 2H26 進行談判，這可能成為新技術 adoption 的催化劑，企業可能更願意升級到包含多項功能的 E7 套件以降低管理成本或獲得更好的支持【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+4. **GenAI 戰略布局**：M365 Copilot Wave 3 與 Anthropic 的 Cowork 密切合作，E7 套件整合了 Copilot，有助於推廣 GenAI 在企業中的應用，而 GenAI 是微軟的重要增長主題，E7 套件

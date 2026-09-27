@@ -1,0 +1,7 @@
+根據資料顯示，在2026財年第二季度（F2Q26）的電話會議中，Microsoft 365 Copilot的付費席位為**1500萬個**。
+
+**依據**：[3] <Microsoft_Corp_Earnings_Call_2026128_RT00000>  
+在會議中提到：「This quarter was also the first time mgmt. disclosed M365 copilot paid seats, which sit at 15m as of F2Q.」  
+
+## 來源
+[3] <Microsoft_Corp_Earnings_Call_2026128_RT00000>

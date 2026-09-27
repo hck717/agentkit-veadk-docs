@@ -1,0 +1,8 @@
+{"strategy": "adaptive", "eid": "f1", "category": "fact", "stage": "router", "ts": "2026-09-08T12:00:03.f", "ms": 0.0035829725675284863, "tokens": {}, "score": 0.0, "uris": [], "detail": {"decision": "SKIP"}}
+{"strategy": "adaptive", "eid": "f1", "category": "fact", "stage": "answer", "ts": "2026-09-08T12:00:03.f", "ms": 0.0, "tokens": {"prompt": 0, "completion": 0, "cached": 0}, "score": null, "uris": [], "detail": {"searched": false}}
+{"strategy": "adaptive", "eid": "f9", "category": "fact", "stage": "router", "ts": "2026-09-08T12:00:03.f", "ms": 0.002334010787308216, "tokens": {}, "score": 0.0, "uris": [], "detail": {"decision": "SKIP"}}
+{"strategy": "adaptive", "eid": "f9", "category": "fact", "stage": "answer", "ts": "2026-09-08T12:00:03.f", "ms": 0.0, "tokens": {"prompt": 0, "completion": 0, "cached": 0}, "score": null, "uris": [], "detail": {"searched": false}}
+{"strategy": "adaptive", "eid": "t1", "category": "trap", "stage": "router", "ts": "2026-09-08T12:00:03.f", "ms": 0.0019170111045241356, "tokens": {}, "score": 0.0, "uris": [], "detail": {"decision": "SKIP"}}
+{"strategy": "adaptive", "eid": "t1", "category": "trap", "stage": "answer", "ts": "2026-09-08T12:00:03.f", "ms": 0.0, "tokens": {"prompt": 0, "completion": 0, "cached": 0}, "score": null, "uris": [], "detail": {"searched": false}}
+{"strategy": "adaptive", "eid": "m1", "category": "multi_hop", "stage": "router", "ts": "2026-09-08T12:00:03.f", "ms": 0.001625041477382183, "tokens": {}, "score": 0.0, "uris": [], "detail": {"decision": "SKIP"}}
+{"strategy": "adaptive", "eid": "m1", "category": "multi_hop", "stage": "answer", "ts": "2026-09-08T12:00:03.f", "ms": 0.0, "tokens": {"prompt": 0, "completion": 0, "cached": 0}, "score": null, "uris": [], "detail": {"searched": false}}

@@ -1,0 +1,13 @@
+"Europe Universe". See rating definitions below. This is represented by the 
+"Companies Covered" bars in the chart. The percentage value displayed above the bar is the proportion as a percentage. 
+E.g. 50% above the “buy” / “Companies Covered” bar means that 50% of DB’s equity research covered companies over 
+the past 12 months  have a “buy” rating.
+ 
+ Next to each of the three respective bars showing the proportion of "buy", "sell" and "hold" recommendations we provide 
+two additional bars to show:
+ 
+ - The proportion of "buy", "sell" or "hold recommendations where Deutsche Bank and or/Affiliates provided MIFID 
+Investment or Ancillary Services in the past 12 months. This is represented in the "MIFID Investment and Ancillary 
+Services" bar. The percentage value displayed above the bar shows the proportion of Companies Covered with the given 
+rating where DB has also provided MIFID Investment and Ancillary Services in the past 12 months. E.g. 50% above the 
+“Cos.

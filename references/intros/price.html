@@ -1,0 +1,218 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>成個計價嘅地基係**「三條收費骨幹」**：</p>
+<table>
+<thead>
+<tr>
+<th>骨幹</th>
+<th>係咩</th>
+<th>特徵</th>
+<th>報價時點處理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① <strong>Agent Plan（AFP 訂閱）</strong></td>
+<td>月費包乾（¥40–1000）</td>
+<td>封頂、可預測 ⭐</td>
+<td>主報價線</td>
+</tr>
+<tr>
+<td>② <strong>按量（Pay-as-you-go）</strong></td>
+<td>Plan 冇 / 超額嘅部分</td>
+<td>波動</td>
+<td>buffer + 上限</td>
+</tr>
+<tr>
+<td>③ <strong>雲資源 / 儲存 / Runtime / Sandbox</strong></td>
+<td>跑起嚟先有</td>
+<td>按時/容量</td>
+<td>另報一條線</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-price-一afp-點計要知道量級唔好死背">一、AFP
+點計（要知道量級，唔好死背）</h2>
+<pre><code>AFP 消耗 ≈ 基礎係數(模型等級) × 分段係數(輸入長度) × (token 量 / 一萬)</code></pre>
+<p>參考量級（2026，非官方精確公式——<strong>以控制台「用量明細」為準</strong>）：</p>
+<table>
+<thead>
+<tr>
+<th>動作</th>
+<th>消耗（參考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>極速文字生成（mini 類）</td>
+<td>≈ <strong>0.5 AFP / 萬 tokens</strong></td>
+</tr>
+<tr>
+<td>一般模型</td>
+<td>1×~3× 基礎係數</td>
+</tr>
+<tr>
+<td>圖片生成（Seedream）</td>
+<td>≈ <strong>100 AFP / 張</strong></td>
+</tr>
+<tr>
+<td>視頻生成（Seedance 2.0）</td>
+<td>≈ <strong>2,000 AFP / 段</strong>（重）</td>
+</tr>
+<tr>
+<td>OCR（讀圖 token 多）</td>
+<td>遠貴過讀純文字</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>視覺好費</strong>：一張圖嘅 token 遠超 1000
+字。報價第一件事：<strong>問 client 有冇多模態輸入</strong>。</p>
+</blockquote>
+<h2 id="it-price-二全部-plan-一覽--四檔-agent-plan記住數字量級">二、全部 Plan
+一覽 + 四檔 Agent Plan（記住數字量級）</h2>
+<p>我哋個 stack 有 <strong>四層 Plan</strong>：VeADK / AgentKit
+SDK+CLI（免費，Apache 2.0）、BytePlus 國際版（ModelArk 送 50 萬
+tokens/LLM + AgentKit Beta Free Tier）、火山方舟 Agent Plan（四檔
+AFP）、火山方舟 Coding Plan（Lite ¥40 / Pro
+¥200，純編程按次計）。詳細表喺文件 §1。</p>
+<p>聚焦 <strong>Agent Plan 四檔</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>Plan</th>
+<th>月費</th>
+<th>額度 (AFP)</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Small</strong></td>
+<td>¥40</td>
+<td>20,000</td>
+<td>純文字 / FAQ / demo</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>¥200</td>
+<td>100,000</td>
+<td>中量 pipeline（發票 S1 只食 ~29%）</td>
+</tr>
+<tr>
+<td><strong>Large</strong></td>
+<td>¥500</td>
+<td>250,000</td>
+<td>客服 5-Agent / 有 video</td>
+</tr>
+<tr>
+<td><strong>Max</strong></td>
+<td>¥1,000</td>
+<td>500,000</td>
+<td>高量多模態 / 重度 eval</td>
+</tr>
+</tbody>
+</table>
+<p><strong>兩條最容易踩中嘅「鎖」</strong>：</p>
+<ol type="1">
+<li><strong>Seedance 2.0 全系列只有 Large/Max 先用得</strong> → 做 video
+起碼 Large。</li>
+<li><strong>Harness / 個別模型有 tier 限制</strong> →
+報價前對返當刻模型矩陣（下方文件有齊）。</li>
+</ol>
+<blockquote>
+<p>純 code 場景先諗 <strong>Coding Plan Lite ¥40 / Pro
+¥200</strong>（請求次數制，性價比約 API
+一折）；要生圖/片、搜索、記憶先升 <strong>Agent Plan</strong>（AFP
+制）。兩者用唔同 Base URL / Key，<strong>唔好混用</strong>。</p>
+</blockquote>
+<h2 id="it-price-三模型計費主力消費">三、模型計費（主力消費）</h2>
+<ul>
+<li>買 Plan 唔等於所有模型 1× 計——按「模型等級 × 上下文分段」折算
+AFP。</li>
+<li>訂閱外（Plan 冇 / 超配額）按量計：參考
+<code>doubao-seed-evolving</code> ≈ ¥6/百萬輸入、¥30/百萬輸出（2026
+方舟價）。</li>
+<li><strong>組合拳</strong>：高頻用小 model（mini，0.5×）、難題先
+fallback pro → 慳一半以上（見性能 Playbook §2）。</li>
+</ul>
+<h2 id="it-price-四工具--harness--sandbox--記憶--儲存">四、工具 / Harness /
+Sandbox / 記憶 / 儲存</h2>
+<ul>
+<li><strong>內置 Harness（搜索等）</strong>：Medium
+起每月送一部分免費額度（約 500 次/月），超出扣 AFP。</li>
+<li><strong>Sandbox
+代碼執行</strong>：計「CU·hr」，落第二條線（雲），唔混入 AFP 計。</li>
+<li><strong>記憶 / KB 儲存</strong>：儲存按 GB/小時，向量化用
+<code>doubao-embedding-vision</code> 計 AFP（見記憶 Tab）。</li>
+<li><strong>Memory/多 Agent
+交談</strong>：框架本身免費，但<strong>每一步 loop / summary / retry /
+compaction 都係額外 model call</strong> →
+「框架免費，但框架幫你行嘅每一步都可能化為 AFP。」</li>
+</ul>
+<h2 id="it-price-五報價-6-步流程直接照做">五、報價 6 步流程（直接照做）</h2>
+<ol type="1">
+<li>搞清楚 client 場景（純文字 / RAG / 多模態 / video？）。</li>
+<li>對返<strong>模型矩陣</strong>（有冇 video → 鎖唔鎖 Large？）。</li>
+<li>計 <strong>AFP</strong>：每動作 AFP（上表）×
+日常量；用控制台「用量明細」實測校正。</li>
+<li>拆<strong>雲資源</strong>：runtime
+小時、sandbox、儲存向量、流量——獨立計第二/三線。</li>
+<li>加 <strong>eval / shadow eval buffer</strong>（Shadow eval 10% 流量
+= +10% 模型消耗）。</li>
+<li>報「<strong>兩個數</strong>」：正常預期（e.g. Medium ¥200/月）+
+爆量方案（e.g. Large ¥500/月），同 client 講「超額知會」。</li>
+</ol>
+<h2 id="it-price-六6-個-scenario-報價速查文件下方有齊詳細計法">六、6 個 Scenario
+報價速查（文件下方有齊詳細計法）</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>每月 AFP</th>
+<th>建議 Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 發票 pipeline（20批/日）</td>
+<td>~29k</td>
+<td><strong>Medium ¥200</strong></td>
+</tr>
+<tr>
+<td>S2 AI 電影 12-scene</td>
+<td>~25k/部</td>
+<td><strong>Large ¥500</strong>（Seedance 2.0）</td>
+</tr>
+<tr>
+<td>S3 純文字 RAG chatbot</td>
+<td>~1.4k</td>
+<td><strong>Small ¥40</strong></td>
+</tr>
+<tr>
+<td>S4 Harness FAQ（0-code）</td>
+<td>~1.2k</td>
+<td><strong>Small ¥40</strong></td>
+</tr>
+<tr>
+<td>S5 客服 5-Agent + MCP + Sandbox</td>
+<td>~36–50k</td>
+<td><strong>Large ¥500</strong></td>
+</tr>
+<tr>
+<td>S6 UGC 圖+video</td>
+<td>~28k/日</td>
+<td><strong>Large ¥500</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-price-七唔好犯嘅錯">七、唔好犯嘅錯</h2>
+<ul>
+<li>❌ <strong>將 GPU / runtime 價直接塞入 Plan 報價</strong> → GPU 已入
+plan（見 AI Infra / GPU Tab）。</li>
+<li>❌ <strong>報「最終價」單一數字</strong> → 平台係「Plan 封頂 +
+雲浮動」，報兩個數先誠實。</li>
+<li>❌ <strong>唔問多模態就計價</strong> →
+一張圖等於幾千字價，漏計即爆。</li>
+<li>✅
+<strong>每次計完都要喺控制台核對「用量明細」</strong>——個個方案實戰先係準。</li>
+</ul>

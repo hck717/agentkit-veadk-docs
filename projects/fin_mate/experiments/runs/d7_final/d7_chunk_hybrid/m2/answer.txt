@@ -1,0 +1,7 @@
+根據資料，security 對 agentic adoption 同 E7 bundle 關鍵，原因如下：  
+1. **Agent 365 的安全 prerequisites**：新推出的 Agent 365 包含代理註冊表/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些均是 agentic adoption 的重要 prerequisites【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **E7 捆綁的安全增強**：E7 SKU 結合了 E5 的功能、Copilot 和 Agent 365，並被視為上銷售機會，其安全功能可能支持 agentic adoption【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt, 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **安全在 AI 部署中的必要性**：微軟認為其安全解決方案對管理組織的 AI 部署至關重要，而 agentic adoption 涉及 AI 代理的部署與管理，安全是關鍵保障【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+
+## 來源  
+[20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt, 20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt, Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt]

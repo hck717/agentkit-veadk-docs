@@ -1,0 +1,13 @@
+Capital expenditures were $37.5 billion, and this quarter, roughly two-thirds of our
+CapEx was on short-lived assets, primarily GPUs and CPUs. Our customer demand continues to
+exceed our supply.
+Therefore, we must balance the need to have our incoming supply better meet growing Azure
+demand with expanding first-party AI usage across services like M365 Copilot and GitHub
+Copilot, increasing allocations to R&D teams to accelerate product innovation, and continued
+replacement of end-of-life server and networking equipment. The remaining spend was for long-
+lived assets that will support monetization for the next 15 years and beyond. This quarter, total
+finance leases were $6.7 billion and were primarily for large data center sites. And cash paid for
+PP&E was $29.9 billion. Cash flow from operations was $35.8 billion, up 60%, driven by strong
+cloud billings and collections.
+And free cash flow was $5.9 billion and decreased sequentially, reflecting the higher cash capital
+expenditures from a lower mix of finance leases.

@@ -1,0 +1,11 @@
+CD: Barclays Bank PLC and/or an affiliate is a market-maker in debt securities issued by this issuer.
+CE: Barclays Bank PLC and/or an affiliate is a market-maker in equity securities issued by this issuer.
+CH: Barclays Bank PLC and/or its group companies makes, or will make, a market in the securities (as defined under paragraph 16.2 (k) of the HK SFC
+Code of Conduct) in respect of this issuer.
+D: Barclays Bank PLC and/or an affiliate has received compensation for investment banking services from this issuer in the past 12 months.
+E: Barclays Bank PLC and/or an affiliate expects to receive or intends to seek compensation for investment banking services from this issuer within the
+next 3 months.
+FA: Barclays Bank PLC and/or an affiliate beneficially owns 1% or more of a class of equity securities of this issuer, as calculated in accordance with US
+regulations.
+FB: Barclays Bank PLC and/or an affiliate beneficially owns a long position of more than 0.5% of a class of equity securities of this issuer, as calculated
+in accordance with EU regulations.

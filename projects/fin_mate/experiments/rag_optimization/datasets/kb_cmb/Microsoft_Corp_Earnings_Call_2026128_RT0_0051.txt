@@ -1,0 +1,12 @@
+You've mentioned specific sites like Atlanta or Wisconsin. Those are multi-year
+deliveries. So I wouldn't focus necessarily on specific locations. The real thing we've got to do,
+and we're working incredibly hard doing it, is adding capacity globally. A lot of that will be added
+in the United States. You'd see locations you've mentioned, but it also needs to be added across
+the globe to meet the customer demand that we're seeing and the increased usage. Though
+we'll continue to add both long-lived infrastructure, the way to think about that is we need to
+make sure we've got power and land and facilities available, and we'll continue to put GPUs and
+CPUs in them when they're done as quickly as we can.
+And then finally, we'll try to make sure we can get as efficient as we possibly can on the pace at
+which we do that and how we operate them so that they can have the highest possible utility. And
+so I think it's not really about two places, Karl. I would definitely abstract away from that. Those
+are multi-year delivery timelines.

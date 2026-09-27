@@ -1,0 +1,4 @@
+AI compute spend chart 顯示，FY27 Microsoft AI compute spend 預測為 **1120億美元**（$112.0B）。
+
+## 來源
+<msft_ai_capex.txt>

@@ -1,0 +1,62 @@
+863
+416,297
+517,147
+636,593
+Minority Interest
+0
+0
+0
+0
+Total Liabilities & Sh. Equity
+590,525
+693,301
+818,135
+962,623
+Cash Flow
+(US$mn)
+2025A
+2026E
+2027E
+2028E
+Reported net income
+101,832
+127,126
+139,513
+160,983
+Depreciation & amortization
+34,153
+45,941
+68,168
+89,929
+Net interest (income) / expenses
+609
+3,500
+3,500
+3,500
+Other non-cash items (+/-)
+0
+0
+0
+0
+Others (+/-)
+4,918
+6,573
+5,201
+5,861
+Change in Working Capital
+(5,350)
+(7,050)
+(3,735)
+4,029
+Cash Flow from operations
+136,162
+176,089
+212,648
+264,303
+Capex
+(88,200)
+(151,494)
+(159,758)
+(165,219)
+Acquisitions & Investments
+(4,

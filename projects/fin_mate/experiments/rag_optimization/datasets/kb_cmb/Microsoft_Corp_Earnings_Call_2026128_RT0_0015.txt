@@ -1,0 +1,15 @@
+In coding, we are seeing strong growth across all paid GitHub Copilot. Copilot Pro Plus
+subs for individual devs increased 77% quarter-over-quarter, and all up now, we have 4.7 million
+paid Copilot subscribers, up 75% year-over-year.
+Siemens, for example, is going all in on GitHub, adopting the full platform to increase developer
+productivity after a successful Copilot rollout to 30,000 plus developers. GitHub Agent HQ is the
+FINAL TRANSCRIPT
+2026-01-28
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 4 of 16
+
+
+organizing layer for all coding agents like Anthropic, OpenAI, Google, Cognition, and xAI in the
+context of customers' GitHub repos. With Copilot CLI and VS Code, we offer developers the full
+spectrum of form factors and models they need for AI-first coding workflows.

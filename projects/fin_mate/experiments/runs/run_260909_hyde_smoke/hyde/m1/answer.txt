@@ -1,0 +1,9 @@
+Microsoft 在 Azure 供應受限時仍力推 E7 加價式 upsell，主要基於以下原因：  
+1. **AI 驅動的需求升溫**：Azure 作為 AI 算力核心，供應受限導致其增長受抑，但企業對 AI 相關服務（如 M365 Copilot、Agent 365）的需求強勁。E7 SKU 整合了 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，可滿足企業對 AI 管理和安全的需求，從而推動上訴。  
+2. **高毛利和重複收入**：E7 SKU 定價 $99/用戶/月，相比單獨購買各項服務更具吸引力，且屬於重複性軟件收入，有利於提升利潤率。  
+3. **現有用戶基礎龐大**：Microsoft 擁有龐大的 E3/E5 安裝基礎（約 1.5 億座位），這些用戶升級至 E7 的意願高，被視為 $1000 億上訴機會的主要來源。  
+4. **安全和管理需求**：Agent 365 提供代理註冊、可觀測性和風險信號等功能，是 AI 代理採用的關鍵前提。E7 將其與其他安全和 productivity 工具整合，解決了企業對 AI 安全和管理的隱憂。  
+
+【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+## 來源  
+<https://www.example.com/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>（示例 URI，實際需替換為真實來源） 

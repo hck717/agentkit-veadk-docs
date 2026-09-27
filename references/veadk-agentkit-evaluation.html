@@ -1,0 +1,594 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>評估 / 評測</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>評估 / 評測</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-評估--評測eval指南--byteplus-點提供唔同類型嘅評估">VeADK
++ AgentKit 評估 / 評測（Eval）指南 — BytePlus 點提供唔同類型嘅評估</h1>
+<p>改 agent 一定要有量度。呢份講 <strong>BytePlus / AgentKit
+點做評估</strong>：唔同 eval 類型（Offline / CI / Shadow / Studio
+自動回流）、由 <strong>dataset → evaluator → experiment →
+regression</strong> 成條流水線，用 <strong>AgentKit CLI + VeADK</strong>
+落地。</p>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>Eval 四件事</strong>：<strong>Dataset（測咩）→
+Evaluator（點評）→ Experiment（點跑）→
+Regression（點守）</strong>。</li>
+<li><strong>改嘢就要有量度</strong>——慳到飛起但 accuracy 跌晒 =
+白做。每次改 prompt / 模型 / 工具，都過一次 eval。</li>
+<li><strong>Founding 一件事</strong>：AgentKit/VeADK 提供 eval
+<strong>框架同 CLItooling</strong>，評分 core（LLM-as-judge）call
+方舟模型。你唔使自己砌評分器。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-快睇byteplus--agentkit-eval-全家">0. 快睇：BytePlus / AgentKit
+eval 全家</h2>
+<table>
+<thead>
+<tr>
+<th>Eval 類型</th>
+<th>喺邊跑</th>
+<th>做咩</th>
+<th>幾時用</th>
+<th>工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Offline / Dataset eval</strong></td>
+<td>固定評測集</td>
+<td>改 prompt / model 前後對比分</td>
+<td><strong>每次改動</strong></td>
+<td><code>agentkit eval run --dataset ... --evaluator 相关性 --target my-agent</code></td>
+</tr>
+<tr>
+<td><strong>CI eval</strong></td>
+<td>CI pipeline</td>
+<td>deploy 前自動守關</td>
+<td><strong>每次 de / 更新</strong></td>
+<td><code>agentkit eval run</code> 回傳 <code>experimentId</code> →
+<code>eval experiment get / results</code></td>
+</tr>
+<tr>
+<td><strong>Shadow eval</strong></td>
+<td>上線流量抽 10%</td>
+<td>平行評分，唔影響用戶</td>
+<td>持續監控</td>
+<td>Studio auto-sample</td>
+</tr>
+<tr>
+<td><strong>Studio 自動回流</strong></td>
+<td>每輪對話自動評分</td>
+<td>Good/Bad Case 落返評測集</td>
+<td>持續數據飛輪</td>
+<td>Studio「自動創建評測集」</td>
+</tr>
+<tr>
+<td><strong>VeADK DeepEval 集成</strong></td>
+<td>本地 Python</td>
+<td>LLM-as-judge 評測</td>
+<td>開發期 iterate</td>
+<td><code>pip install "veadk-python[eval]"</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「性能優化唔使講『應該快少少』——我哋用
+eval 每改一版都畀分，慳錢之餘有實績。」</p>
+</blockquote>
+<hr />
+<h2 id="1-eval-四件事--由頭到尾">1. Eval 四件事 — 由頭到尾</h2>
+<pre><code>Dataset（測咩）→ Evaluator（點評）→ Experiment（點跑）→ Regression（點守）
+    固定集        評分方法           一次運行           攞返結果守住</code></pre>
+<table>
+<thead>
+<tr>
+<th>環節</th>
+<th>做咩</th>
+<th>AgentKit 點做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dataset</strong></td>
+<td>一堆 (input, reference_output) 對</td>
+<td><code>agentkit dataset create / add / show</code></td>
+</tr>
+<tr>
+<td><strong>Evaluator</strong></td>
+<td>評分方法：字面 / embedding / LLM-as-judge</td>
+<td><code>agentkit evaluator list</code></td>
+</tr>
+<tr>
+<td><strong>Experiment</strong></td>
+<td>一次評価運行</td>
+<td><code>agentkit eval run</code> → 回傳 <code>experimentId</code></td>
+</tr>
+<tr>
+<td><strong>Regression</strong></td>
+<td>新版本分數對舊版本（防倒退）</td>
+<td><code>agentkit eval experiment show &lt;id&gt;</code> 比對</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 重點：<strong>eval
+唔係「測一次」，係「次次改嘢都測」</strong>——Regression 先係 eval
+存在嘅理由。</p>
+</blockquote>
+<hr />
+<h2 id="2-agentkit-cli--全套指令">2. AgentKit CLI — 全套指令</h2>
+<h3 id="21-dataset">2.1 Dataset</h3>
+<pre class="bash"><code>agentkit dataset list
+agentkit dataset show qa-set --items 50
+agentkit dataset create --name qa-set --schema &quot;input,reference_output&quot;
+agentkit dataset add qa-set --field &quot;input=法國首都是？&quot; --field &quot;reference_output=巴黎&quot;
+agentkit dataset add qa-set --file ./cases.json
+agentkit dataset remove qa-set item-1 item-2 -y
+agentkit dataset delete qa-set -y</code></pre>
+<blockquote>
+<p>💡 <code>eval</code> 前綴可以省略：<code>agentkit dataset ...</code>
+= <code>agentkit eval dataset ...</code>。</p>
+</blockquote>
+<h3 id="22-evaluator--run">2.2 Evaluator + Run</h3>
+<pre class="bash"><code>agentkit evaluator list
+agentkit eval run --dataset qa-set --runtime my-agent
+agentkit eval experiment list
+agentkit eval experiment show &lt;experiment-id&gt;</code></pre>
+<h3 id="23-升級用法perf-doc-10-節錄">2.3 升級用法（perf doc §10
+節錄）</h3>
+<pre class="bash"><code>agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent \
+  --concurrency 10 --dry-run      # 先試行，唔真跑
+agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent --json</code></pre>
+<ul>
+<li>一次多個 <code>--evaluator</code>（相關性 / 完整性）加權。</li>
+<li>CI 用：<code>eval run</code> 回傳 <code>experimentId</code> →
+<code>eval experiment get / results</code>。</li>
+<li><code>--concurrency 10</code> 縮短 turnaround。</li>
+</ul>
+<blockquote>
+<p>⚠️ 參數字面以 <code>agentkit evaluator list</code> 顯示為準。</p>
+</blockquote>
+<hr />
+<h2 id="3-evaluator-類型對比--揀評分方法">3. Evaluator 類型對比 —
+揀評分方法</h2>
+<table>
+<thead>
+<tr>
+<th>Evaluator</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字面匹配（BLEU/ROUGE）</strong></td>
+<td>n-gram 重疊</td>
+<td>快、平、可重現</td>
+<td>唔睇語義</td>
+<td>翻譯 / 摘要基準</td>
+</tr>
+<tr>
+<td><strong>Embedding 相似度</strong></td>
+<td>比語義距離</td>
+<td>快、語義</td>
+<td>唔識評「要點精」</td>
+<td>粗略回歸</td>
+</tr>
+<tr>
+<td><strong>LLM-as-judge</strong></td>
+<td>用 model 評分（相關性/完整性）</td>
+<td>準、可自訂 rubric</td>
+<td>貴、要校準</td>
+<td><strong>主流</strong>（<code>agentkit eval run --evaluator 相关性</code>）</td>
+</tr>
+<tr>
+<td><strong>參考對照（reference）</strong></td>
+<td>對 golden answer</td>
+<td>客觀</td>
+<td>要造 golden</td>
+<td>有標準答案</td>
+</tr>
+<tr>
+<td><strong>人工 / HITL</strong></td>
+<td>人評</td>
+<td>最準</td>
+<td>貴、慢</td>
+<td>高風險 / 小集</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：evaluator「相关性」=
+方舟 LLM-as-judge（call 方舟模型評分）。要同 model 唔同來評？可以配
+<code>agentkit.yaml</code> 個 eval evaluator 指定模型。</p>
+</blockquote>
+<hr />
+<h2 id="4-veadk-python--deepeval-集成">4. VeADK Python — DeepEval
+集成</h2>
+<p>開發期想喺 code 入面跑評測（未上 AgentKit runtime），用
+<code>veadk-python[eval]</code>（DeepEval 評測）：</p>
+<pre class="bash"><code>pip install &quot;veadk-python[eval]&quot;</code></pre>
+<pre class="python"><code># 開發期本地評測（唔使 deploy）：
+# 1) 建 dataset（見 topic 上面 CLI）
+# 2) 喺 code 入面行 LLM-as-judge 對比 baseline vs 新 prompt</code></pre>
+<blockquote>
+<p>🎯 VeADK eval 集成主要係 <strong>DeepEval</strong>（LLM-as-judge /
+metric 庫）。設計意圖：<strong>開發期 iterate 用 VeADK，上線回歸用
+AgentKit CLI + Studio 自動回流</strong>——唔好兩邊重做。</p>
+</blockquote>
+<hr />
+<h2 id="5-四種-eval-類型罩面睇">5. 四種 Eval 類型罩面睇</h2>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>點跑</th>
+<th>攞到咩</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Offline</strong></td>
+<td><code>eval run --dataset ...</code></td>
+<td>固定集分數</td>
+<td>改 model / prompt 前後對比分數</td>
+</tr>
+<tr>
+<td><strong>CI</strong></td>
+<td>pipeline 入 <code>eval run</code> → <code>experiment get</code></td>
+<td>pass/fail 門檻</td>
+<td><strong>每次 deploy 前自動守關</strong></td>
+</tr>
+<tr>
+<td><strong>Shadow</strong></td>
+<td>上線流量抽 10% 平行評分</td>
+<td>唔影響用戶嘅質量曲線</td>
+<td>同 offline 結果比，防線上 drift</td>
+</tr>
+<tr>
+<td><strong>Studio 回流</strong></td>
+<td>每輪對話自動評分（0–1）</td>
+<td>Good/Bad Case → 評測集</td>
+<td><strong>數據飛輪</strong>：新 case 自動入集</td>
+</tr>
+</tbody>
+</table>
+<h3 id="51-studio-自動回流數據飛輪">5.1 Studio 自動回流（數據飛輪）</h3>
+<p>部署開「自動創建評測集」→</p>
+<pre><code>每輪對話自動評分（0–1）→ ≥0.6 入 Good Case → Good/Bad Case 落返 {agent}_good_case / {agent}_bad_case</code></pre>
+<blockquote>
+<p>好處：<strong>真實用戶 case
+自動肥評測集</strong>——唔使淨係靠人工標注。壞 case 就係下一輪 eval
+嘅靶。</p>
+</blockquote>
+<hr />
+<h2 id="6-eval-入-ci--實作">6. Eval 入 CI — 實作</h2>
+<pre class="bash"><code># deploy pipeline 入面：先跑 eval，Fail 就唔放行
+agentkit dataset list                       # 有冇評測集
+agentkit eval run --dataset qa-set --target my-agent --json \
+  &gt; exp.json                                # 攞 experimentId + 分數
+agentkit eval experiment show $(jq -r .experimentId exp.json)
+# 分數 &lt; 門檻 → 停 pipeline</code></pre>
+<blockquote>
+<p>🎯 <code>--concurrency 10</code> 縮短 turnaround；CI 用
+<code>experiment get / results</code> 攞結構化結果唔好靠 parse log。</p>
+</blockquote>
+<hr />
+<h2 id="7-eval-嘅隱性成本報價要加">7. Eval 嘅隱性成本（報價要加）</h2>
+<table>
+<thead>
+<tr>
+<th>成本</th>
+<th>出處</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shadow eval 10% 流量</td>
+<td>= <strong>+10% 模型消耗</strong> → 計入報價 buffer（pricing
+doc）</td>
+</tr>
+<tr>
+<td>Studio 自動評測</td>
+<td>每輪評分 model call</td>
+</tr>
+<tr>
+<td>PII scan</td>
+<td>額外 LLM-FW 消耗（guardrail）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 報價時記得：<strong>eval 唔係免費</strong>。LLM-as-judge 每 case
+一次 model call；Shadow 10% 流量同 Studio 每輪評分都要buffer。</p>
+</blockquote>
+<hr />
+<h2 id="8-幾時用邊種決策">8. 幾時用邊種（決策）</h2>
+<table>
+<thead>
+<tr>
+<th>情況</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>改 prompt / 換 model 前後</td>
+<td><strong>Offline</strong> dataset eval</td>
+</tr>
+<tr>
+<td>每次 deploy 前</td>
+<td><strong>CI eval</strong>（自動守關）</td>
+</tr>
+<tr>
+<td>上線後想持續監查</td>
+<td><strong>Shadow eval</strong>（10% 抽樣）</td>
+</tr>
+<tr>
+<td>想數據飛輪（真實 case 自動入集）</td>
+<td><strong>Studio 自動回流</strong></td>
+</tr>
+<tr>
+<td>開發期 iterate</td>
+<td><strong>VeADK DeepEval</strong></td>
+</tr>
+<tr>
+<td>高風險 / 小集（金融、合規）</td>
+<td>加 <strong>人工 / HITL</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「Eval
+四件——dataset、evaluator、experiment、regression——一次搞掂埋單『改版有分數』。你嘅
+agent 唔係練完就算，係帶住分數行。」</p>
+</blockquote>
+<hr />
+<h2 id="9-benchmark-全覽--按任務類型一口氣表">9. Benchmark 全覽 —
+按任務類型（一口氣表）</h2>
+<p><strong>任務類型決定 evaluator</strong>——唔同任務用唔同
+metric，唔好一套 <code>相关性</code> 走天涯：</p>
+<table>
+<thead>
+<tr>
+<th>任務類型</th>
+<th>例</th>
+<th>最常用 evaluator / metric</th>
+<th>門檻建議（起步）</th>
+<th>AgentKit 落地</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>純文字台</strong></td>
+<td>FAQ、知識問答</td>
+<td>LLM-as-judge（相关性 / 完整性）</td>
+<td>相关性 ≥0.8</td>
+<td><code>--evaluator 相关性</code></td>
+</tr>
+<tr>
+<td><strong>RAG（連知識庫）</strong></td>
+<td>客服查產品、查 policy</td>
+<td>Faithfulness + Answer Relevancy + Context Precision/Recall（DeepEval
+內置）</td>
+<td>Faithfulness ≥0.8 · Relevancy ≥0.7</td>
+<td>檢索/生成兩層分開測（見 §10.1）</td>
+</tr>
+<tr>
+<td><strong>OCR / 文檔抽取</strong></td>
+<td>發票、身份證、契約</td>
+<td>CER / WER（字符層）+ <strong>字段準確率</strong></td>
+<td>CER &lt;5% · 字段準確 ≥95%</td>
+<td>字面 evaluator 對 golden + agent 完成率</td>
+</tr>
+<tr>
+<td><strong>摘要</strong></td>
+<td>長文壓縮、會議紀要</td>
+<td>ROUGE（baseline）+ Completeness rubric（judge）</td>
+<td>完整性 ≥0.8</td>
+<td>judge + 人工抽</td>
+</tr>
+<tr>
+<td><strong>翻譯</strong></td>
+<td>多語輸出</td>
+<td>BLEU / ROUGE（baseline）+ 忠實度 judge</td>
+<td>BLEU 淨做 baseline</td>
+<td>字面 + judge</td>
+</tr>
+<tr>
+<td><strong>工具調用 / function-calling</strong></td>
+<td>落 tool、填參數</td>
+<td>JSON schema 正確率 + 參數命中率</td>
+<td>parse 正確 ≥95% · 參數錯誤 &lt;2%</td>
+<td>字面 evaluator（對 JSON）</td>
+</tr>
+<tr>
+<td><strong>生圖（Seedream）</strong></td>
+<td>prompt-following、consistency、編輯一致</td>
+<td>LLM-as-judge rubric + 抽樣人工</td>
+<td>人工抽可用率 ≥80%</td>
+<td>工具前後測（seedream tab §9）</td>
+</tr>
+<tr>
+<td><strong>生片（Seedance）</strong></td>
+<td>動作 / 物理真實 / 時間一致 / 音畫</td>
+<td><strong>人工 HITL 為主</strong> + judge 初篩</td>
+<td>人工優良率（每團隊自定）</td>
+<td>異步 task + 人工抽片（seedance tab §9）</td>
+</tr>
+<tr>
+<td><strong>語音 ASR / TTS</strong></td>
+<td>轉錄、合成</td>
+<td>WER / CER</td>
+<td>WER &lt;8%（標準場景）</td>
+<td>字面 + judge</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="10-細任務-benchmark-深探">10. 細任務 Benchmark 深探</h2>
+<h3 id="101-rag檢索--生成分開測">10.1 RAG（檢索 + 生成分開測）</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>測咩</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>檢索</strong></td>
+<td>應唔應該撳返正確段落</td>
+<td>Recall@k / hit rate、MRR、Contextual Precision（多餘段落比例）</td>
+</tr>
+<tr>
+<td><strong>生成</strong></td>
+<td>有冇照住 context 講、有冇吹</td>
+<td><strong>Faithfulness</strong>（唔造謠）、Answer
+Relevancy、G-Eval</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>DeepEval（<code>veadk-python[eval]</code>）內置 Faithfulness /
+Relevancy / Contextual Precision/Recall /
+G-Eval——<strong>唔使自己砌</strong>。</li>
+<li>上游（chunking / Ranker / 速度—準確—成本權衡）見 <strong>rag tab
+§3–4</strong>。</li>
+<li>檢索層單獨測：評估集刻意加「多餘段落」case，睇 Contextual Precision
+跌唔跌。</li>
+</ul>
+<h3 id="102-ocr--文檔發票身份證契約">10.2 OCR /
+文檔（發票、身份證、契約）</h3>
+<ul>
+<li><strong>字符層 CER / WER</strong>：唔理版面，淨睇字啱唔啱。</li>
+<li><strong>字段層準確率</strong>：對返
+<code>invoice date / amount / supplier</code> 等
+slot——<strong>字段誤判先係最傷</strong>。</li>
+<li><strong>版面 / 佈局</strong>：表格重組、欄位對齊有冇亂。</li>
+<li><strong>Agent 完成率</strong>：成條
+pipeline（OCR→翻譯→驗證→匯總→審批）有幾多單 100% 無需人執（見
+<code>projects/invoice-pipeline.md</code>）。</li>
+<li>門檻：CER &lt;5%、字段準確 ≥95% 起步；身份證 / PII 類 → 必加
+HITL。</li>
+</ul>
+<h3 id="103-客服--知識型最高量">10.3 客服 / 知識型（最高量）</h3>
+<ul>
+<li>維度：<strong>相关性、完整性、tone</strong>、<strong>hallucination
+rate</strong>（講咗冇出處嘅嘢）。</li>
+<li>用 <strong>Studio 自動回流</strong>（Good/Bad Case）做數據飛輪——壞
+case 就係下一輪 eval 靶。</li>
+<li>門檻：相关性 ≥0.8；新 feature 嘅 hallucination rate 唔好過
+3–5%。</li>
+</ul>
+<h3 id="104-生圖--生片多模態">10.4 生圖 / 生片（多模態）</h3>
+<ul>
+<li><strong>Seedream</strong>：prompt-following、text-image
+consistency、<strong>editing consistency</strong>、知識推理（MagicBench
+維度，見 seedream tab §9）。</li>
+<li><strong>Seedance</strong>：instruction adherence、<strong>motion
+realism / 物理真實</strong>、temporal
+coherence、<strong>音畫同步（ms）</strong>（見 seedance tab §9）。</li>
+<li>做法：<strong>judge 初篩 + 人工抽樣定生死</strong>——LLM-as-judge
+對圖/片只做 pre-filter，品質綠燈靠人。</li>
+</ul>
+<h3 id="105-翻譯--摘要">10.5 翻譯 / 摘要</h3>
+<ul>
+<li>字面（BLEU / ROUGE）做 <strong>baseline</strong>，judge 做
+<strong>決策</strong>——ROUGE 高分但意思錯都係壞。</li>
+<li>摘要漏咗核心點 → Completeness rubric（完整性）。</li>
+</ul>
+<h3 id="106-工具調用--多步-agent">10.6 工具調用 / 多步 Agent</h3>
+<ul>
+<li><strong>JSON parse 正確率</strong> +
+<strong>參數命中率</strong>（落錯 tool / 填錯參數最痛）。</li>
+<li><strong>任務完成率</strong>：成個 workflow 有幾多成功到尾（對照
+<code>experimentId</code> 連續版本）。</li>
+<li><strong>Step-wise regression</strong>：每步埋 output
+比較，唔好淨睇最後分數。</li>
+</ul>
+<blockquote>
+<p>🎯 <strong>總原則</strong>：RAG 拆檢索/生成兩層，OCR
+睇字段準確而唔係成段，生圖生片靠人抽樣，客服用真實 case
+回流——<strong>揀對 evaluator 先有對嘅分數</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="11-資料來源">11. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AgentKit CLI 評測（dataset / evaluator / experiment）</td>
+<td><code>references/agentkit-cli.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>性能優化 Playbook Eval（含 Studio 回流 / 反模式）</td>
+<td><code>references/veadk-agentkit-performance.md</code> §10/§11</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>AI 概念百科 Evaluation 字典（13.x）</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code> §13</td>
+<td>2026</td>
+</tr>
+<tr>
+<td><code>veadk-python[eval]</code>（DeepEval 評測）</td>
+<td><code>references/veadk-api.md</code></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>RAG 指標（Faithfulness / Relevancy / Contextual Precision / G-Eval /
+RAGAS）</td>
+<td>DeepEval 文檔</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>RAG 檢索層 + Ranker（chunking / ranker / 權衡）</td>
+<td><code>references/veadk-agentkit-rag-guide.md</code> §3–4</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Seedream 評測維度（MagicBench 抽樣）</td>
+<td><code>references/veadk-agentkit-seedream.md</code> §9</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Seedance 評測維度（物理真實 / 音畫同步）</td>
+<td><code>references/veadk-agentkit-seedance.md</code> §9</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>OCR / 發票 AI Pipeline（完成率目標）</td>
+<td><code>projects/invoice-pipeline.md</code></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：<code>--evaluator 相关性</code> 等 evaluator
+中文名、CLI 參數字面以 <code>agentkit evaluator list</code> / AgentKit
+官方文檔為準；方舟 LLM-as-judge 同 Studio
+自動回流功能隨版本迭代。門檻數字（§9–10）係 startup 建議，唔係官方
+SLA，按場景調。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-09-06 · 新增 §9–10 按任務類型
+benchmark（RAG / OCR / 客服 / 多模態 / 工具調用）。evaluator
+名稱同參數可能郁，落地前 refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

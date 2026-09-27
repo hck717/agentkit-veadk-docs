@@ -1,0 +1,23 @@
+(RBRK)
+SailPoint, Inc. (SAIL)
+Salesforce.com Inc. (CRM)
+SAP SE (SAP)
+SentinelOne, Inc. (S)
+ServiceNow, Inc. (NOW)
+Similarweb Ltd. (SMWB)
+Snowflake Computing (SNOW)
+Sprinklr, Inc. (CXM)
+Sprout Social, Inc. (SPT)
+Tenable Holdings Inc (TENB)
+Teradata Corp. (TDC)
+Tyler Technologies, Inc. (TYL)
+UiPath, Inc. (PATH)
+Varonis Systems, Inc. (VRNS)
+Veeva Systems Inc. (VEEV)
+Workday Inc. (WDAY)
+ZoomInfo Technologies Inc. (GTM)
+Zscaler, Inc. (ZS)
+Distribution of Ratings:
+Barclays Equity Research has 1867 companies under coverage.
+50% have been assigned an Overweight rating which, for purposes of mandatory regulatory disclosures, is classified as a Buy rating; 47% of companies
+with this rating are investment banking clients of the Firm; 65% of the issuers with this rating have received financial services from the Firm.

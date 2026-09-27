@@ -1,0 +1,13 @@
+This quarter, the Microsoft Cloud surpassed $50 billion in revenue for the first time, up 26% year-
+over-year, reflecting the strength of our platform and accelerating demand. We are in the
+beginning phases of AI diffusion and its broad GDP impact. Our TAM will grow substantially across
+every layer of the tech stack as this diffusion accelerates and spreads. In fact, even in this early
+innings, we have built an AI business that is larger than some of our biggest franchises that took
+decades to build. Today, I'll focus my remarks across the three layers of our stack, cloud and
+token factory, Agent platform, and high-value agentic experiences.
+When it comes to our cloud and token factory, the key to long-term competitiveness is shaping
+our infrastructure to support new high-scale workloads. We're building this infrastructure out for
+the heterogeneous and distributed nature of these workloads, ensuring the right fit with the
+geographic and segment-specific needs for all customers, including the long tail. The key metric
+we're optimizing for is tokens per watt per dollar, which comes down to increasing utilization and
+decreasing TCO using silicon, systems, and software.

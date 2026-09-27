@@ -1,0 +1,4 @@
+Deutsche Bank 認為 Azure 季度增長（按不變匯率計 38% 同比）高於指導（37%），但可能略低於買方預期（約 39%）。主要原因是效率提升使部分容量從其他部門重新分配到可盈利的 Azure 需求【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。至於 M365 商業雲業務，增長（按不變匯率計 14% 同比）符合指導高端（13-14%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

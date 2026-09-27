@@ -1,0 +1,8 @@
+### 對比結果與市場預期
+1. **總收入**：新預期為81,189百萬美元，舊預期為81,588百萬美元，新 vs 舊下降0.5%；市場一致預期在80,650-81,750百萬美元之間，新預期落在區間內【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+2. **營業利潤**：新預期為36,632百萬美元，舊預期為37,245百萬美元，新 vs 舊下降1.6%；市場一致預期在35,900-37,300百萬美元之間，新預期落在區間內【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+3. **淨利潤**：非GAAP淨利潤新預期為30,239百萬美元，舊預期為30,168百萬美元，新 vs 舊上升0.2%；市場一致預期為29,529百萬美元【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+### 主要原因（資料未提及具體原因，無法回答）
+## 來源
+[1] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

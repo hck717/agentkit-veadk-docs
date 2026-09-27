@@ -1,0 +1,28 @@
+我现在需要回答用户的问题：“Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？” 首先，我要确定用户的问题是关于Deutsche Bank对微软F2财季Azure增长的报告，以及实际增长与指导的对比。
+
+接下来，我需要检查提供的知识库条目，看看是否有相关的信息。首先查看第一个知识库条目，其中提到：“Azure growth of +38% y/y @CC was 1pt above guidance (37%), but likely a touch shy of buyside expectations that we believe were closer to ~+39%.” 这里明确指出Azure的实际增长率是38%，高于指导的37%，但略低于买方预期的39%。
+
+然后，第二个知识库条目也提到：“Azure growth still came in 1pt above guidance at +38% y/y @CC, this was shy of what we believe was a buyside bogey of >39%+ and what mgmt. indicated would have been >40% had they allocated all incremental GPU capacity in F1H26 to Azure.” 这进一步确认了实际增长38%，高于指导的37%，但低于预期的39%以上。
+
+第三个知识库条目提到F3Q Azure指导为+37-38% y/y @CC，比 consensus 高1.5-2.5个百分点，但用户的问题是关于F2Q，所以可能不需要这个信息。
+
+其他条目主要涉及利润率、EPS、资本支出等，与Azure增长的具体数值和指导对比无关。
+
+因此，从知识库中可以提取到的信息是：F2Q Azure实际增长率为38%（按恒定汇率计算），高于指导的37%，但低于买方预期的约39%。需要注意的是，第二个条目还提到如果管理层在F1H26将所有增量GPU容量分配给Azure，增长率可能会超过40%，但实际受限于GPU分配。
+
+现在需要确认是否需要进一步调用工具。用户的问题已经得到明确回答，因此不需要再次调用load_knowledgebase。同时，用户没有要求计算，所以也不需要使用calc工具。
+
+最后，整理信息，确保每个claim都有正确的KB标注，并列出来源URI。
+Deutsche Bank 指出，Microsoft F2Q（截至 2026 年 1 月的财季）Azure 收入按恒定汇率（CC）计算同比增长 **38%**，**高于指导目标 37%**，但 **略低于买方预期的约 39%**。  
+
+### 关键细节：  
+- **实际增长**：38%（CC），较指导高出 1 个百分点。  
+- **指导目标**：37%（CC）。  
+- **市场预期**：约 39%（CC），实际增长仍低于此预期。  
+- **增长限制**：Azure 增长受 GPU 供应限制影响，管理层若将所有增量 GPU 容量分配给 Azure，增长率可能超过 40%，但当前需平衡 Azure 需求与 1P 服务、研发及设备更换需求。  
+
+
+## 來源  
+1. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md>  
+2. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_1.md>  
+3. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_3.md>

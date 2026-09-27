@@ -1,0 +1,1323 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>計價 Pricing</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>計價 Pricing</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-方案計價指南">VeADK + AgentKit 方案計價指南</h1>
+<p>呢份文件教你點樣幫 client 計掂一套 VeADK / AgentKit 方案嘅月度成本。
+唔止係報一個幾多錢——要拆到 <strong>邊個層食你邊度嘅錢</strong>、點解某個
+plan 夠唔夠用、 邊啲位會 silent 超支，先報得到一張 client
+信得過嘅報價單。</p>
+<blockquote>
+<p>✅ <strong>前提</strong>：VeADK 框架、AgentKit SDK、AgentKit CLI
+<strong>全部開源免費</strong>。 你要幫 client
+計嘅，係下面三條收費骨幹，唔係 framework 本身。</p>
+</blockquote>
+<hr />
+<h2 id="0-核心心法--三條收費骨幹">0. 核心心法 — 三條收費骨幹</h2>
+<p>所有成本都由呢三條線組成，任何方案都係「三選二或三選三」：</p>
+<table>
+<thead>
+<tr>
+<th>收費骨幹</th>
+<th>邊層食錢</th>
+<th>計費方式</th>
+<th>可控性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① Agent Plan 訂閱 (AFP)</td>
+<td>模型推論 + 內置工具（搜索/記憶/知識庫）</td>
+<td>月費包乾（¥40–1000）</td>
+<td>⭐⭐⭐ 封頂、可預測</td>
+</tr>
+<tr>
+<td>② 按量計費 (Pay-as-you-go)</td>
+<td>訂閱外模型、部分 API、向量模型、圖片/視頻超配額</td>
+<td>逐 token / 逐張 / 逐時長</td>
+<td>⭐⭐ 有上限但貴</td>
+</tr>
+<tr>
+<td>③ 雲資源 (Cloud infra)</td>
+<td>Runtime、Sandbox、TOS、VikingDB、PostgreSQL、Redis、流量</td>
+<td>按時長 / 容量 / 流量</td>
+<td>⭐ 最難估，最易爆</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句總括</strong>：Agent Plan 幫你 <strong>封頂</strong>
+模型推流費，但 <strong>唔包</strong> 所有雲資源同部分
+API。下面逐層拆。</p>
+<hr />
+<h2 id="1-全部-plan-一覽veadk--agentkit--byteplus">1. 全部 Plan
+一覽（VeADK / AgentKit / BytePlus）</h2>
+<p>成個 solution 嘅「Plan」唔止一套——由 framework
+到雲平台分四層，各有唔同計量。報價前先睇呢張總表，認清<strong>邊層免費、邊層要畀錢、計量係
+AFP / 請求次數 / 按量 token</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>產品</th>
+<th>Plan</th>
+<th>價錢</th>
+<th>計量</th>
+<th>買嚟做咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>框架</td>
+<td><strong>VeADK</strong></td>
+<td>Open source（Apache 2.0）</td>
+<td>免費</td>
+<td>—</td>
+<td>Agent / A2A / A2UI / 記憶+KB abstraction（§1.4）</td>
+</tr>
+<tr>
+<td>框架</td>
+<td><strong>AgentKit SDK + CLI</strong></td>
+<td>Open source</td>
+<td>免費</td>
+<td>—</td>
+<td>A2aApp / init-build-deploy-launch-eval / harness /
+sandbox（§1.4）</td>
+</tr>
+<tr>
+<td>平台（國際）</td>
+<td><strong>BytePlus AgentKit</strong></td>
+<td>Free Tier（Beta）</td>
+<td>Beta 免費（官方未公開詳價）</td>
+<td>官方未公開</td>
+<td>Runtime / 工具 / MCP / 記憶 / 觀察（§1.3）</td>
+</tr>
+<tr>
+<td>平台（國際）</td>
+<td><strong>ModelArk</strong></td>
+<td>免費 Tokens</td>
+<td>每 LLM 50 萬免費 token · 每視覺模型 200 萬 · 企業合作 500 萬</td>
+<td>逐模型</td>
+<td>起步試玩，用完轉按量（§1.3）</td>
+</tr>
+<tr>
+<td>平台（大陸）</td>
+<td><strong>火山方舟 Agent Plan</strong></td>
+<td>Small / Medium / Large / Max</td>
+<td>¥40 / ¥200 / ¥500 / ¥1,000·月</td>
+<td><strong>AFP（封頂）</strong></td>
+<td>多模態 + Harness 一站式（§1.1）</td>
+</tr>
+<tr>
+<td>平台（大陸）</td>
+<td><strong>火山方舟 Coding Plan</strong></td>
+<td>Lite / Pro</td>
+<td>¥40 / ¥200·月</td>
+<td><strong>請求次數</strong>（5h/週/月）</td>
+<td>純編程（Claude Code / Cursor / OpenCode…）（§1.2）</td>
+</tr>
+<tr>
+<td>平台</td>
+<td>按量（Pay-as-you-go）</td>
+<td>—</td>
+<td>逐 token / 張 / 時長</td>
+<td>浮動</td>
+<td>訂閱冇 / 超額嘅部分（§4.2、§7–§9）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>三樣嘢直接免費</strong>：VeADK、AgentKit SDK/CLI、以及
+BytePlus / 火山 ModelArk 嘅免費 Tokens。真正要報嘅係<strong>平台
+Plan（§1.1–§1.3）+
+雲資源三條線（§0）</strong>——框架免費，但框架幫你行嘅每一步都可能化為錢（見
+§6）。</p>
+</blockquote>
+<h3 id="11-byteplus-agent-plan訂閱制-四檔額度">1.1 BytePlus Agent
+Plan（訂閱制）— 四檔額度</h3>
+<p>官方來源：<a
+href="https://www.volcengine.com/docs/82379/2366394">火山方舟 Agent Plan
+套餐概覽</a>（更新 2026-07-24）；產品頁：<a
+href="https://www.volcengine.com/activity/agentplan">https://www.volcengine.com/activity/agentplan</a>。</p>
+<table>
+<thead>
+<tr>
+<th>套餐</th>
+<th>月費</th>
+<th>月額度</th>
+<th>週額度</th>
+<th>5 小時額度</th>
+<th>視覺模型日額度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Small</strong></td>
+<td>¥40</td>
+<td>20,000</td>
+<td>7,000</td>
+<td>2,000</td>
+<td>10,000（只計圖片）</td>
+</tr>
+<tr>
+<td><strong>Medium</strong></td>
+<td>¥200</td>
+<td>100,000</td>
+<td>35,000</td>
+<td>10,000</td>
+<td>50,000（只計圖片）</td>
+</tr>
+<tr>
+<td><strong>Large</strong></td>
+<td>¥500</td>
+<td>250,000</td>
+<td>87,500</td>
+<td>25,000</td>
+<td>125,000</td>
+</tr>
+<tr>
+<td><strong>Max</strong></td>
+<td>¥1,000</td>
+<td>500,000</td>
+<td>175,000</td>
+<td>50,000</td>
+<td>250,000</td>
+</tr>
+</tbody>
+</table>
+<p>重點：</p>
+<ul>
+<li>圖片生成、視頻生成模型 <strong>冇 5 小時、週額度限制</strong>，只受
+<strong>日額度 + 月額度</strong>。</li>
+<li>語音模型、Harness（搜索等）冇 5 小時、週額度，只受
+<strong>月額度</strong> 限制。</li>
+<li>套餐有效期以自然月計算，自購買當日開始。</li>
+<li>支援非七天無理由退訂（費用中心 → 退訂管理）。</li>
+<li>有 2.5 折首兩月普惠活動（Small ¥9.9 / Medium
+¥49.9，第三個月起原價）同邀請活動——報價前查活動頁即時價。</li>
+<li><strong>Sales 好使嘅一句</strong>：「買 Agent Plan =
+買封頂控制權。」用量唔似 token 咁逐次計，下下個月改大改細都得。</li>
+</ul>
+<h3 id="12-byteplus-coding-plan純編程-lite--pro">1.2 BytePlus Coding
+Plan（純編程）— Lite / Pro</h3>
+<p>官方來源：<a
+href="https://www.volcengine.com/docs/82379/1925114">火山方舟 Coding
+Plan 套餐概覽</a>（更新 2026-08-14）；產品頁：<a
+href="https://www.volcengine.com/activity/codingplan">https://www.volcengine.com/activity/codingplan</a>。</p>
+<table>
+<thead>
+<tr>
+<th>套餐</th>
+<th>月費</th>
+<th>計量</th>
+<th>5 小時</th>
+<th>週</th>
+<th>訂閱月</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Lite</strong></td>
+<td>¥40（¥120/季）</td>
+<td>按「模型調用次數」</td>
+<td>~1,200 次</td>
+<td>~9,000 次</td>
+<td>~18,000 次</td>
+</tr>
+<tr>
+<td><strong>Pro</strong></td>
+<td>¥200（¥600/季）</td>
+<td>同上（Lite 5 倍）</td>
+<td>~6,000 次</td>
+<td>~45,000 次</td>
+<td>~90,000 次</td>
+</tr>
+</tbody>
+</table>
+<p>重點：</p>
+<ul>
+<li><strong>定位唔同</strong>：Coding Plan 純編程（文本 +
+向量化模型），講「請求次數」；Agent Plan 先有視覺/語音模型 +
+Harness（豆包搜索、Agent 記憶、Supabase）並改用 <strong>AFP</strong>
+抵扣。要生圖/片/搜索 → Agent Plan；只寫 code → Coding Plan
+成本結構更簡單。</li>
+<li><strong>額度獨立 + 專屬 Base URL</strong>：Agent Plan 用
+<code>/api/plan</code>（Anthropic）或 <code>/api/plan/v3</code>（OpenAI
+Compatible）；Coding Plan 用 Coding Plan 控制台拎嘅專屬 URL + 方舟 API
+Key。<strong>混用 Key / Base URL
+可能扣唔到套餐、走後付費。</strong></li>
+<li><strong>模型</strong>：<code>ark-code-latest</code> 自動路由 +
+Doubao-Seed-2.0-Code / GLM-4.7 / DeepSeek-V3.2 / Kimi-K2.5，後續上
+DeepSeek V4 系列 / MiniMax M3 / GLM-5.1 等。TPM 保障、高峰唔降速（Pro
+更高）。</li>
+<li>也有 Lite/Pro 2.5 折首兩月活動（¥9.9 /
+¥49.9，第三個月起原價）。Coding Plan Pro 曾有贈送 ArkClaw
+活動，官方已公告下線。</li>
+<li><strong>Sales 一句</strong>：純 code 場景 Coding Plan 性價比最高（約
+API 1 折）；要先玩多模態/Harness 先升 Agent Plan。</li>
+</ul>
+<h3
+id="13-byteplus-國際版modelark--agentkit-免費額度--beta-free-tier">1.3
+BytePlus 國際版（ModelArk / AgentKit）— 免費額度 + Beta Free Tier</h3>
+<p>國際 BytePlus（新加坡實體，非大陸火山方舟）另有自己嘅雲 + 計費：</p>
+<table>
+<thead>
+<tr>
+<th>產品</th>
+<th>Plan / 模式</th>
+<th>內容</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ModelArk</strong></td>
+<td>免費 Tokens</td>
+<td>每款 LLM 送 <strong>50 萬 tokens</strong> 免費額度；每款視覺模型送
+<strong>200 萬 tokens</strong>；企業參與合作計劃送 <strong>500 萬
+tokens</strong></td>
+<td>即「Free Tokens Only」模式，用完可喺 Activation Management
+開通按量；RPM/TPM 有限</td>
+</tr>
+<tr>
+<td><strong>ModelArk</strong></td>
+<td>Agent Plan / Coding Plan</td>
+<td>國際版同樣有 Agent + Coding Plan 訂閱（以 USD 計）</td>
+<td>面世中，價格以國際控制台為準（見來源）</td>
+</tr>
+<tr>
+<td><strong>AgentKit</strong></td>
+<td>Free Tier（Beta）</td>
+<td>Agent 平台（runtime / 工具 / MCP / 記憶 / 知識庫 /
+可觀測）公開預覽期間提供 Free Tier；有「Billing instructions in
+Beta」</td>
+<td>官方未公開詳價，報價前向代理商拎 Beta 報價</td>
+</tr>
+<tr>
+<td>AgentKit / ModelArk</td>
+<td>IAM 等平台能力</td>
+<td>Identity &amp; Access Management 免費</td>
+<td>同大陸側一致</td>
+</tr>
+</tbody>
+</table>
+<p>要注意「Agent Plan / Coding Plan」（國際版）同大陸「火山方舟 Agent
+Plan / Coding Plan」<strong>係兩嚿嘢</strong>：Region、幣值、free tier
+都唔同。報國際客戶時以 docs.byteplus.com
+及國際控制台為準，唔好直接用大陸價。</p>
+<h3 id="14-veadk--agentkitframework--sdk--cli-plan-就係免費">1.4 VeADK +
+AgentKit（framework / SDK / CLI）— Plan 就係免費</h3>
+<ul>
+<li><strong>VeADK</strong>（<code>veadk-python</code>）開源
+<strong>Apache 2.0</strong>，可自由用於商業項目；CLI 提供
+<code>veadk deploy</code>（落
+VeFaaS）、<code>veadk prompt</code>（PromptPilot
+優化）、<code>veadk frontend</code>（A2UI 一齊起）。</li>
+<li><strong>AgentKit SDK</strong>（A2aApp / MCP / 記憶 / 知識庫
+abstraction）同 <strong>AgentKit
+CLI</strong>（<code>ak init/build/deploy/launch/eval/harness/sandbox</code>）<strong>全部開源免費</strong>。</li>
+<li>冇「升級 Pro /
+付費授權」呢回事——<strong>真銀只嚟自佢哋幫你連去嘅平台 Plan +
+雲資源</strong>，三條線見 §0。</li>
+<li>唯一要睇嘅係：部署越複雜（多
+Agent、A2A、harness、sandbox），framework 幫你行嘅 model call 越多 → AFP
+/ token 越快燒（詳見 §5–§9 同跨廠商對照 Tab）。</li>
+</ul>
+<hr />
+<h2 id="2-咩係-額度-quota--消耗週期要識睇">2. 咩係 額度 (Quota) —
+消耗週期要識睇</h2>
+<p>「額度」= 你個 plan 每個期間可以燒幾多 AFP。記住分幾層：</p>
+<table>
+<thead>
+<tr>
+<th>額度層</th>
+<th>用途</th>
+<th>補充</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5 小時額度</td>
+<td>突發用量上限</td>
+<td>用盡等 5 小時週期重置；<strong>唔會</strong>自動扣其他資源包</td>
+</tr>
+<tr>
+<td>日額度（視覺模型）</td>
+<td>圖片/視頻生成每日上限</td>
+<td>每日 00:00 釋放；圖片/視頻唔計週/5 小時</td>
+</tr>
+<tr>
+<td>週額度</td>
+<td>中長期平均用量</td>
+<td>圖片/視頻唔受影響</td>
+</tr>
+<tr>
+<td>月額度</td>
+<td>終極封頂</td>
+<td>用盡等下一自然月；圖片/視頻受呢個 + 日額度制</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>唔同額度層獨立計</strong>：呃到圖片唔會偷到文字，反之亦然。</li>
+<li>Sandbox 雲資源存續期間都計費，要
+<code>sandbox delete --tool-id &lt;id&gt; --force</code> 先停。</li>
+<li><strong>部署排雷</strong>：<code>harness deploy</code> 同
+<code>sandbox build/create</code> 會<strong>建立雲資源 →
+可能產生費用</strong>；<code>sandbox build</code> 用 TOS / Container
+Registry / Code Pipeline。見 <code>agentkit-cli.md</code>。</li>
+</ul>
+<hr />
+<h2 id="3-咩係-afpagent-fuel-points-點計">3. 咩係 AFP（Agent Fuel
+Points）— 點計</h2>
+<p>AFP
+係統一「燃料值」，將唔同模型×工具嘅消耗折算做一分積分。參考計算：</p>
+<pre><code>AFP 消耗 = 基礎係數（模型等級） × 分段係數（輸入長度） × (token 量 / 一萬)</code></pre>
+<p>根據第三方剖析作「參考」近似：</p>
+<table>
+<thead>
+<tr>
+<th>模型等級</th>
+<th>基礎係數</th>
+<th>分段係數（按輸入長度）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>極速（mini 類）</td>
+<td>0.5</td>
+<td>0–32k: 0.67 · 32k–128k: 1 · 128k–256k: 2</td>
+</tr>
+<tr>
+<td>標準（lite 類）</td>
+<td>1</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>進階（code / pro / v3.2 / m2.7 等）</td>
+<td>5</td>
+<td>同上</td>
+</tr>
+</tbody>
+</table>
+<p>⚠️
+<strong>呢啲唔係官方公開公式</strong>，官方只講「按模型、上下文、輸入輸出折算」。計價時<strong>以你實戰量出嚟嘅
+AFP/動作 + 控制台「用量明細」為準</strong>。官方文件：<a
+href="https://www.volcengine.com/docs/82379/2516283">套餐內 AFP
+抵扣規則</a>。</p>
+<p><strong>參考實際金額</strong>（參考，見資料來源）：</p>
+<ul>
+<li>極速文字生成 ≈ <strong>0.5 AFP / 萬 tokens</strong></li>
+<li>圖片生成 ≈ <strong>~99–100 AFP / 張</strong></li>
+<li>視頻生成 ≈ 按時長：Seedance 2.0 <strong>Fast
+~2,000/clip</strong>，標準版 ~6,000/clip</li>
+<li>向量（embedding）按向量維度計</li>
+<li>搜索：Medium 起每月贈送免費額度（見下），超出後按量</li>
+</ul>
+<blockquote>
+<p>⚠️ 視覺（圖片）token 數遠高於純文字——所以「OCR 睇一張圖」嘅 AFP
+會遠貴過「讀 1,000 字」。</p>
+</blockquote>
+<hr />
+<h2 id="4-模型llm--vision計費--主力消費">4. 模型（LLM / Vision）計費 —
+主力消費</h2>
+<p>模型推流係任何方案最大出血點，分兩類：<strong>包月（Agent Plan
+內）</strong> 同 <strong>按量（訂閱外）</strong>。</p>
+<h3 id="41-各-plan-官方模型可用性矩陣最重要一節">4.1 各 Plan
+官方模型可用性矩陣（最重要一節）</h3>
+<p>直接回答「係咪得 Medium 以上先用到 Pro / 進階模型」：</p>
+<blockquote>
+<p><strong>答案：唔係。</strong> 官方矩陣顯示——<strong>文字進階模型（含
+<code>doubao-seed-2.0-pro</code>、<code>doubao-seed-evolving</code>、<code>glm-5.2</code>、<code>kimi-k2.6</code>、<code>minimax-m2.7</code>、<code>deepseek-v4-pro</code>）四個
+Plan 全部支持</strong>（即連 Small ¥40 都用得）。真正嘅 tier 限制喺
+<strong>視頻生成</strong>、<strong>個別模型</strong> 同
+<strong>Harness</strong>。</p>
+</blockquote>
+<p>來源：<a
+href="https://www.volcengine.com/docs/82379/2366394">火山方舟-Agent Plan
+個人版套餐概覽（不同套餐支持的模型及 Harness）</a></p>
+<table>
+<thead>
+<tr>
+<th>分類</th>
+<th>模型</th>
+<th>上下文/輸出</th>
+<th>Small</th>
+<th>Medium</th>
+<th>Large</th>
+<th>Max</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本-極速</td>
+<td><code>doubao-seed-2.0-mini</code></td>
+<td>256k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-標準</td>
+<td><code>doubao-seed-2.0-lite</code></td>
+<td>256k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-標準</td>
+<td><code>deepseek-v4-flash</code>（嘗鮮）</td>
+<td>1024k / 384k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>doubao-seed-2.1-turbo</code></td>
+<td>256k / 256k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>doubao-seed-evolving</code></td>
+<td>1024k / 256k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>doubao-seed-2.0-code</code>（即將下線）</td>
+<td>256k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>doubao-seed-2.0-pro</code>（即將下線）</td>
+<td>256k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>minimax-m2.7</code> / <code>minimax-m3</code></td>
+<td>200k–512k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>glm-5.2 (glm-latest)</code></td>
+<td>1024k / 128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>kimi-k2.6</code> / <code>kimi-k2.7-code</code></td>
+<td>256k / 32k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><code>deepseek-v4-pro</code>（嘗鮮）</td>
+<td>1024k / 384k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>文本-進階</td>
+<td><strong><code>kimi-k3</code></strong></td>
+<td>1024k / 128k</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>向量化</td>
+<td><code>doubao-embedding-vision</code></td>
+<td>128k</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>圖片生成</td>
+<td><code>doubao-seedream-5.0-lite</code></td>
+<td>—</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>視頻生成</td>
+<td><code>doubao-seedance-1.5-pro</code>（即將下線）</td>
+<td>—</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>視頻生成</td>
+<td><strong><code>doubao-seedance-2.0</code></strong></td>
+<td>—</td>
+<td>❌</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>視頻生成</td>
+<td><strong><code>doubao-seedance-2.0-fast</code></strong></td>
+<td>—</td>
+<td>❌</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>視頻生成</td>
+<td><strong><code>doubao-seedance-2.0-mini</code></strong></td>
+<td>—</td>
+<td>❌</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>語音模型</td>
+<td><code>doubao-seed-tts-2.0</code> /
+<code>doubao-seed-asr-2.0</code></td>
+<td>—</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>Harness</td>
+<td>專業數據集</td>
+<td>—</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>呢個係報價嘅關鍵</strong>：<code>Seedance 2.0</code>
+全系列（2.0 / fast / mini）<strong>只有 Large 同 Max
+先用得</strong>。Medium 只支援
+<code>seedance-1.5-pro</code>（仲要「即將下線」）。即係話——<strong>想用新嘅
+Seedance 2.0 做視頻 → 起碼升 Large（¥500/月）</strong>，唔係
+Medium。</p>
+</blockquote>
+<blockquote>
+<p>⚠️
+<strong>模型上線但唔一定支援</strong>：<code>deepseek-v4-flash/pro</code>
+同 <code>kimi-k3</code>
+等係「嘗鮮/體驗版」，如遇訪問擁擠或頻繁限流，官方建議切換其他模型。<code>doubao-seed-2.0-pro</code>
+/ <code>2.0-code</code> / <code>seedance-1.5-pro</code>
+標示「即將下線」，新項目唔好用。</p>
+</blockquote>
+<blockquote>
+<p>📌 <strong>模型 deep-dive 另開 tab</strong>：Seedream
+全家族（Lite/Pro 能力 + 國際 <code>dola-*</code> 定價）→
+<strong>seedream tab</strong>；Seedance 全家族（2.0/2.5/Fast/Mini + LAS
+按秒計費 + VideoOne）→ <strong>seedance tab</strong>。呢度淨係
+Plan-配額矩陣。</p>
+</blockquote>
+<h3 id="42-按量計費訂閱外">4.2 按量計費（訂閱外）</h3>
+<p>Agent Plan
+冇嘅模型或超配額嘅部分：火山方舟產品頁參考價（2026）：<code>doubao-seed-evolving</code>
+約 <strong>¥6/百萬輸入、¥30/百萬輸出</strong>（見來源）。</p>
+<hr />
+<h2 id="5-工具--mcp--harness-計費">5. 工具 / MCP / Harness 計費</h2>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>計費</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>內置 Harness：豆包搜索</strong></td>
+<td>Medium 起每月送免費額度（約 <strong>500 次/月</strong>）；超出扣
+AFP</td>
+<td>包喺 Agent Plan 入面，誇量至爆</td>
+</tr>
+<tr>
+<td><strong>web_search</strong>（VeADK built-in）</td>
+<td>計 AFP 或隨餐配額</td>
+<td>視套餐同搜索類型</td>
+</tr>
+<tr>
+<td><strong>記憶 / 知識庫</strong></td>
+<td>向量化（embedding）+ 儲存</td>
+<td>屬第三條線，詳§8</td>
+</tr>
+<tr>
+<td><strong>MCP tools</strong></td>
+<td><strong>本身免費</strong>；外部 API 支出 + 每次 round-trip 嘅 model
+call</td>
+<td>唔直接扣，但會推高 token</td>
+</tr>
+<tr>
+<td><strong>自訂 Python tool</strong></td>
+<td>代碼免費；執行時 model call 先計</td>
+<td>一個 tool call ≈ 一次 model round trip</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>MCP 計費重點</strong>：MCP server 免費掛進去，但你每次 tool
+call 都係一次 model round trip。工具越多、context 越長，越食 token（尤其
+128k+ 段 ×2 倍率）。想慳：工具 return 要短、唔好將成個文件丟入
+context。</p>
+</blockquote>
+<hr />
+<h2 id="6-frameworkveadk--agentkit-sdk--cli計費">6. Framework（VeADK /
+AgentKit SDK / CLI）計費</h2>
+<table>
+<thead>
+<tr>
+<th>組件</th>
+<th>成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>veadk-python</code>（Agent、Runner、A2A、A2UI、記憶、知識庫
+abstraction）</td>
+<td><strong>免費</strong>（open source）</td>
+</tr>
+<tr>
+<td><code>agentkit-sdk-python</code>（SimpleApp / MCPApp / A2aApp）</td>
+<td><strong>免費</strong></td>
+</tr>
+<tr>
+<td><code>agentkit</code> / <code>ak</code>
+CLI（init/build/deploy/launch/eval/harness/sandbox）</td>
+<td><strong>免費</strong></td>
+</tr>
+<tr>
+<td><code>agentkit harness</code>（zero-code）</td>
+<td><strong>免費</strong>產生 Runtime 用雲資源先有錢</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>結論：framework 本身免費。但 ① 多 Agent loop（交談）→ 多次 model
+call；② summary/retry/compaction 都係額外 model
+call。「框架免費，但框架幫你做嘅每一步都可能化為 AFP。」</p>
+</blockquote>
+<hr />
+<h2 id="7-sandbox--代碼執行計費">7. Sandbox / 代碼執行計費</h2>
+<p>參考 <code>ak sandbox</code>：</p>
+<ul>
+<li><code>sandbox build</code> 用 TOS + Container Registry + Code
+Pipeline → 建立產生費用；失敗會留 buffer
+<code>.agentkit/sandbox/build/</code>。</li>
+<li><code>sandbox create</code>
+分配<strong>雲端計算資源</strong>（規格、網絡、鏡像、TOS
+掛載），資源存續期間持續計費。唔用就
+<code>sandbox delete --tool-id &lt;id&gt; --force</code>。</li>
+<li>估算基準：火山引擎「計算資源約 <strong>0.45 元 / CU /
+小時</strong>」，Sandbox 規格倍數看控制台（見來源）。</li>
+</ul>
+<blockquote>
+<p>⚠️ 唔好俾 client 開住 Sandbox 掛 ——
+每小時燒錢，係橫軸最易爆嗰條。</p>
+</blockquote>
+<hr />
+<h2 id="8-記憶-memory--知識庫-knowledge-base--儲存計費">8. 記憶 (Memory)
+/ 知識庫 (Knowledge Base) / 儲存計費</h2>
+<table>
+<thead>
+<tr>
+<th>資源</th>
+<th>計費</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TOS（物件儲存）</td>
+<td>官方產品頁 <strong>0.0015 元/GB/小時</strong> 儲存；流量另計</td>
+</tr>
+<tr>
+<td>VikingDB / OpenViking（向量）</td>
+<td>儲存 0.0015 元/GB/小時 起 + 向量模型按量；查詢/容量看控制台</td>
+</tr>
+<tr>
+<td>PostgreSQL / MySQL / Redis（自架）</td>
+<td>雲資源小時費（RDS/CVM），或用火山托管</td>
+</tr>
+<tr>
+<td>向量化（embedding）</td>
+<td>Agent Plan 內用 <code>Doubao-embedding-vision</code> 計
+AFP；訂閱外按量</td>
+</tr>
+<tr>
+<td>記憶首次寫入（ContextBucket/Set 建立）</td>
+<td>可能觸發 TOS 資源設定 → 有計費</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>LTM / KB 用咗 embedding + 儲存 —— <strong>「長期記憶 +
+知識庫」係第三條線嘅主力</strong>，尤其 retention 365–730 日（見 invoice
+/ movie 計劃）。</p>
+</blockquote>
+<hr />
+<h2 id="9-部署--runtime-計費">9. 部署 / Runtime 計費</h2>
+<ul>
+<li><code>ak deploy</code> / <code>harness deploy</code>：build 鏡像 +
+create/update Runtime → <strong>產生雲資源</strong>（網關、API
+Gateway、IAM、VeIdentity 都可能計費）。</li>
+<li>Frontend：跑 serverless
+網關，預設<strong>復用現有網關</strong>（唔會新開，避免佔用網關配額）；要固定先
+<code>frontend.gateway</code>。</li>
+<li>A2A 服務之間走 internal，冇出 public 流量費。</li>
+<li><strong>估價概念</strong>：Runtime 數 × 時長 × 小時費率 +
+網關流量。開幾多個 Agent 就幾多份。</li>
+</ul>
+<blockquote>
+<p>多 Agent 平行（例如 movie 12 scenes 同時 seedance）會同時食最多 model
++ 多份 runtime。</p>
+</blockquote>
+<hr />
+<h2 id="10-安全--訪問控制--部署嘅隱性成本">10. 安全 / 訪問控制 /
+部署嘅「隱性成本」</h2>
+<p>安全本身<strong>幾乎唔直接收費</strong>（AuthRequestProcessor、IAM、內容過濾
+pre/post、A2A mTLS 都係
+overlay），但會<strong>間接加大模型消耗</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>間接成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-safety（pre / post filter）</td>
+<td>每張 flow 多一次模型/接口 call，如</td>
+</tr>
+<tr>
+<td>A2A + AuthRequestProcessor</td>
+<td>每次 <code>run()</code> 前驗證——唔貴但次數多會累積</td>
+</tr>
+<tr>
+<td>Audit log（chain-hash，invoice 保留 7 年）</td>
+<td>寫入 PostgreSQL + TOS archive → 儲存計費</td>
+</tr>
+<tr>
+<td>PII scan（mask / flag）</td>
+<td>每次多一次 API call / token 處理</td>
+</tr>
+<tr>
+<td>RBAC / rate-limit / secrets(Vault)</td>
+<td>純軟件，冇直接雲費（如果自架 Vault 按小時）</td>
+</tr>
+<tr>
+<td>Shadow eval（10% 流量）</td>
+<td><strong>+10% 模型消耗</strong>，等於額外 AFP</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>報價時可以講「安全集中做，唔單獨開一條」，但 audit + shadow eval
+一定要計入「隱性 +%」。</p>
+</blockquote>
+<hr />
+<h2 id="11-對比封頂vs-其他平台">11. 對比：「封頂」vs 其他平台</h2>
+<p>參考：OpenAI SDK 免費但 <strong>按 token 無上限</strong>（GPT-5.4 ≈
+$2.5/$15 每百萬）；LangSmith Plus $39/座/月 + 超量；LangGraph Cloud
+~$35/月。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>VeADK + AgentKit（Agent Plan）</th>
+<th>OpenAI Agents SDK</th>
+<th>LangGraph / LangSmith</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework 本身</td>
+<td>免費</td>
+<td>免費</td>
+<td>免費</td>
+</tr>
+<tr>
+<td><strong>計費</strong></td>
+<td><strong>AFP 訂閱（¥40–¥1000 封頂）</strong></td>
+<td>每 token / 無上限</td>
+<td>LangSmith $39/座 + Cloud</td>
+</tr>
+<tr>
+<td>可預測性</td>
+<td>高（封頂）</td>
+<td>低（multi-agent 長 context 易爆）</td>
+<td>中（trace 講超量）</td>
+</tr>
+<tr>
+<td>多模態</td>
+<td>SEED + Seedream/Seedance 一條包</td>
+<td>需另外買工具（web search $10/1k）</td>
+<td>唔直接包</td>
+</tr>
+<tr>
+<td>部署 + 監控</td>
+<td>一體（<code>ak deploy</code> + OTel）</td>
+<td>自行搭</td>
+<td>LangGraph Cloud</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Sales 說話術：「Agent Plan = 買斷推量 INF 天花板。OpenAI 你個
+multi-agent 每次 handoff 都多一筆 token 錢；呢邊一包乾做，用勁先要你
+upgrade。」</p>
+</blockquote>
+<hr />
+<h2 id="12-六個-scenario-實例計數">12. 六個 Scenario 實例計數</h2>
+<hr />
+<h3 id="s1-企業發票-pipeline5-agent-a2a每日-20-批--5-張">S1. 企業發票
+Pipeline（5-Agent A2A，每日 20 批 × 5 張）</h3>
+<p>沿用 <code>projects/invoice-pipeline.md</code> 估算：</p>
+<table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>模型</th>
+<th>AFP/批次</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1 OCR（視覺 Lite）</td>
+<td>Seed 2.0 Lite</td>
+<td>~25 / 5 張</td>
+</tr>
+<tr>
+<td>A2 翻譯</td>
+<td>Seed 2.0 Mini</td>
+<td>~8</td>
+</tr>
+<tr>
+<td>A3 驗證（視覺）</td>
+<td>Seed 2.0 Lite</td>
+<td>~25</td>
+</tr>
+<tr>
+<td>A4 匯總</td>
+<td>Seed 2.0 Mini</td>
+<td>~5</td>
+</tr>
+<tr>
+<td>A5 審批（A2UI HITL）</td>
+<td>Seed 2.0 Lite</td>
+<td>~3</td>
+</tr>
+<tr>
+<td><strong>小計</strong></td>
+<td></td>
+<td><strong>~66 / 批</strong></td>
+</tr>
+</tbody>
+</table>
+<p>每月估算：</p>
+<pre><code>20 批/日 × 66 = 1,320 AFP/日
+1,320 × 22 工作日 ≈ 29,040 AFP/月 ≈ ~29% of Medium (100,000)
+剩餘精力：~71,000 AFP ← eval / 其他 / 升級</code></pre>
+<p><strong>報價</strong>：Agent Plan <strong>Medium ¥200/月</strong>
+綽綽有餘，留 ~71%。日後想提升 OCR 準確度，獨立換 A1 做
+Pro（~3×）都唔會爆。</p>
+<hr />
+<h3 id="s2-ai-電影生成12-scenemovie-generator">S2. AI
+電影生成（12-scene，movie-generator）</h3>
+<p>沿用 <code>projects/movie-generator.md</code> 估算，但要<strong>以
+§4.1 官方矩陣修正</strong>：Seedance 2.0 Fast 只係
+<strong>Large/Max</strong> 先用得（Medium 只支援 1.5-pro
+且即將下線）。</p>
+<table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>AFP/项目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1 Research（web_search、Lite）</td>
+<td>~50</td>
+</tr>
+<tr>
+<td>A2 Script（Lite）</td>
+<td>~80</td>
+</tr>
+<tr>
+<td>A3 Storyboard（Mini + 12×Seedream ~100）</td>
+<td>~1,220</td>
+</tr>
+<tr>
+<td>A4 Video 12 scenes（Seedance 2.0 Fast ~2,000/clip）</td>
+<td>~24,000</td>
+</tr>
+<tr>
+<td>A5 Merge</td>
+<td>微</td>
+</tr>
+<tr>
+<td><strong>小計</strong></td>
+<td><strong>~25,371 / 项目（10%）</strong></td>
+</tr>
+</tbody>
+</table>
+<p>每月產能（Large）：1 部 ≈ 25,371（約 10% of Large 250k）；建議上限
+6–8 部 → 75–80%。</p>
+<p><strong>報價</strong>：要做 Seedance 2.0 片 → <strong>Large
+¥500</strong>（Start 有，Medium 用唔到）。若只係做圖像 + 文字 → Medium
+即可。Omnihuman / DreamActor 都要另外睇支援（獨立計費）。</p>
+<hr />
+<h3 id="s3-企業知識庫-rag-chatbot500-q--日">S3. 企業知識庫 RAG
+Chatbot（500 Q / 日）</h3>
+<ul>
+<li>模型：<code>Seed 2.0 Mini</code>（純文字）+
+<code>Doubao-embedding</code>（向量）</li>
+<li>每 Q 約 input 2,000 + output 500 tokens → 用~0.005 AFP/萬近似：
+<code>2,500 × 0.005 ≈ 0.125 AFP/Q</code></li>
+<li>每月：11,500 Q/月 ≈ <strong>~1,400 AFP</strong> — 只食 1.4% of
+Medium</li>
+</ul>
+<p>但 <strong>真成本在「知識庫儲存 +
+向量化」</strong>（第三條線）：10,000 docs → GB×小時 + 向量計量。</p>
+<p><strong>報價</strong>：純文字 RAG → <strong>Small ¥40</strong>
+頂住；要加搜索免費額 → Medium。</p>
+<hr />
+<h3 id="s4-zero-code-harness內部-faq-支援-agent">S4. Zero-code
+Harness：內部 FAQ 支援 Agent</h3>
+<ul>
+<li><code>harness.yaml</code>：一個 model + 搜索 + KB 綁定，唔使 custom
+code</li>
+<li>用量極低（200 Q/日，每 Q ~200 tokens）</li>
+</ul>
+<p>每 Q ≈ 0.1–0.2 AFP → 每日 ~40 → 每月 ~1,200 AFP</p>
+<p><strong>報價</strong>：<strong>Small ¥40</strong>
+起步已經行——中小企業「唔使寫 code」嘅 killer pitch。</p>
+<hr />
+<h3 id="s5-企業級客服5-agent--mcp--sandbox中量">S5. 企業級客服：5-Agent
++ MCP + Sandbox（中量）</h3>
+<p>場景：客服諮詢 + 退換貨，Agent 之間交到 → MCP 掛 internal CRM → 偶爾
+Sandbox 分析。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>每月</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>聊天/查閱（A1–A4）</td>
+<td>~25,000 AFP</td>
+</tr>
+<tr>
+<td>MCP@CRM（每次 round-trip 成大 context）</td>
+<td>~8,000 AFP</td>
+</tr>
+<tr>
+<td>Sandbox 分析（每 2-hr 會話，10 次/月）</td>
+<td>雲端 ≈ 0.45元/CU·hr × 40h ≈ ¥18（第二條線）</td>
+</tr>
+<tr>
+<td>記憶/知識庫 長期 retention</td>
+<td>儲存 ≈ ¥10–30/月</td>
+</tr>
+<tr>
+<td>Eval / CI eval</td>
+<td>~3,000 AFP</td>
+</tr>
+<tr>
+<td><strong>總計</strong></td>
+<td><strong>~36,000–50,000 AFP + ¥30–60 雲</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>報價</strong>：接近 Medium 上限→直接 <strong>Large
+¥500</strong> 穩陣；雲資源部分按「時長」報價（開 buffer）。</p>
+<hr />
+<h3 id="s6-多模態-ugc-內容平台圖視頻medium-vs-large">S6. 多模態 UGC
+內容平台（圖/視頻：Medium vs Large）</h3>
+<p>先睇 §4.1：<strong>Seedance 2.0 全系列只係 Large/Max 先用得</strong>
+—— 呢個場景只要有影片，就<strong>唔可能用 Medium</strong>，直接鎖
+Large。</p>
+<ul>
+<li>每日 200 張圖（Seedream）+ 20 條 5s video</li>
+<li><code>200 img × 100 = 20,000 日</code>；video
+<code>20 × ~400 = 8,000 日</code> → <strong>~28,000 AFP/日</strong></li>
+</ul>
+<p><strong>Large（25 萬/月）：</strong> 日 28k ≈ 11% 月額度，圖片日額度
+125k &gt; 28k → 穩行。<strong>但留意日額度</strong>：圖片日額度
+125k，爆日就 Max 或停 burst。<strong>Max（50 萬/月）：</strong> 更高
+buffer，但貴一倍，除非日度極高先需要。</p>
+<p><strong>報價心法</strong>：<strong>多模態 = 日額度為王 +
+先查官方矩陣（§4.1）鎖死 tier</strong>。做 video → 起手就報
+Large，唔好報 Medium 之後先俾人打返轉頭。</p>
+<hr />
+<h3 id="速查邊個-scenario--邊個-tier">速查：邊個 Scenario → 邊個
+Tier</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>月爆發</th>
+<th>建議 Plan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S1 發票 20批/日</td>
+<td>~29k</td>
+<td>Medium ¥200</td>
+</tr>
+<tr>
+<td>S2 電影 12-scene / 部</td>
+<td>~25k/部</td>
+<td><strong>Large ¥500</strong>（Seedance 2.0 先有）</td>
+</tr>
+<tr>
+<td>S3 RAG 文字 chatbot</td>
+<td>~1.4k</td>
+<td>Small ¥40</td>
+</tr>
+<tr>
+<td>S4 Harness FAQ</td>
+<td>~1.2k</td>
+<td>Small ¥40</td>
+</tr>
+<tr>
+<td>S5 客服 5-Agent + MCP + Sandbox</td>
+<td>~36–50k</td>
+<td>Large ¥500</td>
+</tr>
+<tr>
+<td>S6 UGC 多模態（圖+video）</td>
+<td>~28k/日</td>
+<td><strong>Large ¥500</strong>（有 video 即鎖 Large）</td>
+</tr>
+<tr>
+<td>S6' UGC 純圖（無 video）</td>
+<td>~20k/日</td>
+<td>Medium ¥200</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="13-幫-client-報價-6-步流程">13. 幫 client 報價 6 步流程</h2>
+<ol type="1">
+<li><strong>畫 Agent 圖</strong>：每個 agent 幾多步、幾多 model
+call、有冇 loop 回頭。</li>
+<li><strong>估 token</strong>：每 turn 的 input / output +
+上下文長度（影響分段係數）+ 有冇圖片。</li>
+<li><strong>計 AFP</strong>：用「每動作 AFP
+估算」（上表）乘日常量；再用控制台實測校正。</li>
+<li><strong>拆雲資源</strong>：runtime
+小時、sandbox、儲存/向量、流量自己計，唔混入 AFP。</li>
+<li><strong>加 buffer + 封頂機制</strong>：例如估到 60％ 計劃 7 成，97%
+才升 tier；內部保留 ~20% buffer。</li>
+<li><strong>報「兩個數」</strong>：正常預期（e.g. Medium ¥200/月）+
+爆量方案（e.g. Large ¥500/月），同 client 講「超額知會」。</li>
+</ol>
+<blockquote>
+<p>⚠️
+每張報價都要標「<strong>估算</strong>，以控制台用量明細/計價器為準」。Agent
+Plan 數字會跟官方變，唔好當永恆。</p>
+</blockquote>
+<hr />
+<h2 id="14-資料來源含日期方便日後核對">14.
+資料來源（含日期，方便日後核對）</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火山方舟 Agent Plan 套餐概覽（四檔/額度/各 Plan
+模型可用性矩陣）</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/2366394">https://www.volcengine.com/docs/82379/2366394</a></td>
+<td>更新 2026-07 後</td>
+</tr>
+<tr>
+<td>火山方舟 Agent Plan 產品/活動頁</td>
+<td><a
+href="https://www.volcengine.com/activity/agentplan">https://www.volcengine.com/activity/agentplan</a></td>
+<td>2026-05 上場</td>
+</tr>
+<tr>
+<td>火山方舟 Coding Plan 套餐概覽（Lite/Pro 額度）</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/1925114">https://www.volcengine.com/docs/82379/1925114</a></td>
+<td>更新 2026-08</td>
+</tr>
+<tr>
+<td>火山方舟 Coding Plan 產品/活動頁</td>
+<td><a
+href="https://www.volcengine.com/activity/codingplan">https://www.volcengine.com/activity/codingplan</a></td>
+<td>2026-04 上場</td>
+</tr>
+<tr>
+<td>火山方舟「訂閱 [Agent/Coding Plan]」總索引</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/1925114">https://www.volcengine.com/docs/82379/1925114</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk（免費 Tokens：500K/LLM、2M/視覺、企業 5M）</td>
+<td><a
+href="https://www.byteplus.com/zh-CN/product/modelark">https://www.byteplus.com/zh-CN/product/modelark</a>
+· docs.byteplus.com/en/docs/ModelArk/1159200</td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus ModelArk Activation Management / Free Tokens Only 模式</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/modelark/1159200">https://docs.byteplus.com/en/docs/modelark/1159200</a></td>
+<td>2026-06 更新</td>
+</tr>
+<tr>
+<td>BytePlus AgentKit（Beta Free Tier / Billing instructions in
+Beta）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/agentkit/Billing_instructions_during_public_preview">https://docs.byteplus.com/en/docs/agentkit/Billing_instructions_during_public_preview</a></td>
+<td>2026-04 更新</td>
+</tr>
+<tr>
+<td>Coding Plan 收費/額度規則解析</td>
+<td><a
+href="https://www.volcengine.com/article/37969">https://www.volcengine.com/article/37969</a>
+· /37388 · /37937</td>
+<td>2026-04</td>
+</tr>
+<tr>
+<td>Coding Plan vs Agent Plan 選擇指南</td>
+<td><a
+href="https://codepick.dev/zh/guides/ark-coding-plan-guide/">https://codepick.dev/zh/guides/ark-coding-plan-guide/</a>
+· watermelonwater.tech</td>
+<td>2026-05</td>
+</tr>
+<tr>
+<td>火山方舟產品頁（定價 / 免費額度 / 儲存）</td>
+<td><a
+href="https://www.volcengine.com/product/ark">https://www.volcengine.com/product/ark</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>方舟套餐內 AFP 抵扣規則</td>
+<td><a
+href="https://www.volcengine.com/docs/82379/2516283">https://www.volcengine.com/docs/82379/2516283</a></td>
+<td>跟套餐概覽</td>
+</tr>
+<tr>
+<td>CSDN 深度測評（模型矩陣 + Harness 歸納）</td>
+<td><a
+href="https://adg.csdn.net/6a6160b8662f9a54cb935ac9.html">https://adg.csdn.net/6a6160b8662f9a54cb935ac9.html</a></td>
+<td>2026-07-22</td>
+</tr>
+<tr>
+<td>weste.net Coding vs Agent Plan 對比（AFP 系數參考）</td>
+<td><a
+href="https://www.weste.net/2026/05-10/CodingPlan-AgentPlan.html">https://www.weste.net/2026/05-10/CodingPlan-AgentPlan.html</a></td>
+<td>2026-05-10</td>
+</tr>
+<tr>
+<td>codepick.dev Agent Plan 解讀</td>
+<td><a
+href="https://codepick.dev/zh/guides/ark-agent-plan/">https://codepick.dev/zh/guides/ark-agent-plan/</a></td>
+<td>2026-05-13/28</td>
+</tr>
+<tr>
+<td>aiproducthub 方舟 Agent Plan 導覽</td>
+<td><a
+href="https://aiproducthub.cn/sites/方舟-agent-plan.html">https://aiproducthub.cn/sites/方舟-agent-plan.html</a></td>
+<td>2026-05-18</td>
+</tr>
+<tr>
+<td>mindwave-ai 火山引擎 Agent Plan 報導</td>
+<td><a
+href="https://www.mindwave-ai.xyz/news/2026/05/agent-plan-ai-1974/">https://www.mindwave-ai.xyz/news/2026/05/agent-plan-ai-1974/</a></td>
+<td>2026-05-11</td>
+</tr>
+<tr>
+<td>OpenAI Agents SDK 定價分析</td>
+<td><a
+href="https://comparedge.com/tools/openai-agents-sdk/pricing">https://comparedge.com/tools/openai-agents-sdk/pricing</a></td>
+<td>2026-07-08</td>
+</tr>
+<tr>
+<td>LangSmith / LangChain 定價</td>
+<td><a
+href="https://aitrendtool.com/tools/langchain">https://aitrendtool.com/tools/langchain</a>
+· <a
+href="https://www.langchain.com/pricing">https://www.langchain.com/pricing</a></td>
+<td>2026-07-12</td>
+</tr>
+<tr>
+<td>OpenAI API 定價</td>
+<td><a
+href="https://developers.openai.com/api/docs/pricing">https://developers.openai.com/api/docs/pricing</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>GPT-5.4 官方費率/對照</td>
+<td><a
+href="https://runapi.ai/zh-HK/openai-api-pricing">https://runapi.ai/zh-HK/openai-api-pricing</a></td>
+<td>2026-06-18</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>使用方法</strong>：AF-FP 真實值 = 用 billing API /
+控制台「用量明細」校正。本文數字（尤其單一動作比例）屬<strong>參考/估算</strong>，報價需加免責。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-09 · 一定對正官方套餐頁變動（次 2026-07
+先後更新）再賣。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

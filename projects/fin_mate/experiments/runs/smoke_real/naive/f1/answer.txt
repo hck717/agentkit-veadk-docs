@@ -1,0 +1,4 @@
+Microsoft F2Q 的 Azure 增長按不變匯率計為 38% 年增長率，高於指導範圍（37%）1 個百分點【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。但低於買方預期的約 39%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。若將 F2H26 上半年的所有增量 GPU 容量分配給 Azure，增長率可能超過 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+[20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L](viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/)

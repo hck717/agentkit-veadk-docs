@@ -1,0 +1,4 @@
+Azure revenue table 入面 FY26Q4E 嘅 constant-currency YoY growth 預測係35%【KB:msft_azure_revenue.csv】。
+
+## 來源
+msft_azure_revenue.csv

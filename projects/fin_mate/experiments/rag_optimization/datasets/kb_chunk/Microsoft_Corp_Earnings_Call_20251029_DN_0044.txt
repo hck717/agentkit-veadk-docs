@@ -1,0 +1,14 @@
+And that's for booked
+business today. That is not any new booked business we started trying to accomplish on October
+1st, right?
+And so, the way to think about that, and you saw it this quarter in particular, and as we talked
+about '26, the remainder. Number one, we're pivoting toward increasingly, we talked about these
+short-lived assets, both GPUs and CPUs. Again, we talk about all these workloads are burning
+both in terms of app building. Now when that happens, short-lived assets generally are done to
+match sort of the duration of the contracts or the duration of your expectation of those contracts.
+And so, I sometimes think when people think about risk, they're not realizing that most of the
+lifetimes of these and the lifetimes of the contracts are very similar.
+And so, when you think about having revenue and the bookings and coming on the balance sheet
+and the depreciation of short-lived assets, they're actually quite matched, Mark. And as you know,
+we have spent the past few years not actually being short GPUs and CPUs per se, we were short
+the space or the power is the language we use to put them in.

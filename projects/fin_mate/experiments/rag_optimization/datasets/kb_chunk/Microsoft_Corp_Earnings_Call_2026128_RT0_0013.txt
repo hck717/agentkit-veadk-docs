@@ -1,0 +1,13 @@
+With
+Microsoft 365 Copilot, we are focused on organization-wide productivity. Work IQ takes the data
+underneath Microsoft 365 and creates the most valuable, stateful agent for every organization.
+It delivers powerful reasoning capabilities over people, their roles, their artifacts, their
+communications, and their history and memory, all within an organization's security boundary.
+Microsoft 365 Copilot's accuracy and latency powered by Work IQ is unmatched, delivering faster
+and more accurate work-grounded results than competition. And we have seen our biggest
+quarter-over-quarter improvement in response quality to date. This has driven record usage
+intensity with average number of conversations per user doubling year-over-year. Microsoft 365
+Copilot also is becoming true daily habit with daily active users increasing 10x year-over-year.
+We're also seeing strong momentum with Researcher Agent, which supports both OpenAI and
+Claude, as well as Agent Mode in Excel, PowerPoint, and Word. All up, it was a record quarter for
+Microsoft 365 Copilot seat adds, up over 160% year-over-year.

@@ -1,0 +1,18 @@
+Historical stock prices and price targets may have been adjusted for stock
+splits and dividends.
+CD: Barclays Bank PLC and/or an affiliate is a market-maker in debt securities issued by Microsoft Corp..
+CE: Barclays Bank PLC and/or an affiliate is a market-maker in equity securities issued by Microsoft Corp..
+D: Barclays Bank PLC and/or an affiliate has received compensation for investment banking services from Microsoft Corp. in the past 12 months.
+E: Barclays Bank PLC and/or an affiliate expects to receive or intends to seek compensation for investment banking services from Microsoft Corp.
+within the next 3 months.
+9 March 2026
+6
+Barclays | Microsoft Corp.
+
+
+J: Barclays Bank PLC and/or an affiliate is a liquidity provider and/or trades regularly in the securities by Microsoft Corp. and/or in any related
+derivatives.
+K: Barclays Bank PLC and/or an affiliate has received non-investment banking related compensation (including compensation for brokerage services,
+if applicable) from Microsoft Corp. within the past 12 months.
+L: Microsoft Corp. is, or during the past 12 months has been, an investment banking client of Barclays Bank PLC and/or an affiliate.
+M: Microsoft Corp.

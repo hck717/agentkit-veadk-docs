@@ -1,0 +1,14 @@
+### 1. **Agent 365 的安全功能是 Agentic adoption 的前提**  
+Agent 365 作為管理代理的控制平面，包含代理註冊/身份驗證（Entra 中）、可觀察性、風險信號等功能，這些是代理式 adoption 的重要先決條件。**[KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop]**  
+
+### 2. **E7 捆綁包整合多項安全功能**  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，其中 Entra Suite 提供身份治理和安全保障，確保代理在企業環境中的安全部署。**[KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop]**  
+
+### 3. **安全是企業 adoption 的關鍵驅動力**  
+近期 M365 漲價迫使企業在 2H26 進行談判，而安全需求是企業驗證新 SKU（如 E7）價值的核心因素。企業需要確保 AI 代理和 Copilot 的使用符合數據治理和安全標準，否則 adoption 將受阻。**[KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop]**  
+
+### 4. **Copilot Wave 3 強化安全功能**  
+M365 Copilot Wave 3 與 Anthropic 的 Cowork 密切合作，並且安全 Copilot 代理已整合到 Defender、Entra 等產品中（如 Icertis 的 SOC 團隊使用安全 Copilot 代理將人工分類時間減少 75%），進一步證明安全在 agentic adoption 中的重要性。**[KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop, KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L]**  
+
+## 來源  
+[20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop](<2

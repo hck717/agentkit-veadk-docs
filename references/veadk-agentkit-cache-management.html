@@ -1,0 +1,1490 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Cache 管理</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>Cache 管理</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-cache-管理類型-五類-cache-點慳邊個控制">VeADK +
+AgentKit Cache 管理（類型）— 五類 cache 點慳、邊個控制</h1>
+<p>呢一份係「<strong>Cache 管理（類型）</strong>」tab：唔講 GPU
+揀機、唔講 vector backend，<strong>淨係將成個 cache 世界一次過
+catalogue</strong>——由 framework/provider 計費層一路落到 engine/GPU VRAM
+層，逐類拆開：<strong>暫存咩、喺邊層、邊個控制、慳咩、點量度、點優化</strong>。</p>
+<p>呢份係「分拆」出嚟嘅 cache
+內容，收集自：<code>veadk-agentkit-hardware.md</code>
+§5–§7、<code>veadk-agentkit-vector-cache.md</code>、<code>veadk-agentkit-ai-concepts.md</code>
+§4、<code>veadk-agentkit-serving-kit.md</code>，再補返
+<strong>Volcengine 方舟隱式 cache</strong> 同 <strong>output_schema
+自動關緩存</strong> 兩個計費特性。</p>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>cache 唔係一個，係一梯</strong>：token/response（計費）→
+input/prefix（引擎）→ memory/KV（GPU VRAM）→ 隱式（方舟計費）→
+output_schema（開關）。<strong>層層唔同，慳法同槓桿都唔同</strong>。</li>
+<li><strong>喺托管（AgentKit + 方舟）你真正直接控制嘅得 framework
+層</strong>（Responses 緩存 + prompt 排位 + compaction）；引擎/KV
+層你係「間接影響」，GPU 層你完全唔使掂。</li>
+<li><strong>慳錢係蝴蝶效應</strong>：你 prompt 排得靚 → prefix 命中 →
+引擎唔重算 → KV 需求降 → VRAM 壓力細 → 平台成本降（正正解釋 128k+
+加倍率）。<strong>由 framework 層開始。</strong></li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-kv-cache-底層點解要-cache先讀呢節">0. KV Cache 底層——點解要
+cache（先讀呢節）</h2>
+<blockquote>
+<p>講 cache，要由最底層開始：<strong>LLM 推理引擎點解非 cache
+唔可，係由「自注意力矩陣計算」推到「硬體瓶頸」推到「OS
+級記憶體抽象」</strong>。SOSP 2023 嘅 vLLM（PagedAttention）同 LMSYS 嘅
+SGLang（RadixAttention）就係喺呢兩個位嘅架構突破——<strong>先識點解，先真正用得慳。</strong></p>
+</blockquote>
+<h3 id="01-咩係-kv-cache">0.1 咩係 KV Cache？</h3>
+<p><strong>Attention 原生計算</strong>：標準 Transformer decoder 計
+Attention 嘅核心公式係</p>
+<pre><code>Attention(Q, K, V) = softmax( Q · Kᵀ / √d_k ) · V</code></pre>
+<p>在 autoregressive 生成，模型係<strong>逐 token
+生成</strong>嘅。假設生成緊第 <code>t</code> 個 token：</p>
+<ul>
+<li>當前只需要第 <code>t</code> 個 token 嘅 Query
+向量（<code>q_t</code>）同過去<strong>所有歷史
+token</strong>（<code>1…t</code>）嘅 Key（<code>K</code>）同
+Value（<code>V</code>）做 attention 打分。</li>
+<li>歷史 token（<code>1…t−1</code>）嘅權重喺推理時已凍結 →
+佢哋喺各層計出嚟嘅 <code>K</code>、<code>V</code>
+<strong>完全唔變</strong>。</li>
+<li>若唔 cache，生成第 <code>t</code> 個 token 就要由第 1 個 token
+重新做一次前向傳播（<code>O(t²)</code> 冗餘計算）。</li>
+<li>所以將<strong>每層歷史嘅 <code>K</code>、<code>V</code> 存喺 GPU
+顯存</strong>，每步只需計當前 token 嘅
+<code>q_t / k_t / v_t</code>，並將 <code>k_t / v_t</code> 追加落
+cache，計算量即刻變 <code>O(t)</code>。</li>
+</ul>
+<p><strong>KV Cache 代價：顯存黑洞 + Memory-Bound</strong>。KV Cache
+顯存公式：</p>
+<pre><code>Size = 2 × layers × kv_heads × head_dim × seq_len × precision_bytes</code></pre>
+<p>以 <strong>LLaMA-3-70B</strong>（80 層、8 個 KV head、head_dim
+128、FP16=2 bytes）為例，<strong>單個並發 request 喺 8k 長度就要約 2.6
+GB</strong>；64 個並發 request 淨係 KV Cache 就佔 <strong>166
+GB</strong> HBM。LLM 推理仲分兩個截然不同階段：</p>
+<table>
+<thead>
+<tr>
+<th>階段</th>
+<th>做咩</th>
+<th>瓶頸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prefill（首字 / prefill）</strong></td>
+<td>成段 prompt 並行矩陣乘</td>
+<td><strong>Compute-Bound（算力受限）</strong></td>
+</tr>
+<tr>
+<td><strong>Decode（逐字）</strong></td>
+<td>每次只讀寫少量 token，但要將成個大模型權重 + 全量 KV Cache
+搬去暫存器</td>
+<td><strong>Memory-Bound（記憶體頻寬受限）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 一句記住：<strong>cache 唔係「揀嘅」，係「冇得唔
+cache」</strong>——唔 cache 就 <code>O(t²)</code> 重算；cache 咗就食爆
+VRAM + 撞 memory-bound。成個 cache 管理世界就係同呢兩條死線搏。</p>
+</blockquote>
+<h3 id="02-早期傳統-serving-嘅痛點">0.2 早期傳統 Serving 嘅痛點</h3>
+<p>喺專用推理系統出現前（原始 HuggingFace / 早期 FasterTransformer），KV
+Cache 管理極原始、以<strong>靜態連續分配</strong>（Contiguous
+Buffer）為主：</p>
+<ul>
+<li><strong>靜態連續顯存分配</strong>：系統唔知用戶會生成幾多個
+token，只能<strong>以模型最大長度（如 2048 / 4096）預先喺 GPU
+申請一大嚿連續記憶體</strong>。</li>
+<li><strong>嚴重記憶體浪費（超過 60%–80% 顯存虛耗）</strong>：
+<ul>
+<li><strong>內部碎片（Internal Fragmentation）</strong>：預留 4k
+長度，但用戶講 200 字就停 → 大半空著。</li>
+<li><strong>預留浪費（Reservation Waste）</strong>：解碼未生成嘅 token
+空間都要提前霸咗。</li>
+<li><strong>外部碎片（External
+Fragmentation）</strong>：唔同長度請求頻繁申請/釋放<strong>連續</strong>記憶體
+→ 顯存千瘡百孔 → 大請求分配唔到。</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>⚠️ 呢 60–80% 浪費，正正係上文 <code>cache tab</code> 一直講「KV 食
+VRAM 爆燈」嘅源頭——<strong>唔係模型大，係 cache 管理原始</strong>。</p>
+</blockquote>
+<h3 id="03-vllm-嘅突破pagedattentionos-式分頁">0.3 vLLM
+嘅突破——PagedAttention（OS 式分頁）</h3>
+<p>UC Berkeley 團隊喺 <strong>SOSP 2023</strong> 提出 <strong>vLLM +
+PagedAttention</strong>（詳見 §3.1）：</p>
+<blockquote>
+<p><strong>核心思想：借鑒作業系統虛擬記憶體分頁（Paging）</strong></p>
+<ul>
+<li>將 KV Cache 切做固定大小區塊（<strong>KV Blocks /
+Pages</strong>，例如每塊 16 / 32 token）。</li>
+<li>喺硬體層面，呢啲 block <strong>唔需要連續</strong>放喺
+GPU，而係透過一張<strong>邏輯→物理映射表</strong>（Block
+Table）動態定址。</li>
+<li>專門手寫 CUDA Kernel（PagedAttention），計 attention 時按 Block
+Table <strong>跳躍讀取分散嘅顯存區塊</strong>。</li>
+</ul>
+</blockquote>
+<pre class="text"><code>[ 邏輯 Block Table ]                    [ 物理 GPU 顯存 (非連續) ]
+Logical Block 0 (Token 0~15)   ──映射──►  Physical Block #7
+Logical Block 1 (Token 16~31)  ──映射──►  Physical Block #2
+Logical Block 2 (Token 32~47)  ──映射──►  Physical Block #19</code></pre>
+<p><strong>價值與突破</strong>：</p>
+<ul>
+<li><strong>消滅碎片</strong>：顯存浪費率由 ~70% 降至
+<strong>&lt;4%</strong>，GPU 可塞 2–4× 並發 batch → 吞吐大升。</li>
+<li><strong>寫時複製（Copy-on-Write）</strong>：多 request
+共享前綴（Beam Search / Parallel Sampling）可共享底層同一物理
+block，直到要寫新 token 先觸發複製。</li>
+</ul>
+<h3 id="04-sglang-嘅突破radixattention樹狀前綴複用">0.4 SGLang
+嘅突破——RadixAttention（樹狀前綴複用）</h3>
+<p>vLLM 解決了「<strong>單一 request 內</strong>」嘅碎片；但現代
+<strong>Agent 應用充斥跨 request 前綴共用</strong>（多輪對話、system
+prompt 重複、few-shot、ToT 分支）。每次新 request，傳統系統都將相同
+prompt 重跑一次 prefill。LMSYS <strong>SGLang</strong> 用
+<strong>RadixAttention（基數樹自動前綴快取）</strong> 解決（詳見
+§3.2）：</p>
+<pre class="text"><code>               [ Root ]
+                  │
+    &quot;You are a helpful assistant...&quot; (共用 System Prompt)
+                  │
+         ┌────────┴────────┐
+         │                 │
+    (用戶 A: 對話輪次 1)    (用戶 B: 對話輪次 1)
+         │                 │
+    (用戶 A: 對話輪次 2)    (用戶 B: 對話輪次 2)</code></pre>
+<ul>
+<li><strong>將 KV Cache 管理結構化成 Radix Tree（基數樹 /
+壓縮字典樹）</strong>：每個節點 = 一段連續 token 嘅 KV Cache。</li>
+<li><strong>自動發現與複用（Zero-Config Prefix Caching）</strong>：新
+request 拎 token 序列走訪樹狀節點，凡匹配到嘅前綴節點<strong>直接攞現成
+KV 跳過 prefill</strong>；只有未匹配嘅分歧尾綴先要 prefill。</li>
+<li><strong>統一快取 + 逐出策略</strong>：顯存滿 → 樹扮 LRU
+快取池，優先逐出<strong>葉節點</strong>（引用計數 0 +
+最久未訪問），<strong>保留高頻公共前綴</strong>（system prompt）。</li>
+<li><strong>價值</strong>：多輪對話 / agent
+工具鏈工作負載下，<strong>TTFT（首字延遲）降數倍</strong>，慳好多
+prefill 算力。</li>
+</ul>
+<h3 id="05-xllm-及其他新一代快取管理">0.5 xLLM 及其他新一代快取管理</h3>
+<p>除 vLLM / SGLang，業界對 KV Cache 有好多工程探索（詳見 §3.5 /
+§4）：</p>
+<ul>
+<li><strong>xLLM /
+自研推理核心（分層架構優化）</strong>：大型雲端廠商（位元組、阿里等）自研引擎針對自家硬體/架構客製：
+<ul>
+<li><strong>PD 分離（Prefill-Decode Disaggregation）</strong>：Prefill
+節點打滿算力計首字，之後用高速 <strong>RDMA</strong> 將 KV Cache
+直接送到專責逐字輸出嘅 Decode
+節點——<strong>解決兩者對算力/頻寬需求唔同引起嘅資源競爭</strong>。</li>
+</ul></li>
+<li><strong>Hierarchical Cache（層級快取：GPU HBM → Host RAM → NVMe
+SSD）</strong>：GPU 滿唔直接丟，非同步將唔活躍 context
+<strong>Swap-out</strong> 去主機 RAM 甚至 NVMe SSD（DeepSpeed-FastGen /
+vLLM Chunked Swap），新 request 再換入。</li>
+<li><strong>壓縮與量化（KV Cache Quantization &amp; Pruning）</strong>：
+<ul>
+<li><strong>FP8 / INT4 量化</strong>：K/V 由 FP16/BF16 壓至
+INT4/INT8/FP8 → KV 佔用降至 <strong>1/2～1/4</strong> → batch
+成倍升。</li>
+<li><strong>稀疏 KV（StreamingLLM / H2O）</strong>：長文推理只留
+attention 權重極高嘅「Heavy Hitters」+ 最開頭嘅 <strong>Sink
+Tokens</strong>，中間唔常駐——<strong>用固定長度換無限上下文</strong>。</li>
+</ul></li>
+</ul>
+<h3 id="06-主流架構橫向對比">0.6 主流架構橫向對比</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">維度</th>
+<th style="text-align: left;">原始連續分配（Naive）</th>
+<th style="text-align: left;">vLLM（PagedAttention）</th>
+<th style="text-align: left;">SGLang（RadixAttention）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>底層資料結構</strong></td>
+<td style="text-align: left;">靜態連續 Tensor</td>
+<td style="text-align: left;">邏輯–物理分頁映射表（Block Table）</td>
+<td style="text-align: left;">動態基數樹（Radix Tree）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>顯存碎片控制</strong></td>
+<td style="text-align: left;">極差（60%–80% 碎片浪費）</td>
+<td style="text-align: left;">極佳（&lt;4%）</td>
+<td style="text-align: left;">極佳（繼承分頁 + 動態管理）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>前綴快取機制</strong></td>
+<td style="text-align: left;">無</td>
+<td style="text-align: left;">後期引入 Hash-based APC（Hash 比對）</td>
+<td
+style="text-align: left;"><strong>原生樹狀檢索</strong>（自動匹配任意長度公共前綴）</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>最擅長業務場景</strong></td>
+<td style="text-align: left;">單次短文本基準測試</td>
+<td style="text-align: left;">通用高吞吐批量離線推理</td>
+<td style="text-align: left;"><strong>複雜 Agent
+工作流、多輪對話、結構化輸出</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 呢三行就係成個 docs 一直講「<strong>vLLM = 高吞吐 batch、SGLang =
+prefix 重嘅 agentic</strong>」嘅根——由 block 對齊（vLLM）vs token
+粒度樹狀（SGLang）分化出嚟。托管方舟收埋引擎（xLLM
+主打），你真實要知嘅係：<strong>任何引擎都要 stable prefix 先行到
+cache</strong>（§6）。</p>
+</blockquote>
+<hr />
+<h2 id="1-cache-類型總覽一張地圖-5-類表">1. Cache 類型總覽（一張地圖）—
+5 類表</h2>
+<p>一次過睇晒成個 cache 世界有幾種「cache」，各屬邊層：</p>
+<table>
+<thead>
+<tr>
+<th>類</th>
+<th>暫存咩</th>
+<th>層</th>
+<th>你控制</th>
+<th>慳咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>① Token / Response cache</strong></td>
+<td>已計過、唔使重計嘅 prompt token（同 session 前綴）</td>
+<td>provider 計費 / framework（Responses API 上下文緩存）</td>
+<td>✅ 直接（默認開、<code>output_schema</code> 會關）</td>
+<td><strong>慳 token 錢</strong>（命中率 50–95%）</td>
+</tr>
+<tr>
+<td><strong>② Input / Prefix cache</strong></td>
+<td>相同 prompt <strong>前綴</strong>嘅 KV（system、tool schema）</td>
+<td>引擎層（vLLM PagedAttention / SGLang RadixAttention / 本地 llama.cpp
+另計）</td>
+<td>⚠️ 間接（prompt 排位）</td>
+<td><strong>慳 prefill（唔使重算）</strong></td>
+</tr>
+<tr>
+<td><strong>③ Memory / KV cache</strong></td>
+<td>Decode 期間嘅 Key/Value</td>
+<td>GPU VRAM</td>
+<td>❌ 托管；自建可 GQA/量化/streaming</td>
+<td><strong>慳 VRAM / 並行</strong></td>
+</tr>
+<tr>
+<td><strong>④ 隱式 cache</strong></td>
+<td>cached input ≈ 標準價 <strong>~20%</strong>，自動、不可關</td>
+<td>Volcengine / 方舟計費特性</td>
+<td>❌ 自動（冇得控制）</td>
+<td><strong>慳計費</strong>（方舟 implicit cache 概念）</td>
+</tr>
+<tr>
+<td><strong>⑤ output_schema 自動關緩存</strong></td>
+<td>設 <code>output_schema</code> → 同緩存機制衝突 → <strong>自動關
+context cache</strong></td>
+<td>framework / Responses API</td>
+<td>✅（你自己選擇「準 vs 慳」）</td>
+<td>取捨：<strong>畀準度、冇咗慳錢</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>一句分清</strong>：「①②③ 係『點慳油』（慳算力/慳錢），④
+係平台自動送嘅折扣，⑤
+係一個你會唔小心跌入嘅『陷阱開關』。三層唔好撈亂——sales
+講『cache』要講得清係邊一層。」</p>
+</blockquote>
+<hr />
+<h2
+id="2-token--response-cache框架層直接控制-usage_metadata命中率-5095">2.
+Token / Response Cache（框架層，直接控制）— usage_metadata、命中率
+50–95%</h2>
+<p><strong>暫存咩</strong>：已送過、唔使重計嘅 prompt token（同 session
+前綴）。<strong>屬於 provider 計費層 + framework
+層</strong>——你喺呢層係<strong>直接控制</strong>。</p>
+<ul>
+<li>VeADK Responses API 模式 <strong>默認開</strong> session
+上下文緩存；每輪 <code>usage_metadata</code> 有
+<code>cached_content_token_count</code> /
+<code>prompt_token_count</code>。</li>
+<li><strong>機制</strong>：平台記憶已送過嘅 prompt 前綴；下輪 request
+只送「新增部分」+ cache token 平價/半價計。多輪對話 + 複雜工具調用 →
+重複 token 明顯減少 → <strong>慳 AFP</strong>。</li>
+<li><strong>命中率高 = 慳 token 錢</strong>。</li>
+</ul>
+<p><strong>睇命中率</strong>（每輪 response event 嘅
+<code>usage_metadata</code>）：</p>
+<pre><code>cached_content_token_count   # 命中緩存嘅 token 數
+prompt_token_count           # 當前輸入總 token 數
+命中率 = cached / prompt</code></pre>
+<p><strong>目標</strong>：多輪對話理想 <strong>50–95%</strong>；低過 50%
+→ 檢查係咪每輪塞咗大 object（例如成個 file 入 tool return）。</p>
+<p><strong>你控制嘅（§6 詳述）：</strong></p>
+<ul>
+<li>唔好每輪塞大 file / 大 tool return 入 context。</li>
+<li><code>output_schema</code> 會<strong>自動關緩存</strong>（取捨「準確
+vs 慳」，見 §5）。</li>
+<li>動態嘢放 prompt 後面；system 前綴保持穩定（見 §7 蝴蝶鏈）。</li>
+</ul>
+<blockquote>
+<p><strong>Sale 一句</strong>：「token cache
+係『同樣一批鐵，你點樣唔使重跑』——呢個先係你方案度日日見錢嘅位。命中率
+50–95%，認清佢先算慳到。」</p>
+</blockquote>
+<hr />
+<h2
+id="3-input--prefix-cache引擎層間接控制-radixattention--prefix-tree--cache-aware-prompting">3.
+Input / Prefix Cache（引擎層，間接控制）— RadixAttention / prefix tree /
+cache-aware prompting</h2>
+<p><strong>暫存咩</strong>：相同 prompt 前綴（system prompt、tool
+schemas）嘅
+<strong>KV</strong>。<strong>屬於引擎層</strong>，你係<strong>間接控制</strong>。</p>
+<blockquote>
+<p>💡 <strong>先分清楚四大引擎 paradigm</strong>：<strong>vLLM / SGLang
+/ llama.cpp / xLLM</strong> 代表現代 LLM 推理主流路線——<strong>vLLM =
+企業級高吞吐 serving、SGLang = prefix 重嘅 agentic 執行、llama.cpp =
+邊緣 / 消費級便攜部署、xLLM = BytePlus 自研企業級（PD 分離 +
+MoE）</strong>。各自嘅 KV-cache 策略完全不同，下面 §3.1–3.5 逐個拆，§3.6
+一表睇晒。</p>
+</blockquote>
+<ul>
+<li><strong>引擎 prefix caching</strong>：<strong>SGLang
+RadixAttention</strong>
+用<strong>前綴樹</strong>自動複用<strong>任何共享 prefix</strong>；vLLM
+<strong>PagedAttention / Automatic Prefix Caching</strong> 把 KV cache
+拆頁按需分配、hash 對齊複用；llama.cpp（本地線）就靠 slot 制 cache +
+disk 快照；<strong>xLLM（BytePlus）用 xTensor「邏輯連續 / 物理離散」+
+global KV 管理</strong>。</li>
+<li><strong>呢層命中 = 引擎唔重算 = 平台成本降</strong>（慳 prefill，減
+TTFT）。</li>
+<li><strong>你嘅槓桿 = cache-aware
+prompting（stand嘢唔好亂郁）</strong>：</li>
+</ul>
+<h3 id="31-vllm-深入pagedattention--automatic-prefix-caching">3.1 vLLM
+深入（PagedAttention + Automatic Prefix Caching）</h3>
+<p><strong>邊樣嘢</strong>：vLLM 係開源高吞吐推理引擎（企業級 serving
+代表，BytePlus ServingKit / 方舟底下常用）。設計起點：傳統推理
+<strong>60–80% GPU memory 嘥咗喺 KV cache
+嘅內部／外部碎片</strong>——所以佢成個核心係「點樣把碎片化嘅 VRAM
+用到盡」：</p>
+<table>
+<thead>
+<tr>
+<th>vLLM 機制</th>
+<th>做咩</th>
+<th>同 cache 嘅關係</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PagedAttention</strong></td>
+<td>KV cache 拆做 block 分頁，按需分配（似 OS 虛擬記憶體）</td>
+<td><strong>慳碎片 + 提高 batch 吞吐</strong>；唔係「唔重算」</td>
+</tr>
+<tr>
+<td><strong>Automatic Prefix Caching</strong></td>
+<td>每個 KV block 記住 prefix hash；request 入嚟先查有冇 hash 相同嘅
+blocks → 直接複用</td>
+<td><strong>慳 prefill</strong>：相同系統 prompt / 工具 schema
+唔使重算</td>
+</tr>
+<tr>
+<td><strong>Chunked Prefill</strong></td>
+<td>長 prefill 拆開同 decode 混跑</td>
+<td>降低長 request 霸住 GPU 嘅問題</td>
+</tr>
+<tr>
+<td><strong>Copy-on-Write（CoW）</strong></td>
+<td>parallel sampling（beam search、<code>n&gt;1</code>）嘅 sibling
+路徑共享同一批 physical prompt block，岔開先複製</td>
+<td>慳 multi-sample 嘅重複 KV</td>
+</tr>
+</tbody>
+</table>
+<p><strong>詳細 lifecycle</strong>：</p>
+<ol type="1">
+<li><strong>動態接手 + 調度</strong>：request 入 async
+engine，<strong>唔係 request 層 batch，係 iteration 層
+batch</strong>（continuous batching）——prefill request 同 active decode
+喺同一執行 cycle 交錯跑。</li>
+<li><strong>分頁分配</strong>：引擎當 VRAM 係 OS 虛擬記憶體。每條
+sequence 嘅 KV cache 斬做<strong>固定邏輯 block</strong>（通常 16 / 32
+token），token 一路出，<code>BlockAllocator</code>
+一路<strong>非連續</strong>派 physical frame。</li>
+<li><strong>PagedAttention 執行</strong>：標準 MHA kernel
+要連續記憶體，vLLM 用客製 GPU kernel（CUDA / Triton）直接收一條
+<strong>page table</strong>（block pointer 陣列），generate
+期間<strong>就地 gather 跨碎片嘅 K/V</strong>、零 memory copy。</li>
+<li><strong>釋放 / Forking</strong>：并行 sampling 用
+<strong>CoW</strong>——sibling 路徑共享前段 physical prompt
+block，出到分歧 token 先分支複製。</li>
+</ol>
+<p><strong>命中條件（關鍵）</strong>：vLLM prefix cache 以 <strong>block
+為單位</strong>（例如 16 token / block），命中要 <strong>前綴完全一致 +
+對齊 block 邊界</strong>。所以：</p>
+<ul>
+<li>system prompt / tool schema
+<strong>喺頭上、一字唔改先命中</strong>；</li>
+<li>中間加咗個 timestamp / session id → 之後全部 miss；</li>
+<li>長度唔到一個 block（&lt;16 token）嘅共享尾巴命中唔到。</li>
+</ul>
+<h3 id="32-sglang-深入radixattention--前綴樹複用嘅鼻祖">3.2 SGLang
+深入（RadixAttention — 前綴樹複用嘅鼻祖）</h3>
+<p><strong>邊樣嘢</strong>：SGLang 主打複雜 agentic
+workflow（多輪對話、RAG 共享 system prompt、多 agent、constrained
+decoding）——<strong>prefix 重</strong>嘅執行場景。佢嘅
+<code>RadixAttention</code> 用 <strong>radix tree（前綴樹）</strong>
+管理 KV cache：</p>
+<table>
+<thead>
+<tr>
+<th>SGLang 機制</th>
+<th>做咩</th>
+<th>同 vLLM 分別</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RadixAttention</strong></td>
+<td>所有 request 嘅 prefix
+記喺一棵樹度，<strong>任何共享前綴自動複用</strong>，唔淨係 block
+邊界整齊先得</td>
+<td><strong>token 粒度</strong>命中，唔使對齊 block（vLLM 要）</td>
+</tr>
+<tr>
+<td><strong>LRU / weighted eviction</strong></td>
+<td>cache 滿就剪走唔常用嘅 leaf，<strong>保留 common
+root</strong>（system / tool schema）</td>
+<td>唔係成棵清，root 長命</td>
+</tr>
+<tr>
+<td><strong>多輪 session reuse</strong></td>
+<td>同一會話唔使重傳歷史，直接複用舊 KV</td>
+<td>多輪對話慳晒 prefill</td>
+</tr>
+<tr>
+<td><strong>Compressed grammar FSM</strong></td>
+<td>regex 編譯成跳轉 FSM 喺 GPU 直接 mask invalid token</td>
+<td>結構化輸出零 Python 折返</td>
+</tr>
+</tbody>
+</table>
+<p><strong>詳細 lifecycle</strong>：</p>
+<ol type="1">
+<li><strong>Radix tree lookup</strong>：SGLang 喺 <strong>CPU host
+memory</strong> 維持一棵 global radix tree（compressed trie），索引緊
+GPU memory 上所有 KV block。prompt 入嚟 → scheduler
+沿樹搵<strong>最長匹配 prefix</strong>。</li>
+<li><strong>Zero-prefill 複用</strong>：如果 token 0–2048（例如共享
+system prompt + 注入 context）已經喺樹度，直接複用佢哋嘅
+KV，<strong>跳過嗰啲 token 嘅矩陣運算</strong> → TTFT 大降。</li>
+<li><strong>Chunked 執行 + 快 decode</strong>：淨係 prefill 分歧嗰段
+tail（例如新 user 問題）。配 EAGLE 等優化嘅 spec-decode +
+加速結構化輸出。</li>
+<li><strong>逐葉 eviction</strong>：GPU memory 到
+watermarks，<strong>唔係成條 request 清走</strong>，係 <strong>LRU tree
+eviction</strong> 剪 leaf 節點、留住 common root（例如常駐 system
+instruction / tool schema）。</li>
+</ol>
+<p><strong>強項場景</strong>：長 system prompt + 好多 request 共享 + 長
+context 多輪——SGLang 喺綁幾多前綴 reuse 上出名準。</p>
+<h3 id="33-vllm-vs-sglang--prefix-cache-高手對決">3.3 vLLM vs SGLang —
+prefix cache 高手對決</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>vLLM</th>
+<th>SGLang</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>KV 核心</strong></td>
+<td>PagedAttention（分頁）</td>
+<td>RadixAttention（radix 樹）</td>
+</tr>
+<tr>
+<td><strong>prefix 複用粒度</strong></td>
+<td>block 級（要對齊）</td>
+<td>token 級（樹狀，靈活）</td>
+</tr>
+<tr>
+<td><strong>多輪 reuse</strong></td>
+<td>有（automatic prefix caching）</td>
+<td>有（+ session 層更徹底）</td>
+</tr>
+<tr>
+<td><strong>適合一啲</strong></td>
+<td>高吞吐、並行 request 多、主流兼容廣</td>
+<td>長 context、低延遲、prefix 高度共享</td>
+</tr>
+<tr>
+<td><strong>托管你睇唔睇到</strong></td>
+<td>方舟/ServingKit 底下，你唔使選</td>
+<td>方舟/ServingKit 底下，你唔使選</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>托管結論</strong>：方舟 / BytePlus ServingKit
+底下你<strong>揀唔到引擎都冇需揀</strong>——但要知道<strong>兩種引擎都要「穩定
+prefix」先行到 cache</strong>。所以無論用邊個，最抵嘅動作都係
+<strong>system/tool schema
+穩定放頭、動態嘢推後</strong>（下面張表）。</p>
+</blockquote>
+<p><strong>你嘅槓桿 = cache-aware
+prompting（stand嘢唔好亂郁）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>動作</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>System / instruction 穩定</strong></td>
+<td>system 部分 = 緩存區，穩定先命中</td>
+</tr>
+<tr>
+<td><strong>動態內容放 prompt 後面</strong></td>
+<td>前面變 = 成個 prefix miss</td>
+</tr>
+<tr>
+<td><strong>首段放「永不變嘅」</strong></td>
+<td>tool schema 唔好每輪改、唔好加 session id/timestamp 落 prefix</td>
+</tr>
+<tr>
+<td>唔好每次 run 都重放成串歷史</td>
+<td>靠 session cache / compaction</td>
+</tr>
+<tr>
+<td>結構化需求少用 <code>output_schema</code></td>
+<td><code>output_schema</code> 會關緩存（要權衡）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>爛鬼例子：system prompt 每輪加 timestamp / session id → prefix 唔同 →
+KV-cache 唔會 hit → 每次都重新計算。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ <strong>托管方案你唔會親眼見到 prefix cache</strong>，但
+<code>usage_metadata</code> 嘅 cached count 就係呢層嘅「影子」。</p>
+</blockquote>
+<h3 id="34-llamacpp-深入gguf--混合-cpugpu-邊緣推理">3.4 llama.cpp
+深入（GGUF + 混合 CPU/GPU 邊緣推理）</h3>
+<p><strong>邊樣嘢</strong>：llama.cpp 係 <strong>pure
+C/C++、零依賴</strong> 嘅推理框架（底層
+<code>ggml</code>），主打硬件多樣性 + 量化——代表<strong>便攜 / 邊緣 /
+消費級</strong>嗰條線。呢層引擎睇落咁「basic」，但對 cache
+一樣有自己打法：</p>
+<table>
+<thead>
+<tr>
+<th>llama.cpp 機制</th>
+<th>做咩</th>
+<th>同 vLLM / SGLang 分別</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GGUF <code>mmap</code> 直讀</strong></td>
+<td>模型封入 GGUF（k-quants / IQ-quants / Q4_K_M 等 block
+量化），支援直接 memory-mapping 載入</td>
+<td>秒級載入、host RAM
+需求極低；「節儉」主力喺<strong>權重量化</strong>，唔係 KV 管理</td>
+</tr>
+<tr>
+<td><strong>KV cache：static contiguous / ring-buffer</strong></td>
+<td>傳統上一條固定連續 KV buffer，長度跟 <code>-c</code>；支援
+ring-buffer shifting 做無限生成；slot 制 sequence context 做細規模
+batch</td>
+<td>冇 PagedAttention 咁細致嘅分頁，靠「預霸 + 移位」</td>
+</tr>
+<tr>
+<td><strong><code>cache_prompt</code>（prefix 複用）</strong></td>
+<td>llama-server 同一 slot 下，新 request 攞共用前綴 → 淨係 prefill
+唔同尾段（default true，前綴一致先得）</td>
+<td>唔似 SGLang 樹狀；只認頭段 prefix</td>
+</tr>
+<tr>
+<td><strong><code>--cache-reuse N</code></strong></td>
+<td>就算共享片段唔喺最前（例如 RAG 中段 document），只要 ≥N token
+對得上，都用 KV shifting 複用（default 0 = off）</td>
+<td>vLLM/SGLang 冇嘅「中段移位複用」；落地建議 256</td>
+</tr>
+<tr>
+<td><strong><code>--prompt-cache</code> /
+<code>--slot-save-path</code></strong></td>
+<td>將 prompt state / slot KV 存去 disk，server 重開都慳返 prefill</td>
+<td>「cache 落 disk」——平台層冇呢招（平台係記憶體 + 計費）</td>
+</tr>
+<tr>
+<td><strong><code>-ngl / --n-gpu-layers</code> 混合計算</strong></td>
+<td>前 N 層 offload 落 GPU（Metal / CUDA / Vulkan / SYCL），其餘行
+CPU（AVX-512 / NEON）</td>
+<td>exec 期間用 <code>ggml</code> DAG build compute graph，<strong>無
+Python / heavy runtime 喺 loop</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>定位</strong>：llama.cpp <strong>唔係 ServingKit
+引擎</strong>——佢係「客自己喺 MacBook / Raspberry Pi / Jetson / Android
+上跑」嘅線（見
+§3.7）。托管方舟嘅「cache」喺平台層（§5），同呢個無關。但佢示範咗一件事：<strong>cache
+都可以係 disk 上嘅嘢</strong>，唔淨係 GPU VRAM。</p>
+</blockquote>
+<h3 id="35-xllm-深入byteplus-自研--pd-分離--邏輯連續--物理離散-kv">3.5
+xLLM 深入（BytePlus 自研 — PD 分離 + 邏輯連續 / 物理離散 KV）</h3>
+<p><strong>邊樣嘢</strong>：<strong>xLLM</strong> 係 <strong>BytePlus /
+ModelArk 全自研</strong>嘅企業級推理框架（ServingKit 主打引擎），刻意同
+vLLM / SGLang 呢啲開源引擎「同台但自家牌」。核心係 <strong>service /
+engine 解耦</strong> + <strong>PD / EPD 分離</strong>，主打大規模
+MoE（DeepSeek 級）部署：</p>
+<table>
+<thead>
+<tr>
+<th>xLLM 機制</th>
+<th>做咩</th>
+<th>同 vLLM / SGLang 分別</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xTensor 記憶管理（邏輯連續 / 物理離散）</strong></td>
+<td>KV 用「logically contiguous, physically discrete」結構：token
+produce 時按需派 physical page，並<strong>預測下一 token 所需 page 提前
+mapping</strong>；request 完成後即刻重用</td>
+<td>同 PagedAttention 一樣唔要連續 VRAM，但加咗「前瞻 mapping +
+即時重用」，碎片衝突更少</td>
+</tr>
+<tr>
+<td><strong>PD / EPD 分離</strong></td>
+<td>Prefill(_Encode)-Decode 拆做獨立 instance 池，動態調度；multimodal
+用 EPD 三段分離</td>
+<td>vLLM/SGLang 本身冇內建 PD 分離（要自己砌）；ServingKit 係用「xLLM =
+PD 分離開箱即用」賣點</td>
+</tr>
+<tr>
+<td><strong>Global KV Cache 管理（分佈式）</strong></td>
+<td>分佈式架構提供<strong>global KV cache 管理</strong>，跨 instance
+高效用 AI accelerator 記憶體</td>
+<td>D-KV（disaggregated KV）同族——KV 唔黐死喺某張卡</td>
+</tr>
+<tr>
+<td><strong>Multi-layer pipeline（異步排程疊算）</strong></td>
+<td>CPU 排程同 accelerator 運算重疊（CPU 預排下批、placeholder
+佔位）、MoE dispatch/combine 同 compute 用 dual-stream 重疊</td>
+<td>主打「滅 computational bubble」——唔單止 batch
+得滿，係排程疊到滿</td>
+</tr>
+<tr>
+<td><strong>Adaptive graph mode</strong></td>
+<td>細 kernel 自動 fuse 成單一 compute graph 一次 dispatch；多 graph
+caching 慳 compile</td>
+<td>減 kernel launch overhead，動態長度都 keep</td>
+</tr>
+<tr>
+<td><strong>Speculative decoding + EPLB / DP 負載平衡</strong></td>
+<td>優化 spec-decode 一朝出多個 token；MoE 按 expert 歷史 load
+動態平衡（EPLB）</td>
+<td>大 model 專用優化，唔係細引擎可以鬥</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅ <strong>BytePlus 落點（呢個先係你要知嘅）</strong>：方舟 /
+ServingKit 底下，<strong>xLLM 就係「自家引擎」</strong>。DeepSeek-R1 用
+PD 分離部署，官方 benchmark 對開源版 SGLang <strong>throughput 最高
++5×</strong>（最低 2 台 Hopper 機起）；xLLM Technical Report 報 Qwen
+系列 TPOT 相同下 throughput 達 <strong>1.7× MindIE / 2.2×
+vLLM-Ascend</strong>。對客嘅故事：<strong>「你買 Agent Plan，個 server
+唔止 batch + 分頁，仲係 BytePlus 自己 tune 到 PD 分離 + MoE
+負載平衡嘅引擎」</strong>。</p>
+</blockquote>
+<h3 id="36-四方對決--vllm-vs-sglang-vs-llamacpp-vs-xllm架構比較">3.6
+四方對決 — vLLM vs SGLang vs llama.cpp vs xLLM（架構比較）</h3>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th><strong>vLLM</strong></th>
+<th><strong>SGLang</strong></th>
+<th><strong>llama.cpp</strong></th>
+<th><strong>xLLM</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心定位</strong></td>
+<td>大型生產 serving：高吞吐、獨立 request 大流量</td>
+<td>複雜 agentic workflow + 多輪 + 高 prefix 共享</td>
+<td>便攜性 + 本地 / 邊緣部署，量化到盡</td>
+<td><strong>BytePlus 企業級 serving：PD 分離開箱即用、大規模
+MoE</strong></td>
+</tr>
+<tr>
+<td><strong>核心創新</strong></td>
+<td>PagedAttention（OS 式分頁）</td>
+<td>RadixAttention（樹狀 prefix 複用）</td>
+<td>GGUF 量化 + 混合 CPU/GPU 計算</td>
+<td><strong>xTensor DMA + PD/EPD 分離 + EPLB</strong></td>
+</tr>
+<tr>
+<td><strong>KV cache 策略</strong></td>
+<td>動態 block 分頁分配</td>
+<td>跨所有 request 嘅 radix tree</td>
+<td>ring-buffer / 預分配 sequence slot（可落 disk）</td>
+<td><strong>邏輯連續 / 物理離散 + 前瞻 mapping + global KV
+管理</strong></td>
+</tr>
+<tr>
+<td><strong>Batching 機制</strong></td>
+<td>Continuous（iteration 層）batching</td>
+<td>Cache-aware continuous batching</td>
+<td>Continuous batching（server 模式，較細規模）</td>
+<td>Continuous + <strong>multi-layer 異步排程疊算</strong></td>
+</tr>
+<tr>
+<td><strong>量化類型</strong></td>
+<td>AWQ / GPTQ / FP8 / INT8 / Marlin</td>
+<td>FP8 / AWQ / GPTQ / BitsAndBytes</td>
+<td><strong>GGUF K-quants（Q2_K–Q8_0）+ IQ quants + EXL2</strong></td>
+<td>FP8 為主（ByteDance 生態，MoE 優化）</td>
+</tr>
+<tr>
+<td><strong>硬件 target</strong></td>
+<td>數據中心 GPU（NVIDIA/AMD）、TPU、Gaudi</td>
+<td>數據中心 GPU（NVIDIA/AMD）</td>
+<td>Apple Silicon、CPU（x86/ARM）、消費級 GPU</td>
+<td>數據中心 GPU（<strong>NVIDIA Hopper 起</strong>，PD 分離要 ≥2
+台）、國產加速器</td>
+</tr>
+<tr>
+<td><strong>Codebase</strong></td>
+<td>Python + CUDA / C++ / Triton</td>
+<td>Python + CUDA / C++ / Triton</td>
+<td><strong>Pure C/C++（零外部依賴）</strong></td>
+<td>C/C++（scale 獨立 repository）</td>
+</tr>
+<tr>
+<td><strong>結構化輸出</strong></td>
+<td>Outlines / Guided Decoding</td>
+<td>Native FSM jump-forward grammar</td>
+<td>GBNF Grammars（C++ 直接評估）</td>
+<td>同 SGLang 兼容（托管環境你唔經手）</td>
+</tr>
+<tr>
+<td><strong>BytePlus 落點</strong></td>
+<td>方舟/ServingKit 收埋，你唔使選</td>
+<td>方舟/ServingKit 收埋，你唔使選</td>
+<td>自建本地 / edge；唔喺 ServingKit</td>
+<td><strong>方舟/ServingKit 自研主打引擎（PD 分離賣點）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>托管結論（重申）</strong>：方舟底下引擎
+<strong>收埋咗，你唔使揀</strong>——而 BytePlus 自家主打嘅係
+<strong>xLLM</strong>（PD 分離 + MoE 優化）；vLLM / SGLang
+同場做兼容。llama.cpp 係另一條客自己跑嘅線。無論邊個引擎，cache 都要
+<strong>stable prefix</strong> 先行到（§3.3
+張表照用）。你唯一真正直接控制嘅依然係 <strong>prompt 排位 +
+<code>usage_metadata</code></strong>。</p>
+</blockquote>
+<h3 id="37-揀邊個僅自建--本地先啱用托管方舟包辦">3.7
+揀邊個（<strong>僅自建 / 本地先啱用</strong>；托管方舟包辦）</h3>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>揀</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>獨立 request 嘅 API serving（企業 ChatGPT wrapper）、要 K8s
+標準編排（KServe / Helm）+ 深度 metrics（Prometheus / OTel）</td>
+<td><strong>vLLM</strong></td>
+<td>iteration 層連續 batching、並發 c&gt;30 時 token throughput
+係維度；生態最熟</td>
+</tr>
+<tr>
+<td>多 agent + tool calling（plan-and-solve / ReAct /
+AutoGen），<strong>70%+ context</strong> 係重複歷史 / system / tool
+描述</td>
+<td><strong>SGLang</strong></td>
+<td>radix tree 一次算、全家共享；多輪 + 結構化輸出最順</td>
+</tr>
+<tr>
+<td>高 prefix-share RAG：好多人 query 同一篇 10k-token 大 document</td>
+<td><strong>SGLang</strong></td>
+<td>document 嘅 KV 一次計，之後所有並發 query 攞同一份</td>
+</tr>
+<tr>
+<td>嚴格 JSON 抽取 pipeline（高吞吐、複雜 schema）</td>
+<td><strong>SGLang</strong></td>
+<td>regex FSM masking，無 Python 折返樽頸</td>
+</tr>
+<tr>
+<td><strong>BytePlus / 方舟托管大規模（DeepSeek / MoE、PD
+分離、要開箱即用）</strong></td>
+<td><strong>xLLM（方舟包辦）</strong></td>
+<td>自家引擎：PD 分離開箱即用、EPLB MoE
+負載平衡；你只需知「佢喺後面」</td>
+</tr>
+<tr>
+<td>消費級硬件（MacBook Unified Memory / 冇 VRAM 嘅 PC）</td>
+<td><strong>llama.cpp</strong></td>
+<td>Metal / 混合計算，放唔落全精度 model 都跑到</td>
+</tr>
+<tr>
+<td>Edge / 嵌入式（Raspberry Pi、Jetson、Android、機械人）</td>
+<td><strong>llama.cpp</strong></td>
+<td>超輕量 C++ binary，無 Python runtime 依賴</td>
+</tr>
+<tr>
+<td>70B 級大 model 要大縮先放得落（Q4_K_M / IQ3）</td>
+<td><strong>llama.cpp</strong></td>
+<td>對高量化容忍度最高</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️
+記住：呢張表「揀引擎」只係<strong>自建</strong>先要諗；<strong>托管方舟收埋引擎（主打
+xLLM）</strong>——你買 Agent Plan 已經打包晒「會自己 batch + 分頁 +
+spec-decode + PD 分離嘅 server」。<strong>llama.cpp 係俾「想喺自己機度跑
+demo / edge」嗰種客講嘅故事。</strong></p>
+</blockquote>
+<hr />
+<h2
+id="4-memory--kv-cachegpu-vram-層托管唔使你管-pagedattention--gqa--kv-quant--streaming">4.
+Memory / KV Cache（GPU VRAM 層，托管唔使你管）— PagedAttention / GQA /
+KV quant / streaming</h2>
+<p><strong>暫存咩</strong>：Decode 期間嘅 Key/Value（attention
+中間值）。<strong>屬於 GPU VRAM
+層</strong>，托管你<strong>完全唔使管</strong>；自建先要自己優化。</p>
+<p>Transformer 每次出 token 都要留住之前嘅 <strong>Key/Value</strong> 做
+attention——呢個 KV cache 係<strong>長 context
+嘅記憶體食電怪</strong>，隨 <strong>sequence 長度 + 並行 request
+數</strong>線性暴漲：</p>
+<pre><code>KV memory ≈ 2 (K+V) × num_layers × num_heads × head_dim × 2 bytes × tokens × concurrent requests</code></pre>
+<ul>
+<li><strong>長 context + 高並行 = KV 食 VRAM
+爆燈</strong>（同權重大細差唔多，甚至更大）。例子：7B 模型、8k
+context、同時 100 request → KV 可以食幾 GB 到十幾 GB VRAM。</li>
+<li><strong>正正解釋 128k+ 加倍率</strong>（見 pricing doc §「AFP
+係數」）——長 context 唔止 prompt 計費貴，仲令引擎要更多
+VRAM、平台要開更多卡。</li>
+</ul>
+<p><strong>引擎層慳法</strong>（自建先要你管；托管方舟自動掂）：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>原理</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GQA / MQA</strong></td>
+<td>多 query 頭共享少數 KV 頭</td>
+<td>KV 慳 <strong>4–8×</strong></td>
+</tr>
+<tr>
+<td><strong>KV quantization</strong></td>
+<td>FP8/INT8 存 KV</td>
+<td>慳 ~2×</td>
+</tr>
+<tr>
+<td><strong>PagedAttention / RadixAttention</strong></td>
+<td>分頁 / 前綴複用</td>
+<td>慳碎片 / 唔重算</td>
+</tr>
+<tr>
+<td><strong>Streaming（H2O / SnapKV）</strong></td>
+<td>唔留全部 token</td>
+<td>長 context 大減（<strong>精度 trade-off</strong>）</td>
+</tr>
+<tr>
+<td><strong>Context caching（provider）</strong></td>
+<td>同 prefix 複用</td>
+<td>你慳 token 錢（框架層可見）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>你嘅唯一間接影響 = context 短</strong>：context 短 = 單
+request KV 需求細 = 平台可以更多並行同價 pack =
+平台可以更平而唔將成本轉嫁你。呢個先係你 review「context
+唔應該咁長」背後嘅 infra story。</p>
+</blockquote>
+<hr />
+<h2 id="5-隱式-cache--output_schemavolcengine-方舟特性">5. 隱式 Cache +
+output_schema（Volcengine 方舟特性）</h2>
+<h3 id="51-方舟隱式-cacheimplicit-cache-平台自動送嘅折扣">5.1 方舟隱式
+cache（implicit cache）— 平台自動送嘅折扣</h3>
+<p>方舟（Volcengine）喺計費層有一個<strong>隱式 cache</strong>
+概念：<strong>cached input ≈ 標準價嘅
+~20%</strong>，<strong>自動、不可關</strong>（見 pricing/vendor 比較
+doc）。呢個係平台自己幫你記低重複嘅 input
+段，計費時自動打折——你<strong>冇嘢要做、亦冇得控制</strong>，純粹係「平台幫你慳」。</p>
+<p><strong>cached input 到底係咩（計費層嘅「喺 cache 嗰啲
+token」）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>點樣叫做「cached」</th>
+<th>你睇唔睇到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>引擎層（§3）</strong></td>
+<td>引擎複用咗 prefix 嘅 KV（冇重算 prefill）</td>
+<td>托管睇唔到</td>
+</tr>
+<tr>
+<td><strong>計費層（呢節）</strong></td>
+<td>平台將重複 input 段標做 cached input → 按 ~20% 收</td>
+<td>usage_metadata 嘅 <code>cached_content_token_count</code></td>
+</tr>
+<tr>
+<td><strong>兩層嘅關係</strong></td>
+<td>引擎命中唔保證計費必定打折；計費打折通常嚟自「平台層面見到重複
+input」</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>一句講晒：<strong>「cached input」= 你 request 入面嗰啲「 platform
+話『我見過呢舊嘢』而用平價收費嘅 input
+token」</strong>。所以想睇「慳咗幾多」，唔好睇 sampler
+degree，睇<strong>每次 response 嘅
+<code>usage_metadata</code></strong>：</p>
+<pre><code>cached_content_token_count   # 被平台標做 cached → 平價收費嘅 token 數
+prompt_token_count           # 加埋全部 input token
+慳咗 = cached × (標準價 - 差別)</code></pre>
+<p><strong>點令 cached input 多（間接）</strong>：都和上面 §3
+一樣——<strong>保持 prompt 前綴穩定</strong>（system prompt / tool schema
+唔好塞 timestamp、唔好亂改次序）。前綴愈穩定 → 平台見到重複 input 愈多 →
+平價收費部分愈大。</p>
+<blockquote>
+<p>⚠️ 呢啲係<strong>估算數字</strong>（~20% cached input 折扣、同命中率
+50–95%），<strong>唔係官方公開公式</strong>。真錢以方舟計費頁 +
+控制台「用量明細」為準——明確定價先睇 pricing doc 同方舟官方文檔。</p>
+</blockquote>
+<h3 id="52-隱式-cache-vs-框架層-cache--唔好撈亂">5.2 隱式 cache vs
+框架層 cache — 唔好撈亂</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>隱式 cache（方舟計費）</th>
+<th>Framework/Token cache（Responses API）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>邊度</td>
+<td>Volcengine 計費引擎</td>
+<td>VeADK / 框架 + provider 側</td>
+</tr>
+<tr>
+<td>你控制</td>
+<td>❌ 自動、不可關</td>
+<td>✅ 默認開、可關（§5.3）</td>
+</tr>
+<tr>
+<td>Rate</td>
+<td>~20%（估算）</td>
+<td>命中率 50–95%、平價/半價計</td>
+</tr>
+<tr>
+<td>用法</td>
+<td>唔使諗</td>
+<td>靠 <code>usage_metadata</code> + prompt 排位（§6）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-output_schema-自動關緩存--準-vs-慳嘅取捨">5.3 output_schema
+自動關緩存 — 準 vs 慳嘅取捨</h3>
+<p>設咗 <code>output_schema</code>（指定輸出 JSON
+schema）就同緩存機制<strong>衝突</strong>，VeADK
+<strong>自動關閉上下文緩存</strong>。</p>
+<ul>
+<li><strong>VS</strong>：framework 緩存（§2）同 provider prefix
+cache（§3）都可能受影響——所以要結構化抽取就<strong>預咗冇咗緩存慳錢</strong>。</li>
+<li><strong>幾時用邊個</strong>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>開 / 關</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多輪客服、長 prompt、工具多</td>
+<td>✅ 開緩存（默認）</td>
+</tr>
+<tr>
+<td>要 <code>output_schema</code> 強制結構</td>
+<td>⚠️ 自動關——衡量「準 vs 慳」</td>
+</tr>
+<tr>
+<td>每輪 context 都唔同（一次性）</td>
+<td>開咗都冇命中，無損失</td>
+</tr>
+<tr>
+<td>一定要合 JSON schema</td>
+<td>犧牲 cache（<code>output_schema</code>）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 替代：如果要結構化又想慳 cache，可考慮 <strong>engine 級
+constrained decoding</strong>（SGLang 強項，見 serving/inference
+tab）、<code>JSON mode</code> 或 <code>function calling</code>——睇返 AI
+concepts §2 兩條路線嘅取捨。</p>
+</blockquote>
+<hr />
+<h2 id="6-cache-命中實務點睇--點優化">6. Cache 命中實務（點睇 +
+點優化）</h2>
+<h3 id="61-點睇命中">6.1 點睇命中</h3>
+<p>每輪用 <code>usage_metadata</code> 度：</p>
+<pre class="python"><code>u = response.usage_metadata
+print(f&quot;prefix cache: {u.cached_content_token_count}/{u.prompt_token_count} (目標 50–95%)&quot;)</code></pre>
+<p><code>cached_content_token_count</code> = 命中緩存
+token；<code>prompt_token_count</code> = 實際送 model；命中率 = cached /
+prompt。</p>
+<p><strong>低命中排查</strong>：</p>
+<ul>
+<li>低過 50% → 係咪每輪塞咗大 object（成個 file 入 tool return / 每次
+run 重放成串歷史）？</li>
+<li>檢查前綴係咪有 session id / timestamp / 每輪都改嘅 tool schema →
+成個 prefix miss。</li>
+</ul>
+<h3 id="62-點優化prompt-排位規則">6.2 點優化（prompt 排位規則）</h3>
+<table>
+<thead>
+<tr>
+<th>規則</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>system 前綴穩定</strong></td>
+<td>system 部分 = 緩存區，穩定先命中</td>
+</tr>
+<tr>
+<td><strong>動態嘢放 prompt 後面</strong></td>
+<td>前面變 = 成個 prefix miss</td>
+</tr>
+<tr>
+<td><strong>唔加 session id / timestamp 落 prefix</strong></td>
+<td>每輪唔同 → KV-cache 唔會 hit</td>
+</tr>
+<tr>
+<td><strong>tool schema 唔好每輪改</strong></td>
+<td>改咗 = prefix 失效</td>
+</tr>
+<tr>
+<td>唔好每輪塞大 object / 成串歷史</td>
+<td>塞咗就強制重送</td>
+</tr>
+<tr>
+<td>結構化需求少用 <code>output_schema</code></td>
+<td><code>output_schema</code> 會關緩存（§5.3）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>✅
+正例：<code>system（永遠不變） → few-shot（少變） → RAG top_k（每次 ok，放中後） → 歷史（cache） → 今日輸入（最尾、動態）</code>。</p>
+</blockquote>
+<hr />
+<h2 id="7-蝴蝶鏈prompt-排位--prefix-hit--kv-需求降--vram-降--成本降">7.
+蝴蝶鏈（prompt 排位 → prefix hit → KV 需求降 → VRAM 降 → 成本降）</h2>
+<p>三層 cache 事實係<strong>一條龍</strong>，慳錢係蝴蝶效應：</p>
+<pre><code>prompt 排位靚（§6）
+  → prefix/input cache 命中（§3，引擎唔重算、慳 prefill）
+  → KV cache 需求降低（§4，VRAM 壓力細）
+  → 平台可以更多並行 / 慳卡
+  → 成本降（回應 128k+ 加倍率，見 pricing doc）</code></pre>
+<ul>
+<li><strong>由 framework 層開始</strong>：你 prompt 排得靚，先令下面成條
+infra 鏈慳。</li>
+<li><strong>❌ 反面</strong>：system prompt 每輪加 timestamp / session
+id → prefix 唔同 → KV-cache 唔會 hit → 每次都重新計算、全程冇慳。</li>
+</ul>
+<blockquote>
+<p><strong>決策橋</strong>：context 管理（framework 層）→ KV
+cache（memory 層）→ GPU VRAM（硬件層）係條因果鏈。你 review 一個
+agent「context 唔應該咁長」時，背後係幫緊成條 infra
+鏈慳——<strong>呢個先係 sales 可以講嘅 infra story</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="8-cache-詞彙速查">8. Cache 詞彙速查</h2>
+<table>
+<thead>
+<tr>
+<th>詞</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token / Response cache</td>
+<td>唔使重計嘅 prompt token（計費層慳錢，命中 50–95%）</td>
+</tr>
+<tr>
+<td>Prefix cache / Input cache</td>
+<td>相同 prompt 前綴嘅 KV 複用（引擎層，慳 prefill）</td>
+</tr>
+<tr>
+<td><strong>cached input</strong></td>
+<td>計費層話「見過呢舊 input」→ 平價收費嗰啲 token（方舟 ~20%）；睇
+<code>usage_metadata</code></td>
+</tr>
+<tr>
+<td>Memory / KV cache</td>
+<td>Decode 期間 Keep 嘅 Key/Value（VRAM 層）</td>
+</tr>
+<tr>
+<td>隱式 cache</td>
+<td>方舟 cached input ≈ 標準價 ~20%、自動不可關（計費特性）</td>
+</tr>
+<tr>
+<td>output_schema 自動關緩存</td>
+<td>設 JSON schema → 自動關 context cache（準 vs 慳取捨）</td>
+</tr>
+<tr>
+<td>GQA / MQA</td>
+<td>共享 KV 頭，慳 KV 記憶（4–8×）</td>
+</tr>
+<tr>
+<td>KV quantization</td>
+<td>KV 用 FP8/INT8 存，慳約 2×</td>
+</tr>
+<tr>
+<td>PagedAttention</td>
+<td>vLLM 分頁式 KV，慳碎片</td>
+</tr>
+<tr>
+<td>Copy-on-Write（CoW）</td>
+<td>vLLM 平行 sampling 共享前段 block，岔開先抄</td>
+</tr>
+<tr>
+<td>RadixAttention</td>
+<td>SGLang 前綴樹，自動複用共享 prefix</td>
+</tr>
+<tr>
+<td>Streaming（H2O/SnapKV）</td>
+<td>唔留全部 token，長 context 大減（精度 trade-off）</td>
+</tr>
+<tr>
+<td>llama.cpp</td>
+<td>純 C/C++ 本地推理庫（ggml），GGUF 量化 + 混合 CPU/GPU</td>
+</tr>
+<tr>
+<td>GGUF / K-quants</td>
+<td>llama.cpp 權重量化格式（Q4_K_M 等），RAM/VRAM 大減</td>
+</tr>
+<tr>
+<td><code>cache_prompt</code> / <code>--cache-reuse</code></td>
+<td>llama-server prefix 複用 + 中段 chunk KV shifting</td>
+</tr>
+<tr>
+<td><code>--slot-save-path</code></td>
+<td>將 slot KV 存 disk，重啟 server 都慳 prefill</td>
+</tr>
+<tr>
+<td>KV 量化（q8_0）</td>
+<td>llama.cpp <code>--cache-type-k/v</code>，KV 慳約一半</td>
+</tr>
+<tr>
+<td>Compressed grammar FSM</td>
+<td>SGLang regex→GPU FSM，mask invalid token，結構化輸出零折返</td>
+</tr>
+<tr>
+<td>xLLM</td>
+<td>BytePlus / ModelArk 自研企業級引擎，PD/EPD 分離 + MoE 優化</td>
+</tr>
+<tr>
+<td>xTensor</td>
+<td>xLLM「邏輯連續 / 物理離散」KV 分配，前瞻 mapping + 即時重用</td>
+</tr>
+<tr>
+<td>PD / EPD 分離</td>
+<td>Prefill(_Encode)-Decode 拆 instance 池，動態調度，慳碎片 + 低
+TTFT</td>
+</tr>
+<tr>
+<td>Global KV cache</td>
+<td>xLLM 分佈式 KV 管理，跨 instance 重用 accelerator 記憶體</td>
+</tr>
+<tr>
+<td>Cache-aware prompting</td>
+<td>prompt 排位令命中率升（system 穩定、動態放後）</td>
+</tr>
+<tr>
+<td>命中率</td>
+<td>cached/prompt，目標 50–95%</td>
+</tr>
+<tr>
+<td>128k+ 加倍率</td>
+<td>長 context 分段係數（≥128k 按 2×），見 pricing doc</td>
+</tr>
+<tr>
+<td>usage_metadata</td>
+<td>每輪 cached/prompt token 計數，度命中用</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-資料來源">9. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token / Input / Memory 三層 cache + 詞彙</td>
+<td><code>references/veadk-agentkit-hardware.md</code>
+§5–§7（已合併）</td>
+<td>2026-08-15</td>
+</tr>
+<tr>
+<td>上下文緩存 + compaction + usage_metadata + output_schema 衝突</td>
+<td><code>references/veadk-agentkit-vector-cache.md</code> §4/§5</td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>Cache 管理三層深入 + cache-aware prompting</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code> §4</td>
+<td>2026-08-16</td>
+</tr>
+<tr>
+<td>KV-Cache（§0 底層 + §4）+ Prefix Caching / Batch 命中（§3）</td>
+<td><code>references/veadk-agentkit-hardware.md</code> §5（已合併）</td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>方舟隱式 cache（cached input ≈ 標準價 ~20%）</td>
+<td><code>references/veadk-vendor-cost-comparison.md</code> §3.1</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>AFP 折算 / 128k+ 分段係數</td>
+<td><code>references/veadk-agentkit-pricing.md</code> §3</td>
+<td>2026-08-09</td>
+</tr>
+<tr>
+<td>Producer/Context caching + <code>usage_metadata</code></td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK 默認上下文緩存（Responses API）</td>
+<td><code>references/veadk-agentkit-uniqueness.md</code> §2.4</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM 官方（PagedAttention / prefix caching / KV quant）</td>
+<td><a href="https://docs.vllm.ai">https://docs.vllm.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>SGLang 官方（RadixAttention / prefix cache）</td>
+<td><a href="https://docs.sglang.ai">https://docs.sglang.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>vLLM vs SGLang blog（deepinfra）</td>
+<td><a
+href="https://deepinfra.com/blog/vllm-vs-sglang">https://deepinfra.com/blog/vllm-vs-sglang</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM vs SGLang 2026（spheron，碎片 / PagedAttention）</td>
+<td><a
+href="https://www.spheron.network/blog/vllm-vs-sglang-2026">https://www.spheron.network/blog/vllm-vs-sglang-2026</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>SGLang vs vLLM（atomic.chat，continuous batching）</td>
+<td><a
+href="https://atomic.chat/blog/llm-updates/sglang-vs-vllm">https://atomic.chat/blog/llm-updates/sglang-vs-vllm</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>SGLang vs vLLM comparison（localaimaster）</td>
+<td><a
+href="https://localaimaster.com/blog/sglang-vs-vllm-comparison">https://localaimaster.com/blog/sglang-vs-vllm-comparison</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM vs SGLang（llm-academy）</td>
+<td><a
+href="https://llm-academy.dev/inference/vllm-vs-sglang/">https://llm-academy.dev/inference/vllm-vs-sglang/</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM vs SGLang（techsy，structured output）</td>
+<td><a
+href="https://techsy.io/en/blog/vllm-vs-sglang">https://techsy.io/en/blog/vllm-vs-sglang</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM vs SGLang H100 benchmark（rawlinson）</td>
+<td><a
+href="https://rawlinson.ca/articles/vllm-vs-sglang-performance-benchmark-h100">https://rawlinson.ca/articles/vllm-vs-sglang-performance-benchmark-h100</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>llama.cpp 入門（learn.arm，GGUF / -ngl）</td>
+<td><a
+href="https://learn.arm.com/learning-paths/servers-and-cloud-computing/llama_cpp_streamline/2_llama.cpp_intro/">https://learn.arm.com/learning-paths/servers-and-cloud-computing/llama_cpp_streamline/2_llama.cpp_intro/</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>llama.cpp KV slot / ring-buffer（discussion 8860）</td>
+<td><a
+href="https://github.com/ggml-org/llama.cpp/discussions/8860">https://github.com/ggml-org/llama.cpp/discussions/8860</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>llama-server cache 機制（cache_prompt / --cache-reuse /
+slot-save）</td>
+<td><a
+href="https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md">https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>llama.cpp KV reuse（--cache-reuse 原理，PR 9866）</td>
+<td><a
+href="https://github.com/ggml-org/llama.cpp/pull/9866">https://github.com/ggml-org/llama.cpp/pull/9866</a></td>
+<td>2025</td>
+</tr>
+<tr>
+<td><strong>vLLM // 論文：Efficient Memory Management for LLM Serving
+with PagedAttention（SOSP 2023）</strong></td>
+<td><a
+href="https://arxiv.org/abs/2309.06180">https://arxiv.org/abs/2309.06180</a></td>
+<td>2023</td>
+</tr>
+<tr>
+<td>KV Cache 原理 / 記憶體公式（cs.toronto CMADDIS）</td>
+<td><a
+href="https://cs.toronto.edu/~cmaddis/posts/self-attention-and-kv-cache">https://cs.toronto.edu/~cmaddis/posts/self-attention-and-kv-cache</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>KV Cache + 碎片 / PagedAttention 圖解（hamzaelshafie）</td>
+<td><a
+href="https://hamzaelshafie.bearblog.dev/the-caching-problem-of-llm-inference/">https://hamzaelshafie.bearblog.dev/the-caching-problem-of-llm-inference/</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>SGLang v0.4 RadixAttention 解析（siyingfeng）</td>
+<td><a
+href="https://siyingfeng.github.io/blog/RadixAttention">https://siyingfeng.github.io/blog/RadixAttention</a></td>
+<td>2025</td>
+</tr>
+<tr>
+<td>SGLang Internals / RadixAttention（swyx system design）</td>
+<td><a
+href="https://llmsystem.github.io/2025_papers/sglang_internals.pdf">https://llmsystem.github.io/2025_papers/sglang_internals.pdf</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td><strong>xLLM Technical Report（arXiv 2510.14686）</strong></td>
+<td><a
+href="https://arxiv.org/abs/2510.14686">https://arxiv.org/abs/2510.14686</a></td>
+<td>2025-10</td>
+</tr>
+<tr>
+<td><strong>xLLM GitHub（OpenAtom / xLLM-AI）</strong></td>
+<td><a
+href="https://github.com/xLLM-AI/xllm">https://github.com/xLLM-AI/xllm</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td><strong>ServingKit 官方方案頁（xLLM 自研引擎）</strong></td>
+<td><a
+href="https://www.byteplus.com/en/solutions/ai-cloud-native-servingkit">https://www.byteplus.com/en/solutions/ai-cloud-native-servingkit</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td><strong>vke ServingKit overview（xLLM PD 分離深部署）</strong></td>
+<td><a
+href="https://docs.byteplus.com/zh-CN/docs/vke/Servingkit_overview">https://docs.byteplus.com/zh-CN/docs/vke/Servingkit_overview</a></td>
+<td>2026-07</td>
+</tr>
+<tr>
+<td><strong>veMLP xLLM PD 分離（vs vLLM / SGLang 對照）</strong></td>
+<td><a
+href="https://docs.byteplus.com/en/docs/mlp/veMLP_xLLM_Inference_Engine_PD_Separation_Deployment_for_Qwen_Model">https://docs.byteplus.com/en/docs/mlp/veMLP_xLLM_Inference_Engine_PD_Separation_Deployment_for_Qwen_Model</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td><strong>xLLM PD 分離 DeepSeek-R1（吞吐 +5×）</strong></td>
+<td><a
+href="https://docs.byteplus.com/en/docs/mlp/MLPxLLM">https://docs.byteplus.com/en/docs/mlp/MLPxLLM</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>KV-Cache 量化（KV quant）</td>
+<td><a
+href="https://huggingface.co/docs/transformers/quantization">https://huggingface.co/docs/transformers/quantization</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>GQA：Multi-Query Attention 變體</td>
+<td><a
+href="https://arxiv.org/abs/2305.13245">https://arxiv.org/abs/2305.13245</a></td>
+<td>2023</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：隱式 cache 折扣（~20% cached
+input）、命中率（50–95%）、KV 記憶估算、AFP
+折算屬第三方/參考估算，<strong>以方舟計費頁 + 控制台「用量明細」同
+<code>usage_metadata</code> 實測為準</strong>。官方明確定價同隱式 cache
+規則以方舟官方文檔為準。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · cache 機制 / 折扣 /
+命中率會走，引用前 refetch 方舟計費頁同引擎 docs（vLLM / SGLang /
+llama.cpp / xLLM）。新增 §0 KV Cache 底層（SOSP 2023 PagedAttention /
+RadixAttention / xLLM 深潛）+ 前綴快取來源（arXiv 2309.06180 等），已
+2026-09-06 更新。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

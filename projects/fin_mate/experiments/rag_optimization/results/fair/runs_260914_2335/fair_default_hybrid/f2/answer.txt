@@ -1,0 +1,14 @@
+### 點樣形容 F2Q 結果 vs 市場預期？
+根據檔案[1]，Deutsche Bank 對 Microsoft F2Q（財年2026第二季）的預期與市場預期（Cons.）對比如下：  
+- **總收入（Total Revenue）**：新預期為81,189百萬美元，舊預期為81,588百萬美元，新 vs 舊下降0.5%；市場預期新舊分別為81,360百萬美元和80,650百萬美元，新 vs 舊下降0.9%。  
+- **營業利潤（Operating Income）**：新預期為36,632百萬美元，舊預期為37,245百萬美元，新 vs 舊下降1.6%；市場預期新舊分別為37,007百萬美元和35,900百萬美元，新 vs 舊下降3.0%。  
+- **非GAAP淨利潤（Non-GAAP Net Income）**：新預期為30,239百萬美元，舊預期為30,168百萬美元，新 vs 舊上升0.2%；市場預期新舊分別為29,529百萬美元（未提及舊預期，可能無資料）。  
+
+整體而言，Deutsche Bank 的新預期相對舊預期略有下調，但部分指標（如營業利潤）的下調幅度小於市場預期。  
+
+### 主要原因？
+檔案[1]未具體提及原因。其他檔案如[3][4][6]主要涉及 earnings call 的流程和參與者，未解釋 F2Q 結果與預期差異的原因。因此，**KB 無資料**。  
+
+## 來源  
+[1] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>  
+[3] <20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt

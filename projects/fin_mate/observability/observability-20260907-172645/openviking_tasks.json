@@ -1,0 +1,134 @@
+{
+  "status": "ok",
+  "result": [
+    {
+      "task_id": "84d20896-2609-48da-b45b-658753848e23",
+      "task_type": "session_commit",
+      "status": "failed",
+      "created_at": 1788772207.5954807,
+      "updated_at": 1788772208.7662015,
+      "resource_id": "veadk__fin_mate_d84aac7afc61__fin_mate_user_388f51e018ec__testu_79a9cf2087d3__s2_ad328846aa18",
+      "meta": {},
+      "stage": "failed",
+      "result": null,
+      "error": "The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable",
+      "created_at_iso": "2026-09-07T09:10:07.595481+00:00",
+      "updated_at_iso": "2026-09-07T09:10:08.766201+00:00"
+    },
+    {
+      "task_id": "ece3c307-bccf-4af5-919a-023f612f55d7",
+      "task_type": "session_commit",
+      "status": "failed",
+      "created_at": 1788771883.582984,
+      "updated_at": 1788771884.2057784,
+      "resource_id": "veadk__fin_mate_d84aac7afc61__fin_mate_user_388f51e018ec__testu_79a9cf2087d3__s1_e8bc163c82ee",
+      "meta": {},
+      "stage": "failed",
+      "result": null,
+      "error": "The api_key client option must be set either by passing api_key to the client or by setting the OPENAI_API_KEY environment variable",
+      "created_at_iso": "2026-09-07T09:04:43.582984+00:00",
+      "updated_at_iso": "2026-09-07T09:04:44.205778+00:00"
+    },
+    {
+      "task_id": "7ff09c9f-266c-4c96-a2d2-8890acba30ba",
+      "task_type": "add_resource",
+      "status": "completed",
+      "created_at": 1788770797.1855266,
+      "updated_at": 1788770808.0008097,
+      "resource_id": "viking://resources/fin_kb",
+      "meta": {
+        "source_path": "kb"
+      },
+      "stage": "completed",
+      "result": {
+        "status": "success",
+        "errors": [],
+        "source_path": "kb",
+        "meta": {
+          "file_count": 9,
+          "dir_name": "kb",
+          "total_processable": 9,
+          "processed_files": [
+            {
+              "path": "msft_overview.md",
+              "parser": "MarkdownParser"
+            },
+            {
+              "path": "msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/20260227_DeMatteo_Research_MSFT_MSFT_Long_Informal_Idea_Bberg_02.27.26.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt",
+              "parser": "TextParser"
+            },
+            {
+              "path": "msft_txt/Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt",
+              "parser": "TextParser"
+            }
+          ],
+          "failed_files": [],
+          "unsupported_files": [],
+          "skipped_files": []
+        },
+        "root_uri": "viking://resources/fin_kb",
+        "temp_uri": "viking://temp/fin_mate_user/09070846_73cb47/kb",
+        "queue_status": {
+          "Semantic": {
+            "processed": 1,
+            "requeue_count": 0,
+            "error_count": 0,
+            "errors": []
+          },
+          "Embedding": {
+            "processed": 113,
+            "requeue_count": 0,
+            "error_count": 0,
+            "errors": []
+          }
+        },
+        "context_count": 113,
+        "usage": {
+          "tokens": {
+            "total": 73657,
+            "embedding": {
+              "total": 73657
+            },
+            "stages": {
+              "embed_resource": {
+                "embedding": {
+                  "total": 73657
+                }
+              }
+            }
+          }
+        }
+      },
+      "error": null,
+      "created_at_iso": "2026-09-07T08:46:37.185527+00:00",
+      "updated_at_iso": "2026-09-07T08:46:48.000810+00:00"
+    }
+  ],
+  "error": null,
+  "telemetry": null,
+  "profile": null
+}

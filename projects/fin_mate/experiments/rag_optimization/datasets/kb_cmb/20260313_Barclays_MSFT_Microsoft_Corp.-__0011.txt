@@ -1,0 +1,16 @@
+GE: One of the Research Analysts on the fundamental equity coverage team (and/or a member of his or her household) has a long position in the
+common equity securities of this issuer.
+H: This issuer beneficially owns more than 5% of any class of common equity securities of Barclays PLC.
+9 March 2026
+3
+Barclays | Microsoft Corp.
+
+
+I: Barclays Bank PLC and/or an affiliate is party to an agreement with this issuer for the provision of financial services to Barclays Bank PLC and/or an
+affiliate.
+J: Barclays Bank PLC and/or an affiliate is a liquidity provider and/or trades regularly in the securities of this issuer and/or in any related derivatives.
+K: Barclays Bank PLC and/or an affiliate has received non-investment banking related compensation (including compensation for brokerage services, if
+applicable) from this issuer within the past 12 months.
+L: This issuer is, or during the past 12 months has been, an investment banking client of Barclays Bank PLC and/or an affiliate.
+M: This issuer is, or during the past 12 months has been, a non-investment banking client (securities related services) of Barclays Bank PLC and/or an
+affiliate.

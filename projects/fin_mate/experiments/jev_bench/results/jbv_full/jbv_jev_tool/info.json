@@ -1,0 +1,10 @@
+{
+  "variant": "jev_tool",
+  "desc": "Jev 揀工具 + Noul",
+  "flags": {
+    "action": "jev",
+    "rag": "top5",
+    "mem": "llm",
+    "desc": "Jev 揀工具 + Noul"
+  }
+}

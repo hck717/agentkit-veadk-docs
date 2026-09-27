@@ -1,0 +1,21 @@
+Underweight - The stock is expected to underperform the unweighted expected total return of the industry coverage universe over a 12-month
+investment horizon.
+Rating Suspended - The rating and target price have been suspended temporarily due to market events that made coverage impracticable or to
+comply with applicable regulations and/or firm policies in certain circumstances including where the Investment Bank of Barclays Bank PLC is acting in
+an advisory capacity in a merger or strategic transaction involving the company.
+Industry View
+Positive - industry coverage universe fundamentals/valuations are improving.
+Neutral - industry coverage universe fundamentals/valuations are steady, neither improving nor deteriorating.
+Negative - industry coverage universe fundamentals/valuations are deteriorating.
+Below is the list of companies that constitute the "industry coverage universe":
+U.S. Software
+Adobe Inc. (ADBE)
+Alarm.com Holdings, Inc. (ALRM)
+Alkami Technology, Inc. (ALKT)
+Appian Corporation (APPN)
+Atlassian (TEAM)
+Autodesk Inc. (ADSK)
+Braze Inc. (BRZE)
+CCC Intelligent Solutions (CCC)
+Check Point Software Technologies Ltd. (CHKP)
+Cloudflare, Inc.

@@ -1,0 +1,13 @@
+我现在需要处理用户的问题：“Wells Fargo 講 E7 新 SKU 每月每位用戶幾多錢？包含咩？”首先，我要确定是否需要调用工具来获取答案。根据规则，必须使用load_knowledgebase函数查询资料，最多两次。
+
+首先，用户的问题涉及两个部分：每月费用和包含的内容。我需要先检查知识库中是否有相关信息。调用load_knowledgebase，查询关键词应为“E7 SKU 每月费用 包含内容”。
+
+查看返回的知识库结果，第一个条目来自Wells Fargo的报告，明确提到E7 SKU的价格是每月99美元，包含M365 E5、Entra Suite、Agent 365和M365 Copilot。这直接回答了用户的问题。其他条目虽然提到E7 SKU，但要么来自不同机构（如Barclays），要么内容不相关。因此，第一个知识库条目已经足够。
+
+接下来，确认是否需要第二次调用。由于已经找到所需信息，不需要继续查询。因此，整理结果，标注来源，并确保格式正确。
+
+最后，检查是否符合所有规则：使用load_knowledgebase，标注KB来源，结尾列出URI。确认无误后，生成回答。
+Wells Fargo 提及的 Microsoft 365 E7 新 SKU 每月每位用户费用为 99 美元【KB:viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md】。该 SKU 包含的内容的包括 Microsoft 365 E5、Entra Suite、Agent 365 以及 M365 Copilot【KB:viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md】。
+
+## 來源
+viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md, viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_5.md, viking://resources/fin_kb/msft_txt/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180_1.md, viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_14.md, viking://resources/fin_kb/msft_overview/msft_overview.md

@@ -1,0 +1,16 @@
+Thank you.
+A - Jonathan Neilson
+Thanks, Keith. Operator, next question, please.
+Operator
+The next question comes from the line of Mark Moerdler with Bernstein Research. Please
+proceed.
+Q - Mark Moerdler {BIO 16855032 <GO>}
+Thank you very much for taking my question, and congrats on the quarter. One of the other
+questions we believe investors want to understand is how to think about your line of sight from
+hardware CapEx investment to revenue and margins. You capitalize servers over six years, but
+the average duration of your RPO is two and a half years, up from two years last quarter. How do
+investors get comfortable that since a lot of this CapEx is AI-centric that you'll be able to capture
+sufficient revenue over the six year useful life of the hardware to deliver solid revenue and gross
+profit dollars growth, hopefully one similar to the CPU revenue? Thank you.
+A - Amy Hood {BIO 18040963 <GO>}
+Thanks, Mark. Let me start with at a high level, and Satya can add as well.

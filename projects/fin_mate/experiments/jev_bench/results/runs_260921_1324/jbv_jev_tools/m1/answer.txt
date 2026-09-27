@@ -1,0 +1,10 @@
+### 1. **E7 SKU 整合多項關鍵功能，驅動 Copilot 及 Agent 365  adoption**  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 及 M365 Copilot，其中 Agent 365 作為管理代理的控制平面，提供代理注冊、可觀察性及風險信號等 prerequisite，而 Copilot Wave 3 則強化了與第三方工具的協作。研究認為，Agent 365 和 Copilot 單獨採用率有限（分別為 $30/月和 $15/月 SKU），但透過 E7 捆綁可加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+### 2. **既有 E3/E5 用戶升級意願高，帶來 $100B  upsell 機會**  
+目前全球約有 3.25 億企業座位，其中 1.5 億為 E3/E5 用戶，是 E7 的主要潛在升級對象。2023 年 9 月，微軟披露 premium SKU 達 1.6 億座位，SKU 映射顯示 E3/E5 現已超 1.5 億座位，每年升級潛力達 $96B【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+### 3. **價格上漲催化需求，企業談判時機成熟**  
+微軟近期對 M365 進行價格上漲，迫使企業在 2026 年下半年進行談判，為 E7 等新產品的 adoption 創造催化劑【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+### 4. **Azure 供應受限

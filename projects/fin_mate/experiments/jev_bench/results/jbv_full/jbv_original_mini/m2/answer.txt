@@ -1,0 +1,5 @@
+1. **Agentic adoption 方面**：Agent 365 作為管理代理的控制平面，包含代理註冊表、代理 ID（在 Entra 中）、可觀察性、風險信號等，這些都是代理化採用的重要預先條件。若單獨使用（如每月 30 美元或 15 美元的 SKU），代理化採用 unlikely，因此預期透過 E7 SKU 可加速其採用【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **E7 bundle 方面**：E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，其安全性相關功能（如透過 Defender、Entra 等的安全 Copilot 代理）對管理組織的 AI 部署至關重要，並且有助於解決企業對 AI 安全的顧慮，從而驅動 E7 SKU 的銷售和代理化功能的採用【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+[2] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt>

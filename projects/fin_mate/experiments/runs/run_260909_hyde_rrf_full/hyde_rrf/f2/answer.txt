@@ -1,0 +1,4 @@
+Deutsche Bank 形容 F2Q 收入（$813 億）高於指導中間值 1.5%，但 Azure 增長（按不變幣種計 38% 同比）略低於買方預期（約 39%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。主要原因包括供應約束，管理層提到需要平衡 Azure 需求增長與 1P 服務、研發團隊 allocation 及設備更換的需求【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

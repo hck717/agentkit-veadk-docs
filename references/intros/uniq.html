@@ -1,0 +1,81 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>成個 stack 分 <strong>三層 +
+一隊自家模型</strong>。真正嘅賣點唔係單一 feature（A2A、MCP、OTel
+嗰啲全部係行貨），係<strong>四樣嘢疊埋一齊</strong>：一個
+framework、一個平台、一個雲、同一隊模型，全部來自同一間廠——即係「一體化」。</p>
+<h2 id="it-uniq-一四層各一句">一、四層各一句</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>一句獨特位</th>
+<th>對比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VeADK（framework）</strong></td>
+<td>基於 Google ADK 而唔係自研 runtime——生態靚兼有火山托管</td>
+<td>LangGraph/OpenAI SDK 要自拼記憶/RAG</td>
+</tr>
+<tr>
+<td><strong>AgentKit（平台）</strong></td>
+<td>由框架 <code>create_agentkit_app</code> 一 call
+上雲：CLI、Harness、Sandbox、Audit 全包</td>
+<td>LangGraph Cloud / Azure Foundry 分散</td>
+</tr>
+<tr>
+<td><strong>BytePlus（雲）</strong></td>
+<td><strong>封頂月費（AFP）+ 多模態 + GPU/sandbox 已包</strong></td>
+<td>Azure/Bedrock 標價靚但帳單散</td>
+</tr>
+<tr>
+<td><strong>自家模型</strong></td>
+<td>doubao/Seed 全梯度 + 圖（Seedream）+ 片（Seedance）+ 語音 +
+多模態向量一條龍</td>
+<td>OpenAI 冇視頻、AWS/百煉用第三方</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-uniq-二獨特vs行貨">二、「獨特」vs「行貨」</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>真獨特（人哋冇）</th>
+<th>行貨（人哋都有，唔好 over-sell）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Framework</td>
+<td>自帶 7×LTM + 8×RAG backend、<code>model_name</code> list 自動
+fallback、默認上下文緩存</td>
+<td>RAG、cache、compaction、function calling</td>
+</tr>
+<tr>
+<td>Platform</td>
+<td>出站憑證托管（Agent Identity）唔入 repo、chain-hash 審計 7
+年、zero-code Harness 可指精調模型</td>
+<td>MCP、A2A、OTel、OAuth2、IAM、sandbox</td>
+</tr>
+<tr>
+<td>Cloud</td>
+<td>封頂月費 + Seedance/Seedream 獨家 API + 中文/粵語第一身</td>
+<td>free tier、支持多模型</td>
+</tr>
+<tr>
+<td>Models</td>
+<td>Seed 全家族一個平台玩晒、同官方價托管第三方（DeepSeek）</td>
+<td>支持 GPT/GLM/Kimi 呢啲大家都支持</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-uniq-三sales-一句">三、Sales 一句</h2>
+<blockquote>
+<p>「我哋嘅賣點，就係<strong>成條 agent stack
+同一個供應商</strong>：framework、平台、GPU、模型全部用緊同一間廠嘅產品，月度成本一個數封頂。人哋每樣都好，但<strong>你要自己嵌四、五個供應商先砌到同一嚿嘢</strong>。」</p>
+</blockquote>
+<hr />
+<p><em>詳細逐項對照 +
+每項點解真係獨特，睇下方文件。最後審計：2026-08-16。</em></p>

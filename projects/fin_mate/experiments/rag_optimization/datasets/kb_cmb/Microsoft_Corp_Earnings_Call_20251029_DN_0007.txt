@@ -1,0 +1,15 @@
+All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 2 of 17
+
+
+We also have the most comprehensive digital sovereignty platform. Azure customers in 33
+countries are now developing their own cloud and AI capabilities within their borders to meet
+local data residency requirements. In Germany, for example, OpenAI and SAP will rely on Azure to
+deliver new AI solutions to the public sector. On top of this infrastructure, we are building Azure AI
+Foundry to help customers build their own AI apps and agents. We have 80,000 customers,
+including 80% of the Fortune 500. We offer developers and enterprise access to over 11,000
+models more than any other vendor, including as of this quarter, OpenAI's GPT-5 as well as xAI's
+Grok 4. For example, Ralph Lauren used Foundry to build conversational shopping experience in
+its app enabling customers to describe what they're looking for and get personalized
+recommendations. And OpenEvidence used Foundry to create its AI powered clinical assistant,
+which surfaces relevant medical information to physicians and help streamline charting.

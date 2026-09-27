@@ -1,0 +1,4 @@
+AI 效率 chart 顯示 2025 年每百萬 token 的 inference cost 為 1.2 美元【KB:msft_ai_capex.txt】。
+
+## 來源
+<msft_ai_capex.txt>

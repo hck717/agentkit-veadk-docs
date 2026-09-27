@@ -1,0 +1,13 @@
+We are the first provider to offer this type of agent control
+plane across clouds. Now let's turn to the high-value agentic experiences we are building. AI
+experiences are intent-driven and are beginning to work at task scope. We are entering an age of
+macro-delegation and micro-steering across domains. Intelligence using multiple models is built
+into multiple form factors. You see this in chat, in new agent inbox apps, coworker scaffoldings,
+agent workflows embedded in applications and IDEs that are used every day, or even in our
+command line with file system access and skills. That's the approach we are taking with our first-
+party family of Copilot spanning key domains.
+In consumer, for example, Copilot experiences span chat, news, feed, search, creation, browsing,
+shopping, and integrations into the operating system, and it's gaining momentum. Daily users of
+our Copilot app increase nearly 3x year-over-year, and with Copilot Checkout, we are partnered
+with PayPal, Shopify, and Stripe, so customers can make purchases directly within the app. With
+Microsoft 365 Copilot, we are focused on organization-wide productivity.

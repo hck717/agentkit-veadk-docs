@@ -1,0 +1,22 @@
+
+我现在需要回答用户的问题：“Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？”首先，我需要从提供的知识库中查找相关信息。
+
+首先，用户的问题涉及两个部分：Azure在F2Q的增长率，以及与指引的比较。查看知识库中的条目，第一个条目提到：“Azure growth of +38% y/y @CC was 1pt above guidance (37%), but likely a touch shy of buyside expectations that we believe were closer to ~+39%.” 这里明确指出Azure在F2Q的增长率是38%（按不变汇率），比指引的37%高出1个百分点。
+
+接下来，检查是否有其他条目提供更多信息。第二个条目也提到：“Azure growth still came in 1pt above guidance at +38% y/y @CC, this was shy of what we believe was a buyside bogey of >39%+”，进一步确认了这一点。第三个条目提到F3Q Azure指引是+37-38% y/y @CC，但用户问的是F2Q，所以重点在第一个和第二个条目。
+
+计算部分：用户的问题中没有需要计算的内容，所以不需要使用calc工具。
+
+来源方面，需要提取相关的URI。第一个条目和第二个条目都来自同一个URI：“viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md”，以及第二个条目可能来自另一个URI？不，第二个条目其实是第一个条目的延续？不，仔细看，知识库中的条目1和条目2都是关于F2Q的，其中条目1的URI是..._2.md，条目2的URI是..._1.md？需要确认。不过根据提供的工具返回结果，第一个条目和第二个条目都涉及F2Q Azure的增长，所以来源应该包括这两个URI。
+
+整理回答：Azure在F2Q的增长率是38%（按不变汇率），比指引的37%高出1个百分点，但略低于买方预期的约39%。需要标注来源。
+Microsoft F2Q 嘅 Azure 增長按不變匯率計為 38% 年增長，比指引（37%）高出 1 個百分點，但可能略低於買方預期（約 39%）。  
+【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】  
+【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_1.md】  
+
+## 來源  
+- viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md  
+- viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_1.md  
+
+
+**注**：計數工具（calc）未使用，問題無需數值計算。

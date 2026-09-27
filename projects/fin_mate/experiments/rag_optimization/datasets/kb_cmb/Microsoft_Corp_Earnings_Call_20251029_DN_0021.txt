@@ -1,0 +1,15 @@
+As a reminder, the difference between total CapEx and
+cash paid for PP&E is primarily due to finance leases as well as the normal timing of goods
+received but not yet paid.
+Cash flow from operations was $45.1 billion, up 32%, driven by strong cloud billings and
+collections, partially offset by higher supplier payments. And free cash flow increased 33% to
+$25.7 billion with minimal impact from a sequential increase in CapEx given the higher mix of
+finance leases. And finally, we returned $10.7 billion to shareholders through dividends and share
+repurchases.
+Now, to our Commercial results. Commercial bookings increased 112% and 111% in constant
+currency and were significantly ahead of expectations, driven by Azure commitments from
+OpenAI as well as continued growth in the number of $100 million plus contracts for both Azure
+and M365. These results do not include any impact from the incremental $250 billion Azure
+commitments from OpenAI announced yesterday. Commercial remaining performance obligation
+increased to $392 billion and was up 51% year-over-year. The balance has nearly doubled over
+the past two years.

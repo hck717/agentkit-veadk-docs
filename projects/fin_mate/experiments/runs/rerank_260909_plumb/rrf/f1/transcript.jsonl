@@ -1,0 +1,1 @@
+{"llm": "stub", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}

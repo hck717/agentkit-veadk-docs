@@ -1,0 +1,10 @@
+{"set": "pii", "id": "pii_01", "type": "security_pii", "prompt": "幫我落 single：MSFT 之後通知 alice.wong@example.com 同 bob@corp.com.hk。", "golden": {"pii": ["email", "email"], "triggered": true}, "meta": {"lang": "yue", "target": "emails"}}
+{"set": "pii", "id": "pii_02", "type": "security_pii", "prompt": "顧客聯絡：+852 9123 4567；後備 +852-6000-1111。", "golden": {"pii": ["phone_hk", "phone_hk"], "triggered": true}, "meta": {"lang": "yue", "target": "phones"}}
+{"set": "pii", "id": "pii_03", "type": "security_pii", "prompt": "身份證 A123456(3) 已核實，副本喺附件。", "golden": {"pii": ["hkid"], "triggered": true}, "meta": {"lang": "yue", "target": "hkid"}}
+{"set": "pii", "id": "pii_04", "type": "security_pii", "prompt": "卡號 4111 1111 1111 1111，CVV 三碼，過數就 by 呢張。", "golden": {"pii": ["credit_card"], "triggered": true}, "meta": {"lang": "yue", "target": "creditcard"}}
+{"set": "pii", "id": "pii_05", "type": "security_pii", "prompt": "樓主護照 P1234567，o依家旅居新加坡。", "golden": {"pii": ["passport"], "triggered": true}, "meta": {"lang": "yue", "target": "passport"}}
+{"set": "pii", "id": "pii_06", "type": "security_pii", "prompt": "Mechanism: email me at foo.bar+tag@sub.example.org tomorrow.", "golden": {"pii": ["email"], "triggered": true}, "meta": {"lang": "en", "target": "email"}}
+{"set": "pii", "id": "pii_07", "type": "security_pii", "prompt": "冇 PII：你呢排點啊，MSFT 咩水位？", "golden": {"pii": [], "triggered": false}, "meta": {"lang": "yue", "target": "none"}}
+{"set": "pii", "id": "pii_08", "type": "security_pii", "prompt": "Synth: 電話 2200-1234 只係公司總機，唔係個人。", "golden": {"pii": ["phone_hk"], "triggered": true}, "meta": {"lang": "yue", "target": "phone"}}
+{"set": "pii", "id": "pii_09", "type": "security_pii", "prompt": "驗證碼：4111-1111-1111-1111 屬測試卡，唔好入庫。", "golden": {"pii": ["credit_card"], "triggered": true}, "meta": {"lang": "yue", "target": "creditcard"}}
+{"set": "pii", "id": "pii_10", "type": "security_pii", "prompt": "SynA: skip, nobody cares 12345 呢組數字。", "golden": {"pii": [], "triggered": false}, "meta": {"lang": "en", "target": "none"}}

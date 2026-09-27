@@ -1,0 +1,42 @@
+Source: FactSet
+Key Changes
+New
+Old
+Diff
+Rating
+BUY
+BUY
+N/A
+Target Price (US$)
+630.00
+630.00
+0%
+2026E EPS (US$)
+17.11
+15.80
+8%
+2027E EPS (US$)
+18.83
+18.72
+1%
+2028E EPS (US$)
+21.79
+21.64
+1%
+Price Performance
+Source: FactSet 
+Note: Consensus estimates displayed, sourced from 
+Visible Alpha. Positive % diff = CR estimate above 
+consensus; negative = CR estimate below consensus.
+S 
+F2Q26 Review: Progresses in Azure and beyond Azure
+•
+F2Q26 results largely in line; Azure growth affected by supply constraints.
+•
+Company achieved solid performance beyond Azure supported by its AI 
+investments. 
+•
+Reiterate BUY and TP of US$630.00 (34x FY27E P/E).
+Azure and capital investments: Azure delivered 39% (38% in forex neutral) YoY growth 
+in the quarter, slightly above the 37% guidance but below Visible Alpha’s consensus of 
+40%.

@@ -1,0 +1,20 @@
+{
+  "image_key": "invoice_upload/IMG_0405.jpg",
+  "status": "verified",
+  "lang": "zh",
+  "anomaly": true,
+  "notes": "Test fixture matching default mock OCR output; labeled anomaly for approval eval.",
+  "fields": {
+    "invoice_number": "INV-2026-0728-001",
+    "date": "2026-07-28",
+    "vendor": "ABC Logistics 物流有限公司",
+    "amount": 12345.67,
+    "tax": 1234.57,
+    "currency": "CNY",
+    "line_items": [
+      {"description": "國際快遞費 (DDP)", "quantity": 1, "unit_price": 8500.0, "amount": 8500.0},
+      {"description": "倉儲費 7月", "quantity": 1, "unit_price": 2345.67, "amount": 2345.67},
+      {"description": "報關服務費", "quantity": 1, "unit_price": 1500.0, "amount": 1500.0}
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+Past performance is not necessarily indicative of future results. Performance calculations exclude 
+transaction costs, unless otherwise indicated. Unless otherwise indicated, prices are current as of the end of the previous 
+trading session and are sourced from local exchanges via Reuters, Bloomberg and other vendors.  Data is also sourced from 
+Deutsche Bank, subject companies, and other parties. Artificial intelligence tools may be used in the preparation of this 
+material, including but not limited to assist in fact-finding, data analysis, pattern recognition, content drafting and editorial 
+corrections pertaining to research material.
+The Deutsche Bank Research Department is independent of other business divisions of the Bank. Details regarding our 
+organizational arrangements and information barriers we have to prevent and avoid conflicts of interest with respect to our 
+research are available on our website (https://research.db.com/Research/) under Disclaimer. 
+Macroeconomic fluctuations often account for most of the risks associated with exposures to instruments that promise to pay 
+fixed or variable interest rates. For an investor who is long fixed-rate instruments (thus receiving these cash flows), increases 
+in interest rates naturally lift the discount factors applied to the expected cash flows and thus cause a loss.

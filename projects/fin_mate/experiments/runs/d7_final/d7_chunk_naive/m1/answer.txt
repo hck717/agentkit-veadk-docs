@@ -1,0 +1,4 @@
+Microsoft 係 Azure 供應受限時仍有力推 E7 加價式 upsell，原因在於 Office 套件作為其最大 franchise 之一，用戶數超過 4 億，但座位增長的上漲空間有限（主要是入門級擴張），因此捕捉更高價值成為更重要的增長驅動因素【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。E7 將 E5 功能與 Copilot 和 Agent 365 結合，代表明顯的升級銷售機會，並且通過將更多價值打包成更高價位的產品，協調了碎片化的 Office 加附加組件格局，這有助於維持 Office 業務的穩健增長（目前同比增長約中個位數），從而增強投資者信心【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。
+
+## 來源
+<20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt>

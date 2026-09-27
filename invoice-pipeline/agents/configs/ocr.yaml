@@ -1,0 +1,23 @@
+agent:
+  name: ocr_agent
+  model: seed-2-0-mini-260428
+  mock: true
+  reasoning_effort: minimal
+short_term_memory:
+  backend: sqlite
+  local_database_path: ./stm_dev.db
+long_term_memory:
+  backend: openviking
+  app_name: invoice_ltm
+storage:
+  backend: tos
+  bucket: invoice-artifacts
+  region: cn-beijing
+context_policy:
+  max_input_tokens: 8000
+  max_output_tokens: 4000
+  window_strategy: sliding
+  window_size: 20
+  compaction_interval: 5
+  overlap_size: 2
+  max_session_messages: 100

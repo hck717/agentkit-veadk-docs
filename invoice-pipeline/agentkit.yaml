@@ -1,0 +1,11 @@
+# AgentKit CLI 配置（官方格式）
+# 用 `ak deploy` 前執行 `ak config` 補齊參數
+agent_name: invoice-pipeline
+entry_point: agentkit_app.py
+description: Invoice Processing Pipeline — 5-Agent OCR/Translation/Validation/Aggregation/Approval
+launch_type: cloud
+region: cn-beijing
+env:
+  - MODEL_AGENT_NAME=seed-2-0-lite-260228
+  - MODEL_AGENT_API_BASE=https://ark.cn-beijing.volces.com/api/v3/
+  # 用 `ak config -e MODEL_AGENT_API_KEY=sk-xxx` 設定，唔好寫喺呢度

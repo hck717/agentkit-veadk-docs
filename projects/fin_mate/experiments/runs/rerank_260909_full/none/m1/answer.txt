@@ -1,0 +1,10 @@
+### 1. Azure供應受限的影響  
+Azure成長受供應約束，GPU優先分配給第一方應用和研發，以加速AI領域的產品創新，爭取更高利潤的重複軟件訂單【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。盡管Azure仍保持高增長，但增速低於市場預期，且供應限制短期內難以完全解決。  
+
+### 2. E7 SKU加價式upsell的邏輯  
+- **AI adoption的戰略布局**：Agentic adoption（代理式 adoption）的關鍵在於安全，E7 SKU整合了M365 E5、Entra Suite、Agent 365和M365 Copilot，提供了完整的安全和AI工具鏈，便於企業快速部署AI能力【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+- **上傳銷售機會**：E7 SKU瞄准現有的E3/E5用戶（約1.5億席位），提供高達1000億美元的年內銷售機會。企業為了獲得整合的AI解決方案，願意為E7 SKU支付更高費用，從而彌補Azure供應受限帶來的收入缺口【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+- **邊際利潤考慮**：Azure的邊際利潤受供應限制影響，而應用層（如M365 Copilot）的邊際利潤更高。E7 SKU將Azure與高毛利的AI應用捆綁，有助於提升整體利潤率【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+
+### 3. 市場反應與催化劑  
+- **M365漲價的推動**：2026年下半年M365漲價迫使企業進行談判，加速了NT（新技術）採用，E7 SKU成為

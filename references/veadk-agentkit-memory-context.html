@@ -1,0 +1,594 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記憶 + 上下文管理</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>記憶 + 上下文管理</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="記憶--上下文管理memory--context-stm--ltm--kb-點流入-context--實戰技巧">記憶
++ 上下文管理（Memory &amp; Context）— STM / LTM / KB 點流入 context ·
+實戰技巧</h1>
+<p>Agent
+嘅「記憶」唔係一個箱——係<strong>一條把「記得過嘅嘢」塞返入「而家個
+context」嘅流水線</strong>。呢份講<strong>行為</strong>（幾時寫入、點樣帶返、點控制
+context window、同 cache 點夾），後端清單同 <code>backend="..."</code>
+㩒法睇 <strong>db tab</strong>；佢哋係一對：<strong>db tab
+講「放邊度」，呢頁講「點流入、點慳」。</strong></p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>記憶分三層，寫入時機唔同</strong>：<strong>STM</strong>
+記「今次 session」逐輪入 context；<strong>LTM</strong> 跨 session
+自動寫入 + 自動帶返（threshold 控制）；<strong>KB</strong>
+靜態知識靠檢索（<code>load_knowledgebase</code>）先入
+context——<strong>唔係成個塞入去。</strong></li>
+<li><strong>context = 每輪 model 睇到嘅全部嘢</strong>：instruction +
+few-shot + 歷史 + RAG 片段 + 工具定義 + 今次輸入。<strong>佢越短 =
+越快、越平、越細 KV</strong>（128k+ 方舟有加倍率）。</li>
+<li><strong>記憶同 cache 要一齊諗</strong>：乾淨穩定嘅 prefix（memory
+帶返嘅歷史放固定位）→ 命中 context cache → 慳真銀；亂排就白白重算。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-一句定位">0. 一句定位</h2>
+<table>
+<thead>
+<tr>
+<th>問</th>
+<th>答</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「記住用戶」係咩意思</td>
+<td>跨 session 記得你講過嘅嘢（LTM），唔使次次重複</td>
+</tr>
+<tr>
+<td>「記住今次對話」</td>
+<td>呢個 session 嘅每輪（STM），逐輪入 context</td>
+</tr>
+<tr>
+<td>「識答公司嘢」</td>
+<td>靜態知識放 KB，要答先檢索（RAG），唔好全部塞 system</td>
+</tr>
+<tr>
+<td>「上下文管理」</td>
+<td>控制每輪 context 由幾多嘢組成：啱啱好、唔爆、重複少</td>
+</tr>
+<tr>
+<td>呢頁 vs db tab</td>
+<td>db tab = 後端矩陣（<code>viking</code>/<code>mysql</code>…）；呢頁 =
+寫/讀流程 + context 控制 + 技巧</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「我哋唔係畀個 model
+你——係畀佢『識記、識撿、識慳 context』嘅成套系統：LTM 跨 session
+記住用戶，KB 揀啱 top_k 先入，context 壓得細，cache
+命中率高——照住做，對話越長越平。」</p>
+</blockquote>
+<hr />
+<h2 id="1-記憶三層總覽flow-圖--幾時寫幾時讀">1. 記憶三層總覽（flow 圖 +
+幾時寫/幾時讀）</h2>
+<pre><code>用戶講嘢 ──► [STM 短期會話]──每輪原樣入 context────────────────────────► model
+                │
+                └─ threshold（10 條 event / 60s）到咗 ──► 壓縮寫入 [LTM 長期記憶]
+                                                              │
+                    新 session 開場 ──► LTM 自動帶返過去嘢 ─► 入 context（頭部）
+                                                              │
+用戶問事實嘢 ──► [KB 知識庫] ── load_knowledgebase 檢索 top_k ─► 入 context（中段）</code></pre>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>記咩</th>
+<th>寫入時機</th>
+<th>讀入時機</th>
+<th>統一入口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>STM 短期會話</strong></td>
+<td>今次對話每一輪（原樣）</td>
+<td>每輪 append</td>
+<td>每輪全帶</td>
+<td><code>veadk.memory.short_term_memory.ShortTermMemory</code></td>
+</tr>
+<tr>
+<td><strong>LTM 長期記憶</strong></td>
+<td>用戶偏好 / 事件摘要（跨 session）</td>
+<td>threshold 到點 / 轉 session 時自動</td>
+<td>新 session 自動帶返</td>
+<td><code>veadk.memory.long_term_memory.LongTermMemory</code></td>
+</tr>
+<tr>
+<td><strong>KB 知識庫</strong></td>
+<td>產品文檔 / FAQ / 法規（靜態）</td>
+<td>你自己入（<code>add_from_*</code>）</td>
+<td><code>load_knowledgebase</code> 工具按問題撿 top_k</td>
+<td><code>veadk.knowledgebase.KnowledgeBase</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>最易錯</strong>：想 LTM
+幫你記，要<strong>揀啱後端再綁定</strong>（見 §3.2）——<code>local</code>
+退出即冇；<code>opensearch</code> 預設要自己配 embedding；生產直接
+<code>viking</code> / <code>mem0</code>。</p>
+</blockquote>
+<hr />
+<h2 id="2-stm-短期會話-今次對話逐輪入-context">2. STM 短期會話
+——「今次對話」逐輪入 context</h2>
+<h3 id="21-行為">2.1 行為</h3>
+<ul>
+<li>每輪 user/assistant 訊息、tool call 結果<strong>原樣 append</strong>
+入 STM；下輪成個歷史帶入 context。</li>
+<li><strong>換 instance / 重啟就冇</strong>（除非後端係
+DB）——多實例部署（<code>min-instance &gt; 1</code>）唔好用
+<code>local</code>。</li>
+<li>context 越滾越長 → token 越多 + KV 越大 + 方舟 128k+ 加倍率 →
+<strong>長 session 要配 compaction（§5）+ cache（§6）</strong>。</li>
+</ul>
+<h3 id="22-後端詳細清單喺-db-tab-43">2.2 後端（詳細清單喺 db tab
+§4.3）</h3>
+<table>
+<thead>
+<tr>
+<th>幾時</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>開發 / demo</td>
+<td><code>local</code></td>
+</tr>
+<tr>
+<td>單機持久化 / 簡單 demo</td>
+<td><code>sqlite</code></td>
+</tr>
+<tr>
+<td>自建 / RDS / 多實例</td>
+<td><code>mysql</code></td>
+</tr>
+<tr>
+<td>合規審計 / 自建</td>
+<td><code>postgresql</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.memory.short_term_memory import ShortTermMemory
+
+stm = ShortTermMemory(backend=&quot;sqlite&quot;, local_database_path=&quot;./stm.db&quot;)</code></pre>
+<blockquote>
+<p>💡 STM 佔嘅 token
+通常係「歷史對話」最大浪——<strong>慳錢優先睇呢層</strong>（compaction /
+切 session，見 §5）。</p>
+</blockquote>
+<hr />
+<h2 id="3-ltm-長期記憶--跨-session-記住用戶自動">3. LTM 長期記憶 —— 跨
+session 記住用戶（自動）</h2>
+<h3 id="31-寫入自動threshold-控制">3.1 寫入（自動，threshold 控制）</h3>
+<ul>
+<li>對話進行中，按 threshold 累積後自動寫入 LTM：
+<ul>
+<li><code>MIN_MESSAGES_THRESHOLD</code>：幾多條 event 先寫（預設約
+<strong>10</strong>）</li>
+<li><code>MIN_TIME_THRESHOLD</code>：幾耐先寫（預設約 <strong>60
+秒</strong>）</li>
+</ul></li>
+<li><strong>轉 <code>session_id</code> 時自動把上一 session 寫入
+LTM</strong>——「散場記得收嘢」。</li>
+<li>摘要用<strong>細模型</strong>做（<code>doubao-seed-2-0-mini</code>），慳錢（見
+ai-concepts §5.3）。</li>
+</ul>
+<h3 id="32-讀取自動帶返--工具兜底">3.2 讀取（自動帶返 + 工具兜底）</h3>
+<ul>
+<li>新 session 開場，過去 events <strong>自動帶返 context</strong> →
+用戶唔使重複講偏好。</li>
+<li>Agent 想「主動回想」→ 用 <strong><code>load_memory</code>
+工具</strong>（VeADK 內建）：</li>
+</ul>
+<pre class="python"><code>from veadk.memory.long_term_memory import LongTermMemory
+from veadk import Agent
+
+ltm = LongTermMemory(backend=&quot;viking&quot;, app_name=&quot;support_agent&quot;)   # 生產推薦
+agent = Agent(
+    model_name=&quot;doubao-seed-2.1-pro-260628&quot;,
+    long_term_memory=ltm,
+    instruction=&quot;如果答案可能喺過往對話入面，用 load_memory 工具搵返。&quot;,
+)</code></pre>
+<h3 id="33-cli-管理agentkit">3.3 CLI 管理（AgentKit）</h3>
+<pre class="bash"><code>agentkit memory create --name user-mem --provider-type VIKINGDB_MEMORY   # 建記憶庫
+agentkit config --memory_id mem-xxx                                       # 綁定 Runtime
+agentkit memory list                                                       # 睇晒</code></pre>
+<blockquote>
+<p>⚠️ <strong>LTM
+唔係無限</strong>：檢索返嚟嘅都係「片段」唔係「全文」——寫入時摘要會<strong>冇咗細節</strong>（用戶
+ID / 引用冧巴 / 承諾），要 detail 嘅 domain 喺 summary instruction
+度講明「保留 key fields」。</p>
+</blockquote>
+<hr />
+<h2 id="4-kb-知識庫--靜態知識靠檢索唔好全文入-system">4. KB 知識庫 ——
+靜態知識靠檢索，唔好全文入 system</h2>
+<h3 id="41-兩種檢索">4.1 兩種檢索</h3>
+<pre class="python"><code>from veadk import Agent
+from veadk.knowledgebase import KnowledgeBase
+
+kb = KnowledgeBase(backend=&quot;viking&quot;, index=&quot;my_kb&quot;, top_k=10)
+
+# ① 自動工具：Agent 自己睇幾時撳 load_knowledgebase
+agent = Agent(model_name=&quot;doubao-seed-2.1-pro-260628&quot;, knowledgebase=kb)
+
+# ② 程式化：直接攞片段
+hits = kb.search(&quot;公司年假有幾多日？&quot;, top_k=5)</code></pre>
+<h3 id="42-揀-top_k-係-context-慳錢位">4.2 揀 top_k 係 context
+慳錢位</h3>
+<table>
+<thead>
+<tr>
+<th>top_k</th>
+<th>context 用量</th>
+<th>準</th>
+<th>幾時</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3–5</td>
+<td>細</td>
+<td>中</td>
+<td>high-precision、問題清楚</td>
+</tr>
+<tr>
+<td>10</td>
+<td>中</td>
+<td>高</td>
+<td>一般生產（預設）</td>
+</tr>
+<tr>
+<td>20+</td>
+<td>大</td>
+<td>邊際回落</td>
+<td>要全面列舉（法規/審計）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>KB 結果＝片段唔係答案</strong>——Agent 仲要組織。所以 KB
+唔係「識答」，係「material 供應商」；答得好唔好要睇 eval tab 嘅 RAG
+檢索層（Faithfulness / Relevancy）。</p>
+</blockquote>
+<hr />
+<h2 id="5-上下文管理context-management控制-model-每輪睇乜">5.
+上下文管理（Context Management）——控制 model 每輪睇乜</h2>
+<h3 id="51-context-window-點樣被食一個-request--疊埋幾樣">5.1 context
+window 點樣被食（一個 request = 疊埋幾樣）</h3>
+<pre><code>┌─ system / instruction（agent 人設）────────┐
+├─ few-shot 例子 ────────────────────────────┤
+├─ LTM 帶返嘅歷史總結 ───────────────────────┤
+├─ KB top_k 檢索片段 ────────────────────────┤
+├─ STM 歷史對話（越滾越長）──────────────────┤
+├─ 工具 / MCP 定義 ──────────────────────────┤
+└─ 今次用戶輸入 ─────────────────────────────┘</code></pre>
+<ul>
+<li><strong>長 context = 貴 + 慢</strong>：更多 input token + 更大 KV
+cache + 更慢 TTFT + 128k+ 加倍率 → <strong>慳 context
+就係慳真銀。</strong></li>
+</ul>
+<h3 id="52-六個槓桿由平到貴">5.2 六個槓桿（由平到貴）</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>做法</th>
+<th>慳幾多</th>
+<th>成本 code</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Context caching</strong></td>
+<td>重用已送過嘅 prefix</td>
+<td>多輪 50–90%</td>
+<td>0</td>
+<td>默認、長 session（§6）</td>
+</tr>
+<tr>
+<td><strong>Prompt 精簡</strong></td>
+<td>instruction 寫短、LTM 唔好重複 system</td>
+<td>每輪幾百 token</td>
+<td>0</td>
+<td>永遠</td>
+</tr>
+<tr>
+<td><strong>KB top_k</strong></td>
+<td>唔塞全文只塞 top_k</td>
+<td>token ~30%+</td>
+<td>少</td>
+<td>知識題（§4.2）</td>
+</tr>
+<tr>
+<td><strong>Tool return 收窄</strong></td>
+<td>tool 內預先 summarize / 抽 key fields</td>
+<td>每輪</td>
+<td>中</td>
+<td>tool 回大 JSON</td>
+</tr>
+<tr>
+<td><strong>Compaction（壓縮）</strong></td>
+<td>長對話壓成 summary</td>
+<td>直接斬 token</td>
+<td>中（細 model call）</td>
+<td>長對話（10+ 輪）</td>
+</tr>
+<tr>
+<td><strong>Session 切換</strong></td>
+<td>定期開新 session</td>
+<td>從頭計</td>
+<td>0</td>
+<td>主題跳躍 / 開始重</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-compaction-深入">5.3 Compaction 深入</h3>
+<pre class="python"><code>from veadk import App, EventsCompactionConfig
+from veadk.compact import LlmEventSummarizer
+
+app = App(
+    agents=[my_agent],
+    events_compaction_config=EventsCompactionConfig(
+        compaction_interval=10,   # 幾多 event 做一次壓縮（唔好太密，3 反而貴）
+        max_events=50,
+        max_tokens=8000,
+        compactor=LlmEventSummarizer(
+            model=&quot;doubao-seed-2-0-mini&quot;,     # 細 model 做 summary，慳錢
+            system_instruction=&quot;壓縮成精簡中文摘要，保留用戶事實、ID 同承諾事項。&quot;,
+        ),
+    ),
+)</code></pre>
+<p><strong>壓縮係咪一定賺？</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>賺</th>
+<th>唔賺</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>長對話 / 工具 call 多</td>
+<td>✅ summary 縮 short context</td>
+<td></td>
+</tr>
+<tr>
+<td>每幾句就壓（interval=3）</td>
+<td></td>
+<td>❌ 額外 summary call 反而貴</td>
+</tr>
+<tr>
+<td>要 exact detail（ID / 引用）</td>
+<td></td>
+<td>❌ summary 冇細節（寫明保留 key fields）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Variant trap</strong>：compaction 用細 model
+慳錢，但<strong>唔好慳到連用戶事實都冇咗</strong>——summary instruction
+寫清「點都要保留」嘅 fields。</p>
+</blockquote>
+<h3 id="54-反模式">5.4 反模式</h3>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>點改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成個 KB 全文塞入 system</td>
+<td><code>load_knowledgebase</code> RAG 只塞 top_k</td>
+</tr>
+<tr>
+<td>STM 歷史無限滾</td>
+<td>compaction + 定期切 session</td>
+</tr>
+<tr>
+<td>LTM 帶返嘅 summary 同 system 重複</td>
+<td>二選一，重複等於嘥 token</td>
+</tr>
+<tr>
+<td>tool 回傳大 JSON 原樣入 context</td>
+<td>tool 內 summarize / 抽 key fields</td>
+</tr>
+<tr>
+<td>system prefix 每輪都改</td>
+<td>穩定 prefix 先 cache 命中（§6）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-同-cache-協同memory--cache-一齊諗">6. 同 Cache 協同（memory ×
+cache 一齊諗）</h2>
+<ul>
+<li><strong>穩定頭部 = cache 命中</strong>：LTM 帶返嘅歷史 + system +
+tool schema 放<strong>固定位置、固定內容</strong> → prefix cache
+命中（多輪 50–95%）→ 慳 token。</li>
+<li><strong>輾轉位</strong>：memory 檢索回傳夾喺 prefix 中間、或者
+prefix 每輪都唔同 → <strong>全 miss</strong>。</li>
+<li><strong><code>output_schema</code> 會自動關 context
+cache</strong>：要 structures 準 vs 慳，自己揀。</li>
+<li>隱式 cache（方舟自動，~20% 起，128k+ 變異大）冇得關——用
+<code>usage_metadata</code>
+實測命中率（<code>cached_content_token_count / prompt_token_count</code>）。</li>
+</ul>
+<blockquote>
+<p>💡 cache 文革堆野（五類 cache、三大引擎 paradigm、蝴蝶鏈）全部喺
+<strong>cache tab</strong>。呢度只記一句：<strong>記憶帶返嘅嘢放穩定
+prefix → cache 至食到。</strong></p>
+</blockquote>
+<hr />
+<h2 id="7-實戰技巧skills--tricks-記憶--上下文">7. 實戰技巧（Skills &amp;
+Tricks）— 記憶 + 上下文</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>技巧</th>
+<th>點解 / 點做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>STM 多實例唔用 <code>local</code></strong></td>
+<td>換 instance 即失憶；上 <code>sqlite</code>/<code>mysql</code>
+先持久化</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>LTM 直接上托管 <code>viking</code> /
+<code>mem0</code></strong></td>
+<td>唔使管 embedding；<code>local</code>
+退出即冇、<code>opensearch</code> 要自己 embed</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>threshold 唔好淨係信預設</strong></td>
+<td>高頻短對話調細 <code>MIN_TIME_THRESHOLD</code>；長任務調細
+<code>MIN_MESSAGES_THRESHOLD</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>轉 session 一定要自動寫 LTM</strong></td>
+<td>零 code——但前提係綁咗
+memory（<code>agentkit config --memory_id</code>）</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>KB 永遠 top_k，唔好全文</strong></td>
+<td>全文入 system 係頭號反模式</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>summary 寫明「保留 key fields」</strong></td>
+<td>防 ID / 承諾細節被壓走</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>compaction interval 唔好低過 10</strong></td>
+<td>&lt;10 額外 call 反而貴（delta）</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>memory 檢索結果放固定 prefix 位</strong></td>
+<td>保 cache 命中率 50–95%</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>長 session 定時切 session</strong></td>
+<td>主題跳躍直接由頭開始，比硬壓慳</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>用 <code>usage_metadata</code> 睇命中 + 用量</strong></td>
+<td>數字講嘢，唔好估</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong><code>load_memory</code> 工具做主動回想</strong></td>
+<td>instruction 講「答案可能喺過往對話，用 load_memory 搵」</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>測試用 <code>local</code>，上線轉托管後端</strong></td>
+<td>同一 code 換 backend 就切換，唔使改邏輯</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-sales-一句--資料來源">8. Sales 一句 + 資料來源</h2>
+<h3 id="sales-一句">Sales 一句</h3>
+<blockquote>
+<p>「模型冇記憶，Agent 至有——LTM 跨 session 自動記住用戶，KB
+揀啱片段先入 context，context 壓得細、cache
+命中高，對話越長越平越準。你淨係要揀一次後端，寫 / 讀 /
+壓縮我哋包辦。」</p>
+</blockquote>
+<h3 id="資料來源">資料來源</h3>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VeADK 記憶管理（STM / LTM / KB 後端）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK load-memory 工具用法</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/tools/load-memory">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/tools/load-memory</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VeADK Context Search（托管 RAG）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>AgentKit CLI（memory create / config --memory_id）</td>
+<td><code>references/agentkit-cli.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>VeADK API（STM / LTM / KB 構造 + load_memory）</td>
+<td><code>references/veadk-api.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>記憶後端矩陣 + 揀法</td>
+<td><code>references/veadk-agentkit-database-management.md</code>
+§4–5</td>
+<td>2026-09-06</td>
+</tr>
+<tr>
+<td>Compaction / events config</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code> §5</td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>Cache 五類 + 命中率 / 蝴蝶鏈</td>
+<td><code>references/veadk-agentkit-cache-management.md</code></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>Context / cache / 128k+ 加倍率</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：threshold 預設值（10 條 event / 60
+秒）、<code>load_memory</code> 工具名、backend 清單以 SDK
+當刻版本為準——做方案前對返 VeADK preview docs。後端「要唔要自己配
+embedding」見 db tab §4 矩陣。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-09-06 · 新 tab：記憶 + 上下文管理（配合 db
+tab 拆「後端」同「行為」）。threshold 同工具名跟 SDK 郁，落地前
+refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

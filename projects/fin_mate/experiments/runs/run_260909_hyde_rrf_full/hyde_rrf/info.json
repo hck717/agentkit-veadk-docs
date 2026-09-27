@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 15,
+  "desc": "HyDE hypothesis → 3-channel RRF(dense_q + dense_h + grep) → answer"
+}

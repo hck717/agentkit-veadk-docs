@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "F2Q26 call 入面 Microsoft 365 Copilot 付費席位有幾多？"}], "text": "KB 無資料", "prompt_tokens": 70, "completion_tokens": 4, "cached_tokens": 0, "ms": 371.5245829662308}

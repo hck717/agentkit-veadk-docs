@@ -1,0 +1,249 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>你 prompt / model / agent
+每改一版，都要有「實績」證明改完冇變差先收貨。呢個 Tab 教你<strong>點開
+dataset、點行 CI / offline / shadow eval、threshold 點設、VeADK / CLI /
+YAML 點寫</strong>。</p>
+<blockquote>
+<p>🎯 核心：<strong>慳錢之餘唔跌準</strong>。任何優化（cache /
+model_name / LoRA / prompt 排位）都先用 eval 頂住質量，再講快/平。</p>
+</blockquote>
+<h2 id="it-val-一eval-分類幾時跑邊種">一、Eval 分類：幾時跑邊種</h2>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>幾時</th>
+<th>做咩</th>
+<th>用量/成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CI eval（離線快測）</strong></td>
+<td>每次改 prompt / model / code，<code>on_push</code> / nightly</td>
+<td>跑固定 dataset，threshold 唔過就唔畀 merge / rollout</td>
+<td>每次一個 dataset</td>
+</tr>
+<tr>
+<td><strong>Offline eval（全面）</strong></td>
+<td>每週 / 每釋出版本</td>
+<td>ground truth + regression + adversarial</td>
+<td>要 call model，少但全面</td>
+</tr>
+<tr>
+<td><strong>Shadow eval（生產影子）</strong></td>
+<td>長期 production 監察</td>
+<td>抽 5–10% 真實流量平行跑，<strong>唔影響 production</strong></td>
+<td><strong>+10% 模型消耗</strong>（~額外 AFP）</td>
+</tr>
+<tr>
+<td><strong>Good/Bad 回流</strong></td>
+<td>持續</td>
+<td>Studio 用戶反饋 / 誤判 samples 回流擴充 eval 集</td>
+<td>免（整理）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>審計語：機器要
+prove，唔係話「應該好咗啲」——<code>eval experiment</code>
+出分數對照先算。</p>
+</blockquote>
+<h2 id="it-val-二指標metric-按你-agent-揀">二、指標（Metric）—— 按你 agent
+揀</h2>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>主力指標</th>
+<th>threshold 建議</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAG / 客服</td>
+<td>相關性（LLM-judge 評）、完整性</td>
+<td>≥0.8</td>
+<td>答唔答中 core</td>
+</tr>
+<tr>
+<td>OCR 字段提取</td>
+<td>Field F1、CER</td>
+<td>F1 ≥0.85</td>
+<td>逐字段扣分</td>
+</tr>
+<tr>
+<td>翻譯</td>
+<td>數字保真（<strong>必須 100%</strong>）、BLEU</td>
+<td>BLEU ≥0.75</td>
+<td>金額錯要命</td>
+</tr>
+<tr>
+<td>Validation / 覆核</td>
+<td>bug-finding rate</td>
+<td>≥0.90</td>
+<td>漏錯要命</td>
+</tr>
+<tr>
+<td>通用問答</td>
+<td>回答質量 / coherence</td>
+<td>≥0.75</td>
+<td>主觀評分</td>
+</tr>
+<tr>
+<td>對抗 / adversarial</td>
+<td>唔答錯題、過率</td>
+<td>高</td>
+<td>防「答得好自信但錯」</td>
+</tr>
+</tbody>
+</table>
+<p><code>agentkit evaluator list</code> 睇你有咩
+evaluator（<code>相关性</code> / <code>完整性</code> …）。一次可傳多個
+<code>--evaluator</code> 加權計。</p>
+<h2 id="it-val-三cliagentkit-dataset--run--experiment">三、CLI（AgentKit）——
+dataset → run → experiment</h2>
+<div class="sourceCode" id="it-val-cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-val-cb1-1"><a href="#it-val-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. dataset（eval 前綴可省略）</span></span>
+<span id="it-val-cb1-2"><a href="#it-val-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset list</span>
+<span id="it-val-cb1-3"><a href="#it-val-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset create <span class="at">--name</span> qa-set <span class="at">--schema</span> <span class="st">&quot;input,reference_output&quot;</span></span>
+<span id="it-val-cb1-4"><a href="#it-val-cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset add qa-set <span class="at">--field</span> <span class="st">&quot;input=法國首都是？&quot;</span> <span class="at">--field</span> <span class="st">&quot;reference_output=巴黎&quot;</span></span>
+<span id="it-val-cb1-5"><a href="#it-val-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset add qa-set <span class="at">--file</span> ./cases.json        <span class="co"># 大量 case 直接用 file</span></span>
+<span id="it-val-cb1-6"><a href="#it-val-cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset show qa-set <span class="at">--items</span> 50</span>
+<span id="it-val-cb1-7"><a href="#it-val-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset remove qa-set item-1 item-2 <span class="at">-y</span></span>
+<span id="it-val-cb1-8"><a href="#it-val-cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb1-9"><a href="#it-val-cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. 睇有咩 evaluator + 跑 eval</span></span>
+<span id="it-val-cb1-10"><a href="#it-val-cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> evaluator list</span>
+<span id="it-val-cb1-11"><a href="#it-val-cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval run <span class="at">--dataset</span> qa-set <span class="at">--evaluator</span> 相关性 <span class="at">--target</span> my-agent <span class="at">--json</span></span>
+<span id="it-val-cb1-12"><a href="#it-val-cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval run <span class="at">--dataset</span> qa-set <span class="dt">\</span></span>
+<span id="it-val-cb1-13"><a href="#it-val-cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--evaluator</span> 相关性 <span class="at">--evaluator</span> 完整性 <span class="dt">\</span></span>
+<span id="it-val-cb1-14"><a href="#it-val-cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">--concurrency</span> 10 <span class="at">--json</span>        <span class="co"># 並行加速（預設 5）</span></span>
+<span id="it-val-cb1-15"><a href="#it-val-cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb1-16"><a href="#it-val-cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. CI 用：攞 experimentId → 出結果（pipeline 判斷 PASS/FAIL）</span></span>
+<span id="it-val-cb1-17"><a href="#it-val-cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval experiment list</span>
+<span id="it-val-cb1-18"><a href="#it-val-cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval experiment show <span class="op">&lt;</span>experiment-id<span class="op">&gt;</span></span></code></pre></div>
+<blockquote>
+<p><strong>CI 編排</strong>：<code>eval run</code> 回傳
+<code>experimentId</code> → <code>eval experiment get / results</code>
+攞分 → 跟 threshold gate。低分即 fail build，stop 埋 rollout。</p>
+</blockquote>
+<h2 id="it-val-四yaml--一條-eval_pipelineci--offline--monitor">四、YAML —— 一條
+eval_pipeline（CI + offline + monitor）</h2>
+<div class="sourceCode" id="it-val-cb2"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-val-cb2-1"><a href="#it-val-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval_pipeline.yaml —— 參考 invoice / movie pipeline</span></span>
+<span id="it-val-cb2-2"><a href="#it-val-cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">eval_pipeline</span><span class="kw">:</span></span>
+<span id="it-val-cb2-3"><a href="#it-val-cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">ci</span><span class="kw">:</span><span class="co">                       # 每次 code change / nightly</span></span>
+<span id="it-val-cb2-4"><a href="#it-val-cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">trigger</span><span class="kw">:</span><span class="at"> on_push</span></span>
+<span id="it-val-cb2-5"><a href="#it-val-cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">scope</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">ocr_eval</span><span class="kw">,</span><span class="at"> translation_eval</span><span class="kw">,</span><span class="at"> validation_eval</span><span class="kw">]</span></span>
+<span id="it-val-cb2-6"><a href="#it-val-cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">test_data</span><span class="kw">:</span><span class="at"> eval/test_data/</span></span>
+<span id="it-val-cb2-7"><a href="#it-val-cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">threshold</span><span class="kw">:</span></span>
+<span id="it-val-cb2-8"><a href="#it-val-cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">ocr_field_f1</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.85</span></span>
+<span id="it-val-cb2-9"><a href="#it-val-cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">translation_bleu</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.75</span></span>
+<span id="it-val-cb2-10"><a href="#it-val-cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">validation_bug_finding_rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.90</span></span>
+<span id="it-val-cb2-11"><a href="#it-val-cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb2-12"><a href="#it-val-cb2-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">offline</span><span class="kw">:</span><span class="co">                  # 定期全面 eval</span></span>
+<span id="it-val-cb2-13"><a href="#it-val-cb2-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">trigger</span><span class="kw">:</span><span class="at"> weekly</span></span>
+<span id="it-val-cb2-14"><a href="#it-val-cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">test_data</span><span class="kw">:</span></span>
+<span id="it-val-cb2-15"><a href="#it-val-cb2-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> eval/test_data/ground_truth/</span><span class="co">       # 已知答案</span></span>
+<span id="it-val-cb2-16"><a href="#it-val-cb2-16" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> eval/test_data/regression/</span><span class="co">         # 回歸集（防 regression）</span></span>
+<span id="it-val-cb2-17"><a href="#it-val-cb2-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> eval/test_data/adversarial/</span><span class="co">        # 對抗測試（錯誤注入）</span></span>
+<span id="it-val-cb2-18"><a href="#it-val-cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb2-19"><a href="#it-val-cb2-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">monitoring</span><span class="kw">:</span><span class="co">               # 生產監察（shadow）</span></span>
+<span id="it-val-cb2-20"><a href="#it-val-cb2-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> shadow_eval</span></span>
+<span id="it-val-cb2-21"><a href="#it-val-cb2-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">sample_rate</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.05</span><span class="co">       # 5% 流量（唔影響 production），保險可 0.1</span></span>
+<span id="it-val-cb2-22"><a href="#it-val-cb2-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">metrics</span><span class="kw">:</span></span>
+<span id="it-val-cb2-23"><a href="#it-val-cb2-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> generation_success_rate</span></span>
+<span id="it-val-cb2-24"><a href="#it-val-cb2-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> user_satisfaction</span></span>
+<span id="it-val-cb2-25"><a href="#it-val-cb2-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> generation_latency</span></span>
+<span id="it-val-cb2-26"><a href="#it-val-cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb2-27"><a href="#it-val-cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ground_truth</span><span class="kw">:</span><span class="co">               # 真實樣本要版本化</span></span>
+<span id="it-val-cb2-28"><a href="#it-val-cb2-28" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">storage</span><span class="kw">:</span><span class="at"> TOS bucket</span></span>
+<span id="it-val-cb2-29"><a href="#it-val-cb2-29" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">versioning</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="it-val-cb2-30"><a href="#it-val-cb2-30" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">review_process</span><span class="kw">:</span><span class="at"> 每季由 domain expert 審核更新</span></span></code></pre></div>
+<h2 id="it-val-五veadk-python--自建-eval-runner">五、VeADK Python —— 自建 eval
+runner</h2>
+<div class="sourceCode" id="it-val-cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-val-cb3-1"><a href="#it-val-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install &quot;veadk-python[eval]&quot;   # DeepEval 評測（LLM-as-judge）</span></span>
+<span id="it-val-cb3-2"><a href="#it-val-cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio, json</span>
+<span id="it-val-cb3-3"><a href="#it-val-cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="it-val-cb3-4"><a href="#it-val-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent, Runner</span>
+<span id="it-val-cb3-5"><a href="#it-val-cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-6"><a href="#it-val-cb3-6" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> Agent(model_name<span class="op">=</span><span class="st">&quot;doubao-seed-2-0-mini&quot;</span>)</span>
+<span id="it-val-cb3-7"><a href="#it-val-cb3-7" aria-hidden="true" tabindex="-1"></a>runner <span class="op">=</span> Runner(agent, app_name<span class="op">=</span><span class="st">&quot;eval_demo&quot;</span>)</span>
+<span id="it-val-cb3-8"><a href="#it-val-cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-9"><a href="#it-val-cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_gt(d<span class="op">=</span><span class="st">&quot;eval/test_data&quot;</span>):                       <span class="co"># ground truth json</span></span>
+<span id="it-val-cb3-10"><a href="#it-val-cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [json.loads(f.<span class="bu">open</span>().read(), ) <span class="cf">for</span> f <span class="kw">in</span> Path(d).glob(<span class="st">&quot;*.json&quot;</span>) <span class="cf">if</span> f.is_file()]</span>
+<span id="it-val-cb3-11"><a href="#it-val-cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-12"><a href="#it-val-cb3-12" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> eval_case(case, sid):</span>
+<span id="it-val-cb3-13"><a href="#it-val-cb3-13" aria-hidden="true" tabindex="-1"></a>    resp <span class="op">=</span> <span class="cf">await</span> runner.run(messages<span class="op">=</span>case[<span class="st">&quot;input&quot;</span>], user_id<span class="op">=</span><span class="st">&quot;eval_user&quot;</span>, session_id<span class="op">=</span>sid)</span>
+<span id="it-val-cb3-14"><a href="#it-val-cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> case, resp</span>
+<span id="it-val-cb3-15"><a href="#it-val-cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-16"><a href="#it-val-cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> numeric_okd(truth, out):   <span class="co"># 數字保真：金額/數量 一字咁多（翻譯 100% 要求）</span></span>
+<span id="it-val-cb3-17"><a href="#it-val-cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="im">import</span> re</span>
+<span id="it-val-cb3-18"><a href="#it-val-cb3-18" aria-hidden="true" tabindex="-1"></a>    nums <span class="op">=</span> <span class="kw">lambda</span> s: <span class="bu">set</span>(re.findall(<span class="vs">r&quot;</span><span class="dv">\d</span><span class="op">+</span>(?:<span class="pp">[.,]</span><span class="dv">\d</span><span class="op">+</span>)<span class="op">?</span><span class="vs">&quot;</span>, <span class="bu">str</span>(s)))</span>
+<span id="it-val-cb3-19"><a href="#it-val-cb3-19" aria-hidden="true" tabindex="-1"></a>    t <span class="op">=</span> nums(truth)<span class="op">;</span> <span class="cf">return</span> (<span class="bu">len</span>(t <span class="op">&amp;</span> nums(out)) <span class="op">/</span> <span class="bu">len</span>(t)) <span class="cf">if</span> t <span class="cf">else</span> <span class="fl">1.0</span></span>
+<span id="it-val-cb3-20"><a href="#it-val-cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-21"><a href="#it-val-cb3-21" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> main():</span>
+<span id="it-val-cb3-22"><a href="#it-val-cb3-22" aria-hidden="true" tabindex="-1"></a>    rows, results <span class="op">=</span> load_gt(), []</span>
+<span id="it-val-cb3-23"><a href="#it-val-cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, c <span class="kw">in</span> <span class="bu">enumerate</span>(rows):</span>
+<span id="it-val-cb3-24"><a href="#it-val-cb3-24" aria-hidden="true" tabindex="-1"></a>        case, resp <span class="op">=</span> <span class="cf">await</span> eval_case(c, <span class="ss">f&quot;eval-</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">&quot;</span>)</span>
+<span id="it-val-cb3-25"><a href="#it-val-cb3-25" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> <span class="bu">str</span>(resp)                              <span class="co"># Runner 回傳 response text</span></span>
+<span id="it-val-cb3-26"><a href="#it-val-cb3-26" aria-hidden="true" tabindex="-1"></a>        results.append({</span>
+<span id="it-val-cb3-27"><a href="#it-val-cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;case&quot;</span>: case[<span class="st">&quot;id&quot;</span>], <span class="st">&quot;preserve&quot;</span>: <span class="bu">round</span>(numeric_okd(case.get(<span class="st">&quot;reference_output&quot;</span>,<span class="st">&quot;&quot;</span>), text),<span class="dv">4</span>),</span>
+<span id="it-val-cb3-28"><a href="#it-val-cb3-28" aria-hidden="true" tabindex="-1"></a>        })</span>
+<span id="it-val-cb3-29"><a href="#it-val-cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(json.dumps(results, ensure_ascii<span class="op">=</span><span class="va">False</span>, indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="it-val-cb3-30"><a href="#it-val-cb3-30" aria-hidden="true" tabindex="-1"></a>    bad <span class="op">=</span> [r <span class="cf">for</span> r <span class="kw">in</span> results <span class="cf">if</span> r[<span class="st">&quot;preserve&quot;</span>] <span class="op">&lt;</span> <span class="fl">1.0</span>]</span>
+<span id="it-val-cb3-31"><a href="#it-val-cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;PASS&quot;</span> <span class="cf">if</span> <span class="kw">not</span> bad <span class="cf">else</span> <span class="ss">f&quot;FAIL </span><span class="sc">{</span><span class="bu">len</span>(bad)<span class="sc">}</span><span class="ss"> cases&quot;</span>)</span>
+<span id="it-val-cb3-32"><a href="#it-val-cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-val-cb3-33"><a href="#it-val-cb3-33" aria-hidden="true" tabindex="-1"></a>asyncio.run(main())</span></code></pre></div>
+<blockquote>
+<p><strong>DeepEval（<code>veadk-python[eval]</code>）</strong>：做
+LLM-as-judge —— 相關性 / 回答質量 /
+忠實度只需個題目+模型評，唔使逐行手改分數。CI / offline 大規模時先自己寫
+metric（如上）。</p>
+</blockquote>
+<h2 id="it-val-六幾時用邊種快速決策">六、幾時用邊種（快速決策）</h2>
+<table>
+<thead>
+<tr>
+<th>你而家想知</th>
+<th>用</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>改 prompt 有冇守住</td>
+<td>CI eval</td>
+<td><code>agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent</code></td>
+</tr>
+<tr>
+<td>換 model / 上 LoRA 有冇變差</td>
+<td>offline（ground truth + regression）</td>
+<td>dataset 加 regression / adversarial 檔</td>
+</tr>
+<tr>
+<td>生產長期監察質量</td>
+<td>shadow eval（5–10%）</td>
+<td><code>eval_pipeline.monitoring</code></td>
+</tr>
+<tr>
+<td>用戶話答得唔好</td>
+<td>Good/Bad 回流 → 擴 eval 集</td>
+<td>Studio 回饋入 dataset</td>
+</tr>
+<tr>
+<td>CI gate 想自動 fail</td>
+<td>threshold + experimentId</td>
+<td><code>eval experiment show</code> + pattern gate</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-val-sales-一句">Sales 一句</h2>
+<p>「優化唔係靠估——<strong>每次改動過 eval 先出街</strong>：CI 每日守住
+threshold、每週全面跑 ground truth、生產再加 5%
+影子監察。慳錢快咗但準唔準，全部有數字對。」</p>
+<hr />
+<p><em>最後審計：2026-08-15 · 指標/用量數字以實戰
+<code>agentkit eval</code> 同控制台為準。</em></p>

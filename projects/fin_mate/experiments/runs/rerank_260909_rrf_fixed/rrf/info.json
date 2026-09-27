@@ -1,0 +1,6 @@
+{
+  "variant": "rrf",
+  "desc": "RRF(k=60) 融合 dense+grep；$0（路徑同 main run hybrid）",
+  "top_k": 3,
+  "ans_k": 5
+}

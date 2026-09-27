@@ -1,0 +1,18 @@
+29 January 2026
+Software
+Microsoft
+Page 2
+Deutsche Bank Securities Inc.
+What We Liked / What We're watching on the Quarter
+Revenue/Bookings
+(+) F2Q revenue of $81.3bn was 1.5% above the midpoint of guidance, with upside 
+concentrated in PBP & IC segments. On a constant currency basis, growth ticked 
+down ~1.5pts sequentially to +15% y/y.
+(+) Commercial Bookings rose +228% y/y @cc. This was primarily driven by the 
+previously disclosed larger Azure commit from OpenAI, alongside benefit from the 
+recent Anthropic commitment and "healthy growth" across core annuity sales 
+motions on a lower expiry base when adjusted for OpenAI contracts in the prior 
+year. Commercial RPO ended the quarter +110% y/y to $625bn; ~45% of the total 
+balance is now attributed to commits from OpenAI, with the remaining core 55% 
+growing +28% y/y. Total Commercial cRPO now stands at +39% y/y, up from +21% 
+a year prior.

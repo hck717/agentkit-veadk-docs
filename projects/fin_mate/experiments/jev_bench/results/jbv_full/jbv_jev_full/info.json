@@ -1,0 +1,10 @@
+{
+  "variant": "jev_full",
+  "desc": "Jev 全層",
+  "flags": {
+    "action": "jev",
+    "rag": "jev",
+    "mem": "jev",
+    "desc": "Jev 全層"
+  }
+}

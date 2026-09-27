@@ -1,0 +1,12 @@
+The reason I say all of that is because that's the type of construction that will be needed. Even
+when the model is magical, all powerful, I think we will be in this jagged intelligence phase for a
+long time. So one of the fundamental things that these -- whether it's GitHub, whether it's
+security, whether it's M365, the three main domains we're in, we feel very, very good about
+building these as organizing layers for agents to help customers. And by the way, that's the same
+thing that we want to put into Foundry for our third-party customers. So that's kind of how people
+will build these multi-agent systems.
+So I feel actually pretty good about both the progress in AI. I don't think AGI as defined at least by
+us in our contract is ever going to be achieved anytime soon. But I do believe we can drive a lot
+of value for customers with advances in AI models by building these systems. So it's kind of the
+real question that needs to be well understood, and I feel very, very confident about our ability to
+make progress.

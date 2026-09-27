@@ -1,0 +1,6 @@
+當Azure供應受限時，Microsoft力推E7加價式upsell主要基於以下原因：  
+1. **AI驅動的利潤率提升**：E7 SKU包含M365 E5、Entra Suite、Agent 365和M365 Copilot，這些產品屬於高毛利的上層應用，相比Azure的基礎雲服務，能帶來更可觀的利潤。即使Azure因供應限制增速受限，上層應用的AI相關收入仍能支撐整體增長。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】【KB:20260212_China_Renaissance_Research_MSFT_Mic】  
+2. **客戶對AI功能的需求**：Agent 365提供代理註冊、可觀測性和風險信號等功能，是實現代理型（agentic）採用的關鍵前提。企業客戶更願意為整合了AI工具的打包方案付費，E7 SKU將Copilot與其他高價值產品捆綁，滿足了這一需求。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+3. **上層應用的戰略重要性**：雖然Azure是核心增長驅動，但上層應用（如M365 Copilot、GitHub Copilot）被視為未來利潤和競爭力的關鍵。通過E7 upsell，Microsoft可以加速AI功能的滲透，並從中獲取持續的訂閱收入，減少對Azure供應限制的依賴。【KB:20260212_China_Renaissance_Research_MSFT_Mic】  
+4. **價格上漲的時機**：此前M365價格上漲迫使企業在2026年下半年進行談判，E7 SKU的推出恰逢其時，企業客戶為了獲取整合的AI功能，更有可能接受加價。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+

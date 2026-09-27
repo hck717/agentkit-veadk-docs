@@ -1,0 +1,8 @@
+Microsoft 力推 E7 加價式 upsell，原因在於：  
+1. **利用既有安裝基礎**：依賴龐大的 M365 E3/E5 安裝基地（3.25 億席位），E7 SKU 作為包含 M365 E5、Entra Suite、Agent 365 和 Copilot 的「Frontier Suite」，可將更多價值捆綁到高價位產品中，推動客戶升級，從而實現 1,000 億美元的 upsell 機會【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **提升每席位價值（ARPU）**：過去席位增長的 upside 有限（主要是入門級擴張），而通過 E7 等 SKU 加價，可提高單用戶收入，成為增長的更重要驅動因素【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。  
+3. **鞏固 Office 增長**：E7 有助於維持 Office 業務的增長（當前同比增長 mid-teens 水平），增強投資者對長期收入的信心【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。  
+4. **跟進 AI 技術**：搭配 Copilot Wave 3（包含 Anthropic 模型和 Claude 協作功能），E7 鞏固了 Microsoft 作為新技術快速跟進者的地位，滿足客戶對 AI 功能的需求，進一步提升產品吸引力【KB:20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。  
+
+## 來源  
+[1] 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Ad

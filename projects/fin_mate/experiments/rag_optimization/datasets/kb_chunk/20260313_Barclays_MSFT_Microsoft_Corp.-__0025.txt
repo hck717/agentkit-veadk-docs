@@ -1,0 +1,11 @@
+within the past 12 months.
+L: Microsoft Corp. is, or during the past 12 months has been, an investment banking client of Barclays Bank PLC and/or an affiliate.
+M: Microsoft Corp. is, or during the past 12 months has been, a non-investment banking client (securities related services) of Barclays Bank PLC
+and/or an affiliate.
+N: Microsoft Corp. is, or during the past 12 months has been, a non-investment banking client (non-securities related services) of Barclays Bank PLC
+and/or an affiliate.
+Valuation Methodology: Our PT of $600 is based on P/E multiple of ~30x and CY27E EPS of $20.23.
+Risks which May Impede the Achievement of the Barclays Research Valuation and Price Target: The emergence of cloud computing,
+virtualization and new non-PC form factors such as tablets and smart phones represent ongoing risks to Microsoft's business model and underlying
+profitability. Increased investment spend in long-term growth initiatives such as search and mobile could also cause margins to come under
+significant pressure.

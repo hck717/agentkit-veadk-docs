@@ -1,0 +1,48 @@
+{
+  "tag": "rerank_260909_llmlist_full",
+  "ts": "2026-09-09 10:00:54",
+  "models": {
+    "primary": "?",
+    "local_reranker": "qwen3:4b-instruct-2507-q4_K_M"
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "pool_dense": 15,
+  "grep_limit": 20,
+  "top_k": 3,
+  "ans_k": 5,
+  "rrf_k": 60,
+  "variants": {
+    "none": "pool 原序（dense 15 先行、grep 補）＝ rerank 前 baseline；$0",
+    "rrf": "RRF(k=60) 融合 dense+grep；$0（路徑同 main run hybrid）",
+    "ce": "bge-reranker-v2-m3 cross-encoder sigmoid score desc；$0（本機 CPU）",
+    "llm": "Qwen3-4B pointwise score 0–3 → desc（tie 原序）；$0（Ollama 本機）",
+    "llm_listwise": "Qwen3-4B listwise（一次過排全部候選）→ 輸出 id 順序；$0（Ollama 本機）"
+  },
+  "n_items": 15,
+  "items": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "t1",
+    "t2",
+    "m1",
+    "m2"
+  ],
+  "retrieve_only": false,
+  "llm_stub": false,
+  "max_tokens_budget": 150000,
+  "used_tokens": 30418,
+  "local_tokens": 8665
+}

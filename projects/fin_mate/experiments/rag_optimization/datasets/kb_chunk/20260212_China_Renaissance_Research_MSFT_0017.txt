@@ -1,0 +1,66 @@
+623
+Total Current Liabilities
+134,007
+155,316
+174,807
+195,097
+ST interest bearing debt
+2,999
+9,249
+6,249
+3,249
+Unearned revenue
+64,555
+75,096
+86,139
+98,598
+Accounts Payable
+27,724
+31,643
+37,309
+41,616
+LT interest bearing debt
+39,688
+30,438
+30,438
+30,438
+Other Liabilities
+79,756
+84,083
+88,624
+93,433
+Total Liabilities
+260,662
+277,004
+300,988
+326,031
+Common Stock/Ordinary Capital
+102,979
+102,979
+102,979
+102,979
+Share Premium
+0
+0
+0
+0
+Retained Earnings
+226,884
+313,318
+414,168
+533,614
+Shareholders Equity
+329,863
+416,297
+517,147
+636,593
+Minority Interest
+0
+0
+0
+0
+Total Liabilities & Sh. Equity
+590,525
+693,301
+818,135
+962,

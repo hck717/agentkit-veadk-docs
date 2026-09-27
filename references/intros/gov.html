@@ -1,0 +1,51 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<blockquote>
+<p>🎯 <strong>一句心法</strong>：企業管 Agent，唔係「配一個角色」咁簡單——要答齊四條問題：<strong>邊個喺調用（身份）、可以掂咩（權限）、憑據喺邊（Broker）、點追責（審計）</strong>。呢頁由「部署模式光譜」講到「AgentKit MA 三張票 × 四道門」，再落「企業自建 Agent Trust Plane」嘅完整設計。</p>
+</blockquote>
+<h2 id="it-gov-一由頭到尾一頁睇晒">一、由頭到尾一頁睇晒</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>喺呢頁邊度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>部署模式點揀（控制權光譜）</th>
+<th><a href="#a21-modes">§2.21.2</a>（Fully Managed → Fully Self-hosted 五種 + 決策提示）</th>
+</tr>
+<tr>
+<th>任務實際喺邊執行</th>
+<th><a href="#a21-placement">§2.21.3</a>（Local / Cloud Sandbox / Customer Worker / Dynamic）</th>
+</tr>
+<tr>
+<th>用戶由邊度入嚟</th>
+<th><a href="#a21-surface">§2.21.4</a>（CLI / IDE / Web / IM / Mobile + 組合示例）</th>
+</tr>
+<tr>
+<th>AgentKit MA 身份模型</th>
+<th><a href="#a21-ma">§2.21.5</a>（三個人 · 三個範圍 · 三張票 · 四道門 + 除錯口訣）</th>
+</tr>
+<tr>
+<th>企業自建治理層</th>
+<th><a href="#a21-trust">§2.21.6</a>（Trust Plane：定位 · 架構 · 信任鏈 · Policy 五元組 · Credential Broker · HITL · PoC 四階段）</th>
+</tr>
+<tr>
+<th>對照官方能力</th>
+<th><a href="#a21-official">§2.21.7</a>（AgentKit IAM / Identity / Gateway / Observability / Guardrail / ArkClaw）</th>
+</tr>
+<tr>
+<th>答問模板</th>
+<th><a href="#a21-official">§2.21.7</a>（邊種問法走邊一節，官方 vs 內部材料點標明）＋ <a href="#a21-faq">§2.21.8</a> FAQ</th>
+</tr>
+<tr>
+<th>原圖喺邊</th>
+<th><a href="#a21-assets">§2.21.9</a> 圖檔索引（部署模式光譜 · 三張票四道門）</th>
+</tr>
+</tbody>
+</table>
+<h2 id="it-gov-sales-一句">Sales 一句</h2>
+<p>「Agent 唔應該揸住生產密鑰——身份註冊、策略綁定、按次注入憑據、全程可審計；低風險自動行，高風險強制人批。」</p>
+<hr />
+<p><em>來源注意：§2.21.2–§2.21.6 係用戶提供嘅內部架構 / 方案材料（附原圖），<strong>唔係</strong>官方產品文檔；§2.21.7 先係官方能力對照。答「官方點講」時要引官方 URL，答「企業點設計」時要標明係內部框架。</em></p>

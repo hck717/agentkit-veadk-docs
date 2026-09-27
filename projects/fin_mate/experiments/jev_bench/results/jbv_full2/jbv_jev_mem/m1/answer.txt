@@ -1,0 +1,5 @@
+Microsoft 力推 E7 加價式 upsell 的原因主要基於以下幾點：  
+1. **Agentic Adoption 的安全 prerequisites**：Agent 365 作為管理代理的控制平面，需要 Entra Suite 的代理注冊/ID、可觀察性和風險信號等功能，而 E7 SKU 將其與 M365 E5、Entra Suite、M365 Copilot 打包，解決了 Agentic Adoption 對安全和管理工具的依賴，使得企業更易於採用相關功能【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **加速 Copilot 和 Agent 365  adoption**：MSFT 認為 Copilot 和 Agent 365 單獨採用（分別為 $30/用戶/月和 $15/用戶/月）的可能性低，而 E7 打包方案可顯著加速其 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **現有 E3/E5 用戶的高 adoption 傾向**：目前約有 1500 萬 E3/E5 用戶，是 E7 的主要潛在升級對象，這部分用戶基數龐大，帶來 $960 億的年升級機會，整個 E7 方案的年 upsell 機會高達 $1000 億【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+4. **應對價格上漲的催化作用**：近期 M365 價格上漲迫使企業在 2026 年下半年進行談判，為 E7 等新方案的 adoption 創造了時機【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption

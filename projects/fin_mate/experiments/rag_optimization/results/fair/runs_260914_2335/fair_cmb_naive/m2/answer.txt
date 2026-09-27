@@ -1,0 +1,8 @@
+安全對 agentic adoption 同 E7 bundle 至關重要，原因如下：  
+1. **Agentic adoption 嘅 prerequisite**：新 Agent 365 提供 agent registry/agent ID（in Entra）、observability、risk signals 等功能，這些均為 agentic adoption 嘅重要前提【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **E7 bundle 嘅安全整合**：Microsoft 正係安全領域打造類似 GitHub Copilot 嘅系統，將超過三十個 agent 整合到 Entra、Defender、Purview 和 Intune 中，例如 Phishing Triage Agent 可幫助分析人員效率提升 6.5 倍【KB:20251029_DN000000003082552535.pdf.txt】。  
+3. **企業對安全控制嘅需求**：隨著代理程式 proliferation，客戶需要新嘅部署、管理和保護方式，而 E7 bundle 整合咗多種安全功能（如 Entra Suite），滿足企業對安全控制嘅需求【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+1. 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt  
+2. 20251029_DN000000003082552535.pdf.txt

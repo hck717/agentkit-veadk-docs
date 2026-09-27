@@ -1,0 +1,10 @@
+### 原因分析
+1. **E7 SKU 整合多項關鍵功能，驅動 adoption**  
+   E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，整合了管理代理的控制平面（Agent 365）、可觀察性、風險信號等代理化採用的關鍵前提條件。分析師認為 Agent 365 和 Copilot 單獨採用困難，而 E7 捆綁可加速其 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+   此外，M365 Copilot Wave 3 與 Anthropic 的 Cowork 密切合作，增強了產品競爭力，進一步推動企業對 E7 的需求。
+
+2. **價格上漲及企業談判催化 adoption**  
+   近期 M365 價格上漲迫使企業在 2026 年下半年進行談判，為新 SKU 的 adoption 創造了催化劑。E7 定價為每用戶每月 99 美元，相比 E3/E5 有一定漲幅，但整合多項功能後，企業願意為此支付更高費用【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。
+
+3. **Azure 供應受限下的戰略側重**  
+   雖然 Azure 面臨供應約束，但 Microsoft 優先將 GPU 分配給第一方應用程序和 R&D，以加速產品創新，獲取更高利潤的重復軟件機會。E7 所屬的 M365 領域是 AI  monetization 的上層應用，具有戰略重要性，且目前尚未顯現 disruption 風險。分析師認為，放棄部分 Azure 收入以追求高毛利的上層軟件機會是長期戰略，因此 E7 的 upsell 成為補償 Azure 供應約束影響的重要手段【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good_O, 

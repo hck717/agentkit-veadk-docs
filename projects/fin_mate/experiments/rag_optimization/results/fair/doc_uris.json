@@ -1,0 +1,47 @@
+{
+ "fin_kb_chunk": {
+  "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt": "viking://resources/fin_kb_chunk/20260205_Deutsche_Bank_MSFT_Microsoft-_F",
+  "20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt": "viking://resources/fin_kb_chunk/20260205_Mizuho_Securities_MSFT_MSFT-_Go",
+  "20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt": "viking://resources/fin_kb_chunk/20260212_China_Renaissance_Research_MSFT",
+  "20260227_DeMatteo_Research_MSFT_MSFT_Long_Informal_Idea_Bberg_02.27.26.txt": "viking://resources/fin_kb_chunk/20260227_DeMatteo_Research_MSFT_MSFT_Lon",
+  "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt": "viking://resources/fin_kb_chunk/20260313_Barclays_MSFT_Microsoft_Corp.-_",
+  "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt": "viking://resources/fin_kb_chunk/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_",
+  "Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt": "viking://resources/fin_kb_chunk/Microsoft_Corp_Earnings_Call_20251029_DN",
+  "Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt": "viking://resources/fin_kb_chunk/Microsoft_Corp_Earnings_Call_2026128_RT0",
+  "msft_ai_capex.txt": "viking://resources/fin_kb_chunk/msft_ai_capex",
+  "msft_azure_revenue.csv": "viking://resources/fin_kb_chunk/msft_azure_revenue",
+  "msft_kb_overview.html": "viking://resources/fin_kb_chunk/msft_kb_overview",
+  "msft_scan.pdf": "viking://resources/fin_kb_chunk/msft_scan"
+ },
+ "fin_kb_vis": {
+  "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt": "viking://resources/fin_kb_vis/20260205_Deutsche_Bank_MSFT_Microsoft-_F",
+  "20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt": "viking://resources/fin_kb_vis/20260205_Mizuho_Securities_MSFT_MSFT-_Go",
+  "20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt": "viking://resources/fin_kb_vis/20260212_China_Renaissance_Research_MSFT",
+  "20260227_DeMatteo_Research_MSFT_MSFT_Long_Informal_Idea_Bberg_02.27.26.txt": "viking://resources/fin_kb_vis/20260227_DeMatteo_Research_MSFT_MSFT_Lon",
+  "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt": "viking://resources/fin_kb_vis/20260313_Barclays_MSFT_Microsoft_Corp.-_",
+  "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt": "viking://resources/fin_kb_vis/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_",
+  "Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt": "viking://resources/fin_kb_vis/Microsoft_Corp_Earnings_Call_20251029_DN",
+  "Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt": "viking://resources/fin_kb_vis/Microsoft_Corp_Earnings_Call_2026128_RT0",
+  "msft_ai_capex.txt": "viking://resources/fin_kb_vis/msft_ai_capex",
+  "msft_azure_revenue.csv": "viking://resources/fin_kb_vis/msft_azure_revenue",
+  "msft_kb_overview.html": "viking://resources/fin_kb_vis/msft_kb_overview",
+  "msft_scan.pdf": "viking://resources/fin_kb_vis/msft_scan"
+ },
+ "fin_kb_cmb": {
+  "20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt": "viking://resources/fin_kb_cmb/20260205_Deutsche_Bank_MSFT_Microsoft-_F",
+  "20260205_Mizuho_Securities_MSFT_MSFT-_Good_Overall_Execution-_Albeit_with_More_Modest_Az.txt": "viking://resources/fin_kb_cmb/20260205_Mizuho_Securities_MSFT_MSFT-_Go",
+  "20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt": "viking://resources/fin_kb_cmb/20260212_China_Renaissance_Research_MSFT",
+  "20260227_DeMatteo_Research_MSFT_MSFT_Long_Informal_Idea_Bberg_02.27.26.txt": "viking://resources/fin_kb_cmb/20260227_DeMatteo_Research_MSFT_MSFT_Lon",
+  "20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt": "viking://resources/fin_kb_cmb/20260313_Barclays_MSFT_Microsoft_Corp.-_",
+  "20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt": "viking://resources/fin_kb_cmb/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_",
+  "Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt": "viking://resources/fin_kb_cmb/Microsoft_Corp_Earnings_Call_20251029_DN",
+  "Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt": "viking://resources/fin_kb_cmb/Microsoft_Corp_Earnings_Call_2026128_RT0",
+  "msft_ai_capex.txt": "viking://resources/fin_kb_cmb/msft_ai_capex",
+  "msft_azure_revenue.csv": "viking://resources/fin_kb_cmb/msft_azure_revenue",
+  "msft_kb_overview.html": "viking://resources/fin_kb_cmb/msft_kb_overview",
+  "msft_scan.pdf": "viking://resources/fin_kb_cmb/msft_scan"
+ },
+ "_meta": {
+  "seeded_at": "2026-09-14T23:29:14"
+ }
+}

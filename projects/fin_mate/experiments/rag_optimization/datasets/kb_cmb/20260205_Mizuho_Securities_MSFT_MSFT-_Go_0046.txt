@@ -1,0 +1,12 @@
+Neutral (N): The stock’s total return is expected to perform in line with the unweighted, expected total return of the analyst’s industry coverage universe over the next
+12 months.
+Underperform (U): The stock’s total return is expected to underperform the unweighted, expected total return of the analyst’s industry coverage universe over the next
+12 months.
+Restricted (R): In certain circumstances, MSUSA policy and/or applicable securities regulations preclude certain types of communications, including investment
+recommendations, during the course of Mizuho’s engagement in certain transactions and in certain other circumstances.
+Rating Suspended (RS): The rating and target price have been temporarily suspended due to market events that made coverage impracticable or to comply with
+applicable regulations and/or firm policies in certain circumstances.
+Not Covered (NC): MSUSA does not cover the company.
+For disclosure purposes only (NYSE and FINRA ratings distribution requirements), our Outperform, Neutral and Underperform ratings are displayed as Buy, Hold and
+Sell, respectively.
+Prior to 6/21/24, MSUSA’s ratings were Buy, Neutral and Underperform.

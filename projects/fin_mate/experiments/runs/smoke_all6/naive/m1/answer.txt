@@ -1,0 +1,8 @@
+當Azure供應受限時，Microsoft力推E7加價式upsell，可能基於以下原因：  
+1. **AI戰略優先**：管理層優先將GPU分配給第一方應用和研發，以加速產品創新，追求更高利潤的重複軟件訂閱機會。E7套件整合了多種高價值產品（如M365 E5、Entra Suite、Agent 365、M365 Copilot），可在Azure供應受限的情況下，通過提升每用戶收入（ARPU）來維持增長【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+2. **企業軟件滲透率高**：Microsoft 365已深度滲透大多數企業，E7套件作為捆綁方案，可利用現有用戶基礎推廣Copilot等AI功能，實現上銷（upsell）。例如，M365 Copilot和GitHub Copilot的訂閱用戶數快速增長，E7套件可進一步加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop, 20260205_Mizuho_Securities_MSFT_MSFT-_Good_O】。  
+3. **邊際利潤考慮**：軟件+訂閱模式毛利率高，E7套件的加價可提升營收和利潤。盡管Azure供應受限，但高毛利的應用層和消費者軟件機會可彌補部分影響，且管理層強調對盈利增長的約束力【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good_O, 20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+
+## 來源  
+[20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L](https://finmate.hk/knowledge-base/20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L)  
+[20260316_

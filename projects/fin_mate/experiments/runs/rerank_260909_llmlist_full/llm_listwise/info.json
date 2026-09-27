@@ -1,0 +1,6 @@
+{
+  "variant": "llm_listwise",
+  "desc": "Qwen3-4B listwise（一次過排全部候選）→ 輸出 id 順序；$0（Ollama 本機）",
+  "top_k": 3,
+  "ans_k": 5
+}

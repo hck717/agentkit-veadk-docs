@@ -1,0 +1,15 @@
+.env
+*.log
+projects/fin_mate/config.yaml
+invoice-pipeline/config.yaml
+.DS_Store
+.Rhistory
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+*.safetensors
+projects/fin_mate/finetune/
+*.db
+data/
+.adk/

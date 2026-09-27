@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。每句 claim 後加 inline 標註【KB:檔案名】；結尾列「## 來源」完整 URI。"}, {"role": "user", "content": "Mizuho 話 MSFT F2Q 總收入幾多？同 Street 預期比？"}], "text": "KB 無資料\n## 來源", "prompt_tokens": 99, "completion_tokens": 9, "cached_tokens": 0, "ms": 598.682749987347}

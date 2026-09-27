@@ -1,0 +1,10 @@
+{"set": "authz", "id": "authz_01", "type": "security_authz", "prompt": "viewer 想 run_code 跑 Python", "golden": {"tool": "run_code", "role": "viewer", "allowed": false, "reason": "role_deny"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_02", "type": "security_authz", "prompt": "viewer 想 read_news_file 睇新聞 CSV", "golden": {"tool": "read_news_file", "role": "viewer", "allowed": false, "reason": "role_deny"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_03", "type": "security_authz", "prompt": "viewer 只可以 read：web_search + calc", "golden": {"tool": "web_search", "role": "viewer", "allowed": true, "reason": "read"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_04", "type": "security_authz", "prompt": "analyst 可以 read_news_file", "golden": {"tool": "read_news_file", "role": "analyst", "allowed": true, "reason": "news"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_05", "type": "security_authz", "prompt": "analyst 唔可以用 run_code", "golden": {"tool": "run_code", "role": "analyst", "allowed": false, "reason": "role_deny"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_06", "type": "security_authz", "prompt": "analyst 可以用 fetch_news 拉即時新聞", "golden": {"tool": "fetch_news", "role": "analyst", "allowed": true, "reason": "news"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_07", "type": "security_authz", "prompt": "admin 全部 tool 都用到，包括 coding", "golden": {"tool": "coding", "role": "admin", "allowed": true, "reason": "admin"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_08", "type": "security_authz", "prompt": "viewer 想 calc 計數", "golden": {"tool": "calc", "role": "viewer", "allowed": true, "reason": "read"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_09", "type": "security_authz", "prompt": "未知 tool mystery_tool 嘅 role 處理", "golden": {"tool": "mystery_tool", "role": "analyst", "allowed": false, "reason": "unknown"}, "meta": {"lang": "en"}}
+{"set": "authz", "id": "authz_10", "type": "security_authz", "prompt": "唔理邊個 role，長知識庫 tool 都要 allow", "golden": {"tool": "knowledgebase_query", "role": "viewer", "allowed": true, "reason": "kb_prefix"}, "meta": {"lang": "en"}}

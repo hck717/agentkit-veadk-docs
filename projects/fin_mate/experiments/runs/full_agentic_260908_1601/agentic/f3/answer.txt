@@ -1,0 +1,36 @@
+我现在需要回答用户的问题：“Mizuho 話 MSFT F2Q 總收入幾多？同 Street 預期比？” 首先，我需要从提供的知识库中提取相关信息。
+
+首先，用户的问题涉及两个部分：Mizuho 对 MSFT F2Q 总收入的预测或报告，以及与Street预期的比较。我需要在知识库中找到关于这两个部分的内容。
+
+查看知识库中的条目，特别是那些提到MSFT F2Q收入的部分。例如，在Mizuho Securities的报告中，提到“MSFT reported a good overall F2Q, as total revenue of $81.3B (+15% Y/Y CC) was above the Street's $80.3B estimate.” 这里明确指出了Mizuho报告的F2Q总收入为813亿美元，超过了Street的803亿美元预期。
+
+另外，在Deutsche Bank的报告中，也提到“F2Q revenue of $81.3bn was 1.5% above the midpoint of guidance, with upside concentrated in PBP & IC segments.” 这里也提到了813亿美元的收入，并且超过了指引中点，但可能需要确认是否与Street预期一致。不过结合Mizuho的报告，Street预期应为803亿美元左右。
+
+需要确认是否有其他条目提到类似数据。例如，在Mizuho的另一篇报告中，提到“Total revenue of $81.3B (+17% Y/Y reported and 15% on a CC basis) was nicely above our $80.2B forecast and the Street's similar $80.3B estimate.” 这里再次确认了总收入为813亿美元，超过Street的803亿美元预期。
+
+因此，综合这些信息，可以得出结论：Mizuho报告的MSFT F2Q总收入为813亿美元，高于Street的803亿美元预期。
+
+需要注意的是，用户的问题中提到的是“話”，即Mizuho所说的，而知识库中的信息显示Mizuho报告了实际收入或预测收入。根据上下文，这里的“reported”可能指的是实际收入，而Street预期是市场共识。因此，答案应明确指出Mizuho报告的收入和与Street预期的比较。
+
+最后，确保引用正确的来源URI。例如，Mizuho的报告URI为“viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_1.md”，而Deutsche Bank的报告URI为“viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_4.md”。需要将这些URI作为来源列出。
+### Mizuho 對 MSFT F2Q 總收入的描述及與 Street 預期的對比  
+根據 Mizuho Securities 的報告，微軟（MSFT）2025 財年第二季度（F2Q）總收入為 **813 億美元**（按不變匯率計算，同比增長 15%），**高於市場普遍預期的 803 億美元**。具體細節如下：  
+
+1. **收入表現**：  
+   - Mizuho 預測或報告的 F2Q 總收入為 813 億美元，超過 Street 預期的 803 億美元，呈現 1.2% 的小幅超預期。  
+   - 收入增長主要來自 **智能雲（Intelligent Cloud）** 和 ** productivity & Business Processes（PBP）** 業務板塊，而 **更多個人計算（MPC）** 板塊表現平穩。  
+
+2. **Azure 收入**：  
+   - Azure 收入同比增長 38%（按不變匯率計算），超過公司指引的 37%，但略低於買方預期（市場普遍預期約 39%）。  
+   - 增長受限於公司對 GPU 等資源的嚴格分配，需優先滿足 M365 Copilot 等自營應用及 R&D 的需求。  
+
+
+### 來源  
+1. Mizuho Securities USA LLC, *Microsoft Corporation (MSFT)*, January 29, 2026.  
+   URI: [viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_1.md](viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_1.md)  
+
+2. Deutsche Bank Securities Inc., *Microsoft (MSFT)*, January 29, 2026.  
+   URI: [viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_4.md](viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_4.md)  
+
+
+**注**：以上信息綜合了 Mizuho 和 Deutsche Bank 的報告，其中 Mizuho 明確提及收入數據及與 Street 預期的對比，Deutsche Bank 則進一步驗證了收入超預期的結論。

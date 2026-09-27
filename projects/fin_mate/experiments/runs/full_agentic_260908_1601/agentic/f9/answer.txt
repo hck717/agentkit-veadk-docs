@@ -1,0 +1,37 @@
+我现在需要回答用户的问题：“F2Q26 call 話 Microsoft Cloud 季度收入首次突破幾多？同比升幾多？”首先，我要确定用户的问题是关于Microsoft Cloud在2026财年第二季度（F2Q26）的收入情况，包括首次突破的金额和同比增长率。
+
+接下来，我需要检查提供的知识库内容，看看是否有相关的信息。用户已经调用了load_knowledgebase工具，返回了多个知识库条目。我需要逐一查看这些条目，寻找关于F2Q26 Microsoft Cloud收入的具体数据。
+
+首先看第一个知识库条目，来自Mizuho Securities的报告。其中提到：“Total revenue of $81.3B (+17% Y/Y reported and 15% on a CC basis) was nicely above our $80.2B forecast and the Street's similar $80.3B estimate (+15% Y/Y).” 这里的总收入是813亿美元，同比增长17%（报告数据）和15%（按固定汇率计算）。但用户问的是Microsoft Cloud的季度收入，而这里提到的是总收入。需要确认Microsoft Cloud是否在这个报告中有单独的数据。
+
+继续看第一个条目，后面提到：“On a segment basis, Productivity and Business Processes (PBP) revenue of ~$34.1B (+14% Y/Y CC) was above our $33.46B projection. Meanwhile, Intelligent Cloud revenue of $32.9B (+28% Y/Y CC vs. 27% growth reported previously) also exceeded our $32.45B estimate this quarter.” 这里的Intelligent Cloud（智能云）收入是329亿美元，同比增长28%（按固定汇率计算）。而Microsoft Cloud通常包括Intelligent Cloud和其他云服务吗？或者可能Intelligent Cloud就是Microsoft Cloud的一部分？需要进一步确认。
+
+再看第二个知识库条目，同样来自Mizuho Securities，提到：“Microsoft Cloud revenue of $51.5B grew 24% Y/Y CC, down slightly from 25% growth last quarter.” 这里明确提到Microsoft Cloud的收入是515亿美元，同比增长24%（按固定汇率计算）。这似乎直接回答了用户的问题。需要确认这个数据是否正确，以及是否有其他条目支持。
+
+第三个条目是Microsoft的 earnings call  transcript，其中提到：“In Intelligent Cloud, we expect revenue of USD32.25 billion to USD32.55 billion or growth of 26% to 27%. In Azure, we expect Q2 revenue growth of approximately 37% in constant currency as demand remains significantly ahead of the capacity we have available.” 这里Azure的收入增长是37%，但没有明确的收入金额。
+
+第四个条目同样是 earnings call transcript，提到：“In our on-premise server business, revenue increased 1% and was relatively unchanged in constant currency.” 这可能属于Intelligent Cloud的一部分，但没有具体金额。
+
+第五个条目是Deutsche Bank的报告，提到：“(+) F2Q revenue of $81.3bn was 1.5% above the midpoint of guidance, with upside concentrated in PBP & IC segments. On a constant currency basis, growth ticked down ~1.5pts sequentially to +15% y/y.” 这里的总收入是813亿美元，同比增长15%（按固定汇率）。同时，Intelligent Cloud部分在第二个条目中提到是329亿美元，同比28%。而Microsoft Cloud在第二个条目中明确为515亿美元，同比24%。
+
+现在需要确定哪个数据是正确的。用户的问题是关于Microsoft Cloud的季度收入首次突破多少，以及同比增长。第二个条目中明确提到Microsoft Cloud收入为515亿美元，同比增长24%（按固定汇率）。而第一个条目中的总收入是813亿美元，其中Intelligent Cloud是329亿，PBP是341亿，总和是670亿，这可能不包括其他云服务？或者可能Microsoft Cloud的定义不同？
+
+需要进一步分析。通常，Microsoft Cloud包括Azure、Office 365、Dynamics 365等，而Intelligent Cloud可能包括Azure、SQL Server等，而Productivity and Business Processes可能包括Office 365等。因此，可能Microsoft Cloud的收入是Intelligent Cloud加上PBP？但第一个条目中Intelligent Cloud是329亿，PBP是341亿，总和670亿，而第二个条目中Microsoft Cloud是515亿，这存在矛盾。可能第二个条目的数据更准确，因为它直接提到Microsoft Cloud的收入。
+
+另外，第二个条目来自Mizuho Securities，时间是2026年2月5日，而第一个条目也是同一天，可能数据来源不同。需要确认哪个更准确。用户的问题中的“首次突破”可能指的是首次超过某个金额，比如500亿？第二个条目中是515亿，同比24%，这可能是首次突破。而第一个条目的总收入是813亿，但那是包括所有业务的，不仅仅是云服务。
+
+因此，综合来看，第二个知识库条目中的Microsoft Cloud收入515亿美元，同比增长24%（按固定汇率）是正确的答案。需要确认是否有其他条目支持。第三个条目提到Intelligent Cloud的收入在322.5亿到325.5亿之间，同比增长26-27%，这可能是Microsoft Cloud的一部分，但第二个条目明确给出了515亿，可能包括更多服务。
+
+因此，最终答案应该是Microsoft Cloud季度收入首次突破515亿美元，同比增长24%（按固定汇率）。需要标注来源为第二个知识库条目。
+Microsoft Cloud 季度收入首次突破 **515 亿美元**，同比增长 **24%（按固定汇率计算，CC）**。  
+【KB:viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_4.md】  
+
+## 來源  
+- <viking://resources/fin_kb/msft_txt/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd/20260205_Mizuho_Securities_MSFT_MSFT-_Goo_9feaddcd_4.md>  
+
+### 说明  
+1. **收入金额**：知识库明确提到 "Microsoft Cloud revenue of $51.5B grew 24% Y/Y CC"，首次突破 500 亿美元量级。  
+2. **同比增速**：按固定汇率计算的同比增长率为 24%，高于报告汇率的同比增速（需结合具体计算，但知识库直接给出 CC 口径数据）。  
+3. **来源标注**：该数据来自 Mizuho Securities 的分析报告，匹配用户查询的 "F2Q26 call" 场景。  
+
+（注：若需进一步确认 "首次突破" 的具体阈值，知识库未提供更早季度数据，故基于现有信息回答。）

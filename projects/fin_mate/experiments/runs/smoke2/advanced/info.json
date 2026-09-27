@@ -1,0 +1,5 @@
+{
+  "read_limit": 2000,
+  "k": 15,
+  "desc": "dense find k=15 粗水化 + grep 擴 query + dedupe + score gate"
+}

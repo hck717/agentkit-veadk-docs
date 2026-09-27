@@ -1,0 +1,5 @@
+因為 Agent 365 提供了代理註冊表/代理 ID（在 Entra 中）、可觀察性、風險信號等重要先決條件，而安全是代理性採用的關鍵前提【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。此外，E7 SKU 包含多項安全相關套件，並且安全解決方案對管理組織的 AI 部署至關重要，而安全 Copilot 等功能也依賴於強大的安全基礎【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt, 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。
+
+## 來源
+[2] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt>
+[1] <Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt>

@@ -1,0 +1,12 @@
+our $3.96 estimate and the Street's $3.91 forecast.
+Finally, CFFO of $35.8B came in well above the Street's $30.4B estimate.
+Good Azure Performance, But With Allocations Constraining Growth Somewhat
+As noted above, Azure revenue growth of 38% Y/Y CC, which exceeded mgmt's guidance that
+had called for 37% growth Y/Y, although this did come in slightly below buy-side expectations.
+This was also slightly below the 39% growth rate reported in F1Q. Having said that, mgmt did also
+indicate that having to allocate additional GPU capacity to certain first-party applications (such
+as Microsoft 365 Copilot and GitHub Copilot), as well as to R&D and further product innovation,
+weighed on Azure growth this quarter by at least a couple of points.
+Encouraging Azure Growth Outlook, with F3Q Revenue in Line with Consensus
+Regarding guidance, MSFT provided F3Q revenue guidance of $80.6B-$81.75B (15%-17% Y/Y),
+which was in line with the Street's $81.2B target (but below our more aggressive ~$82B estimate).

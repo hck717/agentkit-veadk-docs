@@ -1,0 +1,578 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VeADK API</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>VeADK API</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk-api-參考">VeADK API 參考</h1>
+<p>呢份文件記錄晒 VeADK（火山引擎智能體開發框架）嘅 Python
+程式碼範例，用粵語解釋用途同用法。</p>
+<hr />
+<h2 id="安裝">安裝</h2>
+<pre class="bash"><code># 已發佈版本（Preview 基線 1.0.9）
+pip install &quot;veadk-python==1.0.9&quot;
+
+# 預覽源碼（GitHub 主線）
+git clone --depth 1 https://github.com/volcengine/veadk-python.git
+cd veadk-python
+uv venv --python 3.12
+uv sync --all-extras
+uv pip install -e .</code></pre>
+<h3 id="可選依賴組">可選依賴組</h3>
+<pre class="bash"><code>pip install &quot;veadk-python[extensions]&quot;    # 飛書渠道、Cozeloop、LlamaIndex
+pip install &quot;veadk-python[codex]&quot;         # Codex 運行時
+pip install &quot;veadk-python[database]&quot;      # Redis、MySQL、VikingDB、mem0
+pip install &quot;veadk-python[eval]&quot;          # DeepEval 評測
+pip install &quot;veadk-python[a2ui]&quot;          # A2UI 富界面
+pip install &quot;veadk-python[harness]&quot;       # Harness 服務</code></pre>
+<hr />
+<h2 id="配置模型">配置模型</h2>
+<h3 id="configyaml推薦">config.yaml（推薦）</h3>
+<pre class="yaml"><code>model:
+  agent:
+    provider: openai
+    name: doubao-seed-2-1-pro-260628
+    api_base: https://ark.cn-beijing.volces.com/api/v3/
+    api_key: &lt;your-api-key&gt;
+volcengine:
+  access_key: &lt;your-ak&gt;
+  secret_key: &lt;your-sk&gt;</code></pre>
+<h3 id="環境變數快速起動">環境變數（快速起動）</h3>
+<pre class="bash"><code>export MODEL_AGENT_API_KEY=&quot;&lt;your-api-key&gt;&quot;
+export MODEL_AGENT_NAME=&quot;doubao-seed-2-1-pro-260628&quot;  # 可選
+export MODEL_AGENT_API_BASE=&quot;https://ark.cn-beijing.volces.com/api/v3/&quot;  # 可選</code></pre>
+<hr />
+<h2 id="agent-基本用法">Agent 基本用法</h2>
+<h3 id="最簡單嘅-agent">最簡單嘅 Agent</h3>
+<pre class="python"><code>from veadk import Agent
+import asyncio
+
+agent = Agent()
+res = asyncio.run(agent.run(&quot;用一句話介紹火山引擎。&quot;))
+print(res)</code></pre>
+<h3 id="指定模型">指定模型</h3>
+<pre class="python"><code>from veadk import Agent
+
+agent = Agent(
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    model_provider=&quot;openai&quot;,
+)</code></pre>
+<h3 id="fallback-模型主模型不可用時自動回退">Fallback
+模型（主模型不可用時自動回退）</h3>
+<pre class="python"><code>agent = Agent(
+    model_name=[&quot;doubao-seed-2-1-pro-260628&quot;, &quot;deepseek-r1-250528&quot;],
+)</code></pre>
+<h3 id="完整指令同描述">完整指令同描述</h3>
+<pre class="python"><code>agent = Agent(
+    name=&quot;customer_support&quot;,
+    description=&quot;處理客戶查詢嘅智能體&quot;,
+    instruction=&quot;你係一個專業嘅客服助手，請用中文禮貌回覆。&quot;,
+)</code></pre>
+<hr />
+<h2 id="responses-api多模態--上下文緩存">Responses API（多模態 +
+上下文緩存）</h2>
+<h3 id="啟用">啟用</h3>
+<pre class="python"><code>from veadk import Agent
+
+agent = Agent(enable_responses=True)</code></pre>
+<h3 id="多模態輸入圖片">多模態輸入（圖片）</h3>
+<pre class="python"><code>import os
+from google.genai import types
+from google.genai.types import FileData
+
+local_path = os.path.abspath(&quot;example.png&quot;)
+message = types.UserContent(
+    parts=[
+        types.Part(text=&quot;描述一下呢張圖片&quot;),
+        types.Part(
+            file_data=FileData(
+                file_uri=f&quot;file://{local_path}&quot;,
+                mime_type=&quot;image/png&quot;,
+            )
+        ),
+    ],
+)</code></pre>
+<h3 id="上下文管理清除舊思維鏈">上下文管理（清除舊思維鏈）</h3>
+<pre class="python"><code>agent = Agent(
+    enable_responses=True,
+    model_extra_config={
+        &quot;context_management&quot;: {
+            &quot;edits&quot;: [
+                {
+                    &quot;type&quot;: &quot;clear_thinking&quot;,
+                    &quot;keep&quot;: {&quot;type&quot;: &quot;thinking_turns&quot;, &quot;value&quot;: 1},
+                }
+            ]
+        }
+    },
+)</code></pre>
+<hr />
+<h2 id="runner執行智能體">Runner（執行智能體）</h2>
+<pre class="python"><code>from veadk import Agent, Runner
+
+agent = Agent(name=&quot;assistant&quot;)
+runner = Runner(agent=agent, app_name=&quot;demo&quot;)
+
+# 同步執行
+res = await runner.run(messages=&quot;你好&quot;, user_id=&quot;user-42&quot;, session_id=&quot;session-1&quot;)
+
+# 流式事件
+async for event in runner.run_async(
+    messages=&quot;講個故仔&quot;,
+    user_id=&quot;user-42&quot;,
+    session_id=&quot;session-1&quot;,
+):
+    print(event)</code></pre>
+<hr />
+<h2 id="短暫記憶shorttermmemory--session">短暫記憶（ShortTermMemory /
+Session）</h2>
+<h3 id="session-管理-api">Session 管理 API</h3>
+<p>你可以直接用 <code>runner.session_service</code> 或
+<code>stm.session_service</code> 管理 Session：</p>
+<pre class="python"><code># 創建新 Session
+session = await stm.create_session(
+    app_name=&quot;my_app&quot;,
+    user_id=&quot;user-42&quot;,
+    session_id=&quot;session-1&quot;,
+)
+
+# 攞返現有 Session
+session = await stm.get_session(
+    app_name=&quot;my_app&quot;,
+    user_id=&quot;user-42&quot;,
+    session_id=&quot;session-1&quot;,
+)
+
+# 列出某用戶嘅 Session
+sessions = await stm.list_sessions(
+    app_name=&quot;my_app&quot;,
+    user_id=&quot;user-42&quot;,
+)
+
+# 刪除 Session
+await stm.delete_session(
+    app_name=&quot;my_app&quot;,
+    user_id=&quot;user-42&quot;,
+    session_id=&quot;session-1&quot;,
+)
+
+# 追加事件到 Session
+await stm.append_event(
+    app_name=&quot;my_app&quot;,
+    user_id=&quot;user-42&quot;,
+    session_id=&quot;session-1&quot;,
+    event=event,
+)</code></pre>
+<h3 id="backend-選擇">Backend 選擇</h3>
+<pre class="python"><code>from veadk.memory.short_term_memory import ShortTermMemory
+
+# 本地記憶（程序重啟後消失）
+stm = ShortTermMemory(backend=&quot;local&quot;)
+
+# SQLite（單機持久化）
+stm = ShortTermMemory(backend=&quot;sqlite&quot;, local_database_path=&quot;./stm.db&quot;)
+
+# MySQL
+stm = ShortTermMemory(backend=&quot;mysql&quot;, db_url=&quot;mysql://user:pass@host/db&quot;)
+
+# PostgreSQL
+stm = ShortTermMemory(backend=&quot;postgresql&quot;, db_url=&quot;postgresql://user:pass@host/db&quot;)</code></pre>
+<h3 id="駁-runner">駁 Runner</h3>
+<pre class="python"><code>import asyncio
+from veadk import Agent, Runner
+from veadk.memory.short_term_memory import ShortTermMemory
+
+stm = ShortTermMemory(backend=&quot;sqlite&quot;, local_database_path=&quot;./stm.db&quot;)
+agent = Agent(name=&quot;memory_agent&quot;, instruction=&quot;記住用戶話畀你嘅資訊。&quot;)
+runner = Runner(agent=agent, short_term_memory=stm, app_name=&quot;memory_demo&quot;)
+
+async def main():
+    sid = &quot;user-42-chat&quot;
+    # 第一輪：自我介紹
+    print(await runner.run(messages=&quot;我叫小明，最鍾意藍色。&quot;, session_id=sid))
+    # 第二輪：Agent 記得上輪講過嘢（因為同一 session_id）
+    print(await runner.run(messages=&quot;我叫咩名？鍾意咩顏色？&quot;, session_id=sid))
+
+asyncio.run(main())</code></pre>
+<h3 id="上下文壓縮防止-session-太長">上下文壓縮（防止 session
+太長）</h3>
+<pre class="python"><code>from google.adk.apps.app import App, EventsCompactionConfig
+
+app = App(
+    name=&quot;my_agent&quot;,
+    root_agent=agent,
+    events_compaction_config=EventsCompactionConfig(
+        compaction_interval=3,  # 每 3 輪壓縮一次
+        overlap_size=1,         # 保留最後 1 個事件
+    ),
+)</code></pre>
+<p>自定義壓縮器（用 LLM 做摘要）：</p>
+<pre class="python"><code>import os
+from google.adk.apps.app import App, EventsCompactionConfig
+from google.adk.apps.llm_event_summarizer import LlmEventSummarizer
+from google.adk.models.lite_llm import LiteLlm
+
+summarizer_llm = LiteLlm(
+    model=&quot;volcengine/doubao-seed-2-1-pro-260628&quot;,
+    api_key=os.environ[&quot;MODEL_AGENT_API_KEY&quot;],
+    api_base=os.environ.get(&quot;MODEL_AGENT_API_BASE&quot;,
+        &quot;https://ark.cn-beijing.volces.com/api/v3/&quot;),
+)
+
+my_compactor = LlmEventSummarizer(
+    llm=summarizer_llm,
+    prompt_template=&quot;請總結呢段對話，保留關鍵實體同時間線。&quot;,
+)
+
+app = App(
+    name=&quot;my_agent&quot;,
+    root_agent=agent,
+    events_compaction_config=EventsCompactionConfig(
+        compactor=my_compactor,
+        compaction_interval=5,
+        overlap_size=1,
+    ),
+)</code></pre>
+<hr />
+<h2 id="長期記憶longtermmemory">長期記憶（LongTermMemory）</h2>
+<h3 id="backend-選擇-1">Backend 選擇</h3>
+<pre class="python"><code>from veadk.memory.long_term_memory import LongTermMemory
+
+# 本地調試
+ltm = LongTermMemory(backend=&quot;local&quot;, app_name=&quot;ltm_demo&quot;)
+
+# 生產推薦：VikingDB
+ltm = LongTermMemory(backend=&quot;viking&quot;, app_name=&quot;ltm_demo&quot;)
+
+# Mem0
+ltm = LongTermMemory(backend=&quot;mem0&quot;, app_name=&quot;ltm_demo&quot;)
+
+# OpenSearch / Redis
+ltm = LongTermMemory(backend=&quot;opensearch&quot;, app_name=&quot;ltm_demo&quot;)
+ltm = LongTermMemory(backend=&quot;redis&quot;, app_name=&quot;ltm_demo&quot;)
+
+# OpenViking / TOS Context
+ltm = LongTermMemory(backend=&quot;openviking&quot;, app_name=&quot;ltm_demo&quot;)
+ltm = LongTermMemory(backend=&quot;tos_context&quot;, app_name=&quot;ltm_demo&quot;)</code></pre>
+<h3 id="綁定到-agent">綁定到 Agent</h3>
+<pre class="python"><code>from veadk import Agent, Runner
+from veadk.memory.long_term_memory import LongTermMemory
+
+ltm = LongTermMemory(backend=&quot;viking&quot;, app_name=&quot;support_agent&quot;)
+
+agent = Agent(
+    name=&quot;ltm_agent&quot;,
+    instruction=&quot;如果答案可能喺過往對話入面，用 load_memory 工具搵返。&quot;,
+    long_term_memory=ltm,
+)
+runner = Runner(agent=agent, app_name=&quot;support_agent&quot;)</code></pre>
+<h3 id="手動保存會話">手動保存會話</h3>
+<pre class="python"><code>await ltm.add_session_to_memory(completed_session)</code></pre>
+<h3 id="手動檢索">手動檢索</h3>
+<pre class="python"><code>response = await ltm.search_memory(
+    app_name=&quot;ltm_demo&quot;,
+    user_id=&quot;user-42&quot;,
+    query=&quot;favorite project&quot;,
+)
+print(response.memories)</code></pre>
+<h3 id="自動保存auto_save_session">自動保存（auto_save_session）</h3>
+<pre class="python"><code>agent = Agent(
+    name=&quot;ltm_agent&quot;,
+    auto_save_session=True,
+    long_term_memory=LongTermMemory(backend=&quot;viking&quot;, app_name=&quot;ltm_demo&quot;),
+)</code></pre>
+<h3 id="跨會話完整範例">跨會話完整範例</h3>
+<pre class="python"><code>import asyncio
+from veadk import Agent, Runner
+from veadk.memory.long_term_memory import LongTermMemory
+
+APP_NAME = &quot;ltm_demo&quot;
+USER_ID = &quot;user-42&quot;
+
+def build_runner() -&gt; Runner:
+    ltm = LongTermMemory(backend=&quot;local&quot;, app_name=APP_NAME)
+    agent = Agent(
+        name=&quot;ltm_agent&quot;,
+        instruction=&quot;當用戶問起之前講過嘅嘢，用 load_memory 工具去回憶。&quot;,
+        long_term_memory=ltm,
+        auto_save_session=True,
+    )
+    return Runner(agent=agent, app_name=APP_NAME, user_id=USER_ID)
+
+async def main():
+    runner = build_runner()
+    # Session 1：記錄事實
+    print(await runner.run(
+        messages=&quot;記低：我對花生過敏，而且我係素食者。&quot;,
+        session_id=&quot;session-1&quot;,
+    ))
+    # Session 2（全新 session）：Agent 會 load_memory 記得返
+    print(await runner.run(
+        messages=&quot;幫我推薦一道啱我嘅菜。&quot;,
+        session_id=&quot;session-2&quot;,
+    ))
+
+asyncio.run(main())</code></pre>
+<hr />
+<h2 id="知識庫knowledgebase--rag">知識庫（KnowledgeBase / RAG）</h2>
+<h3 id="基本用法local-backend">基本用法（local Backend）</h3>
+<pre class="python"><code>from veadk.knowledgebase import KnowledgeBase
+
+kb = KnowledgeBase(backend=&quot;local&quot;, index=&quot;company_faq&quot;)
+
+# 加文字
+kb.add_from_text([
+    &quot;公司標準年假為每年 15 天，入職滿一年起享受。&quot;,
+    &quot;經主管批准後，員工每週最多可 remote 2 天。&quot;,
+])
+
+# 加檔案
+kb.add_from_files([&quot;./docs/policy.pdf&quot;])
+
+# 加目錄
+kb.add_from_directory(&quot;./docs&quot;)
+
+# 直接檢索
+entries = kb.search(query=&quot;年假&quot;, top_k=3)
+for entry in entries:
+    print(entry.content)</code></pre>
+<h3 id="綁定到-agent-1">綁定到 Agent</h3>
+<pre class="python"><code>import asyncio
+from veadk import Agent, Runner
+from veadk.knowledgebase import KnowledgeBase
+
+kb = KnowledgeBase(backend=&quot;local&quot;, index=&quot;company_faq&quot;)
+kb.add_from_text(&quot;公司標準年假為每年 15 天，入職滿一年起享受。&quot;)
+
+agent = Agent(
+    name=&quot;kb_agent&quot;,
+    instruction=&quot;請優先利用知識庫回答問題。&quot;,
+    knowledgebase=kb,
+)
+
+runner = Runner(agent=agent, app_name=&quot;company_faq&quot;)
+print(asyncio.run(runner.run(messages=&quot;年假有幾多日？&quot;)))</code></pre>
+<h3 id="backend-選擇-2">Backend 選擇</h3>
+<pre class="python"><code># 生產推薦：VikingDB
+from veadk.knowledgebase import KnowledgeBase
+kb = KnowledgeBase(backend=&quot;viking&quot;, index=&quot;my_kb&quot;)
+
+# Context Search / OpenViking
+kb = KnowledgeBase(backend=&quot;context_search&quot;, index=&quot;my_kb&quot;)
+kb = KnowledgeBase(backend=&quot;openviking&quot;, index=&quot;my_kb&quot;)
+
+# 自建向量庫
+kb = KnowledgeBase(backend=&quot;opensearch&quot;, index=&quot;my_kb&quot;)
+kb = KnowledgeBase(backend=&quot;redis&quot;, index=&quot;my_kb&quot;)
+kb = KnowledgeBase(backend=&quot;milvus&quot;, index=&quot;my_kb&quot;)
+kb = KnowledgeBase(backend=&quot;tos_vector&quot;, index=&quot;my_kb&quot;)</code></pre>
+<h3 id="knowledgebase-進階功能">KnowledgeBase 進階功能</h3>
+<pre class="python"><code># 啟用知識庫畫像（enable_profile）
+kb = KnowledgeBase(
+    backend=&quot;viking&quot;,
+    index=&quot;my_kb&quot;,
+    enable_profile=True,               # 啟用用戶畫像
+    query_with_user_profile=True,       # 檢索時結合用戶畫像
+    name=&quot;customer_faq&quot;,                # 知識庫名（畀 Agent 睇）
+    description=&quot;存儲客戶 FAQ 嘅知識庫&quot;,  # 描述（畀 Agent 知用途）
+    top_k=10,                           # 預設返回相似片段數
+)</code></pre>
+<hr />
+<h2 id="工具tools">工具（Tools）</h2>
+<h3 id="網頁搜尋web_search">網頁搜尋（web_search）</h3>
+<pre class="python"><code>import asyncio
+from veadk import Agent, Runner
+from veadk.tools.builtin_tools.web_search import web_search
+
+agent = Agent(
+    name=&quot;web_search_agent&quot;,
+    instruction=&quot;當你需要最新資訊時，用 web_search 工具。&quot;,
+    tools=[web_search],
+)
+
+runner = Runner(agent=agent)
+response = asyncio.run(runner.run(&quot;杭州今日天氣點樣？&quot;))
+print(response)</code></pre>
+<h3 id="自定義-function-tool">自定義 Function Tool</h3>
+<pre class="python"><code>import asyncio
+from typing import Any, Dict
+from google.adk.tools.tool_context import ToolContext
+from veadk import Agent, Runner
+
+def calculator(
+    a: float, b: float, operation: str, tool_context: ToolContext
+) -&gt; Dict[str, Any]:
+    &quot;&quot;&quot;簡單計算器
+
+    Args:
+        a: 第一個數字
+        b: 第二個數字
+        operation: add / subtract / multiply / divide
+    &quot;&quot;&quot;
+    if operation == &quot;add&quot;:
+        return {&quot;result&quot;: a + b, &quot;operation&quot;: &quot;+&quot;, &quot;status&quot;: &quot;success&quot;}
+    if operation == &quot;subtract&quot;:
+        return {&quot;result&quot;: a - b, &quot;operation&quot;: &quot;-&quot;, &quot;status&quot;: &quot;success&quot;}
+    if operation == &quot;multiply&quot;:
+        return {&quot;result&quot;: a * b, &quot;operation&quot;: &quot;*&quot;, &quot;status&quot;: &quot;success&quot;}
+    if operation == &quot;divide&quot;:
+        if b == 0:
+            return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: &quot;除數唔可以係 0。&quot;}
+        return {&quot;result&quot;: a / b, &quot;operation&quot;: &quot;/&quot;, &quot;status&quot;: &quot;success&quot;}
+    return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: f&quot;唔支援嘅運算: {operation}&quot;}
+
+agent = Agent(
+    name=&quot;computing_agent&quot;,
+    instruction=&quot;用 calculator 工具做用戶要求嘅運算。&quot;,
+    tools=[calculator],
+)
+
+runner = Runner(agent=agent)
+response = asyncio.run(runner.run(&quot;2 加 3 等於幾？&quot;))
+print(response)</code></pre>
+<h3 id="用-toolcontext-共享狀態">用 ToolContext 共享狀態</h3>
+<pre class="python"><code>def message_checker(user_message: str, tool_context: ToolContext) -&gt; str:
+    call_count = tool_context.state.get(&quot;message_checker_calls&quot;, 0) + 1
+    tool_context.state[&quot;message_checker_calls&quot;] = call_count
+    return f&quot;Checked: {user_message.upper()} (call {call_count})&quot;</code></pre>
+<h3
+id="長時運行任務longrunningfunctiontool">長時運行任務（LongRunningFunctionTool）</h3>
+<pre class="python"><code>from google.adk.tools.long_running_tool import LongRunningFunctionTool
+
+def big_data_processing(data_url: str) -&gt; dict:
+    return {
+        &quot;status&quot;: &quot;pending&quot;,
+        &quot;data-url&quot;: data_url,
+        &quot;task-id&quot;: &quot;big-data-processing-1&quot;,
+    }
+
+long_running_tool = LongRunningFunctionTool(func=big_data_processing)
+agent = Agent(name=&quot;long_running_agent&quot;, tools=[long_running_tool])</code></pre>
+<h3 id="更多-built-in-tools">更多 Built-in Tools</h3>
+<p>VeADK 仲提供其他 Built-in Tools：</p>
+<pre class="python"><code>from veadk.tools.builtin_tools.web_search import web_search   # 網頁搜尋
+from veadk.tools.builtin_tools.run_code import run_code       # 代碼沙箱
+# from veadk.tools.builtin_tools.video_generation import video_generation  # 影片生成
+# from veadk.tools.builtin_tools.image_generation import image_generation  # 圖片生成
+# from veadk.tools.builtin_tools.document_understanding import document_understanding  # 文檔理解</code></pre>
+<h3 id="mcp-toolset">MCP Toolset</h3>
+<pre class="python"><code>from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StreamableHTTPConnectionParams
+
+mcp_toolset = MCPToolset(
+    connection_params=StreamableHTTPConnectionParams(
+        url=&quot;https://your-mcp-service.com/mcp&quot;,
+        headers={&quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;},
+    ),
+)
+
+agent = Agent(
+    name=&quot;mcp_agent&quot;,
+    tools=[mcp_toolset],
+)</code></pre>
+<hr />
+<h2 id="runtime-後端">Runtime 後端</h2>
+<h3 id="adk預設">ADK（預設）</h3>
+<pre class="python"><code>agent = Agent(name=&quot;assistant&quot;)  # 預設就係 ADK runtime</code></pre>
+<h3 id="codex-runtime">Codex Runtime</h3>
+<pre class="bash"><code>pip install &quot;veadk-python[codex]&quot;</code></pre>
+<pre class="python"><code>from veadk import Agent
+from veadk.runtime.codex import CodexRuntimeConfig
+
+agent = Agent(
+    name=&quot;coding_assistant&quot;,
+    runtime=&quot;codex&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+    codex_runtime_config=CodexRuntimeConfig(
+        sandbox=&quot;workspace_write&quot;,
+        approval_mode=&quot;auto_review&quot;,
+        network_access=True,
+    ),
+)</code></pre>
+<p>CodexRuntimeConfig 全部參數：</p>
+<pre class="python"><code>CodexRuntimeConfig(
+    sandbox=&quot;read_only&quot;,              # read_only / workspace_write / full_access
+    approval_mode=&quot;deny_all&quot;,         # deny_all / auto_review
+    network_access=False,
+    workspace_root=None,
+    reuse_workspace=False,
+    reasoning_effort=&quot;medium&quot;,        # minimal / low / medium / high / xhigh
+    personality=&quot;pragmatic&quot;,          # none / friendly / pragmatic
+    max_tool_iterations=8,            # 1-64
+    tool_timeout_seconds=120.0,
+)</code></pre>
+<p>環境變數覆蓋：</p>
+<pre class="bash"><code>export VEADK_CODEX_SANDBOX=full_access
+export VEADK_CODEX_APPROVAL_MODE=auto_review
+export VEADK_CODEX_NETWORK_ACCESS=true</code></pre>
+<h3 id="piagent-runtime">PiAgent Runtime</h3>
+<pre class="python"><code>agent = Agent(
+    name=&quot;coding_assistant&quot;,
+    runtime=&quot;piagent&quot;,
+    model_name=&quot;doubao-seed-2-1-pro-260628&quot;,
+)</code></pre>
+<p>環境變數：</p>
+<pre class="bash"><code>export PIAGENT_BINARY=/path/to/piagent
+export PIAGENT_INSTALL_DIR=~/.cache/veadk/piagent
+export PIAGENT_TIMEOUT_SECONDS=600</code></pre>
+<hr />
+<h2 id="run-processor">Run Processor</h2>
+<h3
+id="內置身份認證authrequestprocessor">內置身份認證（AuthRequestProcessor）</h3>
+<pre class="python"><code>from veadk import Agent
+from veadk.integrations.ve_identity import AuthRequestProcessor
+
+# 基本用法：每次執行前做登入態校驗
+agent = Agent(name=&quot;assistant&quot;, run_processor=AuthRequestProcessor())</code></pre>
+<p><code>AuthRequestProcessor</code> 會喺每次 <code>runner.run()</code>
+之前檢查請求 headers 嘅身份憑證， 確保只有已登入用戶可以調用
+Agent。適合用喺生產環境嘅企業應用。唔 set 嘅話用預設
+processor，乜都唔檢查。</p>
+<h3 id="自定義-processor">自定義 Processor</h3>
+<pre class="python"><code>from veadk.processors.base_run_processor import BaseRunProcessor
+
+class LoggingProcessor(BaseRunProcessor):
+    def process_run(self, runner, message, **kwargs):
+        def decorator(event_generator):
+            async def wrapper():
+                print(f&quot;[START] 收到訊息: {message}&quot;)
+                async for event in event_generator():
+                    yield event
+                print(&quot;[END] 執行完成&quot;)
+            return wrapper
+        return decorator</code></pre>
+<hr />
+<h2 id="飛書-channel">飛書 Channel</h2>
+<pre class="python"><code>from veadk import Agent, Runner
+from veadk.extensions import FeishuChannelExtension
+
+agent = Agent()
+runner = Runner(agent=agent, app_name=&quot;feishu_demo&quot;)
+channel = FeishuChannelExtension(runner=runner)</code></pre>
+<p>環境變數：</p>
+<pre class="bash"><code>export TOOL_FEISHU_CHANNEL_APP_ID=...
+export TOOL_FEISHU_CHANNEL_APP_SECRET=...</code></pre>
+<hr />
+<h2 id="前端frontend--studio--a2ui">前端（Frontend / Studio /
+A2UI）</h2>
+<pre class="python"><code>from veadk import Agent
+
+# 啟用 A2UI（富界面卡片）
+agent = Agent(name=&quot;a2ui_agent&quot;, enable_a2ui=True)
+
+# VeADK Web（本地調試）：pip install &quot;veadk-python[web]&quot; 然後 run
+# VeADK Frontend（生產級 React 應用）
+# VeADK Studio（完整智能體工作台）</code></pre>
+<hr />
+<h2 id="agentkit-集成create_agentkit_app">AgentKit
+集成（create_agentkit_app）</h2>
+<p>VeADK 提供一個應用工廠，快速將 Agent 包裝成 AgentKit Runtime：</p>
+<pre class="python"><code>from veadk import Agent
+from veadk.integrations.agentkit import create_agentkit_app
+
+root_agent = Agent(name=&quot;customer_support&quot;)
+app = create_agentkit_app(root_agent)
+
+# app 已經有晒 /invoke、/ping、/health 等端點
+# 直接用 uvicorn 或者 app.run() 啟動</code></pre>
+<p>呢個工廠嚟自 VeADK README，適用於唔想用 AgentKit SDK 但要包裝 Agent
+嘅情況。</p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

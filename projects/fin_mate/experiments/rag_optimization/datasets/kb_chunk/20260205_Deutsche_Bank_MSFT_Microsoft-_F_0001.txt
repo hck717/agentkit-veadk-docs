@@ -1,0 +1,12 @@
+indicated would have been >40% had they allocated all incremental GPU capacity 
+in F1H26 to Azure. Importantly, we'd highlight Azure is still growing well above the 
+market, guided to sustain 37-38% growth in F3Q and we believe can likely persist 
+near here for several more quarters off a higher base.
+From a margin and LTV perspective we believe the application layer has and is still 
+generally perceived as highly strategic ground on which Microsoft has incumbent 
+advantages. But we'd argue it is also the last area to see tangible benefits as AI 
+monetization works its way up the stack, and is more than ever viewed as at risk of 
+disruption and/or devaluation, which is weighing on sentiment. That story has yet 
+to play out in our view, so while foregoing Azure revenue now for high-margin 
+application and consumer SW opportunity ahead seems a sensible long-term 
+strategy, it puts the onus on Microsoft to deliver before it will get credit.

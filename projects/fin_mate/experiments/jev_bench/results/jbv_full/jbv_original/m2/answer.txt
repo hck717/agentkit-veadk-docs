@@ -1,0 +1,8 @@
+### 安全對 agentic adoption 的關鍵性  
+Agentic adoption（代理型 adoption）需要管理多個 coding agents（如 Anthropic、OpenAI 等），並確保其在客戶 GitHub 倉庫中的有序運作。安全是這一過程的關鍵前提，因為代理型工具涉及處理敏感的代碼庫、外部 API 集成以及多來源上下文（如電子郵件、會議記錄、文檔等）。缺乏安全措施可能導致數據洩露、未授權訪問或操作風險。例如，Microsoft 在 Defender、Entra、Intune 和 Purview 中添加了十多個新的安全 Copilot 代理，並將 Security Copilot 推廣到所有 E5 客戶，以簡化安全團隊的上門流程。這些安全工具可監控和管理代理活動，識別風險信號，並提供可觀察性，而這些都是代理型 adoption 的必要條件【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+
+### 安全對 E7 bundle 的關鍵性  
+E7 套件是 Microsoft 推出的新 SKU，包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，定價為每用戶每月 99 美元。安全是推動 E7 套件銷售的關鍵因素，原因在於：  
+1. **集成安全功能**：E7 套件將多種安全工具（如 Entra）與代理型工具（如 Agent 365）和 Copilot 功能集成，滿足企業對安全與 AI 部署統一管理的需求。  
+2. **上門便利性**：Security Copilot 的推廣降低了安全團隊採用 E7 套件的門檻，使其更容易上手。  
+3. **風險管理**：企業在採用 AI 代理時面臨嚴重的人才短缺，而安全工具可幫助管理 AI 部署中的風險，確保合规性。例如，Icertis 的 SOC 團隊使用安全 Copilot 代理將人工分類時間減少 75%，這證

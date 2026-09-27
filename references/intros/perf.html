@@ -1,0 +1,245 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>性能問題嘅真相（記得比例）：<strong>90% 係 context 太大 / model call
+太多，9% 係 Runtime 資源，1% 先係 platform</strong>。所以「加
+GPU」通常係錯嘅第一反應。</p>
+<blockquote>
+<p>✅ <strong>四條槓</strong>：延遲（Latency）· 吞吐（Throughput）·
+成本（Cost）· 背後嘅 <strong>Prompt chain / 上下文管理</strong>。慳錢 =
+減 token，唔係減 GPU。</p>
+</blockquote>
+<h2 id="it-perf-一先量咩數字三大指標">一、先量咩數字（三大指標）</h2>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>點樣量</th>
+<th>幾時關注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TTFT（首 token 延遲）</strong></td>
+<td>request → 第一個 token</td>
+<td>細模型 &lt;1s、中 1–3s</td>
+</tr>
+<tr>
+<td><strong>Total latency（成個回合）</strong></td>
+<td>完整 answer（agent loop 會 ×N turns）</td>
+<td>多步 agent 最怕</td>
+</tr>
+<tr>
+<td><strong>Throughput（token/s）</strong></td>
+<td>平台吞吐 / 並行</td>
+<td>睇 APMPlus + <code>usage_metadata</code></td>
+</tr>
+<tr>
+<td><strong>Cost / task</strong></td>
+<td>每次任務總 token × 費率</td>
+<td><code>ak eval run</code> + 計費定基線</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-perf-二5-大偷錢位同槓桿">二、5 大「偷錢位」同槓桿</h2>
+<table>
+<thead>
+<tr>
+<th>死因</th>
+<th>槓桿</th>
+<th>見邊</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每輪全 context 重送</td>
+<td><strong>Responses 緩存</strong> 命中率高 50–95%</td>
+<td>「記憶 / 知識庫」Tab §4</td>
+</tr>
+<tr>
+<td>長對話越滾越大</td>
+<td><strong>Compaction</strong>（<code>EventsCompactionConfig</code> +
+mini summarizer）</td>
+<td>記憶 Tab §5</td>
+</tr>
+<tr>
+<td>大 model 行晒所有輪</td>
+<td><strong>分 model</strong>：高頻 <code>mini</code>、難題 fallback
+<code>pro</code></td>
+<td>本 Tab §2</td>
+</tr>
+<tr>
+<td>成個 KB 全文入 system</td>
+<td><strong>RAG top_k</strong> 只塞相關片段</td>
+<td>記憶 Tab</td>
+</tr>
+<tr>
+<td>Runtime 唔夠 concurrency</td>
+<td><code>ak runtime update --max-concurrency</code></td>
+<td>本 Tab §6</td>
+</tr>
+</tbody>
+</table>
+<h2
+id="it-perf-三性能優化順序由零成本排到貴">三、性能優化順序（由零成本排到貴）</h2>
+<ol type="1">
+<li>✅ <strong>Context 工廠</strong>：轉 RAG（唔好全文件）+ 睇緩存命中率
+—— <strong>零 code</strong>。</li>
+<li>✅ <strong>縮 prompt</strong>：instruction 精簡、tool return 抽 key
+—— 少 code、冇 infra 影響。</li>
+<li>✅ <strong>加壓縮</strong>：<code>EventsCompactionConfig</code> +
+mini summarizer —— 少 code。</li>
+<li>⚠️ <strong>調 Runtime</strong>：<code>runtime update</code>
+CPU/mem/concurrency —— 有雲銀兩，唔好亂咁加。</li>
+<li>⚠️ <strong>拆 Agent + 並行</strong>：A2A +
+<code>asyncio.gather</code> —— 工程量較大，但多請求場景即受。</li>
+<li>⚠️ <strong>Eval 守住</strong>：任何改動過 <code>ak eval run</code>
+先放心。</li>
+</ol>
+<h2 id="it-perf-四可觀測性--唔量度就唔好話快">四、可觀測性 —
+唔量度就唔好話快</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>睇咩</th>
+<th>接入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>APMPlus</strong></td>
+<td>模型調用次數、token、操作耗時、異常、工具耗時</td>
+<td><code>OpentelemetryTracer([APMPlusExporter()])</code> 或
+<code>ENABLE_APMPLUS=true</code></td>
+</tr>
+<tr>
+<td><strong>Cozeloop</strong></td>
+<td>trace + 評測</td>
+<td><code>CozeloopExporter()</code></td>
+</tr>
+<tr>
+<td><strong>TLS</strong></td>
+<td>集中日誌長期留存</td>
+<td><code>TLSExporter()</code></td>
+</tr>
+<tr>
+<td><strong>InMemory</strong></td>
+<td>本地 debug，span JSON 落盤</td>
+<td>自動附帶</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Performance checklist</strong>：睇 APMPlus「操作耗時」分佈 →
+邊個 agent / 工具最慢 → 集中攻嗰嚿。</p>
+<blockquote>
+<p>⚠️ <code>LOGGING_LEVEL=DEBUG</code>
+會記錄模型輸出、思考、工具參數結果 —— 生產一定要轉 INFO（見「安全 /
+可觀測」Tab）。</p>
+</blockquote>
+<h2 id="it-perf-五eval--優化嘅安全網">五、Eval — 優化嘅安全網</h2>
+<div class="sourceCode" id="it-perf-cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-perf-cb1-1"><a href="#it-perf-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset create <span class="at">--name</span> qa-set <span class="at">--schema</span> <span class="st">&quot;input,reference_output&quot;</span></span>
+<span id="it-perf-cb1-2"><a href="#it-perf-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset add qa-set <span class="at">--file</span> ./cases.json</span>
+<span id="it-perf-cb1-3"><a href="#it-perf-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval run <span class="at">--dataset</span> qa-set <span class="at">--evaluator</span> 相关性 <span class="at">--target</span> my-agent <span class="at">--json</span></span></code></pre></div>
+<ul>
+<li>一次可多個 <code>--evaluator</code>（相關性 / 完整性）加權。</li>
+<li>CI 用：<code>eval run</code> 回傳 <code>experimentId</code> →
+<code>eval experiment get / results</code>。</li>
+<li><strong>Studio 自動回流</strong>：部署開「自動創建評測集」→
+每輪自動評分（0–1，≥0.6 入 Good Case）→ Good/Bad Case 落返
+<code>{agent}_good_case</code>/<code>{agent}_bad_case</code> 之後繼續改
+prompt。</li>
+</ul>
+<h2 id="it-perf-實作備忘跟住做三步cli--yaml--veadk">實作備忘：跟住做三步（CLI →
+YAML → VeADK）</h2>
+<h3 id="it-perf-①-cli量度--調-runtime-資源">① CLI：量度 + 調 runtime 資源</h3>
+<div class="sourceCode" id="it-perf-cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-perf-cb2-1"><a href="#it-perf-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 開 APMPlus（睇操作耗時/token/異常）</span></span>
+<span id="it-perf-cb2-2"><a href="#it-perf-cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime update my-agent <span class="at">--apmplus</span> <span class="at">--auto-release</span></span>
+<span id="it-perf-cb2-3"><a href="#it-perf-cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-perf-cb2-4"><a href="#it-perf-cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 提升單實例資源 / concurrency（唔使 rebuild）</span></span>
+<span id="it-perf-cb2-5"><a href="#it-perf-cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime update my-agent <span class="dt">\</span></span>
+<span id="it-perf-cb2-6"><a href="#it-perf-cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">--cpu-milli</span> 2000 <span class="dt">\</span></span>
+<span id="it-perf-cb2-7"><a href="#it-perf-cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">--memory-mb</span> 4096 <span class="dt">\</span></span>
+<span id="it-perf-cb2-8"><a href="#it-perf-cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--max-concurrency</span> 40 <span class="dt">\</span></span>
+<span id="it-perf-cb2-9"><a href="#it-perf-cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--auto-release</span></span>
+<span id="it-perf-cb2-10"><a href="#it-perf-cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-perf-cb2-11"><a href="#it-perf-cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 快速睇邊個最慢：runtime logs + APMPlus「操作耗時」分佈</span></span>
+<span id="it-perf-cb2-12"><a href="#it-perf-cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime logs my-agent <span class="at">--limit</span> 200</span></code></pre></div>
+<h3 id="it-perf-②-agentkityaml不安裝都做到嘅基線下限cache-唔郁">②
+agentkit.yaml：不安裝都做到嘅基線下限（cache 唔郁）</h3>
+<div class="sourceCode" id="it-perf-cb3"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-perf-cb3-1"><a href="#it-perf-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agentkit.yaml —— 唔設 output_schema／唔加 dynamic prefix，先保住 cache 命中</span></span>
+<span id="it-perf-cb3-2"><a href="#it-perf-cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">agent_name</span><span class="kw">:</span><span class="at"> perf-agent</span></span>
+<span id="it-perf-cb3-3"><a href="#it-perf-cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">entry_point</span><span class="kw">:</span><span class="at"> agent_app.py</span></span>
+<span id="it-perf-cb3-4"><a href="#it-perf-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_type</span><span class="kw">:</span><span class="at"> cloud</span></span>
+<span id="it-perf-cb3-5"><a href="#it-perf-cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">region</span><span class="kw">:</span><span class="at"> cn-beijing</span></span>
+<span id="it-perf-cb3-6"><a href="#it-perf-cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="it-perf-cb3-7"><a href="#it-perf-cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> MODEL_AGENT_NAME=seed-2-0-mini-260428</span><span class="co">   # 高頻行 mini</span></span>
+<span id="it-perf-cb3-8"><a href="#it-perf-cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> LOGGING_LEVEL=INFO</span><span class="co">                      # 生產禁止 DEBUG（會記晒輸出/工具參數）</span></span></code></pre></div>
+<h3 id="it-perf-③-veadk-python快慢分行--stress-好多-request">③ VeADK
+Python：快慢分行 + stress 好多 request</h3>
+<div class="sourceCode" id="it-perf-cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-perf-cb4-1"><a href="#it-perf-cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> asyncio</span>
+<span id="it-perf-cb4-2"><a href="#it-perf-cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent, Runner</span>
+<span id="it-perf-cb4-3"><a href="#it-perf-cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-perf-cb4-4"><a href="#it-perf-cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 快慢分行：高頻 mini，難題先 fallback pro</span></span>
+<span id="it-perf-cb4-5"><a href="#it-perf-cb4-5" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> Agent(</span>
+<span id="it-perf-cb4-6"><a href="#it-perf-cb4-6" aria-hidden="true" tabindex="-1"></a>    model_name<span class="op">=</span>[<span class="st">&quot;doubao-seed-2-0-mini&quot;</span>, <span class="st">&quot;doubao-seed-2-1-pro-260628&quot;</span>],</span>
+<span id="it-perf-cb4-7"><a href="#it-perf-cb4-7" aria-hidden="true" tabindex="-1"></a>    instruction<span class="op">=</span><span class="st">&quot;一般問題快速答；需要深度推理先升級。&quot;</span>,</span>
+<span id="it-perf-cb4-8"><a href="#it-perf-cb4-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-perf-cb4-9"><a href="#it-perf-cb4-9" aria-hidden="true" tabindex="-1"></a>runner <span class="op">=</span> Runner(agent)</span>
+<span id="it-perf-cb4-10"><a href="#it-perf-cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-perf-cb4-11"><a href="#it-perf-cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">async</span> <span class="kw">def</span> run_batch(sessions: <span class="bu">list</span>[<span class="bu">str</span>], task: <span class="bu">str</span>):</span>
+<span id="it-perf-cb4-12"><a href="#it-perf-cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 並行跑，唔好 for-loop 排隊</span></span>
+<span id="it-perf-cb4-13"><a href="#it-perf-cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="cf">await</span> asyncio.gather(<span class="op">*</span>[runner.run(messages<span class="op">=</span>task, session_id<span class="op">=</span>s) <span class="cf">for</span> s <span class="kw">in</span> sessions])</span>
+<span id="it-perf-cb4-14"><a href="#it-perf-cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-perf-cb4-15"><a href="#it-perf-cb4-15" aria-hidden="true" tabindex="-1"></a>out <span class="op">=</span> asyncio.run(run_batch([<span class="ss">f&quot;s</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">&quot;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>)], <span class="st">&quot;總結呢月營運數據&quot;</span>))</span>
+<span id="it-perf-cb4-16"><a href="#it-perf-cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 每單睇用量：cache 命中率 / token / fallback 有冇觸發</span></span>
+<span id="it-perf-cb4-17"><a href="#it-perf-cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> resp <span class="kw">in</span> out:</span>
+<span id="it-perf-cb4-18"><a href="#it-perf-cb4-18" aria-hidden="true" tabindex="-1"></a>    u <span class="op">=</span> resp.events[<span class="op">-</span><span class="dv">1</span>].usage_metadata</span>
+<span id="it-perf-cb4-19"><a href="#it-perf-cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(u.cached_content_token_count, u.prompt_token_count, resp.model_name)</span></code></pre></div>
+<h2 id="it-perf-六實例對比客服-20k-turns日-記住量級">六、實例對比（客服 20k
+turns/日）— 記住量級</h2>
+<table>
+<thead>
+<tr>
+<th>優化前</th>
+<th>優化後</th>
+<th>慳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每輪全 context 重送 4k token</td>
+<td>緩存命中（首輪 4k + 後續 ~600）</td>
+<td><strong>~75%</strong></td>
+</tr>
+<tr>
+<td>每 turn 大 model</td>
+<td><code>mini</code> 主 + <code>pro</code> fallback</td>
+<td>大 model 用量 ~50%↓</td>
+</tr>
+<tr>
+<td>每輪 full summary</td>
+<td><code>compaction_interval=10</code></td>
+<td>summary call ~10×↓</td>
+</tr>
+<tr>
+<td>context 塞成個 FAQ</td>
+<td>RAG <code>top_k=10</code></td>
+<td>token ~30%↓</td>
+</tr>
+</tbody>
+</table>
+<p>結果：月成本 -50%、median latency ~3s→1.5s、eval 分不跌反升（context
+乾淨咗）。</p>
+<h2 id="it-perf-七sales-一句">七、Sales 一句</h2>
+<p>「性能優化唔使講『應該快少少』——我哋 <strong>每改一版都用 eval
+畀分</strong>，慳錢之餘有實績，改壞咗即刻知。」</p>
+<h2 id="it-perf-記住">記住</h2>
+<ul>
+<li><strong>先做零成本（context 層）</strong>，再做要錢嘅（runtime /
+GPU）。一直排隊轉 API 反而唔郁 infra 先係最大提升。</li>
+<li><strong>Evaluate 永遠係最後一關</strong>：慳到飛起但 accuracy 跌晒 =
+白做。</li>
+</ul>

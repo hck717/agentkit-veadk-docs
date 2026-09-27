@@ -1,0 +1,11 @@
+### 1. **E7 SKU 整合多項高毛利產品**  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，這些產品均為高毛利業務。將它們打包銷售可提高單用戶收入（ARPU），彌補 Azure 供應受限時的利潤缺口。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】  
+
+### 2. **驅動 Agentic Adoption 及 Copilot  adoption**  
+Agent 365 提供代理登記、可觀察性和風險信號等功能，是 Agentic 採用的關鍵前提。而 Copilot 是 MSFT GenAI 戰略的核心產品。E7 SKU 將這些產品捆綁，降低了企業單獨採用的門檻，加速了兩者的 adoption，從而帶來額外收入。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】  
+
+### 3. **現有 E3/E5 用戶升級潛力大**  
+MSFT 擁有龐大的 E3/E5 安裝基礎（約 1.5 億席位），這些用戶升級至 E7 的意願最高。價格上漲（E7 訂閱費為 99 美元/用戶/月，高於 E5）可帶來顯著的 upsell 收入，預計年額外收入達 960 億美元。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】  
+
+### 4. **應對 M365 漲價的市場反應**  
+MSFT 近期上調 M365 價格，迫使企業在 2026 年下半年進行談判，這反而成為 E7 等新產品 adoption 的催化劑

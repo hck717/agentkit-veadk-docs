@@ -1,0 +1,1393 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>跨廠商對照</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>跨廠商對照</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-跨廠商全棧成本對照byteplus-vs-azure--aws--google--deepseek--qwen--混元--其他">VeADK
++ AgentKit 跨廠商全棧成本對照（BytePlus vs Azure / AWS / Google /
+DeepSeek / Qwen / 混元 + 其他）</h1>
+<p>呢份文件係「<strong>同一個
+agent，十個平台，五層錢</strong>」嘅逐項對照。唔淨係比模型 token
+價——仲比你落咗 RAG、MCP 工具、guardrails、PII
+脫敏、RBAC、GPU、微調、優化之後，個個月條數點計法。</p>
+<blockquote>
+<p><strong>先讀 4 條心法</strong>：</p>
+<ol type="1">
+<li><strong>平台收錢係分層數</strong>：model token / embedding / RAG-KB
+/ hosting+tools /
+safety+observability+fine-tune——五張單，唔好淨睇第一張。</li>
+<li><strong>同一個開源 model，host 唔同價差可達 10×</strong>（Llama 3.3
+70B：OpenRouter ~$0.10/$0.32 到 Cerebras $0.85/$1.20）——真錢與其話「揀好
+model」，不如話「揀好房東」。</li>
+<li><strong>BytePlus 嘅打法唔係「最平
+token」</strong>，係「<strong>封頂月費 + 多模態 + GPU/sandbox 已包 +
+隱式 cache</strong>」——sell cost-per-outcome
+同可預測性，唔係玩標價競賽。</li>
+<li><strong>所有 Hosted agent 平台其實都係「token + infra +
+safety」三線收貴</strong>：Azure / Bedrock / Gemini Enterprise / ADP
+全部一樣，分別只係「封頂定浮動」。</li>
+</ol>
+</blockquote>
+<hr />
+<p><strong>計價時點與名義對照</strong></p>
+<ul>
+<li>本文件價格以 <strong>2026-08-16</strong> 為時點；<strong>DeepSeek
+峰谷價 2026-08-17 00:00（北京）生效</strong>。</li>
+<li>名義 FX：<strong>¥1 ≈ $0.14</strong>（報價時請用即日匯率）。RMB
+平台標 ¥、國際平台標 $。</li>
+<li>所有數字係公開資訊整理，<strong>官方 $-blank 位（Azure / Google
+主頁）用第三方 mailout 補</strong>，大額報價前一定去官網 rate 再
+check。定性描述（合規/定位）標「要確認」。</li>
+</ul>
+<hr />
+<h2 id="0-快睇邊個平台邊個身份">0. 快睇：邊個平台，邊個身份</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>收費形態</th>
+<th>一句定位</th>
+<th>邊個啱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BytePlus 火山方舟</strong></td>
+<td>Plan 封頂（¥40–1000）+ 超額按量</td>
+<td>封頂、多模態、GPU 已包</td>
+<td>要可預測月費、要 MVP 快、中文/粵語</td>
+</tr>
+<tr>
+<td><strong>Azure OpenAI / Foundry</strong></td>
+<td>純 token + runtime + tools</td>
+<td>GPT-5 家族 + 整套 Azure 治理</td>
+<td>全球盤、已有 Azure、要 Batch −50%</td>
+</tr>
+<tr>
+<td><strong>AWS Bedrock</strong></td>
+<td>token + KB floor + guardrails</td>
+<td>62+ model、深 AWS 整合</td>
+<td>已有 AWS、多 model 唔想綁死</td>
+</tr>
+<tr>
+<td><strong>Google Gemini / Agent Platform</strong></td>
+<td>token + Agent Compute/Memory</td>
+<td>平價 Flash + 最平 Agent runtime</td>
+<td>已用 GCP、長文 context、低價 cache</td>
+</tr>
+<tr>
+<td><strong>DeepSeek 官方</strong></td>
+<td>純 API（無 hosting）</td>
+<td>標價最平 + 峰谷再 ×0.5</td>
+<td>壓量、cache 密集、唔介意自組排程</td>
+</tr>
+<tr>
+<td><strong>Alibaba 百煉</strong></td>
+<td>token + 部署 MU + 免費額度</td>
+<td>Qwen 生態 + 90日1M free</td>
+<td>淘系/大陸、要 Qwen 全系</td>
+</tr>
+<tr>
+<td><strong>Tencent 混元 / ADP / 元器</strong></td>
+<td>訂閱 (¥88–4880) + PU 浮動</td>
+<td>工具佢收得貴</td>
+<td>已用騰訊雲、域內 (元器免費)</td>
+</tr>
+<tr>
+<td><strong>Zhipu GLM</strong></td>
+<td>token</td>
+<td>GLM 5/5.1</td>
+<td>智譜系、中文推理</td>
+</tr>
+<tr>
+<td><strong>Mistral La Plateforme</strong></td>
+<td>token, batch −50%</td>
+<td>歐系、細行</td>
+<td>歐洲主權、細中模型</td>
+</tr>
+<tr>
+<td><strong>Groq / Cerebras / DeepInfra / 聚合</strong></td>
+<td>token</td>
+<td>開源 model 快 / 平 / 自動路由</td>
+<td>開源系、latency 敏感、想自組最平</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-五層成本框架同一個-agent五張單">1. 五層成本框架（同一個
+agent，五張單）</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>收咩錢</th>
+<th>幾時有</th>
+<th>邊個平台最突出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① <strong>Model tokens</strong></td>
+<td>in / out / cache-read</td>
+<td>一定有</td>
+<td>DeepSeek、nano/Micro 級最平</td>
+</tr>
+<tr>
+<td>② <strong>Embedding</strong></td>
+<td>每 1M token 向量化</td>
+<td>RAG 先有</td>
+<td>Gemini ($0.15–0.20) 平過 OpenAI t3-large ($0.13) 代理人用 t3-small
+$0.02</td>
+</tr>
+<tr>
+<td>③ <strong>RAG / 知識庫</strong></td>
+<td>KB 儲存 + 每 query 額外 input token</td>
+<td>RAG 先有</td>
+<td>Bedrock KB 有 $345/月底（OpenSearch）；Azure File Search
+$0.10/GB·日</td>
+</tr>
+<tr>
+<td>④ <strong>Agent hosting / runtime / tools</strong></td>
+<td>vCPU·h / session / 工具次數</td>
+<td>要做 agent</td>
+<td>Google Agent Compute $0.085/vCPU·h（50h free）最平；Azure Code
+Interpreter $0.03/session</td>
+</tr>
+<tr>
+<td>⑤ <strong>Safety + Observability + Fine-tune</strong></td>
+<td>guardrail 每 request / PII / 監控 / 微調</td>
+<td>生產先有</td>
+<td>BytePlus LLM-FW 內置；Azure Defender $0.80/1M·月；各自加
+0.5–10%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>報價第一句</strong>：問 client「你嘅 agent 係咪
+RAG？多模態？要唔要
+guardrail？」——三個問題決定五層入面三層有冇錢收。</p>
+</blockquote>
+<hr />
+<h2 id="2-同一個-model唔同-host價差-10-嘅真相">2. 同一個 Model，唔同
+Host：價差 10× 嘅真相</h2>
+<h3 id="21-llama-33-70bmeta-開源12-個-host">2.1 Llama 3.3 70B（Meta
+開源，12 個 host）</h3>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>in $/1M</th>
+<th>out $/1M</th>
+<th>快（tok/s 約）</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenRouter（路由）</td>
+<td>$0.10–0.32</td>
+<td>低至 $0.32</td>
+<td>—</td>
+<td>淨係 routing，另收 5.5% fee</td>
+</tr>
+<tr>
+<td>DeepInfra</td>
+<td>$0.35</td>
+<td>$0.35</td>
+<td>27</td>
+<td>最平意志價</td>
+</tr>
+<tr>
+<td>Nebius（Fast）</td>
+<td>$0.42</td>
+<td>$0.42</td>
+<td>80</td>
+<td>EU 數據主權</td>
+</tr>
+<tr>
+<td>Hyperbolic</td>
+<td>$0.40</td>
+<td>$0.40</td>
+<td>35</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Groq</strong></td>
+<td><strong>$0.59</strong></td>
+<td><strong>$0.79</strong></td>
+<td><strong>315</strong></td>
+<td>LPU，RT 對話</td>
+</tr>
+<tr>
+<td>SambaNova</td>
+<td>$0.60</td>
+<td>$1.20</td>
+<td>294</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>AWS Bedrock</strong></td>
+<td>$0.72</td>
+<td>$0.72</td>
+<td>190</td>
+<td>AWS 整合</td>
+</tr>
+<tr>
+<td><strong>Cerebras</strong></td>
+<td><strong>$0.85</strong></td>
+<td><strong>$1.20</strong></td>
+<td><strong>~2000</strong></td>
+<td>岩 size 模型最快</td>
+</tr>
+<tr>
+<td>Fireworks</td>
+<td>$0.90</td>
+<td>$0.90</td>
+<td>50</td>
+<td>最低 TTFT</td>
+</tr>
+<tr>
+<td>Together</td>
+<td>$1.04</td>
+<td>$1.04</td>
+<td>45</td>
+<td>微調基建最好</td>
+</tr>
+<tr>
+<td>Cloudflare Workers AI</td>
+<td>免費（每日配額）</td>
+<td>免費</td>
+<td>30</td>
+<td>原型</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>結論</strong>：同一個 model，OpenRouter ↔︎ Cerebras 價差
+~4–10×。<strong>買嘅係 hosting/速度主權</strong>，唔係 model。</p>
+</blockquote>
+<h3 id="22-deepseek-v4-flash同一個-model4-個中國-host">2.2 DeepSeek
+V4-flash（同一個 model，4 個中國 host）</h3>
+<table>
+<thead>
+<tr>
+<th>Host</th>
+<th>in ¥/1M</th>
+<th>out ¥/1M</th>
+<th>cache ¥/1M</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DeepSeek 官方</strong>（現行，8/17 前）</td>
+<td>¥1</td>
+<td>¥2</td>
+<td>¥0.02</td>
+<td>最快出新模型，卻 503/429 傳聞</td>
+</tr>
+<tr>
+<td><strong>官方</strong>（新峰谷 off-peak，8/17 起）</td>
+<td>¥1.5</td>
+<td>¥4.5</td>
+<td>¥0.05</td>
+<td>離峰先平</td>
+</tr>
+<tr>
+<td><strong>官方</strong>（高峰 北京9-12,14-18）</td>
+<td>¥3</td>
+<td>¥9</td>
+<td>¥0.10</td>
+<td>高峰 ×2</td>
+</tr>
+<tr>
+<td><strong>火山方舟</strong></td>
+<td>¥1</td>
+<td>¥2</td>
+<td>¥0.2</td>
+<td>同官方現行價，企業級並發/穩定，TTFT 低</td>
+</tr>
+<tr>
+<td><strong>阿里百煉</strong></td>
+<td>同官方</td>
+<td>同官方</td>
+<td>同官方</td>
+<td>跟價</td>
+</tr>
+<tr>
+<td>硅基流動 SiliconFlow</td>
+<td>~¥1</td>
+<td>~¥2</td>
+<td>~¥0.1</td>
+<td>價格屠夫，穩定度一般</td>
+</tr>
+<tr>
+<td>七月/七牛等聚合</td>
+<td>折 4 折（年包）</td>
+<td>—</td>
+<td>—</td>
+<td>多 model 統一 key</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>賣點</strong>：火山方舟用接近官方價托管 DeepSeek（v4-flash
+¥1/¥2），但嗰樣嘢官方買唔到嘅係「企業並發 + 穩定 → sell」。</p>
+</blockquote>
+<h3 id="23-其他開源同系跨-host快照">2.3 其他開源/同系跨
+host（快照）</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>最平 host</th>
+<th>中間</th>
+<th>最貴/最靚 host</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>gpt-oss-120b</strong>（OpenAI 開源）</td>
+<td>DeepInfra $0.17</td>
+<td><strong>Cerebras $0.35/$0.75</strong> · <strong>Groq</strong> $0.60
+(out)</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Qwen3 235B A22B</strong></td>
+<td>Hyperbolic $0.40</td>
+<td><strong>Cerebras</strong> $1.20 (out)</td>
+<td>百煉 MU ¥216/hr 自托管</td>
+</tr>
+<tr>
+<td><strong>Qwen3 32B</strong></td>
+<td>百煉 open ¥2/¥8 → 單機</td>
+<td><strong>Cerebras $0.40/$0.80</strong> · Groq 有</td>
+<td>百煉 MU ¥400/hr</td>
+</tr>
+<tr>
+<td><strong>DeepSeek-R1</strong>（滿血）</td>
+<td>方舟 ¥4/¥16（同官方）</td>
+<td>Bedrock $? · Azure $3.5/14 級</td>
+<td>chain-of-thought 實耗 3–5×</td>
+</tr>
+<tr>
+<td><strong>Mistral Large 2</strong></td>
+<td>La Plateforme ~$0.9/$2.2</td>
+<td><strong>Bedrock $3/$9</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 呢啲 price 每幾個月郁一次（2026 開源市場好「卷」）；引用前
+refetch。<strong>同 model 歸同 model，hosting 先係性格。</strong></p>
+</blockquote>
+<hr />
+<h2 id="3-逐廠檔案每個模型-57-隻-cheaptop--完整-line-items">3.
+逐廠檔案（每個：模型 5–7 隻 cheap→top + 完整 line items）</h2>
+<h3 id="31-byteplus-火山方舟豆包-doubao--seed">3.1 BytePlus
+火山方舟（豆包 Doubao + seed）</h3>
+<p><strong>Model tokens（¥/1M，2026 ai.volcengine.com
+定價）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in ¥/1M</th>
+<th>out ¥/1M</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>doubao-seed-2-0-mini</td>
+<td>¥0.2–0.8</td>
+<td>¥2–8</td>
+<td>極速文字，0.5× 係數</td>
+</tr>
+<tr>
+<td>doubao-seed-2-0-lite</td>
+<td>¥0.6–1.8</td>
+<td>¥3.6–10.8</td>
+<td>混合層</td>
+</tr>
+<tr>
+<td>doubao-seed-2-1-turbo</td>
+<td>¥3</td>
+<td>¥15</td>
+<td>主推/編碼小子</td>
+</tr>
+<tr>
+<td>doubao-seed-2-1-pro</td>
+<td>¥6</td>
+<td>¥30</td>
+<td>推理</td>
+</tr>
+<tr>
+<td>doubao-seed-evolving</td>
+<td>¥6</td>
+<td>¥30</td>
+<td>Coding/Agent 旗艦，256K ctx</td>
+</tr>
+<tr>
+<td>Seedream（圖）</td>
+<td>≈100 AFP/張</td>
+<td>—</td>
+<td>圖很貴，問多模態先</td>
+</tr>
+<tr>
+<td>Seedance 2.0（video）</td>
+<td>≈2,000 AFP/段</td>
+<td>—</td>
+<td>只有 Large/Max 可用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Agent 打包：Agent Plan（AFP）</strong>：Small ¥40/20k ·
+Medium ¥200/100k · Large ¥500/250k · Max ¥1,000/500k
+AFP（月度window）。Harness ≈500 次/月 free → 超出扣 AFP；Sandbox 計
+CU·hr（雲線）；記憶/KB 儲存按 GB·hr；向量化用 doubao-embedding-vision 計
+AFP；LoRA 微調收返 AFP/按量。</p>
+<p><strong>其餘層</strong>：隱式 cache（cached input ≈ 標準價
+~20%，自動、不可關）；GPU/sandbox <strong>已入
+plan</strong>（唔好另加）；LLM-FW（Prompt
+過濾）內置近免費；PII/RBAC（IAM/AK-SK/JWT/審計）見 sec tab；APMPlus
+observability 另購。
+<strong>定位</strong>：封頂、多模態獨家（Seedance/Seedream
+你唔使離開佢）、GPU 已包。弱點：大陸數據主權、超額浮動、國際
+SLA/文檔較弱。</p>
+<h3 id="32-azure-openai--ai-foundry--agent-service">3.2 Azure OpenAI /
+AI Foundry / Agent Service</h3>
+<p><strong>Model tokens（$ /1M，Global PAYG，2026）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in</th>
+<th>平價 cache-in</th>
+<th>out</th>
+<th>Batch −50%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GPT-5-nano</strong></td>
+<td>$0.05</td>
+<td>—</td>
+<td>$0.40</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>GPT-5-mini</strong></td>
+<td>$0.25</td>
+<td>$0.025</td>
+<td>$2.00</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>GPT-5</strong></td>
+<td>$1.25</td>
+<td>$0.125</td>
+<td>$10.00</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>GPT-5.4</td>
+<td>$2.50</td>
+<td>$0.25</td>
+<td>$15.00</td>
+<td>✓</td>
+</tr>
+<tr>
+<td><strong>GPT-5 Pro</strong></td>
+<td>$15.00</td>
+<td>$1.50</td>
+<td>$120.00</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<p><em>(註：GPT-5.4 系列 $2.5/$15 參與，5.5 更新——用 dl-chat 最新
+rate。Batch Global 50% off；Regional 貴 5–10%。)</em></p>
+<p><strong>其餘層</strong></p>
+<ul>
+<li>Embedding：t3-small $0.02 / t3-large $0.13（1M tokens）；File Search
+預設 t3-large。</li>
+<li>RAG/KB：<strong>File Search $0.10/GB-vector·day（1GB free）</strong>
++ 每 query KB 內容當 input token。</li>
+<li>Tools/MCP：<strong>Code Interpreter $0.03/session</strong>（每人 1
+小時窗口）；Web Search / Custom Search 按 1K transactions 收費；Toolbox
+集中 creds/policy（工具照收）；Agentic 官方 model 唔另收 framing。</li>
+<li>Hosting：hosted agents = <strong>container compute（vCPU·h +
+GiB·h）</strong>，per-session sandbox、scale-to-zero（冇流量冇錢）；Code
+Interpreter 唔跟 agent subnet。</li>
+<li>Guardrails：<strong>Content Safety $0.75/1K text records + $1.50/1K
+images</strong>（免費 5K/月）；Prompt Shields 可跟 API。</li>
+<li>PII：可用 Azure AI Language PII（按 text record）或 DLP 類。</li>
+<li>Security/RBAC：Entra ID 角色免費（Foundry
+User/Owner…）；<strong>Defender for AI Services $0.80/1M
+tok·month</strong>（30 日/75B tok free）；agent 級 posture 自 2026-07 轉
+Microsoft Agent 365 許可以外另收。</li>
+<li>GPU/Throughput：<strong>PTU 約
+$2,448/PTU·月</strong>（~$3.35/hr），sustained 慳 70%。</li>
+<li>Fine-tune：SFT 按「training tokens × epoch」<strong>GPT-4.1
+$2.00/1M</strong>、4o-mini $3.30/1M、4o $25/1M；<strong>hosting
+$1.70/hr</strong>（Standard/Global Standard）；o4-mini RFT $100/hr +
+grader tokens；Developer tier 免 hosting（冇 SLA，24h 自刪）。</li>
+<li>優化：prompt cache 自動（$0.025–0.50 級），fine-tuned model 都享
+cache −50% 級。 <strong>弱點</strong>：靜態 $
+標籤易漏（hosting/PTU/Defender），三套 portaling。</li>
+</ul>
+<h3 id="33-aws-bedrock含-agentcore--agent--knowledge-bases">3.3 AWS
+Bedrock（含 AgentCore / Agent / Knowledge Bases）</h3>
+<p><strong>Model tokens（$ /1M，on-demand 2026）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in</th>
+<th>out</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Amazon Nova Micro</strong></td>
+<td>$0.035</td>
+<td>$0.14</td>
+<td>全平台最平</td>
+</tr>
+<tr>
+<td>Nova Lite</td>
+<td>$0.06</td>
+<td>$0.24</td>
+<td>多模態</td>
+</tr>
+<tr>
+<td><strong>Llama 4 Scout</strong></td>
+<td>$0.17</td>
+<td>$0.36</td>
+<td>開源長文</td>
+</tr>
+<tr>
+<td>Llama 4 Maverick</td>
+<td>$0.50</td>
+<td>$0.80</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>DeepSeek V3.2</strong></td>
+<td>$0.62</td>
+<td>$1.85</td>
+<td>平第三方</td>
+</tr>
+<tr>
+<td><strong>Nova Pro</strong></td>
+<td>$0.80</td>
+<td>$3.20</td>
+<td>自家主打</td>
+</tr>
+<tr>
+<td>Claude Haiku 4.5</td>
+<td>$1.00</td>
+<td>$5.00</td>
+<td>平 Claude</td>
+</tr>
+<tr>
+<td><strong>Claude Sonnet 4.6</strong></td>
+<td>$3.00</td>
+<td>$15.00</td>
+<td>最流行</td>
+</tr>
+<tr>
+<td>Claude Opus 4.8</td>
+<td>$5.00</td>
+<td>$25.00</td>
+<td>高階</td>
+</tr>
+<tr>
+<td>Nova Premier</td>
+<td>$2.50</td>
+<td>$12.50</td>
+<td>旗艦</td>
+</tr>
+</tbody>
+</table>
+<p><em>(傳：Claude Fable 5 $10/$50 最貴。MARS 已整批 50%、cache
+write/read、路由 −30%。)</em></p>
+<p><strong>其餘層</strong></p>
+<ul>
+<li>RAG/KB：<strong>OpenSearch Serverless 底價 2 OCU × $0.24/h ≈
+$345/月（零 query 都照收）</strong>；可轉 S3 Vectors（−90%）。每
+query：embed + vector scan + generation <strong>amplification
+4–8×</strong>。</li>
+<li>Tools/MCP：<strong>Bedrock Flows $0.035/1K
+node-transitions</strong>；AgentCore Policy（$/authorization）＋NL
+policy text → Cedar 轉換按 1M user-input tokens；AgentCore <strong>Web
+Search $7/1K queries</strong>；KB input tokens $0.13/1K。</li>
+<li>Guardrails：content/denied <strong>$0.15/1K
+text-units</strong>、PII(sensitive) <strong>$0.10/1K</strong>、接地
+<strong>$0.10/1K</strong>、automated reasoning
+<strong>$0.17/1K</strong>、img $0.00075/張；InvokeGuardrailChecks API
+減價版 content $0.07 / prompt-attack $0.08。<strong>in+out
+各計一次</strong>。</li>
+<li>PII：<strong>Comprehend Detect PII $0.0001/100-char unit（≈$1/1M
+chars，300-char min）</strong>；Contains PII $0.000002/unit 用嚟做
+triage。</li>
+<li>Hosting：AgentCore Runtime microVMs（consumption，idle 免費，active
+俾 CPU+memory）；Instances = EC2 + 管理費 per-second。</li>
+<li>Security/RBAC：IAM free；Guardrails + CloudTrail；CloudWatch logs
+$0.50/GB ingest、$0.03/GB store。</li>
+<li>GPU：Provisioned Throughput <strong>$0.12–24/h·MU</strong>（model
+而定），commit 1/6 月平 D；BREAK-EVEN ~5M req/月先值得。</li>
+<li>Fine-tune：per training token <strong>Llama 13B $1.49/1M、70B
+$7.99/1M、Titan Lite $1/1M</strong>；custom model <strong>storage
+$1.95/月</strong>；Nova on-demand LoRA 平（同 base 價）、其他要
+PT；<strong>RFT $80/h</strong>（GPT-OSS 20B / Qwen3 32B）。
+<strong>弱點</strong>：KB floor + guardrails + amplification 令實際單
+1.5–2×；啲 $ 分散喺成個 AWS 橫面。</li>
+</ul>
+<h3 id="34-google-gemini--gemini-enterprise-agent-platform">3.4 Google
+Gemini / Gemini Enterprise Agent Platform</h3>
+<p><strong>Model tokens（$ /1M，2026）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in ≤200k</th>
+<th>in &gt;200k</th>
+<th>out</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Gemini 2.5 Flash-Lite</strong></td>
+<td>$0.10</td>
+<td>—</td>
+<td>$0.40</td>
+<td>平+快</td>
+</tr>
+<tr>
+<td>Gemini 2.0 Flash</td>
+<td>$0.15</td>
+<td>—</td>
+<td>$0.60</td>
+<td>2026-06 後退役</td>
+</tr>
+<tr>
+<td><strong>Gemini 2.5 Flash</strong></td>
+<td>$0.30</td>
+<td>—</td>
+<td>$2.50</td>
+<td>主推平</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash</td>
+<td>$0.50</td>
+<td>—</td>
+<td>$3.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Gemini 2.5 Pro</strong></td>
+<td>$1.25</td>
+<td>$2.50</td>
+<td>$10.00 / $15.00</td>
+<td>推理/長文</td>
+</tr>
+<tr>
+<td>Gemini 3.1 Flash-Lite</td>
+<td>$0.25</td>
+<td>—</td>
+<td>$1.50</td>
+<td>新一代 3.x 更平</td>
+</tr>
+<tr>
+<td><strong>Gemini 3.1 Pro</strong></td>
+<td>$2.00</td>
+<td>$4.00</td>
+<td>$12.00 / $24.00</td>
+<td>1M ctx</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong></p>
+<ul>
+<li>Embedding：<strong>text $0.15–0.20、image $0.45、audio $6.5、video
+$12 /1M</strong>（Gemini Embedding 2）——大廠最平 text。</li>
+<li>Cache：context cache <strong>$0.125/1M·h 讀入 + storage
+$4.50/1M·h</strong>；batch 再半價。</li>
+<li>Hosting（Agent Platform，統一 SKU）：<strong>Agent Compute
+$0.085/vCPU·h（免首 50h/月）+ Memory $0.009/GiB·h（免 100GiB·h）+
+Storage $0.000411/GiB·h</strong>；<strong>Agent Gateway 計 15k API calls
+/（1 vCPU·h）</strong>；tiers 按 30 日 spend 自動升吞吐。</li>
+<li>Tools/MCP：function calling 當普通 input tokens；Agent Engine/工具由
+Agent Compute 計。</li>
+<li>GPU：<strong>A100 $2.93/h、H100 $10–11/h（+mgmt）</strong>、TPU v5e
+premium；~1-yr CUD −30%。</li>
+<li>Fine-tune：<strong>tuning $1–3/1M training tokens</strong>（2.0
+Flash $3/1M、Flash-Lite $1/1M）；<strong>tuned endpoint = base
+價</strong>（2.0；3.7 Flash 例外 ×1.5）；custom training 按 node·h
+另計；eval 當 batch job。</li>
+<li>PII：Google DLP ~$1/GB。</li>
+<li>Standard PayGo tiers：Pro Tier1 $10–250 (500k TPM) → Tier3 &gt;$2000
+(2M TPM)。 <strong>弱點</strong>：3.x 退休快；Agent platform
+收費位多（compute/memory/storage/gateway）；preview model 唔入 Standard
+PayGo。</li>
+</ul>
+<h3 id="35-deepseek-官方純-api">3.5 DeepSeek 官方（純 API）</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>cache-hit in</th>
+<th>miss in</th>
+<th>out</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>deepseek-v4-flash</strong>（現行，8/17 前）</td>
+<td>$0.0028 (¥0.02)</td>
+<td>$0.14 (¥1)</td>
+<td>$0.28 (¥2)</td>
+<td>1M ctx / 384K out</td>
+</tr>
+<tr>
+<td><strong>v4-flash off-peak</strong>（8/17 起）</td>
+<td>$0.007</td>
+<td>$0.22</td>
+<td>$0.66</td>
+<td>離峰 ×0.5</td>
+</tr>
+<tr>
+<td>v4-flash peak（北京 9-12、14-18）</td>
+<td>$0.014</td>
+<td>$0.44</td>
+<td>$1.32</td>
+<td>高峰 ×2</td>
+</tr>
+<tr>
+<td><strong>v4-pro</strong>（現行）</td>
+<td>$0.003625</td>
+<td>$0.435</td>
+<td>$0.87</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>v4-pro off-peak</strong></td>
+<td>$0.022</td>
+<td>$0.66</td>
+<td>$1.98</td>
+<td>—</td>
+</tr>
+<tr>
+<td>v4-pro peak</td>
+<td>$0.044</td>
+<td>$1.32</td>
+<td>$3.96</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong>：<strong>無 Embedding、無 agent
+hosting、無托管 fine-tune</strong>——你食 API
+或靠第三方（方舟/百煉/硅基都托管返）。峰谷：每日 ~14h 離峰（UTC
+23:00–01:00 之外…實質：北京 9–12、14–18 峰），<strong>排程壓到離峰 =
+慳一半</strong>。 <strong>弱點</strong>：冇 infra/tools/guardrail
+一體，production 要自己砌；官方並發穩定度要驗。</p>
+<h3 id="36-alibaba-百煉model-studio">3.6 Alibaba 百煉（Model
+Studio）</h3>
+<p><strong>Model tokens（¥/1M，2026 官方 help）</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in</th>
+<th>out</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>qwen3-0.6B / 1.7B open</td>
+<td>¥0.6 級</td>
+<td>¥2–? 級</td>
+<td>開放微調</td>
+</tr>
+<tr>
+<td><strong>qwen3-8B open</strong></td>
+<td>¥0.5</td>
+<td>¥2（思考 ¥5）</td>
+<td>好平嘅 open 部署</td>
+</tr>
+<tr>
+<td>qwen3-14B open</td>
+<td>¥1</td>
+<td>¥4（思考 ¥10）</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>qwen-max</strong></td>
+<td>¥2.4</td>
+<td>¥9.6</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>qwen3-max</strong>（≤32k）</td>
+<td>¥2.5</td>
+<td>¥10</td>
+<td>32–128k ¥4/¥16；128–256k ¥7/¥28</td>
+</tr>
+<tr>
+<td>qwen3.7-max</td>
+<td>¥12</td>
+<td>¥36</td>
+<td>頂</td>
+</tr>
+<tr>
+<td>隱式 cache</td>
+<td>≈20% in 價</td>
+<td>—</td>
+<td>不可關</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong></p>
+<ul>
+<li>免費：每 model <strong>1M tokens / 90 日</strong>。</li>
+<li>KB：<strong>標準 ¥0.03/庫·h（≤100GB、1QPS）</strong>、旗艦
+¥0.2/RCU·h；RAG recall 另計 input tokens。</li>
+<li>Fine-tune：按「training tokens × epoch」<strong>qwen3-8B ¥6/1M、32B
+¥40/1M、72B ¥150/1M</strong>；部署可「按時間（MU
+¥21–1,096/h）」或「按調用（同 in/out 價）」。</li>
+<li>工具/工作流：App Studio / 插件按 token + 節點另計。</li>
+<li>第三方：<strong>托管 DeepSeek（同官方價）</strong>、Kimi 等。
+<strong>弱點</strong>：免費額度過後即轉浮動；部署 MU 明顯貴（自托管大
+model 唔抵）。</li>
+</ul>
+<h3 id="37-tencent-混元--元器--智能體開發平台-adp">3.7 Tencent 混元 /
+元器 / 智能體開發平台 (ADP)</h3>
+<p><strong>Model tokens（¥/1M）</strong></p>
+<ul>
+<li>Hunyuan-a13b ¥0.5/¥2（入門）· role ¥2.4/¥9.6 · 翻譯 ¥1.2/¥3.6 ·
+Vision ¥3/¥9 · Tencent HY2.0 Think（2026-03 調整後）¥5.3/¥21.2 ·
+embedding ¥0.7。</li>
+</ul>
+<p><strong>Agent 打包（ADP 訂閱，2026-01 上線）</strong> | 套餐 | ¥/月 |
+PU/月 | 模型 QPM | KB 容量 | |---|---|---|---|---| | 免費版 | ¥0（1
+月試用） | 15k | 300 | 1GB | | <strong>Skill Plan</strong> | ¥88 | 89k |
+300 | — | | <strong>專業版</strong> | ¥188 | 150k | 300 | 100GB | |
+企業版 | ¥4,880 | 3M | 1,200 | 2TB |</p>
+<p><strong>PU = ¥0.001</strong>；模型 token、工具、KB 超量都食
+PU。工具清單貴：網頁解析 ¥120/1M、DocParsing ¥480/1M、DeepSeek 搜索
+¥0.055/次、混元搜索 ¥0.03/次、智能工作台 ¥0.025/分、Claw
+¥0.0125/分。內容安全 ¥0.001/次。KB 超量 ¥0.0015/GB·h + 向量化
+¥0.06/GB·h。<strong>深度推理模型並發包
+¥9,600/月起</strong>（hybrid）——要連續高 QPS 就貴。</p>
+<p><strong>元器</strong>：域內發布免費 + API 每月 1M tokens
+free；私有化/企業要「企業級解決方案」另議。
+<strong>弱點</strong>：工具收費貴（¥120–480/1M
+網頁/文件解析）、並發包貴、訂閱+浮動雙軌難估。</p>
+<h3 id="38-zhipu-glm智譜">3.8 Zhipu GLM（智譜）</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in ¥/1M</th>
+<th>out ¥/1M</th>
+<th>cache-read</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>GLM-5</strong></td>
+<td>¥4</td>
+<td>¥18</td>
+<td>¥1</td>
+</tr>
+<tr>
+<td><strong>GLM-5.1</strong></td>
+<td>¥6</td>
+<td>¥24</td>
+<td>¥1.3</td>
+</tr>
+<tr>
+<td>GLM-5.2（約）</td>
+<td>~¥10</td>
+<td>~¥31.7</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong>：API-only 為主；微調要睇官方控制台；無一體
+agent
+hosting/guardrails——自砌。中文推理強。<strong>弱點</strong>：生態比三巨頭細。</p>
+<h3 id="39-mistral-la-plateforme">3.9 Mistral La Plateforme</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>in $/1M</th>
+<th>cache</th>
+<th>out $/1M</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ministral 3 3B</strong></td>
+<td>$0.10</td>
+<td>—</td>
+<td>$0.10</td>
+<td>細、快</td>
+</tr>
+<tr>
+<td>Ministral 3 8B</td>
+<td>$0.15</td>
+<td>—</td>
+<td>$0.15</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Small 4</strong></td>
+<td>$0.15</td>
+<td>—</td>
+<td>$0.60</td>
+<td>主推</td>
+</tr>
+<tr>
+<td>Large 3</td>
+<td>$0.50</td>
+<td>$0.05</td>
+<td>$1.50</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Medium 3.5</strong></td>
+<td>$1.50</td>
+<td>$0.15</td>
+<td>$7.50</td>
+<td>頂</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong>：<strong>batch −50%、cache
+−90%</strong>；Embedding（Mistral Embed）有；agent hosting
+部分靠第三方（SDK 一體唔同 BytePlus/Azure 級）。歐系主權/CCPA 友好。</p>
+<h3 id="310-開源快推理groq--cerebras--deepinfra-聚合openrouter">3.10
+開源快推理（Groq / Cerebras / DeepInfra）+ 聚合（OpenRouter）</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Groq</th>
+<th>Cerebras</th>
+<th>DeepInfra</th>
+<th>聚合 OpenRouter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Llama 3.3 70B</td>
+<td>$0.59/$0.79</td>
+<td>$0.85/$1.20</td>
+<td>$0.35/$0.35</td>
+<td>低至 $0.10/$0.32 +5.5%</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>$0.60 (out)</td>
+<td>$0.35/$0.75</td>
+<td>$0.17</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>Qwen3 32B</td>
+<td>有</td>
+<td>$0.40/$0.80</td>
+<td>—</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>~315–500 tok/s</td>
+<td>~2,000 tok/s</td>
+<td>慢（27）</td>
+<td>自動 failover</td>
+</tr>
+</tbody>
+</table>
+<p><strong>其餘層</strong>：無 RAG/hosting/guardrails
+一體（純推理）。OpenRouter PAYG +5.5% fee、50 req/day free、BYOK
+$25k/月免費後 5%。<strong>啱 latency 敏感或 batch 壓量，唔啱「一個
+console 搞掂」。</strong></p>
+<hr />
+<h2 id="4-全棧每月-pl約定場景含假設">4. 全棧每月
+P&amp;L（約定場景，含假設）</h2>
+<blockquote>
+<p>⚠️ <strong>假設塊（一定要 label）</strong>：10k queries/日 ≈ 300k/月
+· base 每 call 2k in + 400 out · <strong>agent amplification
+4×</strong>（router→KB→main→verify）→ 每月 model tokens = <strong>2,400M
+in + 480M out</strong> · 有 prefix cache 嘅平台假設 <strong>50% input
+cache-hit</strong> · KB 100GB · guardrails in+out · PII 脫敏 · shadow
+eval +5% model tokens。<strong>數值係 range，方法係公式。</strong></p>
+</blockquote>
+<pre><code>monthly model bill =
+  in_M × ( (1−h) × P_in_miss + h × P_cached )  +  out_M × P_out
+  └── 再 × 1.05（shadow eval）                └── cache hit率 h（有先計）</code></pre>
+<table>
+<thead>
+<tr>
+<th>Vendor（標準配置）</th>
+<th>model 大數（$/月，range）</th>
+<th>cache 影響</th>
+<th>另計 infra（約）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BytePlus AFP（封頂）</strong></td>
+<td><strong>¥500–1,000+</strong>（Large/Max；Mini 混合縮低）</td>
+<td>隱式 ~20%</td>
+<td>sandbox CU·hr、KB 儲存 → 雲線</td>
+</tr>
+<tr>
+<td><strong>BytePlus 按量（mini）</strong></td>
+<td>~¥2.6k ≈ $363</td>
+<td>隱式</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Azure GPT-5-mini</strong></td>
+<td>~$1,355</td>
+<td>−45%（cache 50%）</td>
+<td>hosting $50–150 · FileSearch $300 · ContentSafety $450（可減）</td>
+</tr>
+<tr>
+<td>Azure GPT-5</td>
+<td>~$6,773</td>
+<td>—</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>Bedrock DeepSeek V3.2</strong></td>
+<td>~$1,791</td>
+<td>silent cache</td>
+<td><strong>KB $345 底</strong> + guardrails $135–270</td>
+</tr>
+<tr>
+<td>Bedrock Claude Sonnet 4.6</td>
+<td>~$11,718</td>
+<td>−60%</td>
+<td>KB + guardrails 同上</td>
+</tr>
+<tr>
+<td><strong>Gemini 2.5 Flash</strong></td>
+<td>~$1,796</td>
+<td>cache + batch</td>
+<td>Agent Compute ~$13–25（50h free）</td>
+</tr>
+<tr>
+<td>Gemini 2.5 Flash-Lite</td>
+<td>~$454</td>
+<td>—</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>DeepSeek official flash</strong>（離峰）</td>
+<td><strong>$620–900</strong>（高峰混入 ×1.45）</td>
+<td>cache $0.007 極狠</td>
+<td>無 hosting，自砌聚合</td>
+</tr>
+<tr>
+<td>DeepSeek official pro（離峰）</td>
+<td>$1,857–2,700</td>
+<td>—</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>Alibaba qwen3-max</strong></td>
+<td>¥8.8k ≈ $1,235</td>
+<td>20%</td>
+<td>KB ¥0.03/庫·h 可忽略</td>
+</tr>
+<tr>
+<td>Alibaba qwen3-8B open</td>
+<td>¥2.3k ≈ $318</td>
+<td>—</td>
+<td>部署 MU 另計</td>
+</tr>
+<tr>
+<td><strong>Tencent ADP 訂閱＋模型</strong></td>
+<td>¥188 + ~¥10–12k model ≈ $1.5k</td>
+<td>—</td>
+<td>工具 ¥120–480/1M 好易爆</td>
+</tr>
+<tr>
+<td>Zhipu GLM-5</td>
+<td>¥15.4k ≈ $2,152</td>
+<td>¥1 cache</td>
+<td>API-only</td>
+</tr>
+<tr>
+<td><strong>Mistral Small 4</strong></td>
+<td>~$510</td>
+<td>−90%</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Groq Llama 3.3 70B</td>
+<td>~$1,885</td>
+<td>無</td>
+<td>—</td>
+</tr>
+<tr>
+<td>DeepInfra Llama 3.3</td>
+<td>~$1,058</td>
+<td>無</td>
+<td>慢</td>
+</tr>
+</tbody>
+</table>
+<p><strong>讀法</strong>（同一個 agent）：</p>
+<ul>
+<li><strong>要封頂 + 唔想砌 infra</strong>：BytePlus（¥500–1,000
+封頂）vs Gemini Flash 級（$450–1,800 浮動+ runtime）——BytePlus 貴過
+DeepInfra 填空模型，但嗰筆錢包住 hosting/tools/guardrail/GPU。</li>
+<li><strong>要全球主權 + Batch 離線</strong>：Azure
+GPT-5-mini（~$1,355，batch −50%）/ Mistral。</li>
+<li><strong>要極平純推理</strong>：DeepSeek 離峰 /
+DeepInfra——但要自己承接 infra 成本同風險。</li>
+<li><strong>放大真相</strong>：Bedrock Claude 標準一夜 ~$11.7k（仲未計
+KB floor）——「好用嘅貴」，換 open model 即刻 ~1.8k。</li>
+</ul>
+<hr />
+<h2 id="5-優勢弱點矩陣">5. 優勢／弱點矩陣</h2>
+<table>
+<thead>
+<tr>
+<th>Vendor</th>
+<th>✅ 優勢</th>
+<th>❌ 弱點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>BytePlus</strong></td>
+<td>封頂月費、多模態獨家、GPU/sandbox 已包、隱式
+cache、中文/粵語、方舟托管 DeepSeek 同價質量穩</td>
+<td>大陸數據主權、超額浮動、國際 SLA/文檔弱、圖/影片好貴</td>
+</tr>
+<tr>
+<td><strong>Azure</strong></td>
+<td>GPT-5 全系、Batch −50%、治理/合規齊（Entra/Defender）、PTU</td>
+<td>費用散落（PTU/hosting/Defender）易漏、幣別 USD 浮動</td>
+</tr>
+<tr>
+<td><strong>Bedrock</strong></td>
+<td>62+ model 唔綁死、AWS 整合、Provisioned/Guardrails 成熟</td>
+<td>KB floor $345/月、guardrails 逐次計、amplification 4–8× 令帳單
+1.5–2×</td>
+</tr>
+<tr>
+<td><strong>Gemini</strong></td>
+<td>Flash 平 + cache 平 + Agent Compute 最平 runtime</td>
+<td>退休節奏快、收費位多、preview 唔入 Standard PayGo</td>
+</tr>
+<tr>
+<td><strong>DeepSeek</strong></td>
+<td>標價最平; cache $0.0028 極狠、峰谷可壓</td>
+<td>純 API、無 hosting/embedding/fine-tune 一體、並發要驗、峰谷波動</td>
+</tr>
+<tr>
+<td><strong>百煉</strong></td>
+<td>免費 1M×90日、Qwen 全系、微調平</td>
+<td>部署 MU 貴、免費過後浮動</td>
+</tr>
+<tr>
+<td><strong>Tencent</strong></td>
+<td>訂閱模式、域內元器免費</td>
+<td>工具驚人貴、並發包 ¥9.6k 起、雙軌難估</td>
+</tr>
+<tr>
+<td><strong>GLM</strong></td>
+<td>中文推理、GLM-5/5.1 價實</td>
+<td>生態細、無一體 infra</td>
+</tr>
+<tr>
+<td><strong>Mistral</strong></td>
+<td>歐系主權、batch −50%/cache −90%</td>
+<td>規模細、agent 一體弱</td>
+</tr>
+<tr>
+<td><strong>開源快推理</strong></td>
+<td>latency 超快、同 model 最平</td>
+<td>無 RAG/hosting/safety 一體、要自砌</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-byteplus-喺香港hk嘅定位">6. BytePlus 喺香港（HK）嘅定位</h2>
+<h3 id="61-香港-selling-story由實數支撐">6.1 香港 selling
+story（由實數支撐）</h3>
+<ul>
+<li><strong>成本可預測 &gt; 標價最平</strong>：同一個 5-agent KB
+pipeline，BytePlus <strong>AFP 封頂</strong>（¥500–1,000/月）對比
+Bedrock Claude ~$11.7k、Azure ~$1.4–6.8k 浮動——你
+Sell「<strong>兩個數都得講：封頂月費 + 超額知會</strong>」。</li>
+<li><strong>多模態獨家</strong>：Seedance 2.0 / Seedream 只有 BytePlus
+有 API——client 要圖/影片，platform
+<strong>唔使離開佢</strong>就搞掂（其他家要駁第三方再計錢）。</li>
+<li><strong>GPU + sandbox 已包</strong>：唔使再開一張 EC2/Vertex GPU
+單（H100 $10–11/h）。</li>
+<li><strong>中文 + 粵語第一身</strong>：doubao
+中英+粵語表現、LLM-FW/APMPlus/RBAC(JWT/審計) 一體（見 sec tab）。</li>
+<li><strong>方舟托管第三方規格</strong>：DeepSeek V4-flash ¥1/¥2
+同官方價，但企業並發/TTFT 好過直連（中文生態朋友）。</li>
+<li><strong>地理/地域</strong>：畀燒到近廣深 edge，HK 延遲低；¥
+結算，預算框 RMB。</li>
+</ul>
+<h3 id="62-要誠實講嘅-caveats定位文件必寫">6.2 要誠實講嘅
+caveats（定位文件必寫）</h3>
+<ul>
+<li><strong>數據主權</strong>：火山方舟係大陸服務（數據落大陸）——<strong>HK
+PDPO / 金融跨境合規</strong>對口嘅主權要求要另外傾（國際 BytePlus
+edition / 或 Azure/AWS HK region 並列方案）。呢個係「by default 揀唔到
+BytePlus」嘅少數硬理由。</li>
+<li><strong>超額浮動</strong>：AFP 封頂但好使（Seedance 2.0、大量
+OCR/多模態）超額按量浮動 → 報「上限 + buffer」。</li>
+<li><strong>國際 SLA / 多語言文檔 / 全球 region</strong>：弱過
+Azure/AWS——出海、24×7 全球 SLA 客戶要早知。</li>
+<li><strong>FX</strong>：¥/$ 波動打入 1 年期方案。</li>
+</ul>
+<h3 id="63-一句市場定位">6.3 一句市場定位</h3>
+<blockquote>
+<p><strong>BytePlus = 「封頂月費 + 多模態 + GPUs 包晒」嘅</strong>HK
+本土化 MVP 廠商——<strong>cost-per-outcome
+可預測</strong>；Azure/AWS/Gemini 攞嚟做「全球主權 / 最大規模 /
+開放生態」嘅對照。唔喺佢嘅戰場（全球合規 +
+標價最低）硬撼，喺佢嘅戰場（快、平地、一條龍、封頂）贏。</p>
+</blockquote>
+<hr />
+<h2 id="7-資料來源">7. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火山方舟模型價（ai.volcengine.com）</td>
+<td><a
+href="https://www.llmrates.ai/zh-Hans/providers/volcano-ark">https://www.llmrates.ai/zh-Hans/providers/volcano-ark</a>
+同控制台</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>DeepSeek 官方 API 價 + 峰谷公告</td>
+<td><a
+href="https://api-docs.deepseek.com/quick_start/pricing">https://api-docs.deepseek.com/quick_start/pricing</a></td>
+<td>2026-08-16</td>
+</tr>
+<tr>
+<td>Azure OpenAI 價（$-blank → 第三方 2026-06 mailout）</td>
+<td><a
+href="https://azure.microsoft.com/pricing/details/azure-openai/">https://azure.microsoft.com/pricing/details/azure-openai/</a></td>
+<td>3rd-party</td>
+</tr>
+<tr>
+<td>Azure Foundry Agent Service（tools/hosting）</td>
+<td><a
+href="https://azure.microsoft.com/pricing/details/foundry-agent-service/">https://azure.microsoft.com/pricing/details/foundry-agent-service/</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Azure 微調計費法 + SFT/RFT</td>
+<td><a
+href="https://learn.microsoft.com/azure/foundry/openai/how-to/fine-tuning-cost-management">https://learn.microsoft.com/azure/foundry/openai/how-to/fine-tuning-cost-management</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Azure Content Safety + Defender AI</td>
+<td><a
+href="https://azure.microsoft.com/pricing/details/content-safety/">https://azure.microsoft.com/pricing/details/content-safety/</a>
+· /defender-for-cloud/</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>AWS Bedrock 價 / Guardrails / AgentCore / Flows</td>
+<td><a
+href="https://aws.amazon.com/bedrock/pricing/">https://aws.amazon.com/bedrock/pricing/</a>
+· /agentcore/pricing/</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>AWS Comprehend PII</td>
+<td><a
+href="https://aws.amazon.com/comprehend/pricing/">https://aws.amazon.com/comprehend/pricing/</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Google Gemini / Agent Platform 價</td>
+<td><a
+href="https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing">https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Google Vertex GPU/Tuning</td>
+<td><a
+href="https://www.cloudzero.com/blog/google-vertex-ai-pricing/">https://www.cloudzero.com/blog/google-vertex-ai-pricing/</a></td>
+<td>2026-05</td>
+</tr>
+<tr>
+<td>阿里百煉模型訓練/部署/調用計費</td>
+<td><a
+href="https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing">https://help.aliyun.com/zh/model-studio/model-training-and-deployment-billing</a></td>
+<td>2026-08</td>
+</tr>
+<tr>
+<td>騰訊 ADP 計費（套餐/PU/工具/KB）</td>
+<td><a
+href="https://cloud.tencent.com/document/product/1759/127342">https://cloud.tencent.com/document/product/1759/127342</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>GLM-5/5.1 價</td>
+<td>priceai.cc + segmentfault 整理</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Mistral / Groq / Cerebras / DeepInfra / Together（Llama 3.3
+對照）</td>
+<td>modelpricewatch.com · inferencehub.org · perkstack.co</td>
+<td>2026-06/07</td>
+</tr>
+<tr>
+<td>SegmentFault 七平台總結</td>
+<td><a
+href="https://segmentfault.com/a/1190000048112421">https://segmentfault.com/a/1190000048112421</a>
+同 1190000047914013</td>
+<td>2026-08</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：價格係 2026-08-16
+公開資訊快照，各平台可能已郁；<strong>大額報價以各平台官網/控制台為準</strong>。RMB
+vs USD 用 ¥1≈$0.14 名義折算。HK 合規/定位內容係定性，落 contract
+前同法務確認。 數法假設（amplification 4×、cache
+50%）係估算，將實際量用控制台「用量明細」calibrate（見 pricing doc
+§七）。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-16 · 峰谷價/新 model 常常郁，引用前
+refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

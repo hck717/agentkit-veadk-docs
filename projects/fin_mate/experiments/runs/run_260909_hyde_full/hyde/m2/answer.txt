@@ -1,0 +1,8 @@
+因為 Agent 365 提供了代理註冊/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些都是代理型採用的重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。而 E7 SKU 包含了 Agent 365，並且可以將現有的 M365 E3/E5 用戶升級，利用現有的安全控制（如 M365 和 Azure 中使用的控制措施）來管理代理，確保安全【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop, KB:2026128_RT00000】。此外，Agent 365 是跨雲的代理控制平面，能夠將現有的治理、身份、安全和管理擴展到代理，這對於企業來說至關重要【KB:2026128_RT00000】。
+
+## 來源
+[1] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>
+[2] <Microsoft_Corp_Earnings_Call_20251029_DN0000>
+[3] <Microsoft_Corp_Earnings_Call_2026128_RT00000>
+[4] <Microsoft_Corp_Earnings_Call_2026128_RT00000>
+[5] <Microsoft_Corp_Earnings_Call_20251029_DN0000>

@@ -1,0 +1,8 @@
+安全對 agentic adoption（代理型採用）和 E7 bundle 至關重要，原因如下：  
+1. **Agentic adoption 的 prerequisites**：新的 Agent 365 提供包括代理註冊/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些均為代理型採用的重要前提【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **E7 bundle 的整合需求**：M365 Copilot 等功能需與現有安全控制（如 Entra、Defender 等）整合，GitHub Agent HQ 也強調內置控制、可觀察性和治理，以確保代理在跨雲環境中的安全管理【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt, 20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt】。  
+3. **企業 adoption 的催化劑**：近期 M365 漲價迫使企業在 2H26 進行談判，而安全相關功能（如 Agent 365 的安全管理能力）成為 NT adoption（新技術採用）的催化劑【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+[1] 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt  
+[2] 20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering_Brings_E7_to_Offic.txt 

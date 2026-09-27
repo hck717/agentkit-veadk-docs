@@ -1,0 +1,21 @@
+Equity Research
+Flash Comment — March 9, 2026
+U.S. Software
+Microsoft Corporation
+Agentic Adoption Hinges on Security; E7 SKU Presents 
+$100B Upsell Opportunity
+Overweight
+Price Target: $615.00
+  
+Our Call
+Leveraging its signif E3 + E5 installed base, MSFT's new E7 SKU + merchandising muscle 
+could prove a catalyst for broader M365 Copilot & Agent 365 adoption into C2H26. We est 
+325M seats addressable, inc. 150M M365E3/E5 or $100B potential upsell opp.
+ 
+Initial Thoughts
+Agent 365, E7 'Frontier Suite' SKU, and Copilot Wave 3: MSFT this morning announced 
+a trio of M365 advancements:
+1. Agent 365 announced at $15 per user per month, a control plane for managing 
+agents. New SKU will be generally available on May 1, 2026.
+2. New E7 SKU announced at $99 per user per month, incl M365 E5, Entra Suite, 
+Agent 365, and M365 Copilot.

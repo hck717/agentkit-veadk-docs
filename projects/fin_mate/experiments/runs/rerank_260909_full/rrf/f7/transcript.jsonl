@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Wells Fargo 講 E7 新 SKU 每月每位用戶幾多錢？包含咩？"}], "text": "KB 無資料", "prompt_tokens": 69, "completion_tokens": 4, "cached_tokens": 0, "ms": 526.9357499782927}

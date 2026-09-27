@@ -1,0 +1,22 @@
+{
+  "image_key": "invoice_upload/IMG_0405.jpg",
+  "status": "draft_candidate",
+  "lang": "zh",
+  "notes": "AUTO-GENERATED candidate from OCR. Verify/correct the fields against the physical invoice, then set status to 'verified'.",
+  "fields": {
+    "invoice_number": "",
+    "date": "31/07/2026",
+    "vendor": "",
+    "amount": 1000.0,
+    "tax": 0.0,
+    "currency": "HKD",
+    "line_items": [
+      {
+        "description": "iPad",
+        "quantity": 2,
+        "unit_price": 500,
+        "amount": 1000
+      }
+    ]
+  }
+}

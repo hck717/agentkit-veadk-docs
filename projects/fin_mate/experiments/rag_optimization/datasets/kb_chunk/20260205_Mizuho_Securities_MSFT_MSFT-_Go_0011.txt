@@ -1,0 +1,11 @@
+The strength this quarter was
+predominantly driven by Azure commitments from OpenAI, as well as Anthropic, and with healthy
+growth across its core annuity sales motions. More specifically, this includes the incremental
+$250B in Azure commitments from the recent OpenAI agreement.
+Despite continued high capex, reported gross margins were very good at 68.0%, easily above our
+67.0% target and the Street's ~67.1% forecast. Further, OMs of 47.1% were much better than
+expected and easily surpassed our and the Street's 45.3% target. In addition, under the equity
+method of accounting, OpenAI contributed a $9.978B gain (vs. a $4.061B loss previously) to Other
+Income & Expense (OI&E), and a $7.583B net gain (vs. $3.086B net loss previously). Non-GAAP
+EPS - excluding this component - was $4.14 vs. our $3.96 estimate and the Street's $3.91 forecast.
+Finally, CFFO of $35.8B came in well above the Street's $30.4B estimate.

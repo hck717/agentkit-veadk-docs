@@ -1,0 +1,17 @@
+All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 8 of 16
+
+
+to balance the incoming supply we can allocate here against other priorities. As a reminder, there
+can be quarterly variability in year-on-year growth rates depending on the timing of capacity
+delivery and when it comes online, as well as from in-period revenue recognition depending on
+the mix of contracts.
+In our on-premises server business, we expect revenue to decline in the low single-digits as
+growth rates normalize following the launch of SQL Server 2025, though increased memory
+pricing could create additional volatility in transactional purchasing. In More Personal Computing,
+we expect revenue to be $12.3 billion to $12.8 billion. Windows OEM and devices revenue should
+decline in the low teens. Growth rates will be impacted as the benefit from Windows 10 end of
+support normalizes and as elevated inventory levels come down through the quarter. Therefore,
+Windows OEM revenue should decline roughly 10%. The range of potential outcomes remains
+wider than normal, in part due to the potential impact on the PC market from increased memory
+pricing.

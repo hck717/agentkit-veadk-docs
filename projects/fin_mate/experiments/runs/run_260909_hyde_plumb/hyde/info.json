@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 5,
+  "desc": "LLM 生成 hypothetical doc -> 用埋當 query dense find（HyDE，k=5）"
+}

@@ -1,0 +1,17 @@
+And
+so I think it's not really about two places, Karl. I would definitely abstract away from that. Those
+are multi-year delivery timelines. But really, we just need to get it done every location where
+we're currently in a build or starting to do that. We're working as quickly as we can.
+Q - Karl Keirstead {BIO 1542979 <GO>}
+Okay. Got it. Thank you.
+A - Jonathan Neilson
+Thanks, Karl. Operator, next question, please.
+Operator
+The next question comes from the line of Mark Murphy with JPMorgan. Please proceed.
+Q - Mark Murphy {BIO 1542399 <GO>}
+Thank you so much. Satya, the performance achievements of the Maia 200 Accelerator, for
+instance, looked quite remarkable, especially in comparison to TPUs and Trainium and Blackwell,
+which have just been around a lot longer. Could you put that accomplishment in perspective in
+terms of how much of a core competency you think silicon might become for Microsoft? And
+Amy, are there any ramifications worth mentioning there in terms of supporting your gross margin
+profile for inference costs going forward?

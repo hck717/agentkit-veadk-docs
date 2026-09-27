@@ -1,0 +1,13 @@
+80% of new developers on GitHub start with Copilot within the first week.
+Overall, the rise of AI coding agents is driving record usage with over 500 million pull requests
+merged over the past year. And just yesterday, at GitHub Universe, we introduced Agent HQ.
+GitHub Copilot and Agent HQ is the organizing layer for all coding agent extending the GitHub
+primitives like PRs, issues, actions to coding agents from OpenAI, Anthropic, Google, Cognition,
+xAI as well as OSS and in-house models. GitHub now provides a single mission control to launch,
+manage and review these agents, each operating from its own branch with built-in controls,
+observability and governance. We are building a similar system in security with over three dozen
+agents in Copilot integrated across Entra, Defender, Purview and Intune. For example, with our
+Phishing Triage Agent and Defender studies show that analysts can be up to 6.5 times more
+efficient in detecting malicious mails.
+In health, Dragon Copilot helps providers automate critical workflows. This quarter alone, we
+helped document over 17 million patient encounters up nearly 5x year-over-year.

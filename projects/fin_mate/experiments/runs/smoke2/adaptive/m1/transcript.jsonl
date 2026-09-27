@@ -1,0 +1,2 @@
+{"llm": "stub", "msgs": [{"role": "system", "content": "只回一步：SEARCH=要查知識庫 / SKIP=唔使查（閒談或資料庫明顯無）"}, {"role": "user", "content": "問題: Azure 供應受限時，Microsoft 點解仲有力推 E7 加價式 upsell？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}
+{"llm": "stub", "msgs": [{"role": "system", "content": ""}, {"role": "user", "content": "Azure 供應受限時，Microsoft 點解仲有力推 E7 加價式 upsell？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}

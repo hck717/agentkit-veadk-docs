@@ -1,0 +1,12 @@
+FB: Barclays Bank PLC and/or an affiliate beneficially owns a long position of more than 0.5% of a class of equity securities of this issuer, as calculated
+in accordance with EU regulations.
+FC: Barclays Bank PLC and/or an affiliate beneficially owns a short position of more than 0.5% of a class of equity securities of this issuer, as calculated
+in accordance with EU regulations.
+FD: Barclays Bank PLC and/or an affiliate beneficially owns 1% or more of a class of equity securities of this issuer, as calculated in accordance with
+South Korean regulations.
+FE: Barclays Bank PLC and/or its group companies has financial interests in relation to this issuer and such interests aggregate to an amount equal to
+or more than 1% of this issuer’s market capitalization, as calculated in accordance with HK regulations.
+GD: One of the Research Analysts on the fundamental credit coverage team (and/or a member of his or her household) has a long position in the
+common equity securities of this issuer.
+GE: One of the Research Analysts on the fundamental equity coverage team (and/or a member of his or her household) has a long position in the
+common equity securities of this issuer.

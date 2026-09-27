@@ -1,0 +1,22 @@
+{
+  "image_key": "invoice_upload/IMG_0403.jpg",
+  "status": "draft_candidate",
+  "lang": "English",
+  "notes": "AUTO-GENERATED candidate from OCR. Verify/correct the fields against the physical invoice, then set status to 'verified'.",
+  "fields": {
+    "invoice_number": null,
+    "date": "30/07/2026",
+    "vendor": "Brian",
+    "amount": 2000.0,
+    "tax": 0.0,
+    "currency": "USD",
+    "line_items": [
+      {
+        "description": "iPad x 2",
+        "quantity": 2,
+        "unit_price": 1000,
+        "amount": 2000
+      }
+    ]
+  }
+}

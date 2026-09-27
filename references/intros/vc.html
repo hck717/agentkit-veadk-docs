@@ -1,0 +1,250 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>呢個 Tab 解決兩件事：<strong>(1)
+揀知識庫（KB）後端</strong>、<strong>(2) 用 context cache + compaction
+慳 AFP</strong>。核心心法：</p>
+<blockquote>
+<ol type="1">
+<li><strong>後端唔係一個</strong> — KB 有 8 種 backend、LTM 有 7
+種；揀錯 = 價錢、速度、可用性全中招。</li>
+<li><strong>托管後端（viking / context_search / openviking / mem0 /
+tos_context）唔使你裝 embedding</strong> —
+服務端包辦，直接扣方案「向量化」費用，最慳。</li>
+<li><strong>RAG 嘅 cost 好多時喺「token」唔喺 vector 儲存</strong> —
+慳錢主力係<strong>上下文緩存 + 壓縮</strong>，唔係攻 vector store。</li>
+</ol>
+</blockquote>
+<h2 id="it-vc-三個儲存層搞清楚最常混淆">三個「儲存層」搞清楚（最常混淆）</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>提供乜</th>
+<th>貴邊度</th>
+<th>揀法重點</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知識庫（KB）</strong></td>
+<td>靜態文檔 RAG</td>
+<td>儲存 + 向量化 + 查詢</td>
+<td>新起 → <code>viking</code> / <code>context_search</code></td>
+</tr>
+<tr>
+<td><strong>長期記憶（LTM）</strong></td>
+<td>跨對話記住用戶偏好/事件</td>
+<td>儲存 + 向量化</td>
+<td>生產 → <code>viking</code> / <code>mem0</code>；<strong>多實例唔好
+<code>local</code></strong></td>
+</tr>
+<tr>
+<td><strong>短期記憶（STM）</strong></td>
+<td>對話內 context / session</td>
+<td>純 model call</td>
+<td>唔使特登揀，Runner 內建</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-vc-一揀-kb-後端快照決策">一、揀 KB 後端（快照決策）</h2>
+<table>
+<thead>
+<tr>
+<th>你嘅情況</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新起、冇咩現有 infra</td>
+<td><strong><code>viking</code></strong>（托管，服務端切分+向量化+檢索）</td>
+</tr>
+<tr>
+<td>已有 OpenSearch / Redis / Milvus</td>
+<td>用返對應 backend（慳遷移，但要自己配 embedding）</td>
+</tr>
+<tr>
+<td>要 TOS 預簽名上傳 / 托管 RAG</td>
+<td><code>context_search</code></td>
+</tr>
+<tr>
+<td>本地 debug</td>
+<td><code>local</code>（進程內存，死咗冇 data）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>統一入口</strong>：<code>KnowledgeBase(backend=...)</code>，agent
+自動有 <code>load_knowledgebase</code> 工具；<code>top_k</code> 預設 10
+可臨時覆蓋。</p>
+<h2 id="it-vc-二揀-ltm-後端">二、揀 LTM 後端</h2>
+<ul>
+<li><strong><code>local</code> 唔可以進 Multiprocess / 多實例</strong> —
+AgentKit Runtime 多實例時短期記憶都用佢會「每 instance
+各自一本」，session 甩錯機就失憶。生產一定要持久化（Viking / Redis /
+OpenSearch / mem0）。</li>
+<li><strong><code>viking</code>（BytePlus 模式）</strong> region 固定
+<code>cn-hongkong</code>；<code>viking_mem</code> 已棄用 → 自動轉
+<code>viking</code>。</li>
+<li><strong><code>mem0</code></strong> 托管，要
+<code>pip install mem0</code> + <code>Mem0Config</code>；AI
+負責抽取/儲存/檢索，唔使自己整 embedding。</li>
+<li>寫入週期：default 累計 10 條 event 或 60 秒觸發；<strong>轉
+session_id 時自動將上個 session 寫入 LTM</strong>。</li>
+</ul>
+<h2 id="it-vc-三embedding-成本--揀錯後端先會貴">三、embedding 成本 —
+揀錯後端先會貴</h2>
+<ul>
+<li><strong>向量類後端</strong>（local/opensearch/redis/milvus/tos_vector）要你自己裝
+extension + 配 embedding model（<code>MODEL_EMBEDDING_API_BASE</code> /
+<code>MODEL_EMBEDDING_API_KEY</code>），每次檢索前自己計多一次 embedding
+token 錢（<code>doubao-embedding-vision</code> 計 AFP）。</li>
+<li><strong>托管後端</strong> 服務端包辦切分 + 向量化 +
+檢索，<strong>唔使本地 embedding</strong> —
+向量費用計入雲資源（第二三條線），慳返「自建向量庫 + embedding
+模型」兩項成本。</li>
+</ul>
+<blockquote>
+<p>Sales 一句：「想喺方案度掃走『自建向量庫 + embedding
+模型』兩項成本，就揀 VikingDB / Context
+Search——服務端食晒，你只係買儲存同查詢用量。」</p>
+</blockquote>
+<h2 id="it-vc-實作綁-kb--ltm-落-agentcli--yaml--veadk-三條路">實作：綁 KB +
+LTM 落 Agent（CLI / YAML / VeADK 三條路）</h2>
+<h3 id="it-vc-①-agentkit-cli建-kb-同-memory-再綁落-runtime">① AgentKit CLI：建
+KB 同 Memory 再綁落 runtime</h3>
+<div class="sourceCode" id="it-vc-cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-vc-cb1-1"><a href="#it-vc-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 知識庫</span></span>
+<span id="it-vc-cb1-2"><a href="#it-vc-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> knowledge create <span class="at">--name</span> docs-kb <span class="at">--provider-type</span> viking</span>
+<span id="it-vc-cb1-3"><a href="#it-vc-cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> knowledge add docs-kb ./docs ./README.md</span>
+<span id="it-vc-cb1-4"><a href="#it-vc-cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> knowledge add docs-kb <span class="at">--url</span> https://example.com/guide.pdf <span class="at">--doc-type</span> pdf</span>
+<span id="it-vc-cb1-5"><a href="#it-vc-cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb1-6"><a href="#it-vc-cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 長期記憶</span></span>
+<span id="it-vc-cb1-7"><a href="#it-vc-cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> memory create <span class="at">--name</span> user-mem <span class="at">--provider-type</span> VIKINGDB_MEMORY</span>
+<span id="it-vc-cb1-8"><a href="#it-vc-cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb1-9"><a href="#it-vc-cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 綁落 runtime（唔使重新部署）</span></span>
+<span id="it-vc-cb1-10"><a href="#it-vc-cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime update my-agent <span class="dt">\</span></span>
+<span id="it-vc-cb1-11"><a href="#it-vc-cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">--knowledge-id</span> kb-xxxxxxxx <span class="dt">\</span></span>
+<span id="it-vc-cb1-12"><a href="#it-vc-cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">--memory-id</span> m-xxxxxxxx <span class="dt">\</span></span>
+<span id="it-vc-cb1-13"><a href="#it-vc-cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">--auto-release</span></span>
+<span id="it-vc-cb1-14"><a href="#it-vc-cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb1-15"><a href="#it-vc-cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 驗證 agent 識答</span></span>
+<span id="it-vc-cb1-16"><a href="#it-vc-cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> invoke my-agent <span class="at">-m</span> <span class="st">&quot;公司請假流程係點？&quot;</span></span></code></pre></div>
+<h3 id="it-vc-②-agentkityaml寫死-kb--memory-綁定">② agentkit.yaml：寫死 KB /
+Memory 綁定</h3>
+<div class="sourceCode" id="it-vc-cb2"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-vc-cb2-1"><a href="#it-vc-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agentkit.yaml</span></span>
+<span id="it-vc-cb2-2"><a href="#it-vc-cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">agent_name</span><span class="kw">:</span><span class="at"> support-agent</span></span>
+<span id="it-vc-cb2-3"><a href="#it-vc-cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">entry_point</span><span class="kw">:</span><span class="at"> agent_app.py</span></span>
+<span id="it-vc-cb2-4"><a href="#it-vc-cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_type</span><span class="kw">:</span><span class="at"> cloud</span></span>
+<span id="it-vc-cb2-5"><a href="#it-vc-cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">region</span><span class="kw">:</span><span class="at"> cn-beijing</span></span>
+<span id="it-vc-cb2-6"><a href="#it-vc-cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="it-vc-cb2-7"><a href="#it-vc-cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> MODEL_AGENT_NAME=seed-2-0-mini-260428</span></span>
+<span id="it-vc-cb2-8"><a href="#it-vc-cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">  # 向量類後端（自建 OpenSearch 等）先要：</span></span>
+<span id="it-vc-cb2-9"><a href="#it-vc-cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">  # - MODEL_EMBEDDING_API_BASE=https://ark.ap-southeast.bytepluses.com/api/v3/</span></span>
+<span id="it-vc-cb2-10"><a href="#it-vc-cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">  # - MODEL_EMBEDDING_API_KEY=sk-xxx</span></span>
+<span id="it-vc-cb2-11"><a href="#it-vc-cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">  # 托管後端（viking/context_search）唔使配 embedding</span></span></code></pre></div>
+<h3 id="it-vc-③-veadk-python建-kb-載入文件--ltm--直接檢索">③ VeADK Python：建
+KB 載入文件 + LTM + 直接檢索</h3>
+<div class="sourceCode" id="it-vc-cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-vc-cb3-1"><a href="#it-vc-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.knowledgebase <span class="im">import</span> KnowledgeBase</span>
+<span id="it-vc-cb3-2"><a href="#it-vc-cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.memory.long_term_memory <span class="im">import</span> LongTermMemory</span>
+<span id="it-vc-cb3-3"><a href="#it-vc-cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb3-4"><a href="#it-vc-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 知識庫（托管後端：服務端切分+向量化+檢索）</span></span>
+<span id="it-vc-cb3-5"><a href="#it-vc-cb3-5" aria-hidden="true" tabindex="-1"></a>kb <span class="op">=</span> KnowledgeBase(backend<span class="op">=</span><span class="st">&quot;viking&quot;</span>, index<span class="op">=</span><span class="st">&quot;support_kb&quot;</span>)</span>
+<span id="it-vc-cb3-6"><a href="#it-vc-cb3-6" aria-hidden="true" tabindex="-1"></a>kb.add_from_directory(<span class="st">&quot;./docs&quot;</span>)                  <span class="co"># 掃目錄</span></span>
+<span id="it-vc-cb3-7"><a href="#it-vc-cb3-7" aria-hidden="true" tabindex="-1"></a>kb.add_from_text([<span class="st">&quot;公司標準年假為每年 15 天。&quot;</span>])  <span class="co"># 直接加文字</span></span>
+<span id="it-vc-cb3-8"><a href="#it-vc-cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb3-9"><a href="#it-vc-cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 直接檢索驗證</span></span>
+<span id="it-vc-cb3-10"><a href="#it-vc-cb3-10" aria-hidden="true" tabindex="-1"></a>entries <span class="op">=</span> kb.search(query<span class="op">=</span><span class="st">&quot;年假&quot;</span>, top_k<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="it-vc-cb3-11"><a href="#it-vc-cb3-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> entries:</span>
+<span id="it-vc-cb3-12"><a href="#it-vc-cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e.content, e.score)</span>
+<span id="it-vc-cb3-13"><a href="#it-vc-cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb3-14"><a href="#it-vc-cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 長期記憶（托管；BytePlus region 固定 cn-hongkong）</span></span>
+<span id="it-vc-cb3-15"><a href="#it-vc-cb3-15" aria-hidden="true" tabindex="-1"></a>ltm <span class="op">=</span> LongTermMemory(backend<span class="op">=</span><span class="st">&quot;viking&quot;</span>, app_name<span class="op">=</span><span class="st">&quot;support_agent&quot;</span>)</span>
+<span id="it-vc-cb3-16"><a href="#it-vc-cb3-16" aria-hidden="true" tabindex="-1"></a>ltm.save_memory(session_id<span class="op">=</span><span class="st">&quot;s1&quot;</span>, scoped_id<span class="op">=</span><span class="st">&quot;user-42&quot;</span>, content<span class="op">=</span><span class="st">&quot;用戶偏好週五查帳&quot;</span>)</span></code></pre></div>
+<h2 id="it-vc-四上下文緩存--慳錢主力responses-api">四、上下文緩存 —
+慳錢主力（Responses API）</h2>
+<ul>
+<li>VeADK <strong>默認開</strong> session context
+cache；下一輪將「已緩存」+「新輸入」合併先送 model → 重複 token 明顯減少
+→ <strong>慳 AFP</strong>。</li>
+<li><strong>睇命中率</strong>：每輪 event <code>usage_metadata</code> 有
+<code>cached_content_token_count</code> /
+<code>prompt_token_count</code>，命中率 ≈ cached/prompt。<strong>50–95%
+係健康</strong>。</li>
+<li>⚠️ <strong>設咗 <code>output_schema</code> 就自動關緩存</strong>
+——「結構化抽取」vs「慳錢」要權衡。</li>
+<li><code>cached_content_token_count</code> 低 → 好可能每輪塞咗大
+object（成個 file 落 tool return）。</li>
+</ul>
+<h2
+id="it-vc-五上下文壓縮compaction-第二個慳錢位">五、上下文壓縮（Compaction）—
+第二個慳錢位</h2>
+<div class="sourceCode" id="it-vc-cb4"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-vc-cb4-1"><a href="#it-vc-cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.adk.apps.app <span class="im">import</span> App, EventsCompactionConfig</span>
+<span id="it-vc-cb4-2"><a href="#it-vc-cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.adk.apps.llm_event_summarizer <span class="im">import</span> LlmEventSummarizer</span>
+<span id="it-vc-cb4-3"><a href="#it-vc-cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb4-4"><a href="#it-vc-cb4-4" aria-hidden="true" tabindex="-1"></a>summarizer <span class="op">=</span> LlmEventSummarizer(</span>
+<span id="it-vc-cb4-5"><a href="#it-vc-cb4-5" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">&quot;doubao-seed-2-0-mini&quot;</span>,   <span class="co"># 壓縮用細 model，慳 token</span></span>
+<span id="it-vc-cb4-6"><a href="#it-vc-cb4-6" aria-hidden="true" tabindex="-1"></a>    system_instruction<span class="op">=</span><span class="st">&quot;用精簡粵語總結對話重點，保留用戶事實同已承諾事項。&quot;</span>,</span>
+<span id="it-vc-cb4-7"><a href="#it-vc-cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-vc-cb4-8"><a href="#it-vc-cb4-8" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> App(agents<span class="op">=</span>[agent], events_compaction_config<span class="op">=</span>EventsCompactionConfig(</span>
+<span id="it-vc-cb4-9"><a href="#it-vc-cb4-9" aria-hidden="true" tabindex="-1"></a>    compaction_interval<span class="op">=</span><span class="dv">10</span>, max_events<span class="op">=</span><span class="dv">50</span>, max_tokens<span class="op">=</span><span class="dv">8000</span>, compactor<span class="op">=</span>summarizer,</span>
+<span id="it-vc-cb4-10"><a href="#it-vc-cb4-10" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div>
+<p><strong>注意</strong>：每輪壓 = 額外 model call 反而貴；summary
+會冇咗細節（用戶 ID/引用冧巴）。經驗法則：intervak 大啲（10–20）、用
+<code>mini</code> 做 summarizer、唔截走 tool 返回嘅關鍵 JSON。</p>
+<h2
+id="it-vc-實作慳錢三件套一次過落cache--kv--compaction">實作：慳錢三件套一次過落（cache
++ KV + compaction）</h2>
+<div class="sourceCode" id="it-vc-cb5"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-vc-cb5-1"><a href="#it-vc-cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agentkit.yaml：唔開 output_schema 先保持 cache 命中</span></span>
+<span id="it-vc-cb5-2"><a href="#it-vc-cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="it-vc-cb5-3"><a href="#it-vc-cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> MODEL_AGENT_NAME=seed-2-0-mini-260428</span></span>
+<span id="it-vc-cb5-4"><a href="#it-vc-cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">  # OUTPUT_SCHEMA 一設即關 Responses cache —— 有結構化需求先衡量再開</span></span></code></pre></div>
+<div class="sourceCode" id="it-vc-cb6"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-vc-cb6-1"><a href="#it-vc-cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># app.py —— App 層塞 cache-friendly 設定 + compaction</span></span>
+<span id="it-vc-cb6-2"><a href="#it-vc-cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.adk.apps.app <span class="im">import</span> App</span>
+<span id="it-vc-cb6-3"><a href="#it-vc-cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.adk.apps.llm_event_summarizer <span class="im">import</span> LlmEventSummarizer</span>
+<span id="it-vc-cb6-4"><a href="#it-vc-cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb6-5"><a href="#it-vc-cb6-5" aria-hidden="true" tabindex="-1"></a>summarizer <span class="op">=</span> LlmEventSummarizer(</span>
+<span id="it-vc-cb6-6"><a href="#it-vc-cb6-6" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">&quot;doubao-seed-2-0-mini&quot;</span>,</span>
+<span id="it-vc-cb6-7"><a href="#it-vc-cb6-7" aria-hidden="true" tabindex="-1"></a>    system_instruction<span class="op">=</span><span class="st">&quot;用精簡粵語總結對話重點，保留用戶事實同已承諾事項。&quot;</span>,</span>
+<span id="it-vc-cb6-8"><a href="#it-vc-cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-vc-cb6-9"><a href="#it-vc-cb6-9" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> App(</span>
+<span id="it-vc-cb6-10"><a href="#it-vc-cb6-10" aria-hidden="true" tabindex="-1"></a>    agents<span class="op">=</span>[agent],</span>
+<span id="it-vc-cb6-11"><a href="#it-vc-cb6-11" aria-hidden="true" tabindex="-1"></a>    events_compaction_config<span class="op">=</span>EventsCompactionConfig(</span>
+<span id="it-vc-cb6-12"><a href="#it-vc-cb6-12" aria-hidden="true" tabindex="-1"></a>        compaction_interval<span class="op">=</span><span class="dv">10</span>,      <span class="co"># 大啲先慳（太細反而貴）</span></span>
+<span id="it-vc-cb6-13"><a href="#it-vc-cb6-13" aria-hidden="true" tabindex="-1"></a>        max_events<span class="op">=</span><span class="dv">50</span>,</span>
+<span id="it-vc-cb6-14"><a href="#it-vc-cb6-14" aria-hidden="true" tabindex="-1"></a>        max_tokens<span class="op">=</span><span class="dv">8000</span>,</span>
+<span id="it-vc-cb6-15"><a href="#it-vc-cb6-15" aria-hidden="true" tabindex="-1"></a>        compactor<span class="op">=</span>summarizer,</span>
+<span id="it-vc-cb6-16"><a href="#it-vc-cb6-16" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="it-vc-cb6-17"><a href="#it-vc-cb6-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-vc-cb6-18"><a href="#it-vc-cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-vc-cb6-19"><a href="#it-vc-cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 每輪之後讀命中率（cached / prompt）</span></span>
+<span id="it-vc-cb6-20"><a href="#it-vc-cb6-20" aria-hidden="true" tabindex="-1"></a>last_usage <span class="op">=</span> response.events[<span class="op">-</span><span class="dv">1</span>].usage_metadata</span>
+<span id="it-vc-cb6-21"><a href="#it-vc-cb6-21" aria-hidden="true" tabindex="-1"></a>hit <span class="op">=</span> last_usage.cached_content_token_count</span>
+<span id="it-vc-cb6-22"><a href="#it-vc-cb6-22" aria-hidden="true" tabindex="-1"></a>total <span class="op">=</span> last_usage.prompt_token_count</span>
+<span id="it-vc-cb6-23"><a href="#it-vc-cb6-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;cache hit rate: </span><span class="sc">{</span>hit<span class="op">/</span>total<span class="sc">:.0%}</span><span class="ss">   # 目標 50–95%&quot;</span>)</span></code></pre></div>
+<h2 id="it-vc-六話你知嘅幣同因果鏈">六、話你知嘅「幣」同因果鏈</h2>
+<pre><code>prompt 排位靚（不變 prefix）→ 引擎 prefix cache 命中 → platform 唔重算
+   → KV-cache 需求降 → GPU VRAM 壓力細 → 成本降</code></pre>
+<p>（詳見「AI Infra / GPU」Tab 嘅 cache 三層。）</p>
+<h2 id="it-vc-七實作檢查清單照做">七、實作檢查清單（照做）</h2>
+<ol type="1">
+<li>揀 KB
+backend（新起→<code>viking</code>/<code>context_search</code>；有
+infra→對應）。</li>
+<li>揀 LTM backend（多實例→唔好 <code>local</code>；要 product
+級→<code>viking</code>/<code>mem0</code>）。</li>
+<li>向量類後端先要配 embedding env。</li>
+<li>開 Responses cache（唔設 <code>output_schema</code> 先慳）。</li>
+<li>設 compaction config + mini summarizer。</li>
+<li>用 <code>usage_metadata</code> 計命中率、校 threshold。</li>
+</ol>
+<h2 id="it-vc-記住">記住</h2>
+<ul>
+<li><strong>儲存唔貴，token 先貴</strong>：RAG
+嘅最大成本係「檢索完全文塞入 context」→ 攻緩存同壓縮。</li>
+<li><strong>多實例記憶要求持久化</strong>：<code>run_sse</code> 404
+十有八九係 session 落咗第個 instance。</li>
+</ul>

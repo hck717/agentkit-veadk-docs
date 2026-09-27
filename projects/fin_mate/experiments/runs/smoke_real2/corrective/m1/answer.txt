@@ -1,0 +1,11 @@
+### 1. **Azure供應受限下的戰略側重**  
+當Azure面臨供應約束時，Microsoft優先將GPU分配給**第一方應用程序的AI使用**和**R&D以加速產品創新**，以追求更高利潤率和上層重復性軟件機會。這表明公司在供應受限時，更側重於長期戰略布局（如AI驅動的邊際提升），而非單純擴大Azure訂閱規模。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】  
+
+### 2. **E7 SKU的產品組合優勢**  
+E7 SKU整合了**M365 E5、Entra Suite、Agent 365和M365 Copilot**，定位為高價值捆綁套餐。其推出旨在通過**強大的產品組合**驅動M365 Copilot和Agent 365的 adoption，並利用現有E3/E5用戶基礎進行上銷。即使Azure供應受限，公司仍可通過高毛利的應用層軟件獲取收入，彌補Azure增速的不確定性。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+### 3. **AI驅動的增長潛力**  
+Microsoft認為GenAI是長期增長主題，E7 SKU中的Copilot功能（如M365 Copilot、GitHub Copilot）是其AI戰略的關鍵組成部分。通過E7套餐，公司可將AI功能與現有企業軟件套件深度整合，提升客戶粘性和ARPU（每用戶平均收入），從而在供應約束下維持收入增長動能。【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good_O, 20260212_China_Renaissance_Research_MSFT_Mic】  
+
+### 4. **市場需求與價格調整的時機**  
+近期M365價格上漲已迫使企業在2H26進行談判，創造

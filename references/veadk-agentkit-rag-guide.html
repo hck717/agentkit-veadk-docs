@@ -1,0 +1,720 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RAG 全攻略</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>RAG 全攻略</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="rag-全攻略揀檢索架構--揀-ranker--揀幾時用邊種-agentic--corrective--hybrid-rag-一次過">RAG
+全攻略（揀檢索架構 · 揀 Ranker · 揀幾時用邊種）— Agentic / Corrective /
+Hybrid RAG 一次過</h1>
+<p>「RAG 點揀」唔係一條題，係<strong>三條題</strong>：① 揀邊種
+<strong>RAG 架構</strong>（Naive → Agentic/Corrective Hybrid）；② 揀邊款
+<strong>檢索 + 重排（retrieval + rerank）</strong>；③
+按<strong>場景</strong>（要快 / 要準 / 要balance /
+要慳）落決定。呢份係全套參考，入面每個決定都配 <code>決策表格</code> +
+BytePlus / 方舟實例。</p>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>RAG 準唔準，八成喺「點切文件」同「點排結果」，唔係喺「用邊個
+model」</strong>——文件切得爛，再靚嘅 model 都救唔返。</li>
+<li><strong>「檢索」就係 cheap 版、「重排」就係 accurate
+版</strong>：粗檢 top-50（快、平）→ 精排 top-10（準、貴）先餵
+model。你揀嘅其實係「喺邊度落錢」。</li>
+<li><strong>「揀邊種 RAG」=「揀幾多 intelligence 放喺
+pipeline」</strong>：越生動（agentic）越準但越貴越慢；越生硬（naive）越快越平但天花板低。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-先答三條最常問">0. 先答三條最常問</h2>
+<ol type="1">
+<li><strong>「我想最準」</strong> → <strong>Agentic / Self-RAG /
+Corrective RAG</strong>：pipeline 識得自己決定「要唔要再撿、要唔要重寫
+query、要唔要 fallback 去 web」；再加 cross-encoder rerank。</li>
+<li><strong>「我想最快最平（又有基本水準）」</strong> → <strong>Advanced
+RAG + Hybrid（BM25+dense）+ RRF</strong>，唔起 rerank，top_k
+細（5–10）：一條直線、零 model-in-the-loop。</li>
+<li><strong>「我想 balance（生產最常見）」</strong> → <strong>Advanced
+RAG + Hybrid + RRF + 可選 cross-encoder（只精排
+top-50→10）</strong>：準度同成本都有得調。</li>
+</ol>
+<blockquote>
+<p><strong>Sale 一句</strong>：「由 Naive 起步，用 eval
+話你知邊個位唔夠（檢得錯？排得矇？答得差？），再按單點
+upgrade——唔好一次過砌 Agentic。」</p>
+</blockquote>
+<hr />
+<h2 id="1-rag-架構全圖十種-rag-排好">1. RAG 架構全圖：十種 RAG 排好</h2>
+<h3 id="11-由生硬到非常生動intelligence--成本--延遲由低到高">1.1
+由生硬到非常生動（intelligence / 成本 / 延遲由低到高）</h3>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>架構</th>
+<th>做法（一句）</th>
+<th>優/弱</th>
+<th>幾時用</th>
+<th>複雜度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Naive RAG</strong></td>
+<td>檢→塞→答，一條直線</td>
+<td>極快極平／準度天花板低</td>
+<td>FAQ、demo、靜態文檔</td>
+<td>⭐</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Advanced RAG</strong></td>
+<td>Naive + 預處理（chunk/清洗）+ 後處理（rerank/壓縮）</td>
+<td>明顯更準／多幾步要調</td>
+<td>生產客服、法規檢索</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Hybrid RAG</strong></td>
+<td>BM25 + Dense 並行，RRF 融合排名</td>
+<td>精確詞 + 語義兩食／要管兩個索引</td>
+<td>專名、型號、代碼多嘅語料</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Corrective RAG（CRAG）</strong></td>
+<td>檢完先「評分」——唔夠準就<strong>重寫 query 或 fallback
+web</strong>（唔會硬住用垃圾結果）</td>
+<td>抗錯、少 hallucination／要評分器</td>
+<td>答案唔允許錯（法規/醫療/財報）</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Self-RAG</strong></td>
+<td>Model 用 special
+token（<code>[Retrieve]/[Relevant]/[Supported]</code>）<strong>自決幾時撿、幾時信、幾時補</strong></td>
+<td>靈活、貼 model／token 成本升、要支援模型</td>
+<td>長對話、要連續自我修正</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Agentic RAG</strong></td>
+<td>成個 pipeline 用 agent 行：路由、query
+改寫、多跳、工具、迭代檢索全部自動</td>
+<td>最靚、最慳 token（只 call 需要嘅）／最難調、要 ground truth 驗</td>
+<td>query 多變、多來源、多跳題目</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>Graph RAG</strong></td>
+<td>抽 entity+relation 落圖，答關係題走圖搜尋</td>
+<td>關係題超強／建立貴、更新難</td>
+<td>知識圖譜、關係關連、合規</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Modular RAG</strong></td>
+<td>積木自由組合（routing/改寫/HyDE/多跳/fusion）</td>
+<td>彈性最大／過度工程風險</td>
+<td>複雜來源、意圖雜</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>HyDE</strong></td>
+<td>先叫 model 偽造「理想答案」再用嚟檢索</td>
+<td>短/口語 query 都得／多一次 LLM call</td>
+<td>「個 query 就得幾個字」嘅場景</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Multimodal RAG</strong></td>
+<td>同時撿 文字+圖/表/圖像嘅 embedding</td>
+<td>識答「圖入面寫咩」／要 multimodal embedding（方舟
+<code>doubao-embedding-vision</code>）</td>
+<td>文檔有圖表、PDF、合約掃描</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>冇一隻係「最好」</strong>——係「邊個啱你嘅場景」。RAG
+史上最貴嘅錯，就係一步到位砌 Agentic 而唔知 base case 係咩成績。</p>
+</blockquote>
+<h3 id="12-agentic-rag-深入最貴最靚">1.2 Agentic RAG
+深入（最貴、最靚）</h3>
+<p>唔係「多咗一個檢索步驟」，係<strong>用 agent 管成個 RAG
+pipeline</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>做咩</th>
+<th>慳/貴位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Query routing</strong></td>
+<td>按意圖送去 keyword / vector / graph / API</td>
+<td>慳：唔使每個 query 行晒全部</td>
+</tr>
+<tr>
+<td><strong>Query rewriting</strong></td>
+<td>口語 → 檢索友好（「上次講嗰間」→「XX公司」）</td>
+<td>準：第一跳已經中</td>
+</tr>
+<tr>
+<td><strong>Iterative / multi-hop retrieval</strong></td>
+<td>第一跳結果 → 第二跳再撿</td>
+<td>準：兩層先答到</td>
+</tr>
+<tr>
+<td><strong>Tool use</strong></td>
+<td>RAG 唔夠就 call 其他工具（計數、查庫、瀏覽器）</td>
+<td>慳/準：唔會硬答</td>
+</tr>
+<tr>
+<td><strong>Self-assessment</strong></td>
+<td>答題前問「證據夠唔夠」→ 唔夠補撿</td>
+<td>抗錯：少 hallucination</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>BytePlus / Volcengine 點落地</strong>：Agentic RAG 嘅「agent
+層」用 <strong>VeADK/AgentKit</strong>（<code>Agent</code> + 工具 + KB
+工具），「檢索層」用 <strong>KnowledgeBase（VikingDB /
+context_search）</strong>，評分/改寫 call
+<strong>方舟模型</strong>（<code>doubao-seed-2.0-mini/lite</code> 就夠做
+router/rewriter，慳）。</p>
+</blockquote>
+<pre class="python"><code>from veadk.knowledgebase import KnowledgeBase, Ranker
+kb = KnowledgeBase(backend=&quot;viking&quot;, top_k=10, index=&quot;faq-docs&quot;,
+                   reranker=Ranker(embedding_model=&quot;doubao-embedding-vision&quot;))
+agent = Agent(..., knowledgebase=kb, tools=[Calculator(), Fetcher()])
+# agent 自動：route → 撿 → (唔夠)重寫 query → 撿 → (仲唔夠)call tool → 答</code></pre>
+<h3 id="13-corrective-ragcrag深入">1.3 Corrective RAG（CRAG）深入</h3>
+<table>
+<thead>
+<tr>
+<th>環節</th>
+<th>做咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>評分器（Evaluator）</strong></td>
+<td>對撿出嚟嘅 docs 判斷係咪「真係相關 / 唔相關 / 半信半疑」</td>
+</tr>
+<tr>
+<td><strong>確認相關</strong></td>
+<td>畀 pass，直接塞入生成</td>
+</tr>
+<tr>
+<td><strong>半信半疑</strong></td>
+<td>做知識抽取（knowledge refinement，抽走無關段落）再生成</td>
+</tr>
+<tr>
+<td><strong>完全唔行</strong></td>
+<td>唔用檢索結果 → <strong>fallback 去 web 搜尋 / 重寫 query
+重撿</strong>——絕唔硬住用垃圾</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>同 Self-RAG 分別：CRAG 係**「檢索後」<strong>嘅補救（results
+打分再補），Self-RAG
+係</strong>「生成全程」**嘅自我管理（幾時撿/信/補都由 model
+決定）。兩者可以疊。</p>
+<p>🎯 要上 CRAG，最抵做法：<strong>評分器用最平嘅
+model／規則</strong>（相關性 threshold + <code>Ranker</code>
+分數），唔好一開頭就用大 model 評——慳。</p>
+</blockquote>
+<h3 id="14-raptor--多跳--呢啲升級積木幾時值得">1.4 RAPTOR / 多跳 /
+呢啲「升級積木」幾時值得</h3>
+<table>
+<thead>
+<tr>
+<th>積木</th>
+<th>做咩</th>
+<th>幾時值得</th>
+<th>唔抵位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RAPTOR</strong></td>
+<td>將 chunks 遞歸聚類+總結成樹，由上層總結開始撿</td>
+<td>長文檔、要大局觀答案</td>
+<td>建立貴，FAQ 級唔值得</td>
+</tr>
+<tr>
+<td><strong>Multi-hop</strong></td>
+<td>多跳檢索</td>
+<td>問題要兩層先答</td>
+<td>一跳答到就唔好</td>
+</tr>
+<tr>
+<td><strong>Query 改寫 / HyDE</strong></td>
+<td>改靚 query</td>
+<td>用戶講得鬆散</td>
+<td>prompt 本身好清晰就唔需要</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-檢索retrieval類型--揀檢索器">2. 檢索（Retrieval）類型 —
+揀檢索器</h2>
+<h3 id="21-六款檢索法">2.1 六款檢索法</h3>
+<table>
+<thead>
+<tr>
+<th>檢索法</th>
+<th>運作</th>
+<th>強項</th>
+<th>弱項</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sparse（BM25/TF-IDF）</strong></td>
+<td>詞頻統計計分</td>
+<td>精確詞、型號、代碼、條款、人名</td>
+<td>唔識同義詞/意譯</td>
+<td>有準確術語、首輪粗檢</td>
+</tr>
+<tr>
+<td><strong>Dense（bi-encoder）</strong></td>
+<td>各自 embedding → cosine/dot</td>
+<td>語義、意譯（「點退貨」→「refund policy」）</td>
+<td>專名/代碼易 miss</td>
+<td>語義主幹</td>
+</tr>
+<tr>
+<td><strong>Hybrid（Sparse+Dense）</strong></td>
+<td>兩邊並行</td>
+<td>兩者兼得</td>
+<td>要管兩個索引</td>
+<td><strong>預設建議</strong></td>
+</tr>
+<tr>
+<td><strong>RRF（融合排名）</strong></td>
+<td>排名 → <code>score=Σ 1/(k+rank)</code></td>
+<td>融合唔怕量綱唔同</td>
+<td>唔加權（只睇排位）</td>
+<td>混合檢索後融合</td>
+</tr>
+<tr>
+<td><strong>Vector hybrid（meta filter）</strong></td>
+<td>向量 + metadata（過濾日期/來源/租戶）過濾</td>
+<td>精準縮池、多租戶</td>
+<td>語料要帶 metadata</td>
+<td>企業/多租戶</td>
+</tr>
+<tr>
+<td><strong>Cross-encoder 精排</strong></td>
+<td>query+doc 一齊入 model 打分</td>
+<td><strong>最準</strong></td>
+<td>每對 forward，慢 + 錢</td>
+<td><strong>只精排 top-k</strong>（50→10）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="22-混合三式hybrid-點溝">2.2 混合三式（Hybrid 點溝）</h3>
+<table>
+<thead>
+<tr>
+<th>溝法</th>
+<th>做法</th>
+<th>效果</th>
+<th>註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>要求 AND</strong></td>
+<td>兩邊都有先得</td>
+<td>太嚴、漏召回</td>
+<td>少用</td>
+</tr>
+<tr>
+<td><strong>併集 + RRF</strong></td>
+<td>兩邊各出排名，RRF 融合</td>
+<td>召回 + 排序都掂</td>
+<td><strong>最常用</strong>（<code>k≈60</code>）</td>
+</tr>
+<tr>
+<td><strong>加權平均分</strong></td>
+<td>分數加權埋埋</td>
+<td>量綱唔同難平衡</td>
+<td>唔建議（RRF 穩好多）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>唔好自己發明融合</strong>：用 RRF（睇 rank
+唔睇分數），唔使理量綱、好穩。</p>
+</blockquote>
+<h3 id="23-byteplus--方舟檢索落地">2.3 BytePlus / 方舟檢索落地</h3>
+<ul>
+<li><strong>托管
+RAG</strong>：<code>KnowledgeBase(backend="viking" | "context_search")</code>
+→ 方舟服務端食晒（chunk/向量/索引）；context_search 重做過 RAG
+管治。</li>
+<li><strong>自建檢索</strong>：揀向量類後端（OpenSearch/Milvus），自己配
+<code>embedding_model</code>（如
+<code>doubao-embedding-vision</code>）。</li>
+<li><strong>粗→精</strong>：<code>top_k=10</code>（內建，無 rerank）→
+要準就加
+<code>Ranker(embedding_model="doubao-embedding-vision")</code>。</li>
+<li>後端矩陣/成本全部睇
+<strong><code>veadk-agentkit-vector-cache.md</code></strong>（記憶/知識庫
+tab）；DB 後端睇
+<strong><code>veadk-agentkit-database-management.md</code></strong>。</li>
+</ul>
+<hr />
+<h2 id="3-重排rerank類型--揀精排器">3. 重排（Rerank）類型 —
+揀精排器</h2>
+<h3 id="31-rerank-係咩點解要">3.1 Rerank 係咩、點解要</h3>
+<p>「檢到」≠「排得啱」。<strong>粗檢打大池（top-50）→
+精排縮細池（top-10）→ 先餵 model</strong>。</p>
+<h3 id="32-rerank-五類">3.2 Rerank 五類</h3>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>做法</th>
+<th>準度</th>
+<th>速度</th>
+<th>成本</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>唔 rerank</strong></td>
+<td>淨係用檢索分數排（top_k）</td>
+<td>中</td>
+<td>★★★★★</td>
+<td>0</td>
+<td>夠用就算、要快</td>
+</tr>
+<tr>
+<td><strong>RRF / rank fusion</strong></td>
+<td>排名融合（無 model）</td>
+<td>中上</td>
+<td>★★★★★</td>
+<td>0</td>
+<td>Hybrid 後融合、慳錢</td>
+</tr>
+<tr>
+<td><strong>Cross-encoder</strong></td>
+<td>query+doc 一齊打分（如
+<code>bge-reranker</code>、<code>qwen3-reranker</code>、Cohere
+Rerank）</td>
+<td><strong>最高</strong></td>
+<td>★★</td>
+<td>高（50 對 forward）</td>
+<td>生產準度優先</td>
+</tr>
+<tr>
+<td><strong>LLM-as-reranker</strong></td>
+<td>叫 model 逐對/ listwise 評（RankGPT 式）</td>
+<td>高</td>
+<td>★</td>
+<td><strong>最高</strong></td>
+<td>少量但超關鍵 query</td>
+</tr>
+<tr>
+<td><strong>Late-interaction（ColBERT）</strong></td>
+<td>token 級互動、預先算好</td>
+<td>高</td>
+<td>★★★</td>
+<td>中</td>
+<td>大語料（&gt;1M）縮放</td>
+</tr>
+</tbody>
+</table>
+<h3 id="33-精排份量唔好-over-engineer">3.3 精排份量（唔好
+over-engineer）</h3>
+<table>
+<thead>
+<tr>
+<th>你嘅準度問題</th>
+<th>精排份量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「檢到冇中 → 完全漏」</td>
+<td>係<strong>檢索</strong>問題（改 chunk / 改 mixing / 加改寫），唔係
+rerank</td>
+</tr>
+<tr>
+<td>「檢到啱，但頭幾條唔係最貼」</td>
+<td>先加 <strong>RRF</strong>（零成本）；仲唔夠先上
+<strong>cross-encoder top-50→10</strong></td>
+</tr>
+<tr>
+<td>「長文件頂住晒，答唔到其中一段」</td>
+<td>係 <strong>chunk/rerank</strong> 兩回事——rerank
+高分唔等於答到，要睇評估</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>rerank 唔係默認、有錢</strong>：VeADK 內建
+<code>top_k</code> 檢索無自動 rerank。租客共享計費（AFP）下精排 50 對=50
+次 model forward——先評估（<code>veadk-agentkit-performance.md</code>
+eval 節）再決定值唔值。</p>
+</blockquote>
+<hr />
+<h2 id="4-場景揀選速度--準確--平衡--成本-大表">4. 場景揀選：速度 / 準確
+/ 平衡 / 成本 大表</h2>
+<blockquote>
+<p>「要快定要準定要慳」→ 呢度一表到題。括號內係 pipeline 必列位。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>目標</th>
+<th>架構</th>
+<th>檢索</th>
+<th>重排</th>
+<th>Chunk</th>
+<th>top_k</th>
+<th>約略相對</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🚀 <strong>Best Speed（遊戲延遲敏感）</strong></td>
+<td>Naive / Advanced</td>
+<td>純 Dense 或純 BM25（單一）</td>
+<td><strong>唔 rerank</strong></td>
+<td>Fixed 256–512</td>
+<td>3–5</td>
+<td>最快、最平</td>
+<td>用戶等唔到，唔好攞 50 條嚟排</td>
+</tr>
+<tr>
+<td>🎯 <strong>Best Accuracy（答案唔允許錯）</strong></td>
+<td><strong>Agentic / Self-RAG / CRAG</strong> + Advanced</td>
+<td><strong>Hybrid + RRF</strong></td>
+<td><strong>Cross-encoder 50→10</strong>（+ 可選 LLM 複查）</td>
+<td>Semantic / Recursive 細粒</td>
+<td>10–20</td>
+<td>最準、最貴</td>
+<td>錯一條都唔得：評分→補撿→fallback 全開</td>
+</tr>
+<tr>
+<td>⚖️ <strong>Balance（生產默認）</strong></td>
+<td>Advanced RAG</td>
+<td><strong>Hybrid（BM25+dense）+ RRF</strong></td>
+<td><strong>可選 cross-encoder</strong>（50→10，先試無）</td>
+<td>Recursive 512/100</td>
+<td>10</td>
+<td>中快中準</td>
+<td>一條直線，準度唔夠先逐步加</td>
+</tr>
+<tr>
+<td>🪙 <strong>Best Cost（量巨大、邊際要慳）</strong></td>
+<td>Naive + 靜態</td>
+<td>純 BM25（零 embedding/rerank call）</td>
+<td><strong>唔 rerank</strong></td>
+<td>Fixed 256</td>
+<td>3–5</td>
+<td>最平（百萬 query 都頂得順）</td>
+<td>prompt 前綴固定→食
+cache（<code>veadk-agentkit-cache-management.md</code>）</td>
+</tr>
+<tr>
+<td>🧩 <strong>Multi-source / 意圖雜</strong></td>
+<td><strong>Agentic / Modular</strong>（routing + 改寫 + 多跳）</td>
+<td>Route 去唔同檢索器（keyword/vector/API）</td>
+<td>尾站 cross-encoder</td>
+<td>Recursive</td>
+<td>10×hop</td>
+<td>中高</td>
+<td>一個 agent 自動揀「行邊條路」</td>
+</tr>
+<tr>
+<td>🕸️ <strong>關係題 / 合規關連</strong></td>
+<td><strong>Graph RAG</strong></td>
+<td>圖搜尋（entity→relation）</td>
+<td>可選</td>
+<td>Entity+Relation</td>
+<td>圖 hop</td>
+<td>高建置</td>
+<td>「A 同 B 幾多關連」呢類先值</td>
+</tr>
+<tr>
+<td>📄 <strong>有圖表/掃描/PDF</strong></td>
+<td>Advanced + <strong>Multimodal</strong></td>
+<td>Multimodal embedding（<code>doubao-embedding-vision</code>）</td>
+<td>Cross-encoder</td>
+<td>Fixed+table-aware</td>
+<td>10</td>
+<td>中</td>
+<td>答案要睇埋圖/表，唔係淨文字</td>
+</tr>
+<tr>
+<td>🏢 <strong>企業/多租戶</strong></td>
+<td>Advanced</td>
+<td>Dense + <strong>metadata filter</strong>（來源/日期/租戶）</td>
+<td>可選</td>
+<td>Recursive</td>
+<td>10</td>
+<td>中</td>
+<td>精準縮池 + 權限隔離</td>
+</tr>
+</tbody>
+</table>
+<h3 id="41-決策樹由目標入30-秒到題">4.1 決策樹（由「目標」入，30
+秒到題）</h3>
+<pre><code>想要咩？
+├─ 最快最平 → Naive/Advanced + 單一檢索 + 唔 rerank（Dense 或 BM25）
+├─ 平衡（走唔錯）→ Advanced + Hybrid + RRF（+ 可選 cross-encoder）
+├─ 最準（錯唔起）→ Agentic/Self-RAG/CRAG + Hybrid + cross-encoder rerank
+├─ 關係題 → Graph RAG
+├─ 意圖雜/多來源 → Agentic/Modular（routing/改寫/多跳）
+├─ 有圖表/掃描 → Multimodal（doubao-embedding-vision）
+├─ 多租戶 → Dense + metadata filter
+└─ 量巨大要慳 → Naive + BM25 純檢索 + 固定 prompt 前綴食 cache</code></pre>
+<h3 id="42-升級順序路徑唔好一步到位">4.2
+「升級順序」路徑（唔好一步到位）</h3>
+<pre><code>1. Naive 起步（內建 KB 即得）＋ eval baseline 比分
+2. 加 RRF 融合（零 model 成本）→ 睇有冇改善
+3. 加 Recursive/Semantic chunk（切文件改善）
+4. 加 cross-encoder rerank top-50→10（最明顯準度跳）→ 量錢
+5. 再加 Model-in-the-loop（改寫/router/評分）→ 變 Agentic/CRAG
+每步都要 eval 對比分（`veadk-agentkit-performance.md` eval），唔好亂加。</code></pre>
+<hr />
+<h2 id="5-實作速查veadk--agentkit">5. 實作速查（VeADK / AgentKit）</h2>
+<pre class="python"><code>from veadk.knowledgebase import KnowledgeBase, Ranker
+
+# ① Balance（生產默認）：VikingDB + reranker
+kb = KnowledgeBase(backend=&quot;viking&quot;, top_k=10, index=&quot;faq&quot;,
+                   reranker=Ranker(embedding_model=&quot;doubao-embedding-vision&quot;))
+
+# ② 最慳：托管 RAG 唔配 rerank（服務端食晒，零自建）
+kb_cheap = KnowledgeBase(backend=&quot;context_search&quot;, top_k=5, index=&quot;docs&quot;)
+
+# ③ 要 metadata 過濾（多租戶）：向量後端 + 帶 metadata 嘅 doc
+kb_mt = KnowledgeBase(backend=&quot;opensearch&quot;, top_k=10, index=&quot;tenant-a&quot;)
+kb_mt.add(..., metadata={&quot;tenant&quot;: &quot;a&quot;, &quot;date&quot;: &quot;2026-08&quot;})</code></pre>
+<blockquote>
+<p>後端揀法、成本放大器（embedding 定「服務端」）詳見
+<strong><code>veadk-agentkit-vector-cache.md</code></strong>；評估點做睇
+<strong><code>veadk-agentkit-performance.md</code></strong>；CRAG
+嘅內容安全可接
+<strong><code>veadk-agentkit-rbac-observability.md</code></strong>（Guardrail/Input-Output
+Filter）。</p>
+</blockquote>
+<hr />
+<h2 id="6-避雷--成本意識">6. 避雷 + 成本意識</h2>
+<blockquote>
+<p>⚠️ <strong>避雷七連</strong>：</p>
+<ol type="1">
+<li><strong>一律開最靚架構</strong>＝燒錢又慢。由 Naive 開始 + eval
+量度。</li>
+<li><strong>唔識分「檢錯」同「排矇」</strong>：漏就要改檢索/chunk，排位唔啱先改
+rerank。</li>
+<li><strong>rerank 記唔住會計錢</strong>：50 對 = 50 次 forward。先試
+RRF（免費），再諗 cross-encoder。</li>
+<li><strong>Graph RAG 建置貴</strong>：關係題先值。普通 FAQ 唔好。</li>
+<li><strong>Agentic 唔設上限</strong>＝無限 loop 燒 token。一定要設 hop
+上限 + 每跳有 ground truth 驗。</li>
+<li><strong>CRAG 評分器啡晒</strong>：評分器用最平 model／分數
+threshold，唔好一嚟用大 model。</li>
+<li><strong>Hybrid 唔用 RRF</strong>：直接加權平均分 →
+量綱唔同、唔穩。</li>
+</ol>
+<p>🪙 <strong>慳錢 key</strong>：固定 prompt 前綴（system +
+工具描述）排頭 → 命中 provider/framework 上下文緩存（隱式 ~20%、可達
+50–95%）→ 大 query 量成本跌一大截，見
+<strong><code>veadk-agentkit-cache-management.md</code></strong>。</p>
+</blockquote>
+<hr />
+<h2 id="7-資料來源">7. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RAG 架構對比（Naive/Advanced/Modular/Graph/Hybrid 基礎）</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code>
+§1/§3（內部概念）</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Correction RAG（CRAG）學術｜Self-RAG 學術</td>
+<td>arXiv 2301.13597 / 2310.11511</td>
+<td>2024</td>
+</tr>
+<tr>
+<td>RAPTOR（遞歸樹/總結）</td>
+<td>arXiv 2401.18059</td>
+<td>2024</td>
+</tr>
+<tr>
+<td>HyDE（hypothetical document embeddings）</td>
+<td>arXiv 2212.10496</td>
+<td>2023</td>
+</tr>
+<tr>
+<td>ColBERT（late-interaction）</td>
+<td>arXiv 2004.12832</td>
+<td>2020</td>
+</tr>
+<tr>
+<td>RRF（Reciprocal Rank Fusion，<code>k≈60</code>）</td>
+<td>Cormack et al. SIGIR 2009</td>
+<td>2009</td>
+</tr>
+<tr>
+<td>Agentic RAG 工程實務（routing/rewrite/multi-hop/self-assess）</td>
+<td>業界 practice 綜合（2025–2026）</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>VeADK KnowledgeBase/Ranker + embedding_model</td>
+<td><code>references/veadk-agentkit-vector-cache.md</code>（記憶/知識庫
+tab）</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>成本／AFP（精排計費、context cache）</td>
+<td><code>references/veadk-agentkit-pricing.md</code> +
+<code>veadk-agentkit-cache-management.md</code></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：個別架構（Agentic/CRAG/Self-RAG/RAPTOR）為學術
++ 業界 practice 綜合，唔係 BytePlus 官方術語；VeADK 內建係「托管 RAG +
+Ranker + agent 工具」層。定價同功能引用前 check 一遍最新文檔。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · RAG
+架構術語同方舟產品功能會隨迭代而變（尤其
+<code>Ranker</code>/<code>context_search</code>），引用前 check
+一遍。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

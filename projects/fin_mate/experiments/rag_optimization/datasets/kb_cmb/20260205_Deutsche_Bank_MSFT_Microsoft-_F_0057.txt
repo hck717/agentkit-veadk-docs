@@ -1,0 +1,12 @@
+The backtested performance includes hypothetical results that 
+do not reflect the reinvestment of dividends and other earnings or the deduction of advisory fees, brokerage or other 
+commissions, and any other expenses that a client would have paid or actually paid. No representation is made that any trading 
+strategy or account will or is likely to achieve profits or losses similar to those shown. Alternative modeling techniques or 
+assumptions might produce significantly different results and prove to be more appropriate. Past hypothetical backtest results 
+are neither an indicator nor guarantee of future returns. Actual results will vary, perhaps materially, from the analysis.
+The method for computing individual E,S,G and composite ESG scores set forth herein is a novel method developed by the 
+Research department within Deutsche Bank AG, computed using a systematic approach without human intervention. 
+Different data providers, market sectors and geographies approach ESG analysis and incorporate the findings in a variety of 
+ways.  As such, the ESG scores referred to herein may differ from equivalent ratings developed and implemented by other ESG 
+data providers in the market and may also differ from equivalent ratings developed and implemented by other divisions within 
+the Deutsche Bank Group.

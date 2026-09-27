@@ -1,0 +1,10 @@
+### Deutsche Bank 對 F2Q 結果相對於市場預期的形容  
+Deutsche Bank 將 Microsoft F2Q 2026 的「Cons. New Estimates」（市場一致預期新估計）與「Old Estimates」（此前估計）對比，顯示總收入、營業利潤等關鍵指標略低於市場預期：  
+- **總收入**：新估計 81,189 百萬美元，舊估計 81,588 百萬美元，同比下降 0.5%，低於市場此前預期（81,360 百萬美元，舊估計範圍 80,650 - 81,750 百萬美元）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+- **營業利潤**：新估計 36,632 百萬美元，舊估計 37,245 百萬美元，同比下降 1.6%，低於市場此前預期（37,007 百萬美元，舊估計範圍 35,900 - 37,300 百萬美元）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+
+### 主要原因  
+資料中未明確提及具體原因，Deutsche Bank 的報告標題為「Leaning into the long game」，暗示可能與公司對長期戰略（如 AI 投入）的關注有關，但未具體解釋 F2Q 短期表現低於預期的因素【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+
+## 來源  
+[1] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

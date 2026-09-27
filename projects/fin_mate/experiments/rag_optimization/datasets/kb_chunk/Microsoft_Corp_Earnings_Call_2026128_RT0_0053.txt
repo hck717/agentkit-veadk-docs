@@ -1,0 +1,14 @@
+And
+Amy, are there any ramifications worth mentioning there in terms of supporting your gross margin
+profile for inference costs going forward?
+A - Satya Nadella {BIO 3224315 <GO>}
+Yes. No, thanks for the question. So a couple of things. One is we've been at this in a variety of
+different forms for a long, long time in terms of building our own silicon. And so we're very, very
+thrilled about the progress with Maia 200, and especially when we think about running a GPT-5.2
+and the performance we were able to get in the GEMMs at FP4 just proves the point that when
+you have a new workload, a new shape of a workload, you can start innovating end-to-end
+between the model and the silicon. And the entire system is just not even about just the silicon,
+FINAL TRANSCRIPT
+2026-01-28
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.

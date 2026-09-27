@@ -1,0 +1,11 @@
+{
+  "variant": "jev_mem",
+  "desc": "Jev 篩記憶",
+  "flags": {
+    "action": "chat",
+    "chat_model": "flash",
+    "rag": "top5",
+    "mem": "jev",
+    "desc": "Jev 篩記憶"
+  }
+}

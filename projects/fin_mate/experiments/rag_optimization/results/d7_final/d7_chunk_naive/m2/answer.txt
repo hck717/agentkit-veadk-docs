@@ -1,0 +1,9 @@
+Security 對 agentic adoption 同 E7 bundle 關鍵，原因如下：  
+1. **Agent 365 嘅 prerequisites**：新 Agent 365 提供 agent registry/agent ID（係 Entra 入面）、observability、risk signals 等，這些均為 agentic adoption 嘅重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **Agentic adoption 唔 likely standalone**：M365 Copilot 同 Agent 365 類似，唔太可能單獨 adoption，反而透過 E7 SKU 會加速 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **Security Copilot agents 嘅作用**：Security 領域新增咗十幾個 security Copilot agents，例如 Icertis' SOC team 使用後將 manual triage time 減少 75%，解決咗行業人才短缺問題，助力 agentic adoption【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+4. **Security 成為 essential**：安全解決方案對管理組織 AI 部署變得 essential，而 E7 bundle 可能包含相關安全功能，從而促進 adoption【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+
+## 來源  
+1. 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt  
+2. Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt

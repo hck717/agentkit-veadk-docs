@@ -1,0 +1,11 @@
+{
+  "variant": "original",
+  "desc": "原裝：flash 全程",
+  "flags": {
+    "action": "chat",
+    "chat_model": "flash",
+    "rag": "top5",
+    "mem": "llm",
+    "desc": "原裝：flash 全程"
+  }
+}

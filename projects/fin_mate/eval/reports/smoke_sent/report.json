@@ -1,0 +1,346 @@
+{
+  "tag": "smoke_sent",
+  "ts": "2026-09-09 22:12:29",
+  "models": {
+    "primary": "seed-1-6-flash-250715"
+  },
+  "suite": "sentiment",
+  "no_judge": false,
+  "max_tokens_budget": 250000,
+  "used_tokens": 1465,
+  "sets": {
+    "sent_3way": {
+      "n": 6,
+      "passed": 6,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 775,
+      "usd": 8.2585e-05,
+      "ms": 8269.39566602232
+    },
+    "sent_score": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 690,
+      "usd": 5.2869999999999994e-05,
+      "ms": 3228.2822089036927
+    }
+  },
+  "rows": [
+    {
+      "id": "sent_3w_01",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft Cloud revenue tops $50 billion, up 26% year over year",
+      "pred": "positive\n解析：标题表明微软云服务收入超过500亿美元，同比增长26%，这是一个积极的财务表现描述，因此分类为positive。 ",
+      "usage": {
+        "prompt": 76,
+        "completion": 37,
+        "cached": 0
+      },
+      "ms": 2637.582040973939,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_02",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft shares fall 4% after Azure growth misses expectations",
+      "pred": "negative\n首先分析標題中的關鍵信息：“Microsoft shares fall 4%”（微軟股價下跌4%）以及“Azure growth misses expectations”（Azure增長未達預期）。股價下跌且業績增長未達預期，這些都是負面的描述，所以分類為negative。 ",
+      "usage": {
+        "prompt": 70,
+        "completion": 74,
+        "cached": 0
+      },
+      "ms": 1257.943584001623,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_03",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nTaiwan Semiconductor holds its guidance steady this quarter",
+      "pred": "neutral\n“holds its guidance steady” 只是表明維持之前的指引，並沒有明顯的積極或消極表述，屬於中性描述。 ",
+      "usage": {
+        "prompt": 69,
+        "completion": 35,
+        "cached": 0
+      },
+      "ms": 907.2184580145404,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "neutral",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_04",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nMicrosoft wins big government cloud deal, shares surge",
+      "pred": "positive\n解析：標題中提到“Microsoft wins big government cloud deal”（微軟獲得重要政府雲合約）以及“shares surge”（股價上漲），這些都是積極的訊息，表明微軟在商業上取得了成功且股價上漲，因此分類為positive。 ",
+      "usage": {
+        "prompt": 68,
+        "completion": 73,
+        "cached": 0
+      },
+      "ms": 970.6555409939028,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_05",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nBank warns of AI capex bubble, cuts cloud estimates",
+      "pred": "negative\n### 解析\n標題中提到“銀行警告人工智能資本支出泡沫”（Bank warns of AI capex bubble），“泡沫”通常被視為負面信號，並且“削減雲計算預期”（cuts cloud estimates）進一步表明對行業前景的悲觀態度。這些表述均指向消極情緒，因此分類為**negative**。 ",
+      "usage": {
+        "prompt": 70,
+        "completion": 89,
+        "cached": 0
+      },
+      "ms": 1725.8787080063485,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_3w_06",
+      "set": "sent_3way",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "將下面標題分類做 positive / neutral / negative（輸出一個字詞即可）：\nWells Fargo upgrades Microsoft, raises price target to $600",
+      "pred": "positive\nWells Fargo 上調對微軟的評級並提高目標價，通常被視為對微軟股價的積極信號，因此分類為 positive。 ",
+      "usage": {
+        "prompt": 73,
+        "completion": 41,
+        "cached": 0
+      },
+      "ms": 770.1173340319656,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ]
+      }
+    },
+    {
+      "id": "sent_sc_01",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Microsoft Cloud revenue tops $50 billion, up 26% year over year",
+      "pred": "{\"label\": \"positive\", \"score\": 0.8, \"driver\": \"Microsoft Cloud revenue exceeded $50 billion with a 26% year-over-year increase, indicating strong growth in the cloud segment.\"}",
+      "usage": {
+        "prompt": 102,
+        "completion": 46,
+        "cached": 0
+      },
+      "ms": 597.4309999728575,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          0.3,
+          1.0
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_02",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Microsoft shares fall 4% after Azure growth misses expectations",
+      "pred": "{\"label\": \"negative\", \"score\": -0.6, \"driver\": \"Microsoft shares fall 4% due to Azure growth missing expectations\"}",
+      "usage": {
+        "prompt": 96,
+        "completion": 31,
+        "cached": 0
+      },
+      "ms": 504.44812496425584,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -1.0,
+          -0.3
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_03",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Taiwan Semiconductor holds its guidance steady this quarter",
+      "pred": "{\"label\": \"neutral\", \"score\": 0.0, \"driver\": \"公司維持本季度指引不變，未直接體現積極或消極情緒\"}",
+      "usage": {
+        "prompt": 95,
+        "completion": 40,
+        "cached": 0
+      },
+      "ms": 713.7245839694515,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "neutral",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -0.2,
+          0.2
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_04",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Bank warns of AI capex bubble, cuts cloud estimates",
+      "pred": "{\"label\": \"negative\", \"score\": -0.7, \"driver\": \"銀行警告AI資本支出泡沫，並下調雲計算預期，對相關行業前景呈現負面判斷\"}",
+      "usage": {
+        "prompt": 96,
+        "completion": 47,
+        "cached": 0
+      },
+      "ms": 749.6642500045709,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "negative",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          -1.0,
+          -0.3
+        ],
+        "require_driver": true
+      }
+    },
+    {
+      "id": "sent_sc_05",
+      "set": "sent_score",
+      "type": "sentiment",
+      "evaluator": "sentiment",
+      "prompt": "以嚴格 JSON 回應（唔加其他字）：{\"label\": \"positive|neutral|negative\", \"score\": -1.0..1.0, \"driver\": \"一句講原因\"}\n標題：Wells Fargo upgrades Microsoft, raises price target to $600",
+      "pred": "{\"label\": \"positive\", \"score\": 0.8, \"driver\": \"Wells Fargo upgrades Microsoft and raises its price target, indicating positive sentiment towards the company's prospects\"}",
+      "usage": {
+        "prompt": 99,
+        "completion": 38,
+        "cached": 0
+      },
+      "ms": 663.0142499925569,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "",
+      "golden": {
+        "label": "positive",
+        "classes": [
+          "positive",
+          "neutral",
+          "negative"
+        ],
+        "score_range": [
+          0.3,
+          1.0
+        ],
+        "require_driver": true
+      }
+    }
+  ]
+}

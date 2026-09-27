@@ -1,0 +1,290 @@
+{
+  "tag": "smoke_tool",
+  "ts": "2026-09-09 22:12:17",
+  "models": {
+    "primary": "seed-1-6-flash-250715"
+  },
+  "suite": "tool_call",
+  "no_judge": false,
+  "max_tokens_budget": 250000,
+  "used_tokens": 1217,
+  "sets": {
+    "calc_expr": {
+      "n": 5,
+      "passed": 5,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 774,
+      "usd": 3.8864e-05,
+      "ms": 3029.841083975043
+    },
+    "news_extract": {
+      "n": 3,
+      "passed": 3,
+      "score": 1.0,
+      "exact_mean": 1.0,
+      "judge_rate": null,
+      "tokens": 443,
+      "usd": 2.7542999999999997e-05,
+      "ms": 1434.972499962896
+    }
+  },
+  "rows": [
+    {
+      "id": "tc_calc_01",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Deutsche 話 MSFT F2Q 嘅 Azure 增長 38% 係 constant currency，高過 guidance 1 point。計返 Azure guidance 增長率。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"38 - 1\"}}",
+      "usage": {
+        "prompt": 134,
+        "completion": 19,
+        "cached": 0
+      },
+      "ms": 430.74141698889434,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 37.0 vs want 37.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "38-1"
+        },
+        "result": 37.0,
+        "variants": [
+          "38-1",
+          "38 - 1",
+          "38.0-1.0"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_02",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Mizuho 話 MSFT F2Q 總收入 81.3B，Street 預期 80.3B。計 beat 咗幾多 billion。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"81.3 - 80.3\"}}",
+      "usage": {
+        "prompt": 134,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 450.58541698381305,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 1.0 vs want 1.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "81.3-80.3"
+        },
+        "result": 1.0,
+        "variants": [
+          "81.3-80.3",
+          "81.3 - 80.3"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_03",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "China Renaissance 話 2026E EPS 17.11 係 consensus 15.80 嘅 8% 之上。驗證：consensus × 1.08 幾多？用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"15.80 * 1.08\"}}",
+      "usage": {
+        "prompt": 143,
+        "completion": 25,
+        "cached": 0
+      },
+      "ms": 761.9057919946499,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 17.064000000000004 vs want 17.064",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "15.80*1.08"
+        },
+        "result": 17.064,
+        "variants": [
+          "15.8*1.08",
+          "15.80*1.08",
+          "15.8 * 1.08"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_04",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Microsoft E7 定 $99，E5 定 $60。E7 高過 E5 幾多 percent？用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"((99-60)/60)*100\"}}",
+      "usage": {
+        "prompt": 123,
+        "completion": 27,
+        "cached": 0
+      },
+      "ms": 605.4364999872632,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 65.0 vs want 65.0",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "(99-60)/60*100"
+        },
+        "result": 65.0,
+        "variants": [
+          "(99-60)/60*100",
+          "(99-60)/60",
+          "(99.0-60.0)/60.0*100"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_calc_05",
+      "set": "calc_expr",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "Microsoft Cloud 季度收入首破 $50B、同比升 26%。計返上年同期幾多 B。用 calc 工具計。",
+      "pred": "{\"tool\": \"calc\", \"args\": {\"expr\": \"50 / (1 + 26%)\"}}",
+      "usage": {
+        "prompt": 121,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 781.1719580204226,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "computed 39.682539682539684 vs want 39.6825396825",
+      "golden": {
+        "tool": "calc",
+        "args": {
+          "expr": "50/1.26"
+        },
+        "result": 39.6825396825,
+        "variants": [
+          "50/1.26",
+          "50.0/1.26"
+        ],
+        "check": "result"
+      }
+    },
+    {
+      "id": "tc_news_01",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "用 read_news_file 讀 data/news/sample_news.csv 嘅第一行新聞，話我知佢嘅 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\"}}",
+      "usage": {
+        "prompt": 121,
+        "completion": 24,
+        "cached": 0
+      },
+      "ms": 425.60262500774115,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 0: MSFT/positive",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "MSFT",
+          "sentiment": "positive"
+        },
+        "row": 0,
+        "check": "fields"
+      }
+    },
+    {
+      "id": "tc_news_02",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "read_news_file 讀 data/news/sample_news.csv 第二行，報告 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\", \"line\": 2, \"columns\": [\"ticker\", \"sentiment\"]}}",
+      "usage": {
+        "prompt": 113,
+        "completion": 42,
+        "cached": 0
+      },
+      "ms": 508.63541598664597,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 1: 005930/negative",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "005930",
+          "sentiment": "negative"
+        },
+        "row": 1,
+        "check": "fields"
+      }
+    },
+    {
+      "id": "tc_news_03",
+      "set": "news_extract",
+      "type": "tool_call",
+      "evaluator": "tool_call",
+      "prompt": "read_news_file 讀 data/news/sample_news.csv 第三行，報告 ticker 同 sentiment。",
+      "pred": "{\"tool\": \"read_news_file\", \"args\": {\"path\": \"data/news/sample_news.csv\", \"line\": 3}}",
+      "usage": {
+        "prompt": 113,
+        "completion": 30,
+        "cached": 0
+      },
+      "ms": 500.734458968509,
+      "skipped": false,
+      "score": 1.0,
+      "passed": true,
+      "note": "row 2: TSM/neutral",
+      "golden": {
+        "tool": "read_news_file",
+        "args": {
+          "path": "data/news/sample_news.csv"
+        },
+        "fields": [
+          "ticker",
+          "sentiment"
+        ],
+        "expect": {
+          "ticker": "TSM",
+          "sentiment": "neutral"
+        },
+        "row": 2,
+        "check": "fields"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 15 of 17
+
+
+A - Satya Nadella {BIO 3224315 <GO>}
+Well, thanks, Kash. I mean, for us, again, it just always goes back to, I think the core principle,
+which is build a fleet that is fungible across the planet and works for third-party and first-party and
+research. So that's essentially what we have done. And so, when some demand comes in shapes
+that don't fit that goal where it's too concentrated, not just by customer, by location, by type of
+skewing, right? I think Amy mentioned some very key things. When you think about the margin
+profile of a hyperscaler, you've got to remember this the AI accelerator piece, but there's
+compute, there's storage.
+And so, if all of the demand just comes for just one meter, that's really not a long-term business
+we want to be in. That's even from a third-party.

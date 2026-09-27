@@ -1,0 +1,11 @@
+{
+  "variant": "jev_rag",
+  "desc": "Jev Score gate 檢索",
+  "flags": {
+    "action": "chat",
+    "chat_model": "flash",
+    "rag": "jev",
+    "mem": "llm",
+    "desc": "Jev Score gate 檢索"
+  }
+}

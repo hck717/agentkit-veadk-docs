@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 5,
+  "desc": "dense find top_k=5 + L2 hydrate（= prod baseline）"
+}

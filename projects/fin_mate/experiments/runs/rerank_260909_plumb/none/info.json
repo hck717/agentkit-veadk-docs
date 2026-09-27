@@ -1,0 +1,6 @@
+{
+  "variant": "none",
+  "desc": "pool 原序（dense 15 先行、grep 補）＝ rerank 前 baseline；$0",
+  "top_k": 3,
+  "ans_k": 5
+}

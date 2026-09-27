@@ -1,0 +1,84 @@
+{
+  "tag": "runs_260921_1324",
+  "ts": "2026-09-21 13:24:15",
+  "design": "5-task x 2-arm（original vs jev_tools：淨係 tool-calling 用 Jev）",
+  "tasks": {
+    "tool": "工具調用",
+    "rag_fact": "RAG 單源事實",
+    "rag_multi": "RAG 跨源推理",
+    "sent": "情緒分類",
+    "mem": "記憶召回"
+  },
+  "llm": {
+    "prose": "seed-1-6-flash-250715",
+    "decision": "seed-1-6-flash-250715",
+    "mini_fallback": true,
+    "logprobs_ok": true
+  },
+  "thresholds": {
+    "tool_conf_min": 0.5
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "variants": {
+    "original": "原裝：全部 LLM chat（tool-call 都係）",
+    "jev_tools": "原裝，淨係工具調用改用 Jev"
+  },
+  "items": {
+    "tool": [
+      "js_calc_01",
+      "js_calc_02",
+      "js_read_01",
+      "js_read_02",
+      "js_fetch_01",
+      "js_fetch_02",
+      "js_web_01",
+      "js_web_02",
+      "js_link_01",
+      "js_link_02"
+    ],
+    "rag_fact": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10",
+      "f11",
+      "t1",
+      "t2"
+    ],
+    "rag_multi": [
+      "m1",
+      "m2"
+    ],
+    "sent": [
+      "sent_3w_01",
+      "sent_3w_02",
+      "sent_3w_03",
+      "sent_3w_04",
+      "sent_3w_05",
+      "sent_3w_06"
+    ],
+    "mem": [
+      "mem_01",
+      "mem_02",
+      "mem_03",
+      "mem_04",
+      "mem_05",
+      "mem_06",
+      "mem_07",
+      "mem_08"
+    ]
+  },
+  "max_tokens_budget": 800000,
+  "smoke": false,
+  "used_tokens": 118874
+}

@@ -1,0 +1,1 @@
+Wells Fargo 認為 agentic adoption 取決於安全相關因素，具體而言，新的 E7 SKU 包含了代理註冊表/代理 ID（在 Entra 中）、可觀察性、風險信號等重要先決條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。## 來源：20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt

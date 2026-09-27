@@ -1,0 +1,37 @@
+我现在需要回答用户的问题：“点解 security 對 agentic adoption 同 E7 bundle 咁關鍵？”首先，我需要理解问题的核心，即为什么安全在代理采用（agentic adoption）和E7捆绑包中至关重要。
+
+首先，我应该调用load_knowledgebase工具，查询相关关键词。根据提供的知识库结果，有几个条目可能相关。第一个条目来自Wells Fargo的报告，提到Agent 365需要安全功能，如Entra Suite中的代理注册、可观察性和风险信号，这些是代理采用的先决条件。此外，E7捆绑包包含Entra Suite，这可能增强了安全性，促进了Copilot和Agent 365的采用。
+
+第二个条目来自Microsoft的 earnings call，提到Azure AI Foundry提供合规性和安全性，以及Microsoft Agent Framework包含治理和可观察性。这表明安全功能对于管理代理系统至关重要，确保合规性和控制。
+
+第三个条目来自Barclays的报告，指出E7捆绑包整合了E5、Copilot和Agent 365，提供了信任所需的功能，这对于企业采用至关重要。安全是企业信任的关键，尤其是在处理敏感数据时。
+
+第四个条目来自Microsoft的 earnings call，强调了安全在AI模型和代理中的重要性，特别是在保护企业知识和数据方面。
+
+接下来，我需要将这些信息整合成一个连贯的回答，并标注来源。每个主张都需要引用相应的知识库条目。例如，安全功能如风险信号和合规性是代理采用的先决条件，引用Wells Fargo的报告。E7捆绑包包含Entra Suite，增强安全性，促进采用，引用Barclays和Wells Fargo的报告。
+
+需要注意的是，用户的问题涉及两个方面：agentic adoption和E7 bundle。需要分别解释安全在这两个方面的作用。对于agentic adoption，安全功能是必要的先决条件，确保代理的正常运行和数据安全。对于E7 bundle，安全是整合多个功能的关键，提供信任和合规性，吸引企业客户。
+
+最后，确保回答结构清晰，每个要点都有来源标注，并在结尾列出完整的URI。如果有不确定的地方，应依赖知识库中的信息，避免猜测。
+### 安全对代理采用（agentic adoption）和E7捆绑包的关键重要性  
+1. **代理采用的先决条件**  
+   安全是Agent 365部署的核心要求。Agent 365需依赖**Microsoft Entra Suite**提供的代理注册、身份验证（agent ID）、可观察性和风险信号等功能，这些是实现企业级代理管理的基础。缺乏安全保障会导致代理失控、数据泄露等风险，因此安全是代理广泛采用的前提条件。  
+   【KB:viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md】  
+
+2. **E7捆绑包的安全价值**  
+   E7捆绑包整合了**M365 E5、Entra Suite、Agent 365和Copilot**，其中Entra Suite和E5已包含Security Copilot，形成了“生产力+安全+AI”的完整体系。对于企业客户，E7的安全功能（如数据加密、威胁检测、合规性管理）是其愿意升级SKU的关键驱动因素。此外，安全合规性也是企业大规模采用AI代理的必要条件，E7通过统一的安全框架降低了企业的合规成本和风险。  
+   【KB:viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md】【KB:viking://resources/fin_kb/msft_txt/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180_1.md】  
+
+3. **信任与规模化部署**  
+   企业对AI代理的信任依赖于安全保障。Microsoft Agent Framework提供了**治理、可观察性和深度集成**功能，确保代理在企业环境中安全运行。例如，KPMG利用该框架实现审计流程的自动化，同时满足合规要求。E7捆绑包通过整合这些安全能力，加速了代理在企业中的规模化部署，成为MSFT增长的重要引擎。  
+   【KB:viking://resources/fin_kb/msft_txt/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68_3.md】【KB:viking://resources/fin_kb/msft_txt/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4_3.md】  
+
+
+## 來源  
+1. <viking://resources/fin_kb/msft_txt/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef/20260316_Wells_Fargo_MSFT_MSFT-_Agentic_A_f62436ef_1.md>  
+2. <viking://resources/fin_kb/msft_txt/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180/20260313_Barclays_MSFT_Microsoft_Corp.-_E_14ae0180_1.md>  
+3. <viking://resources/fin_kb/msft_txt/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68/Microsoft_Corp_Earnings_Call_20251029_DN0_5b526f68_3.md>  
+4. <viking://resources/fin_kb/msft_txt/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4/Microsoft_Corp_Earnings_Call_2026128_RT00_f388f3f4_3.md>  
+
+
+**注**：以上回答基于知识库内容，未涉及估算或推测。

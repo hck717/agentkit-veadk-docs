@@ -1,0 +1,7 @@
+### 收入方面
+- **總收入**：新預期為81,189百萬美元，舊預期為81,588百萬美元，新 vs 舊變化為-0.5%；市場一致預期新預期為81,360百萬美元，舊預期為80,650百萬美元，新 vs 舊變化範圍為-1.1%至-0.4%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+- **智能雲（Intelligent Cloud）**：新預期為34,250百萬美元，舊預期為34,099百萬美元，新 vs 舊變化為+0.4%；市場一致預期新預期為33,760百萬美元，舊預期為34,100百萬美元，新 vs 舊變化範圍為-1.0%至-0.1%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+- **更多個人計算（More Personal Computing）**：新預期為12,629百萬美元，舊預期為13,522百萬美元，新 vs 舊變化為-6.6%；市場一致預期新預期為13,612百萬美元，舊預期為12,300百萬美元，新 vs 舊變化範圍為+1.0%至+1.1%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+### 利潤方面
+- **營業利潤（Operating Income）**：新預期為36,632百萬美元，舊預期為37,245百萬美元，新 vs 舊變化為-1.6%；市場一致預期新預期為37,007百萬美元，舊預期為35,900百

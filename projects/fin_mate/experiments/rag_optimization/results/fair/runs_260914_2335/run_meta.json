@@ -1,0 +1,43 @@
+{
+  "tag": "runs_260914_2335",
+  "ts": "2026-09-14 23:35:25",
+  "backend": "OpenViking(self-hosted) + host Ollama nomic-embed-text (server-side)",
+  "llm": "BytePlus AI = Ark seed-1-6-flash-250715",
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "rrf_k": 60,
+  "axes": {
+    "default": {
+      "index": "fin_kb",
+      "items": "text",
+      "gen": "normal"
+    },
+    "chunk": {
+      "index": "fin_kb_chunk",
+      "items": "text",
+      "gen": "normal"
+    },
+    "vis": {
+      "index": "fin_kb_vis",
+      "items": "vis",
+      "gen": "normal"
+    },
+    "gen": {
+      "index": "fin_kb",
+      "items": "text",
+      "gen": "normalized"
+    },
+    "cmb": {
+      "index": "fin_kb_cmb",
+      "items": "vis",
+      "gen": "normalized"
+    }
+  },
+  "max_tokens_budget": 800000,
+  "gold_map": "results/fair/doc_uris.json",
+  "retrieve_only": false,
+  "used_tokens": 463499
+}

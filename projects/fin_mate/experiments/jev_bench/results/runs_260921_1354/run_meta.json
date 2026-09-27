@@ -1,0 +1,65 @@
+{
+  "tag": "runs_260921_1354",
+  "ts": "2026-09-21 13:54:08",
+  "design": "5-task x 2-arm（original agent vs JEV agent：全決策點行 System One）",
+  "tasks": {
+    "tool": "工具路由",
+    "rag": "RAG 檢索 gating",
+    "mem": "記憶篩選",
+    "sent": "情緒分類",
+    "wf": "多步 workflow＋noUL"
+  },
+  "llm": {
+    "prose": "seed-1-6-flash-250715",
+    "decision": "seed-1-6-flash-250715",
+    "mini_fallback": true,
+    "logprobs_ok": true
+  },
+  "thresholds": {
+    "tool_conf_min": 0.5,
+    "rag_keep_floor": 0.5,
+    "rag_keep_ratio": 0.6,
+    "mem_gate_min": 2.0,
+    "sent_conf_min": 0.4,
+    "cont_conf_min": 0.5
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "variants": {
+    "original": "原裝：所有決定全走 LLM chat",
+    "jev": "JEV agent：System One 決策層（choice/score/noul + policy/escalation）"
+  },
+  "items": {
+    "tool": [
+      "js5_tool_01",
+      "js5_tool_02",
+      "js5_tool_03"
+    ],
+    "rag": [
+      "js5_rag_01",
+      "js5_rag_02",
+      "js5_rag_03",
+      "js5_rag_04"
+    ],
+    "mem": [
+      "js5_mem_01",
+      "js5_mem_02",
+      "js5_mem_03"
+    ],
+    "sent": [
+      "js5_sent_01",
+      "js5_sent_02",
+      "js5_sent_03"
+    ],
+    "wf": [
+      "js5_wf_01",
+      "js5_wf_02"
+    ]
+  },
+  "max_tokens_budget": 800000,
+  "smoke": false,
+  "used_tokens": 46551
+}

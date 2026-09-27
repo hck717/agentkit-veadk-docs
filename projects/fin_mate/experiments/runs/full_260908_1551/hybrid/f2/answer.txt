@@ -1,0 +1,4 @@
+Deutsche Bank 形容 F2Q 結果中 Azure 增長 (+38% y/y @CC) 高於指導 (37%)，但可能略低於買方預期 (~+39%)【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。主要原因是 Azure 領域效率提升，將部分容量從其他部門重新分配至可盈利的 Azure 需求，但仍受供應限制，管理層需平衡 Azure 需求增長、1P 服務需求、研發投入增加及設備更新需求【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

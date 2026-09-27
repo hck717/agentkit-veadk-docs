@@ -1,0 +1,12 @@
+But I'm looking at after-hours trading, and the stock is still down.
+And I think one of the core issues that is weighing on investors is CapEx is growing faster than we
+expected and maybe Azure is growing a little bit slower than we expected.
+And I think that fundamentally comes down to a concern on the ROI on this CapEx spend over
+time. So I was hoping you guys could help us fill in some of the blanks a little bit in terms of how
+should we think about capacity expansion and what that can yield in terms of Azure growth going
+forward. More to the point, how should we think about the ROI on this investment as it comes to
+fruition? Thanks, guys.
+A - Amy Hood {BIO 18040963 <GO>}
+Thanks, Keith. And let me start and Satya can add some broader comments, I'm sure. I think the
+first thing, I think you really asked a very direct correlation that I do think many investors are doing,
+which is between the CapEx spend and seeing an Azure revenue number.

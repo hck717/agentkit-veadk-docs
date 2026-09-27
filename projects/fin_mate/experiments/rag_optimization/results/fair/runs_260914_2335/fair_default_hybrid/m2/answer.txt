@@ -1,0 +1,8 @@
+### 安全對 agentic adoption 的重要性  
+Agentic adoption 需要管理多個 coding agents（如 Anthropic、OpenAI 等），並確保其在 GitHub repos 等客戶環境中安全運行。安全 Copilot agent 可幫助安全團隊自動化流程，例如減少人工 triage 時間（如 Icertis 的 SOC 團隊將 manual triage time 減少 75%）。此外，Agent 365 作為管理 agent 的控制平面，包含 agent registry/agent ID（in Entra）、可觀察性和風險信號等功能，這些都是 agentic adoption 的關鍵預先條件。若缺乏安全措施，agent 的運行可能面臨數據泄露、權限混亂等風險，因此安全是 agentic adoption 的必要條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+### 安全對 E7 bundle 的重要性  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，其中 Entra Suite 是管理身份和 access 的核心工具，而 Security Copilot 則是保護 AI 部署的關鍵。企業在採用 AI 時，需確保身份安全、數據安全和 AI 模型安全，E7 SKU 整合了這些安全功能，使得企業無需額外購買安全工具即可實現 agentic 工作流。此外，MSFT 將安全解決方案視為管理企業 AI 部署的 essential 部分，2026 年 Q1 有 240 億次 Copilot 交互被 Purview 審計，同比增長 9 倍，顯示安全在 AI 部署中的重要性【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt, KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】。  
+
+## 來源  
+1

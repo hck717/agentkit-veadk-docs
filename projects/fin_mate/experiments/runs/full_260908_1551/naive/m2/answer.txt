@@ -1,0 +1,5 @@
+Agent 365 作為管理代理的控制平面，包含代理注冊/代理 ID（在 Entra 中）、可觀察性、風險信號等功能，這些都是代理式採用的重要預先條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。而 E7 SKU 將 M365 E5、Entra Suite、Agent 365 和 M365 Copilot 進行捆綁，其中 Entra Suite 涉及身份安全管理，Agent 365 中的風險信號等功能也與安全密切相關。在代理式採用中，安全是確保代理正常運行、數據安全和企業合規的關鍵，缺乏安全保障將導致代理運行風險、數據泄露等問題，因此 security 對 agentic adoption 至關重要【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。對於 E7 bundle 而言，捆綁安全相關的套件（如 Entra Suite）可以提升產品的競爭力，滿足企業對安全的需求，從而促進 E7 的銷售和 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。
+
+## 來源
+[1] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>
+[4] <20260313_Barclays_MSFT_Microsoft_Corp.-_Evol>

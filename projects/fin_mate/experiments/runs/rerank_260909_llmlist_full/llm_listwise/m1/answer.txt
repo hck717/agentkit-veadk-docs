@@ -1,0 +1,14 @@
+### 原因分析
+1. **Agentic Adoption 依賴安全與捆綁銷售**：  
+   E7 SKU 整合了 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，Agent 365 作為管理代理的控制平面，其 adoption 需依賴安全相關功能（如代理註冊、可觀察性、風險信號等）。研究認為，Agent 365 和 Copilot 單獨 adoption 困難，而 E7 捆綁銷售可加速其 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+   此外，2026 年下半年企業因近期 M365 漲價進行談判，NT adoption 成為催化劑，E7 加價式 upsell 恰逢其時【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+2. **Azure 之外的業務增長**：  
+   雖然 Azure 受供應限制，增速低於預期，但 Microsoft 在 Azure 之外的業務（如 AI 投資驅動的 M365 相關服務）表現強勁。E7 SKU 作為 M365 高增長領域的捆綁產品，可彌補 Azure 供應受限的影響，為公司貢獻穩定收入【KB:20260212_China_Renaissance_Research_MSFT_Mic】。  
+
+3. **市場需求與上銷機會**：  
+   估計全球有 3.25 億企業席位，其中 1.5 億為 E3/E5 席位，E7 有望帶來 1000 億美元年度上銷機會。現有 E3/E5 用戶 adoption E7 的意願最高，公司可通過捆綁銷售挖掘這部分潛在需求【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+
+## 來源
+- <20260316_Wells_Fargo

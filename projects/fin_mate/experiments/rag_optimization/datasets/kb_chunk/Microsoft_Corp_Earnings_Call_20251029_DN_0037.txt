@@ -1,0 +1,14 @@
+I mean, just to give you a flavor for it, right? So if I am in M365 Copilot, I can generate an Excel
+spreadsheet. The good news is now an Excel spreadsheet does understand Office JS, has the
+formulas in it. And it feels like, it is a great spreadsheet created by a good model. The more
+interesting thing is I can go into Agent Mode in Excel and iterate on that model. And yet it will stay
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 9 of 17
+
+
+on rails. It won't go off rails. It will be able to do the iteration. Then I can even give it to the analyst
+agent and then it will even make sense of it like a data analyst would of our Excel model.
+The reason I say all of that is because that's the type of construction that will be needed.

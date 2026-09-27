@@ -1,0 +1,754 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Seedream 圖片生成</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>Seedream 圖片生成</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="seedream--圖片生成家族深潛image-generation">Seedream —
+圖片生成家族深潛（Image Generation）</h1>
+<p>Seedream 係 <strong>ByteDance / BytePlus
+自家嘅圖像生成模型家族</strong>：由「生得快」嘅 Lite 到「專業級」嘅
+Pro，仲有 reasoning +
+即時搜尋能力。呢份係<strong>成個家族深潛</strong>：歷代演進、而家拎到嘅型號、定價、平台／解決方案（Dreamina
+/ CapCut / ModelArk / 火山方舟 / VideoOne），同埋用 <strong>VeADK /
+AgentKit</strong> 點喺 agent 入面撳佢。</p>
+<blockquote>
+<p><strong>Sale 一句</strong>：「生圖唔使自己砌
+TeaHerDiffusion——Seedream 一個 API 搞掂生圖、執圖、多參考融合，仲有 Pro
+嘅 Layer Separation 可以直接拆層做設計。」</p>
+</blockquote>
+<hr />
+<h2 id="1-快睇seedream-家族全家">1. 快睇：Seedream 家族全家</h2>
+<table>
+<thead>
+<tr>
+<th>型號</th>
+<th>定位</th>
+<th>主打</th>
+<th>參考圖上限</th>
+<th>定價（參考）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Seedream 5.0 Pro</strong></td>
+<td>專業級（flagship）</td>
+<td>Layer Separation、Precision Editing、14
+語言原生文字、高密度排版</td>
+<td>10 張</td>
+<td><strong>$0.045/張</strong> 起（BytePlus 官方）</td>
+</tr>
+<tr>
+<td><strong>Seedream 5.0 Lite</strong></td>
+<td>快速 + 平</td>
+<td><strong>Reasoning（chain-of-thought）+
+即時網上搜尋</strong>、多參考融合、sequence batch</td>
+<td>14 張</td>
+<td>~$0.035/張（第三方）· **~100 AFP/張**（方舟）</td>
+</tr>
+<tr>
+<td>Seedream 4.5 / 4.0</td>
+<td>上代</td>
+<td>統一圖像創作 + 常識推理</td>
+<td>—</td>
+<td>已被 5.0 系列取代</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>兩條腿分別</strong>：<strong>Lite =
+平、快、識諗嘢（reasoning + search）</strong>；<strong>Pro =
+靚、可拆層、識寫 14 種語言</strong>。一般 agent 場景（mood board /
+角色參考）Lite 就夠；要出街設計、要改完唔重生、要排版 → 上 Pro。</p>
+</blockquote>
+<hr />
+<h2 id="2-家族歷代演進">2. 家族歷代演進</h2>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>時間線</th>
+<th>做主啲咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Seedream 4.0</strong></td>
+<td>2025-09 研發公開</td>
+<td>統一圖像創作模型，首次加入<strong>常識 + 推理</strong>能力</td>
+</tr>
+<tr>
+<td><strong>Seedream 4.5</strong></td>
+<td>2025 Q4</td>
+<td>中間代</td>
+</tr>
+<tr>
+<td><strong>Seedream 5.0 Lite</strong></td>
+<td>2026-02（ModelArk 上線）</td>
+<td><strong>統一多模態</strong>：deep thinking +
+<strong>即時網上搜尋</strong>；唔係鬥解像度，係鬥「讀、睇、畫、寫」嘅諗法；Elo
+全面提升，尤其知識推理、編輯一致性、辦公/學習場景</td>
+</tr>
+<tr>
+<td><strong>Seedream 5.0 Pro</strong></td>
+<td>2026-07-08</td>
+<td>專業級：<strong>Layer Separation（拆層）</strong>、<strong>Precision
+Editing（局部執）</strong>、<strong>原生 14
+語言文字</strong>、高密度設計支援</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>模型係 proprietary</strong>：冇公開權重、冇官方 technical
+report、標準 benchmark（GenEval / T2I-CompBench
+等）未見公開。有第三方提過「完整版
+5.0」但<strong>官方未確認</strong>。落地面對客戶以官方能力頁為準。</p>
+</blockquote>
+<hr />
+<h2 id="3-而家拎到嘅型號model-id">3. 而家拎到嘅型號（Model ID）</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>Model ID</th>
+<th>記住</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>火山方舟（中國）</td>
+<td><code>doubao-seedream-5.0-lite</code> /
+<code>doubao-seedream-5-0-pro-260628</code></td>
+<td>現有 docset 用緊嘅名</td>
+</tr>
+<tr>
+<td><strong>BytePlus ModelArk（國際）</strong></td>
+<td><code>doubao-seedream-5-0-pro-260628</code>？→ <strong>係
+<code>dola-seedream-5-0-pro-260628</code></strong>（Pro）；Lite 用
+<code>dola-seedream-5.0-lite</code> 一類</td>
+<td><strong>以 Console 為準</strong>，模型名好快郁</td>
+</tr>
+<tr>
+<td>第三方轉售（fal / Replicate / EmpirioLabs / Higgsfield / APIXO /
+Atlas Cloud）</td>
+<td><code>seedream-5-0-pro</code> /
+<code>bytedance/seedream-5-lite</code> 等</td>
+<td>各自命名</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>模型 ID 常常郁</strong>（學埋
+<code>doubao-seed-2.0-pro 即將下線</code>）。落地前查 Console /
+<code>agentkit model list</code> 一類，唔好 hardcode 長命。</p>
+</blockquote>
+<hr />
+<h2 id="4-核心能力逐個拆">4. 核心能力逐個拆</h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>Lite 有冇</th>
+<th>Pro 有冇</th>
+<th>講咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Text-to-image</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>文案 → 圖</td>
+</tr>
+<tr>
+<td><strong>單圖編輯</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>執特定元素</td>
+</tr>
+<tr>
+<td><strong>多參考融合 Multi-reference</strong></td>
+<td>✅（最多 14 張）</td>
+<td>✅（最多 10 張）</td>
+<td>角色/產品/風格合埋</td>
+</tr>
+<tr>
+<td><strong>Sequential batch generation</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>連環出（storyboard / character sheet）</td>
+</tr>
+<tr>
+<td><strong>Reasoning（chain-of-thought）</strong></td>
+<td>✅</td>
+<td>—</td>
+<td>理解你「點解」想生呢張</td>
+</tr>
+<tr>
+<td><strong>即時網上搜尋</strong></td>
+<td>✅</td>
+<td>—</td>
+<td>時效性創作（最新產品、新聞）</td>
+</tr>
+<tr>
+<td><strong>Layer Separation 拆層</strong></td>
+<td>—</td>
+<td>✅</td>
+<td>前景/背景/文字分層俾你入設計工具</td>
+</tr>
+<tr>
+<td><strong>Precision Editing</strong></td>
+<td>—</td>
+<td>✅</td>
+<td>改一樣嘢唔使成張重生</td>
+</tr>
+<tr>
+<td><strong>原生多語言文字</strong></td>
+<td>英中</td>
+<td><strong>14 種語言</strong></td>
+<td>舖面文字正常</td>
+</tr>
+<tr>
+<td><strong>解像度</strong></td>
+<td>2K / 3K</td>
+<td>1K / 2K（1:1 至 21:9 多比例）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>同舊體系最大分別</strong>：Seedream 5.0 Lite
+已經由「執行指令」變「理解意圖」——<strong>唔使再教 prompt
+技巧</strong>，講意圖就得。即係 agent 傳單行prompt 都出到貨。</p>
+</blockquote>
+<hr />
+<h2 id="5-子產品--產品線細分">5. 子產品 / 產品線細分</h2>
+<ul>
+<li><strong>Seedream</strong>（一條線）：4.0 → 4.5 → <strong>5.0 Lite →
+5.0 Pro</strong>，唔係「好多個產品」，係<strong>同一條 Model family 兩個
+tier + 歷代版本</strong>。</li>
+<li><strong>做圖責架</strong>：畀 agent 用嘅係
+<code>image_generation</code> 工具（AgentKit 內建），背後撳 Seedream（見
+§7 / tools tab）。</li>
+<li><strong>同 Seedance 嘅關係</strong>：Seedream 生圖 → 餵做 Seedance
+嘅<strong>首幀 / 參考幀</strong>，係「圖→片」流水線第一環（見 seedance
+tab）。</li>
+</ul>
+<hr />
+<h2 id="6-定價計錢">6. 定價（計錢）</h2>
+<h3 id="61-方舟--agentkit-afp-層面">6.1 方舟 / AgentKit AFP 層面</h3>
+<table>
+<thead>
+<tr>
+<th>東西</th>
+<th>單價</th>
+<th>備註</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>doubao-seedream-5.0-lite</code></td>
+<td><strong>~100 AFP/張</strong></td>
+<td>貴過文字好多；全部 Plan 都用到（Small 都得）</td>
+</tr>
+<tr>
+<td>多參考圖</td>
+<td>每張加量</td>
+<td>數張起跳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="62-byteplus-modelark-國際-usd-層面">6.2 BytePlus ModelArk 國際
+USD 層面</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>價</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5.0 Pro</strong></td>
+<td><strong>$0.045/張 起</strong>（官方推介）；第三方實際
+<strong>$0.075/張 ≤2.36MP、$0.150/張 &gt;2.36MP</strong></td>
+</tr>
+<tr>
+<td><strong>5.0 Lite</strong></td>
+<td>~<strong>$0.035/張</strong>（第三方）</td>
+</tr>
+<tr>
+<td>額外參考圖</td>
+<td>第一張免費，之後 ~$0.003–0.005/張</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>報價口訣</strong>：Seedream =
+<strong>計張數</strong>唔係計 token。AFP
+封頂但<strong>好使就浮動</strong> → 報「上限 + buffer」（uniqueness doc
+都咁講）。</p>
+</blockquote>
+<hr />
+<h2 id="7-platform--solutions-全覽喺邊度用到">7. Platform / Solutions
+全覽（喺邊度用到）</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>類型</th>
+<th>有咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dreamina AI</strong></td>
+<td>消費者 App</td>
+<td>每日免費額度；Pro + Lite 都上線；CapCut 亦嵌</td>
+</tr>
+<tr>
+<td><strong>CapCut</strong></td>
+<td>消費者 App</td>
+<td>剪片嗰陣順手生圖</td>
+</tr>
+<tr>
+<td><strong>BytePlus ModelArk</strong></td>
+<td><strong>企業 API</strong></td>
+<td><code>POST /api/v3/images/generations</code>；region ap-southeast-1
+同 eu-west-1；正式支援 · <strong>公司先主力用呢個</strong></td>
+</tr>
+<tr>
+<td><strong>火山方舟 Volcengine</strong></td>
+<td>中國 API</td>
+<td><code>doubao-seedream-*</code> 一系；AgentKit 嘅 AFP 就係呢度燒</td>
+</tr>
+<tr>
+<td><strong>第三方</strong>（fal / Replicate / Higgsfield / EmpirioLabs
+/ APIXO / Atlas Cloud）</td>
+<td>轉售</td>
+<td>day-0 上架、各自計費</td>
+</tr>
+<tr>
+<td><strong>BytePlus VideoOne</strong></td>
+<td>視頻解決方案</td>
+<td>主要以 Seedance 為主戰場；Seedream 做<strong>縮圖 / 素材圖 /
+分鏡圖</strong>來源（詳見 seedance tab §7）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>📌 <strong>BytePlus 唔喺美國提供</strong>；Seedream 國際名係
+<code>dola-*</code>（BytePlus），中國名係
+<code>doubao-*</code>（方舟），唔好講錯。</p>
+</blockquote>
+<hr />
+<h2 id="8-agent-點用veadk--agentkit">8. Agent 點用（VeADK /
+AgentKit）</h2>
+<h3 id="81-內建工具image_generation">8.1
+內建工具：<code>image_generation</code></h3>
+<p>AgentKit 有內建 <code>image_generation</code> 工具（背後即
+Seedream），常見角色：</p>
+<ul>
+<li>角色參考圖、mood board（~100 AFP/張）</li>
+<li>分鏡圖（storyboard）→ 餵畀 Seedance 生片</li>
+<li>產品圖 / 營銷變體 A/B</li>
+<li>去背 / 執圖（編輯模式）</li>
+</ul>
+<h3 id="82-veadk-實例a2a研究-agent--生圖-agent">8.2 VeADK
+實例（A2A：研究 agent → 生圖 agent）</h3>
+<pre class="python"><code># veadk-python：喺 agent loop 入面 call 生圖工具（A2A 俾「美術 agent」做）
+from veadk import Agent
+
+## 美術 agent：負責所有圖像生成
+art = Agent(
+    model_name=&quot;doubao-seed-2.1-pro-260628&quot;,      # 文字 agent；生圖照用內建 tool
+    tools=[
+        {
+            &quot;type&quot;: &quot;image_generation&quot;,           # 背後撳 Seedream 5.0 Lite
+            &quot;instruction&quot;: (
+                &quot;用 Seedream 生圖。多參考融合：
+                 1) 角色參考圖 2) mood/lighting 參考圖&quot;
+            ),
+        },
+    ],
+)
+
+## 主 agent 喺研究完之後叫美術 agent
+result = art.invoke(
+    &quot;為『智能香薰機』生 3 張分鏡參考圖：未來風、暖色、室內環境&quot;
+)</code></pre>
+<blockquote>
+<p>💡 想慳？<strong>先問 client 有冇真係要多模態</strong>——一張圖 ~100
+AFP 相當於 100 句文字。生圖之前喺主 agent prompt
+加一句「除非明確要求，唔好自作主張生圖」。</p>
+</blockquote>
+<h3 id="83-決策揀邊部">8.3 決策：揀邊部</h3>
+<table>
+<thead>
+<tr>
+<th>情況</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mood board / 角色參考 / 快速迭代</td>
+<td><strong>5.0 Lite</strong>（平、有 reasoning）</td>
+</tr>
+<tr>
+<td>出街設計 / 系統排版 / 拆層落設計工具</td>
+<td><strong>5.0 Pro</strong></td>
+</tr>
+<tr>
+<td>時效性題目（最新產品外觀）</td>
+<td><strong>5.0 Lite</strong>（即時搜尋）</td>
+</tr>
+<tr>
+<td>多語言舖面（法文/德文...）</td>
+<td><strong>5.0 Pro</strong></td>
+</tr>
+<tr>
+<td>大量批量（數百張商品圖）</td>
+<td><strong>Lite + sequence batch</strong>（連環出）餵落 pipeline</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="9-eval-點量點知生得好唔好">9. Eval 點量（點知生得好唔好）</h2>
+<p>Seedream 官方用 <strong>MagicBench
+多維度評測</strong>，核心維度（你可以照住砌 rubric）：</p>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th>測咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Instruction following</strong></td>
+<td>有冇跟足 prompt</td>
+</tr>
+<tr>
+<td><strong>Text-image consistency</strong></td>
+<td>圖同文字係咪講緊同一件事</td>
+</tr>
+<tr>
+<td><strong>Editing consistency</strong></td>
+<td>執完仲係咪維持原角色/原環境</td>
+</tr>
+<tr>
+<td><strong>Knowledge reasoning</strong></td>
+<td>知識型題目（辦公/教學場景）</td>
+</tr>
+<tr>
+<td><strong>Business marketing / creativity / design</strong></td>
+<td>應用場景</td>
+</tr>
+</tbody>
+</table>
+<p>Agent 落地做法（詳見 eval tab §10）：</p>
+<ul>
+<li>每批生圖<strong>抽樣人工評</strong>（品質嘢，Judge 分數做輔助）</li>
+<li>上線後 shadow 抽 10% 用 <strong>LLM-as-judge + 人 HITL</strong> 測
+prompt-following</li>
+<li>用 <code>image_generation</code> 工具前後，比較「一次過生」vs「A2A
+分鏡」嘅可用率</li>
+</ul>
+<hr />
+<h2 id="10-使用技巧--prompt-skills--tricks">10. 使用技巧 / Prompt Skills
+&amp; Tricks</h2>
+<blockquote>
+<p>呢節係「點樣先用到佢靚」——<strong>Prompt 唔係文法題，Seedream
+係理解意圖</strong>（尤其 Lite 有
+reasoning）；但<strong>幾種輸入模式（T2I / 區域執 / 草圖 / 錨點 /
+多圖融合）嘅 prompt
+寫法唔一樣</strong>，揀錯模式、寫漏步驟先係最常見失敗。</p>
+</blockquote>
+<h3 id="101-先揀啱輸入模式seedream-50-pro-五種">10.1
+先揀啱輸入模式（Seedream 5.0 Pro 五種）</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>輸入</th>
+<th>幾時用</th>
+<th>Prompt 心法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Text-to-image（T2I）</strong></td>
+<td>純文字</td>
+<td>由零生圖</td>
+<td>主體 + 風格 + 光影 + 構圖（見 §10.2）</td>
+</tr>
+<tr>
+<td><strong>Region editing（區域執）</strong></td>
+<td>圖 + 文字</td>
+<td>「改圖入面嘅一忽」</td>
+<td><strong>淨係講要執嘅區域 + 改成點</strong>；唔好重新形容成張圖</td>
+</tr>
+<tr>
+<td><strong>Sketch editing（草圖執）</strong></td>
+<td>草圖 + 文字</td>
+<td>用線稿定結構再上色</td>
+<td>草圖 = 空間結構；文字加持色 / 材質 / 風格</td>
+</tr>
+<tr>
+<td><strong>Anchor editing（錨點執）</strong></td>
+<td>圖 + 錨點座標</td>
+<td>精確到點嘅編輯</td>
+<td>指明「錨點位置 + 改成乜」</td>
+</tr>
+<tr>
+<td><strong>Multi-image fusion（多圖融合）</strong></td>
+<td>多張圖</td>
+<td>角色 / 風格合併</td>
+<td>講清「邊張圖嘅邊樣嘢」做主（見 §10.5）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>最常見錯</strong>：攞住「生成式 prompt」去撳
+<strong>Region
+editing</strong>——即係成段拿臨繪影描述，模型唔知你淨係想執邊忽，結果成張變。<strong>編輯任務
+= 指住 + 講改點，唔係重新生。</strong></p>
+</blockquote>
+<h3 id="102-t2i-五元素框架一貼即用">10.2 T2I 五元素框架（一貼即用）</h3>
+<p>實用嘅 T2I prompt 不外乎五舊（唔使長篇大論，Seedream 識執重點）：</p>
+<table>
+<thead>
+<tr>
+<th>元素</th>
+<th>問自己</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subject 主體</strong></td>
+<td>圖裏面有咩？「乜嘢在 / 喺度做緊咩」</td>
+<td>一隻橙色機械貓</td>
+</tr>
+<tr>
+<td><strong>Style 風格</strong></td>
+<td>媒材 / 藝術流派？</td>
+<td>賽博朋克貼紙風、水彩</td>
+</tr>
+<tr>
+<td><strong>Lighting &amp; Color 光影色調</strong></td>
+<td>色板 / 打在幾點？</td>
+<td>冷藍色調、一盞暖檯燈打側</td>
+</tr>
+<tr>
+<td><strong>Composition 構圖</strong></td>
+<td>鏡頭位 / 留白？</td>
+<td>特寫、居中、三分法、大留白</td>
+</tr>
+<tr>
+<td><strong>Details 細節</strong></td>
+<td>紋理 / 環境物 / 前景背景？</td>
+<td>金屬反光、桌面有乾花、淺景深虛化</td>
+</tr>
+</tbody>
+</table>
+<pre class="text"><code>主體：一隻橙色機械貓，金屬部件反射金色
+風格：玩具產品圖風格，乾淨
+光影：冷藍環境光 + 一盞暖色主光打左側
+構圖：正面特寫，居中，淺景深
+細節：金屬鉚釘，背景純白漸變</code></pre>
+<blockquote>
+<p>💡 <strong>Lite 識「唔使教」</strong>：Seedream 5.0 Lite 有
+reasoning，意圖講得清就出到貨；<strong>越長越囉嗦反而容易跑偏</strong>——三行講清主體
++ 風格 + 一兩個限定就夠。</p>
+</blockquote>
+<h3 id="103-精準色控直接寫-hex">10.3 精準色控：直接寫 HEX</h3>
+<p>要顏色精準，喺 prompt 直接落 <strong>HEX
+code</strong>（<code>#FF5733</code>），比「橙紅色」準好多——尤其品牌色 /
+產品圖：</p>
+<pre class="text"><code>「背景用 #1A1A2E，橙色部分用 #FF6B35，提亮位用 #FFD166」</code></pre>
+<h3 id="104-layer-separation-提示技巧pro">10.4 Layer Separation
+提示技巧（Pro）</h3>
+<p>要拆層（前景 / 背景 / 文字）落設計工具，<strong>喺 prompt
+講明「要分層產出」+ 每層內容</strong>：</p>
+<pre class="text"><code>「生一張 3 層設計稿：L1 前景＝產品本體；
+ L2 背景＝漸變底色；L3 文字＝Slogan」</code></pre>
+<blockquote>
+<p>🎯 Layer Separation
+之後可以<strong>執其中一層而其他唔郁</strong>（配合 Precision
+Editing）——設計師接手唔使由頭嚟，呢個先係 Pro 平嘅位。</p>
+</blockquote>
+<h3 id="105-多圖融合角色一致性">10.5 多圖融合：角色一致性</h3>
+<p>角色 / 產品跨場景要保持一致 → 用 <strong>multi-reference
+fusion</strong>：</p>
+<ul>
+<li><strong>參考圖上限</strong>：Pro 10 張、Lite 14 張（AgentKit
+<code>image_generation</code> 內建工具跟同一上限）。</li>
+<li><strong>技巧</strong>：每張參考圖喺 prompt
+<strong>俾佢一個角色名</strong>，跟住先描述「用邊張嘅邊樣嘢」：</li>
+</ul>
+<pre class="text"><code>「Reference A＝主角，Reference B＝風格板。
+ 用 A 嘅樣貎 + B 嘅色調，生主角喺雨夜嘅街頭。」</code></pre>
+<blockquote>
+<p>⚠️ 一次過塞 14 張但唔講各自用途 =
+模型自由發揮，一致性反而差。<strong>少量高質參考 +
+講清用途，好過多張亂塞。</strong></p>
+</blockquote>
+<h3 id="106-sequence-batch量產連環出">10.6 Sequence
+batch（量產連環出）</h3>
+<p>要 storyboard / 角色表 / 商品變體 → 用 sequential
+batch（連環出），每張維持同一角色：</p>
+<pre class="python"><code># image_generation 工具（AgentKit 內建）落 sequence batch：
+resp = art.invoke(
+    &quot;用同一主角，連住生 6 張：① 企 ② 行 ③ 坐 ④ 跑 ⑤ 跳 ⑥ 瞓（只准改動作，其他一致）&quot;
+)</code></pre>
+<blockquote>
+<p>💡
+成本唔變（張張照計），但<strong>一次性攞到連貫系列</strong>，慳返來回
+prompt 量——商品圖幾百張走呢條路（再 pipe 落 Seedance 生片）。</p>
+</blockquote>
+<h3 id="107-負向提示--常見-css-反模式">10.7 負向提示 / 常見 CSS
+反模式</h3>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>點執</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>描述天文數字（幾十樣嘢）</td>
+<td>濃縮做主體 + 風格 + 2–3 個限定</td>
+</tr>
+<tr>
+<td>英文 + 中文 / 符號混埋一齊</td>
+<td>一條語言講清（14 語言原生，但混講易亂）</td>
+</tr>
+<tr>
+<td>冇講邊張參考圖用嚟做咩</td>
+<td>全部命名 Reference A/B/C + 用途</td>
+</tr>
+<tr>
+<td>編輯任務用生成式 prompt</td>
+<td>轉 region/sketch/anchor 模式，淨講執邊忽</td>
+</tr>
+<tr>
+<td>想要「冇」嘅嘢（唔要紅色）</td>
+<td>直接用負向指令句：「不要紅色 / 無人 / 無背景文字」</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="11-風險--免責">11. 風險 / 免責</h2>
+<ul>
+<li><strong>Proprietary</strong>：冇權重、冇 technical report。</li>
+<li><strong>模型名同價格郁得好快</strong>：<code>dola-*</code> /
+<code>doubao-*</code> 命名、新增 tier 都係短期嘢。</li>
+<li><strong>美國市場</strong>：BytePlus 國際唔喺 US service。</li>
+<li><strong>貴</strong>：~$0.035–0.15/張（國際）、~100
+AFP/張（方舟），唔好當文字咁用。</li>
+<li>標準 benchmark 未公開 →
+<strong>憑樣本判斷，唔好吹紙面分數</strong>。</li>
+</ul>
+<hr />
+<h2 id="12-資料來源">12. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seedream 5.0 Pro 官方頁</td>
+<td><a
+href="https://seed.bytedance.com/en/seedream5_0_Pro">https://seed.bytedance.com/en/seedream5_0_Pro</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Seedream 5.0 Lite 官方頁</td>
+<td><a
+href="https://seed.bytedance.com/en/seedream5_0_lite">https://seed.bytedance.com/en/seedream5_0_lite</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>Seedream 5.0 Lite 發佈 blog（Seed Team）</td>
+<td><a
+href="https://seed.bytedance.com/en/blog/deeper-thinking-more-accurate-generation-introducing-seedream-5-0-lite">https://seed.bytedance.com/en/blog/deeper-thinking-more-accurate-generation-introducing-seedream-5-0-lite</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus Seedream 產品頁（$0.045/張 起）</td>
+<td><a
+href="https://www.byteplus.com/en/product/Seedream">https://www.byteplus.com/en/product/Seedream</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>BytePlus blog：Seedream 5.0 Lite on ModelArk</td>
+<td><a
+href="https://www.byteplus.com/en/blog/seedream5-0-lite">https://www.byteplus.com/en/blog/seedream5-0-lite</a></td>
+<td>2026-02-24</td>
+</tr>
+<tr>
+<td>kie.ai Seedream 5 總覽（Pro/Lite 對比 + 價）</td>
+<td><a
+href="https://kie.ai/blog/what-is-seedream-5">https://kie.ai/blog/what-is-seedream-5</a></td>
+<td>2026-07-13</td>
+</tr>
+<tr>
+<td>AIReiter 5.0 Pro preview（model ID 表）</td>
+<td><a
+href="https://aireiter.com/blog/seedream-5-0-pro-preview">https://aireiter.com/blog/seedream-5-0-pro-preview</a></td>
+<td>2026-07-08</td>
+</tr>
+<tr>
+<td>ModelArk Seedream 5.0 Pro tutorial（T2I 五元素）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2582774">https://docs.byteplus.com/en/docs/ModelArk/2582774</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>ModelArk Seedream 5.0 Pro interactive editing
+guide（region/sketch/anchor）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/2582775">https://docs.byteplus.com/en/docs/ModelArk/2582775</a></td>
+<td>2026-08-31</td>
+</tr>
+<tr>
+<td>ModelArk Image generation tutorial（模式 + 負向提示）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/ModelArk/1824121">https://docs.byteplus.com/en/docs/ModelArk/1824121</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Seedream 5.0 Pro Prompt Guide（imagine.art，五元素 + HEX +
+錯誤表）</td>
+<td><a
+href="https://www.imagine.art/academy/seedream-5-0-pro-prompt-guide">https://www.imagine.art/academy/seedream-5-0-pro-prompt-guide</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>方舟定價 / AgentKit AFP（<code>~100 AFP/張</code>）</td>
+<td><code>references/veadk-agentkit-pricing.md</code> §4.1 / §3</td>
+<td>2026</td>
+</tr>
+<tr>
+<td>工具 / 能力 tab（<code>image_generation</code> 內建工具）</td>
+<td><code>references/veadk-agentkit-tools-capabilities.md</code></td>
+<td>2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：價錢（$0.045/$0.075/$0.035）同 model ID 以官方
+Console / 當刻文件為準；AFP 數字係 docset
+內部估算（約數），內部環境另行設。第三方轉售價同官方價唔一定一樣。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-09-06 · Seedream 5.0 Pro 上線後初建 +
+用技巧節（五輸入模式 / 五元素 T2I / HEX 色控 / 拆層 / 多圖融合 /
+sequence batch）。模型/價錢郁得快，落地前 refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

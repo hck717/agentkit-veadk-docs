@@ -1,0 +1,470 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>記憶 / 知識庫</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>記憶 / 知識庫</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-vector-db-與-cache-管理指南">VeADK + AgentKit
+Vector DB 與 Cache 管理指南</h1>
+<p>呢份文件教你點樣幫 client 揀
+<strong>知識庫（KnowledgeBase）後端</strong>、<strong>長期記憶（LongTermMemory）後端</strong>，
+同埋點樣靠 <strong>Responses API 上下文緩存 +
+上下文壓縮（Compaction）</strong> 慳 AFP / 慳錢。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>「後端」唔係一個</strong>——KnowledgeBase 有 8 種
+backend、LongTermMemory 有 7
+種，揀錯會直接影響<strong>價格、速度、可用性</strong>。</li>
+<li><strong>Serverless 後端（viking / context_search / openviking / mem0
+/ tos_context）唔使你哋裝 embedding</strong>——服務端包辦，直接對
+Detcomponent plan 內「向量化」費用。</li>
+<li><strong>RAG 嘅 cost 其實喺「token 唔喺 vector」</strong>——步驟 ①
+檢索 → ② 全文塞入 context → ③
+模型讀晒。想慳錢就攻「上下文緩存」同「壓縮」，唔係攻 vector store。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-快睇三個儲存層搞清楚">0. 快睇：三個「儲存層」搞清楚</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>提供乜</th>
+<th>貴邊度</th>
+<th>VeADK abstraction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>知識庫</strong>（外部靜態資料 RAG）</td>
+<td>產品文檔、FAQ、法規文本做檢索</td>
+<td>儲存 + 向量化 + 查詢</td>
+<td><code>KnowledgeBase</code></td>
+</tr>
+<tr>
+<td><strong>長期記憶</strong>（跨對話記住用戶）</td>
+<td>用戶偏好、事件、實體，跨 session 保持</td>
+<td>儲存 + 向量化</td>
+<td><code>LongTermMemory</code></td>
+</tr>
+<tr>
+<td><strong>短期記憶</strong>（對話內 context）</td>
+<td>每輪 context、session</td>
+<td>純 model call（token）</td>
+<td><code>Runner</code>/session 內建</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>RAG 同 LTM 都係「向量化 + 儲存 + 查詢」，但語義唔同：KB
+係「靜態知識文件」，LTM 係「用戶動態畫像」。唔好混埋。</p>
+</blockquote>
+<hr />
+<h2 id="1-知識庫-後端矩陣--揀邊個">1. 知識庫 後端矩陣 — 揀邊個？</h2>
+<p>統一入口：<code>veadk.knowledgebase.KnowledgeBase(backend=...)</code>；冇論用邊個
+backend，接住 <code>Agent(..., knowledgebase=kb)</code> 個 AI 就自動有
+<code>load_knowledgebase</code> 工具。</p>
+<table>
+<thead>
+<tr>
+<th>backend</th>
+<th>儲存</th>
+<th>要唔要本地 embedding</th>
+<th>適合</th>
+<th>開發 vs 生產</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>local</code></td>
+<td>內存向量索引</td>
+<td>✅</td>
+<td>本地 debug（程序死咗 data 冇）</td>
+<td>開發</td>
+</tr>
+<tr>
+<td><code>opensearch</code></td>
+<td>OpenSearch 向量庫</td>
+<td>✅</td>
+<td>已有自建/托管 OpenSearch</td>
+<td>生產（已有 infra）</td>
+</tr>
+<tr>
+<td><code>redis</code></td>
+<td>Redis (RediSearch)</td>
+<td>✅</td>
+<td>低延遲自建向量</td>
+<td>生產（已有 Redis）</td>
+</tr>
+<tr>
+<td><code>milvus</code></td>
+<td>Milvus collection</td>
+<td>✅</td>
+<td>自建/托管 Milvus</td>
+<td>生產（已有 infra）</td>
+</tr>
+<tr>
+<td><code>tos_vector</code></td>
+<td>TOS 向量桶</td>
+<td>✅</td>
+<td>火山 TOS 物件向量</td>
+<td>生產</td>
+</tr>
+<tr>
+<td><strong><code>viking</code></strong></td>
+<td>VikingDB 知識庫（托管）</td>
+<td>❌</td>
+<td><strong>火山托管、服務端切分+向量化+檢索</strong></td>
+<td><strong>生產推薦</strong></td>
+</tr>
+<tr>
+<td><code>context_search</code></td>
+<td>Context Search（托管 RAG）</td>
+<td>❌</td>
+<td>火山托管、需 TOS 預簽名上傳</td>
+<td>生產推薦</td>
+</tr>
+<tr>
+<td><code>openviking</code></td>
+<td>OpenViking 資源目錄</td>
+<td>❌</td>
+<td>服務端資源解析同檢索</td>
+<td>生產</td>
+</tr>
+</tbody>
+</table>
+<p><strong>揀法重點：</strong></p>
+<ul>
+<li><strong>宿主度最緊要</strong>：已有 OpenSearch/Redis/Milvus 咪用
+<code>viking</code>，慳返遷移，但嗰啲要自己配 embedding + 計容量。</li>
+<li><strong>新起就 <code>viking</code> /
+<code>context_search</code></strong>：唔使買/管 embedding
+模型，直接計「向量化費用」入方案。</li>
+<li><strong>添加資料</strong>：<code>add_from_files</code> /
+<code>add_from_directory</code> / <code>add_from_text</code>
+三種來源都得，跨 backend 唔同。</li>
+</ul>
+<h3 id="11-共同參數">1.1 共同參數</h3>
+<table>
+<thead>
+<tr>
+<th>參數</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backend</code></td>
+<td><code>"local" | "opensearch" | "redis" | "milvus" | "tos_vector" | "viking" | "context_search" | "openviking"</code></td>
+</tr>
+<tr>
+<td><code>top_k</code></td>
+<td>檢索返幾個最相似片段（預設 10；<code>search</code> 可臨時覆蓋）</td>
+</tr>
+<tr>
+<td><code>index</code></td>
+<td>庫名/場景 ID；留空回退 <code>app_name</code></td>
+</tr>
+<tr>
+<td><code>enable_profile</code> /
+<code>query_with_user_profile</code></td>
+<td>開唔開「用戶畫像」檢索（後者<strong>要 Viking 後端</strong>）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-長期記憶-後端矩陣">2. 長期記憶 後端矩陣</h2>
+<p>統一入口：<code>veadk.LongTermMemory(backend=...)</code>。<strong>預設係
+<code>opensearch</code></strong>（唔係 local！）。</p>
+<table>
+<thead>
+<tr>
+<th>backend</th>
+<th>儲存</th>
+<th>要唔要 embedding</th>
+<th>適合</th>
+<th>注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>local</code></td>
+<td>進程內存</td>
+<td>✅</td>
+<td>本地 debug</td>
+<td><strong>退出即冇</strong>、唔能跨進程</td>
+</tr>
+<tr>
+<td><code>opensearch</code></td>
+<td>OpenSearch 向量庫</td>
+<td>✅</td>
+<td>已有 infra</td>
+<td>預設值</td>
+</tr>
+<tr>
+<td><code>redis</code></td>
+<td>Redis 向量庫</td>
+<td>✅</td>
+<td>低延遲</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>viking</code></td>
+<td>VikingDB 記憶</td>
+<td>❌</td>
+<td><strong>生產推薦</strong></td>
+<td>支援<strong>用戶畫像</strong>；<code>viking_mem</code> 已棄用→自動轉
+<code>viking</code></td>
+</tr>
+<tr>
+<td><code>mem0</code></td>
+<td>Mem0 托管</td>
+<td>❌</td>
+<td>生產</td>
+<td>Mem0 負責抽取/儲存/檢索，<code>pip install mem0</code></td>
+</tr>
+<tr>
+<td><code>openviking</code></td>
+<td>OpenViking 服務</td>
+<td>❌</td>
+<td>生產</td>
+<td>server 做策略</td>
+</tr>
+<tr>
+<td><code>tos_context</code></td>
+<td>TOS Context control</td>
+<td>❌</td>
+<td>生產</td>
+<td>火山托管</td>
+</tr>
+</tbody>
+</table>
+<p><strong>揀法重點：</strong></p>
+<ul>
+<li>要 <strong>multiprocess / 多實例共享</strong> → 唔好用
+<code>local</code>；部署 AgentKit Runtime 多實例時短期記憶都建議持久化
+DB。</li>
+<li><code>mem0</code>：用 Mem0 托管，<code>Mem0Config</code> + env
+<code>DATABASE_MEM0_*</code>。</li>
+<li><code>viking</code>（BytePlus 模式）region 固定
+<code>cn-hongkong</code>，<code>DATABASE_VIKING_REGION</code>
+唔再有效；或改 <code>DATABASE_VIKING_RESOURCE_ID</code>
+做多資源路由。</li>
+<li><code>min_messages_threshold</code> /
+<code>min_time_threshold</code>（env <code>MIN_MESSAGES_THRESHOLD</code>
+/ <code>MIN_TIME_THRESHOLD</code>）：自行定「幾多條 event / 幾耐先寫入
+LTM」。預設累計 10 條 event 或間隔 60 秒觸發保存；<strong>轉 session_id
+時自動把上一 session 寫入 LTM</strong>。</li>
+</ul>
+<hr />
+<h2 id="3-記憶--知識庫嘅成本放大器embedding-定服務端">3. 記憶 /
+知識庫嘅「成本放大器」：embedding 定「服務端」</h2>
+<p><strong>向量類後端</strong>（local / opensearch / redis / milvus /
+tos_vector）要你<strong>自己裝 extension + 配 embedding
+模型</strong>（<code>MODEL_EMBEDDING_API_BASE</code> /
+<code>MODEL_EMBEDDING_API_KEY</code>），每次檢索前都要計多一次 embedding
+錢（<code>doubao-embedding-vision</code> 計 AFP）。</p>
+<p><strong>托管後端</strong>（viking / context_search / openviking /
+mem0 / tos_context）由<strong>服務端做切分 + 向量化 +
+檢索</strong>，<strong>唔使本地
+embedding</strong>——向量費用計入雲資源（第二三條線）而唔會 draw 你本地
+GPU/CPU。</p>
+<blockquote>
+<p>Sales 一句：「想喺方案度掃走『自建向量庫 + embedding
+模型』兩項成本，就揀 VikingDB / Context
+Search——服務端食晒，你只係買儲存同查詢用量。」</p>
+</blockquote>
+<hr />
+<h2 id="4-上下文緩存responses-api-慳錢主力">4. 上下文緩存（Responses
+API）— 慳錢主力</h2>
+<p>唔係落 database，而係<strong>平台同 provider 之間嘅 token
+復用</strong>。VeADK Responses API 模式<strong>默認開</strong> session
+上下文緩存：</p>
+<ul>
+<li>系統自動儲存初始上下文，每輪動態更新；下一輪請求將「已緩存內容」+「新輸入」合併再送模型。</li>
+<li>多輪對話 + 複雜工具調用 → 重複 token 明顯減少 → <strong>慳
+AFP</strong>。</li>
+</ul>
+<p><strong>睇命中率</strong>：每輪 response event 嘅
+<code>usage_metadata</code> 有：</p>
+<pre><code>cached_content_token_count   # 命中緩存嘅 token 數
+prompt_token_count           # 當前輸入總 token 數
+命中率 = cached / prompt</code></pre>
+<p><strong>⚠️ 自動關閉條件</strong>：設咗 <code>output_schema</code>
+就同緩存機制衝突，VeADK
+<strong>自動關閉上下文緩存</strong>。要做「結構化抽取」同「慳錢」就要權衡。</p>
+<hr />
+<h2 id="5-上下文壓縮compaction-第二個慳錢位">5.
+上下文壓縮（Compaction）— 第二個慳錢位</h2>
+<p>長期 context 會越滾越長 → 128k+ 段 ×2 倍率（見定價 doc）。用
+<strong><code>EventsCompactionConfig</code></strong> 控制幾時壓縮，再用
+<strong><code>LlmEventSummarizer</code></strong> 指定用邊個模型做
+summary。</p>
+<pre class="python"><code>from google.adk.apps.app import App, EventsCompactionConfig
+from google.adk.apps.llm_event_summarizer import LlmEventSummarizer
+
+my_compactor = LlmEventSummarizer(
+    model=&quot;doubao-seed-2-0-mini&quot;,        # 壓縮用細模型，慳 token
+    system_instruction=&quot;用精簡粵語總結對話重點，保留用戶事實同已承諾事項。&quot;,
+)
+
+app = App(
+    agents=[my_agent],
+    events_compaction_config=EventsCompactionConfig(
+        compaction_interval=5,           # 每 5 次新調用壓縮一次
+        max_events=50,                   # 超過幾多事件觸發
+        max_tokens=8000,                 # 壓縮後最多幾多 token
+        compactor=my_compactor,
+    ),
+)</code></pre>
+<p><strong>做壓縮係咪一定慳？</strong></p>
+<ul>
+<li>✅ 長對話／工具多 → summary 令 context 縮短，慳下行 token。</li>
+<li>❌ 每輪都壓 → 額外 model call 反而貴；同埋 summary
+會<strong>冇咗細節</strong>（例如某對話中畀過用戶 ID / 引用冧巴）。</li>
+</ul>
+<p><strong>經驗法則</strong>：<code>compaction_interval</code>
+大啲（例如 10–20）、用 <code>mini</code> 模型做 summarizer、總結唔好截走
+tool 返回嘅關鍵 JSON。</p>
+<hr />
+<h2 id="6-實作檢查清單直接貼落方案">6. 實作檢查清單（直接貼落方案）</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>動作</th>
+<th>參考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>揀 KB backend（新起→<code>viking</code> /
+<code>context_search</code>；已有 infra→對應）</td>
+<td>§1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>揀 LTM backend（多實例→唔好 <code>local</code>；要 product
+級→<code>viking</code> / <code>mem0</code>）</td>
+<td>§2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>配 embedding env（向量類後端先要）</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>開 Responses API context caching（唔設
+<code>output_schema</code>）</td>
+<td>§4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>設 compaction config + mini summarizer</td>
+<td>§5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>用 <code>usage_metadata</code> 計命中率，校 threshold</td>
+<td>§4</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-成本估算範例參考">7. 成本估算範例（參考）</h2>
+<p><strong>RAG Chatbot（S3，見定價 doc）</strong>：</p>
+<ul>
+<li>檢索：<code>top_k=10</code>、每 query 一次 vector query。</li>
+<li>Context 塞入：10 條片段 × 平均 200 tokens = ~2k tokens/query，再加
+user 輸入。</li>
+<li>緩存命中：5 輪對話 → 第 2–5 輪約 70–90% prompt 命中（平台 cache）→
+慳 ~3–4 千 tokens/會話。</li>
+<li>儲存：KB 10k docs → TOS/Viking 儲存 0.0015 元/GB/小時 起（見定價 doc
+§8）。</li>
+</ul>
+<blockquote>
+<p>⚠️ 記憶落 <code>local</code> 後端喺 AgentKit Runtime 多實例下會「每
+instance 各自一本」，session 甩出唔同機器就失憶——<strong>如果
+<code>run_sse</code> 返回 404，十有八九係 session 落咗第個
+instance</strong>；要持久化
+DB（Viking/Redis/OpenSearch）多實例先穩。</p>
+</blockquote>
+<hr />
+<h2 id="8-資料來源">8. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VeADK KnowledgeBase 統一入口 + 後端矩陣</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Context Search 後端（TOS 預簽名上傳、無本地 embedding）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/context-search</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Milvus / OpenViking 知識庫</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/knowledge/</a>*</td>
+<td>2026-01xx</td>
+</tr>
+<tr>
+<td>VeADK LongTermMemory 後端矩陣 + LTM</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>mem0 後端</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/mem0">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/mem0</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>VikingDB 記憶後端（BytePlus region 固定 cn-hongkong）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/vikingdb">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/memory/vikingdb</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>上下文緩存 + <code>usage_metadata</code> +
+<code>output_schema</code> 衝突</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>ADK App EventsCompactionConfig / LlmEventSummarizer</td>
+<td><a
+href="https://google.github.io/adk-python/app/">https://google.github.io/adk-python/app/</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Studio 記憶/KB 後端 + LTM 寫入週期</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio</a></td>
+<td>頁面日</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：AFP / token /
+緩存命中率數字係參考估算，實戰以控制台「用量明細」同
+<code>usage_metadata</code> 實測為準。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-13 · backend 清單同 env 會跟 SDK
+版本變，做方案前對返當刻 docs。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

@@ -1,0 +1,77 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>呢份 HTML 將全部 <strong>AgentKit + VeADK 參考文檔</strong> 合併，用
+Tab 分主題。每個 Tab 頂部先有一段「呢頁核心 +
+點用」嘅詳細解說，下面再跟住原有完整內容。</p>
+<h2 id="it-overview-學習順序新手上路">學習順序（新手上路）</h2>
+<table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>想做嘅嘢</th>
+<th>去邊個 Tab</th>
+<th>預期成果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>①</td>
+<td>起個新 Agent 項目</td>
+<td><strong>CLI / 部署</strong> → <code>ak init</code></td>
+<td>一個可以 <code>ak build</code> 嘅 agent 目錄</td>
+</tr>
+<tr>
+<td>②</td>
+<td>寫 Agent 邏輯</td>
+<td><strong>開發 API</strong> → 揀 VeADK（靈活）或 AgentKit
+SDK（簡潔）</td>
+<td>有 <code>Agent</code> / <code>Agentkit*App</code> 核心 code</td>
+</tr>
+<tr>
+<td>③</td>
+<td>部署上雲</td>
+<td><strong>CLI / 部署</strong> → <code>ak deploy</code> +
+<code>runtime</code></td>
+<td>有 URL / session 可以 call</td>
+</tr>
+<tr>
+<td>④</td>
+<td>加知識庫 / 記憶</td>
+<td><strong>記憶 / 知識庫</strong></td>
+<td>Agent 識答 product docs / 記住用戶</td>
+</tr>
+<tr>
+<td>⑤</td>
+<td>監測 + 計價</td>
+<td><strong>性能 Playbook</strong>、<strong>計價 Pricing</strong></td>
+<td>知道幾錢、幾快、邊個位要改</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-overview-俾銷售--方案架構師嘅快速路線">俾銷售 / 方案架構師嘅快速路線</h2>
+<ul>
+<li>要做報價 → 直接去 <strong>計價 Pricing</strong>（三條收費骨幹 + 6 個
+scenario 計法）。</li>
+<li>要解釋「點解咁快 / 咁貴」→ <strong>性能 Playbook</strong> +
+<strong>AI Infra / GPU</strong>。</li>
+<li>要講安全合規 → <strong>安全 / 可觀測</strong>。</li>
+<li>要講自建 vs 托管 → <strong>AI Infra / GPU</strong>（含 GPU 揀機 +
+Cache 三層）。</li>
+</ul>
+<h2 id="it-overview-每個-tab-入面點樣睇">每個 Tab 入面點樣睇</h2>
+<ul>
+<li>頂部 <strong>Tab</strong> = 大主題；有子頁嘅（如 <strong>開發
+API</strong>、<strong>AI Infra / GPU</strong>）會有一行 <strong>子
+Tab</strong> 再切。</li>
+<li>左邊 <strong>On this page</strong> TOC 跟實而家開緊嘅子頁，點擊跳去
+section。</li>
+<li><strong>Hide code / Show code</strong> 收放所有 code
+block；<strong>Copy</strong> 一鍵複製 code。</li>
+<li>URL 會記住你而家嘅位置（如 <code>#infra:gpu</code>），reload
+番返原位。</li>
+</ul>
+<blockquote>
+<p>💡
+<strong>建議</strong>：頭一次睇，由呢頁順序跟住「新手上路」表行一次 demo
+agent（由 <code>ak init</code> 到
+<code>ak invoke</code>），第②次先深讀各參考頁。</p>
+</blockquote>

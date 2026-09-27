@@ -1,0 +1,8 @@
+Microsoft 力推 E7 加價式 upsell 的原因包括：  
+1. **Agent 365 和 Copilot  adoption 需求**：Agent 365 作為管理代理的控制平面，與 Copilot Wave 3 均需依賴 E7 套裝實現加速 adoption，因為單獨購買 Agent 365（$15/用戶/月）或 Copilot 並非首選，而 E7 套裝（含 M365 E5、Entra Suite、Agent 365 和 Copilot，$99/用戶/月）提供整合解決方案【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+2. **既有客戶 base 潛力**：估計 3.25 億企業座位中，約 1.5 億為 E3/E5 用戶，E3/E5 升級至 E7 的年 upsell 機會高達 $960 億（原文 $100B 可能為筆誤，結合上下文應為 $960B），E3/E5 用戶是 adopt E7 的高 propensity 群體【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+3. **價格上漲催化**：近期 M365 價格上漲迫使企業在 2H26 進行談判，間接推動 NT adoption（可能指新技術 adoption）【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+[1] 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt  
+[2] 20260313_Barclays_MSFT_Microsoft_Corp.-_Evolving_AI_Offering

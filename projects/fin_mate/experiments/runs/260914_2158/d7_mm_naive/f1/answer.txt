@@ -1,0 +1,4 @@
+Deutsche Bank 資料中 Figure 1 顯示，Microsoft F2Q（假設為 2026 財年第二季度）的 Azure 收入同比增長（按不計入特殊項目計算）為 43%，而 guidance 為 43%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+## 來源
+20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt

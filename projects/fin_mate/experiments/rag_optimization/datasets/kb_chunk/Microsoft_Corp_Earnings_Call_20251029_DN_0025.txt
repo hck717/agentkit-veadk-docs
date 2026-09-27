@@ -1,0 +1,14 @@
+Azure AI services revenue was generally in line with expectations, and this
+quarter demand again exceeded supply across workloads even as we brought more capacity
+online.
+In our on-premise server business, revenue increased 1% and was relatively unchanged in
+constant currency. Results were ahead of expectations driven by transactional purchasing of
+Windows Server 2025. Segment gross margin dollars increased 20% and 19% in constant
+currency and gross margin percentage decreased year-over-year, driven by investments in AI that
+were partially offset by efficiency gains in Azure. Operating expenses increased 4% and
+operating income grew 27%. Operating margins were 43%, down only slightly year-over-year as
+increased investments in AI were mostly offset by improved operating leverage.
+Now, to More Personal Computing. Revenue was $13.8 billion and grew 4%. Windows OEM and
+Devices revenue increased 6% year-over-year, significantly ahead of expectations, driven by
+strong demand ahead of Windows 10 end of support as well as a benefit from inventory levels
+that remain elevated.

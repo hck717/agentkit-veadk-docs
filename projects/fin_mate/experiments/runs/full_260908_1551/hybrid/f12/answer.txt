@@ -1,0 +1,6 @@
+1. Azure 智能雲：雲端服務同企業 AI 基建，收入增長靠企業雲遷移同 Copilot / OpenAI 合作帶動。【KB:msft_overview】
+2. 生產力與商業流程：Microsoft 365、LinkedIn、Dynamics。【KB:msft_overview】
+3. 更多個人計算：Windows、Surface、Xbox、搜尋廣告（Bing）。【KB:msft_overview】
+
+## 來源
+viking://resources/fin_kb/msft_overview/

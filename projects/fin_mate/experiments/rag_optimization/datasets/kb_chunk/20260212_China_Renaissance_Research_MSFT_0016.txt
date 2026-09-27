@@ -1,0 +1,65 @@
+100
+231,004
+303,256
+Cash & equivalents
+94,565
+80,468
+94,695
+152,242
+Account receivables
+69,905
+73,756
+93,090
+97,888
+Inventories
+938
+4,826
+1,869
+5,794
+Other current assets
+25,723
+36,050
+41,351
+47,332
+Non-current assets
+399,394
+498,201
+587,131
+659,368
+PPE
+212,053
+312,686
+400,516
+471,311
+Intangible assets
+22,604
+22,524
+23,284
+24,778
+Goodwill
+119,220
+119,220
+119,220
+119,220
+Other non-current assets
+30,917
+29,171
+29,511
+29,459
+Total assets
+590,525
+693,301
+818,135
+962,623
+Total Current Liabilities
+134,007
+155,316
+174,807
+195,097
+ST interest bearing debt
+2,999
+9,249
+6,249
+3,249
+Unearned revenue
+64,

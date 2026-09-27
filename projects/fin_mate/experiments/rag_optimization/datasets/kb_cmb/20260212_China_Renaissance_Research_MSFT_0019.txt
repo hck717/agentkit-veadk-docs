@@ -1,0 +1,59 @@
+162
+176,089
+212,648
+264,303
+Capex
+(88,200)
+(151,494)
+(159,758)
+(165,219)
+Acquisitions & Investments
+(4,387)
+0
+0
+0
+Disposal of Fixed Assets & Invst
+0
+0
+0
+0
+Other Investing Activities
+19,988
+5,000
+3,000
+3,000
+Net Cash Flow from Investments
+(72,599)
+(146,494)
+(156,758)
+(162,219)
+Dividends paid
+(24,571)
+(27,042)
+(29,663)
+(32,538)
+Change in Debt
+(8,962)
+(3,000)
+(3,000)
+(3,000)
+Equity raised / (purchased)
+2,056
+0
+0
+0
+Other Financial Activities
+(20,222)
+(13,650)
+(9,000)
+(9,000)
+Net Cash Flow from Financing
+(51,699)
+(43,692)
+(41,663)
+(44,538)
+Net Cash Flow
+11,927
+(14,097)
+14,227
+57,

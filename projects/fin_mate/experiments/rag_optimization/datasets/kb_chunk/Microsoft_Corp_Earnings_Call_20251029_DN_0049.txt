@@ -1,0 +1,12 @@
+That's software. That's sort of -- and by the way, it's helpful on A100s. It's
+helpful on GB200s and it will be helpful on GB300s. That's the beauty of having the efficiency of
+the fleet. So keep improving utilization, keep improving the efficiency. So that's what you do in the
+token factory.
+The other aspect, which Amy spoke to is, we have some of the best agent systems that matter in
+the high-value domains, right? In information work, that's the copilot system. Coding, I mean, I
+should also say one of the things I like about Copilot is, I mean Copilot ARPUs compared to M365
+ARPUs, right, it's expansive. The same thing that happened between server and cloud, like we
+used to always say, well, is it zero-sum? It turned out that the cloud was so much more expansive
+to the server market. The same thing is happening in AI because first you could say, hey, our
+ARPUs are too low when it comes to M365, or you could say we have the opportunity with AI to
+be much more expansive.

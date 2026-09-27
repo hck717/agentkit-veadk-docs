@@ -1,0 +1,14 @@
+E.g. 50% above the 
+“Cos. w/ MIFID Investment and Ancillary Services” bar means 50% of the Companies Covered with the rating stated have 
+also received MIFID Investment and Ancillary Services from DB.
+ 
+ - The proportion of "buy" (or "sell" or "hold) recommendations where Deutsche Bank and or/Affiliates has provided 
+Investment Banking services in the past 12 months for which it has received compensation. The percentage value 
+displayed above the bar shows the proportion of Companies Covered with the stated rating where DB has also provided 
+Investment Banking services in the past 12 months. E.g. 50% above the “Cos. w/ Investment Banking relationship” bar 
+means 50% of the Companies Covered with the rating stated also have an Investment Banking Relationship with DB.
+ 
+ 
+ Buy: Based on a current 12- month view of TSR, we recommend that investors buy the stock.
+ 
+ Sell: Based on a current 12-month view of TSR, we recommend that investors sell the stock.

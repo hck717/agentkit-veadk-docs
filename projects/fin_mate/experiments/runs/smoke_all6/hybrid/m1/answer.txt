@@ -1,0 +1,12 @@
+### 供應受限下 Microsoft 力推 E7 加價式 upsell 的原因
+1. **聚焦高毛利領域**  
+   供應受限時，Microsoft  prioritizes GPU allocation 支持 AI 用途（如第一方應用和 R&D），以追求更高毛利、重複性軟件訂閱機會。E7 SKU 整合了 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，屬於高毛利的應用層產品，能彌補 Azure 供應受限帶來的增長壓力。  
+   【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】、【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+2. **AI  adoption 的戰略布局**  
+   Agent 365 是 AI 代理的管理控制平面，是 AI 應用落地的關鍵前提。E7 SKU 將其與 Copilot 打包，加速企業對 AI 功能的 adoption，避免 Agent 365 作為 standalone 產品 adoption 緩慢。此外，M365 Copilot Wave 3 與 Anthropic 合作，進一步提升產品競爭力，E7 作為 bundle 可推動用戶升級。  
+   【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+3. **應對 macro 和競爭壓力**  
+   面對 Azure 增長可能放緩（如競爭加劇、供應問題），Microsoft 需拓展新的增長引擎。E7 SKU 基於龐大的 E3/E5 安裝基數（約 1.5 億 seats），帶來 $100B 的 upsell 機會，鎖定企業用戶並提升 ARPU（每用戶平均收入）。  
+   【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】、【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good

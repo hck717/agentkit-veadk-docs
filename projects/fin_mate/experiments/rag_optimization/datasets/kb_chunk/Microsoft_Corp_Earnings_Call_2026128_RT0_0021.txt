@@ -1,0 +1,13 @@
+Operating expenses increased 5% and 4% in constant
+currency, driven by R&D investments in compute capacity and AI talent, as well as impairment
+charges in our gaming business. Operating margins increased year-over-year to 47%, ahead of
+expectations. As a reminder, we still account for our investment in OpenAI under the equity
+method.
+And as a result of OpenAI's recapitalization, we now record gains or losses based on our share of
+the change in their net assets on their balance sheet as opposed to our share of their operating
+profit or losses from their income statement. Therefore, we recorded a gain which drove other
+income and expense to $10 billion in our GAAP results. When adjusted for the OpenAI impact,
+other income and expense was slightly negative and lower than expected, driven by net losses
+on investments. Capital expenditures were $37.5 billion, and this quarter, roughly two-thirds of our
+CapEx was on short-lived assets, primarily GPUs and CPUs. Our customer demand continues to
+exceed our supply.

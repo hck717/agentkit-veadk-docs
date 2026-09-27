@@ -1,0 +1,10 @@
+在2026年2月的 earnings call 中提到，Microsoft Cloud 季度收入首次突破 **$500亿**（具体为 $50,100百万，即 $501亿），同比增长 **26%**。
+
+**来源**：<Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt>（需注意文件名可能存在笔误，实际应为F2Q26相关财报）  
+但根据提供的资料，更准确的信息来自<20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt>，其中提到Microsoft Cloud revenue surpassed $49 billion（*原文可能为笔误，结合其他资料应为 $501亿*），同比增长26%。若严格按提供资料，最接近的表述为**首次突破$490亿，同比升26%**（来自<Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt>）。  
+
+**注**：不同资料中存在细微差异，需以财报原文为准。上述答案综合了提供的信息。  
+
+## 來源  
+<Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt>  
+<20260212_China_Renaissance_Research_MSFT_Microsoft_Corp_F2Q26_Review-_Progresses_in_Azure_and_b.txt>

@@ -1,0 +1,14 @@
+A - Jonathan Neilson
+Thanks, Mark. Operator, next question, please.
+Operator
+The next question comes from the line of Brad Zelnick with Deutsche Bank. Please proceed.
+Q - Brad Zelnick {BIO 16211883 <GO>}
+Great. Thank you very much. Satya, we heard a lot about frontier transformations from Judson at
+Ignite. And we've seen customers realize breakthrough benefits when they adopt the Microsoft
+AI stack. Can you help frame for us the momentum in enterprises embarking on these journeys
+and any expectation for how much their spend with Microsoft can expand in becoming frontier
+firms? Thanks.
+A - Satya Nadella {BIO 3224315 <GO>}
+Yes. Thank you for that. So I think one of the things that we are seeing is the adoption across the
+three major suites of ours, right? So if you take M365, you take what's happening with security,
+and you take GitHub. In fact, it's fascinating.

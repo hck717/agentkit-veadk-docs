@@ -1,0 +1,10 @@
+On the heels of a strong first quarter, F2Q Commercial bookings
+astoundingly grew 228% Y/Y CC, with the vast majority of the growth driven by Azure
+commitments from both OpenAI and Anthropic. Mgmt did also note that having to
+allocate additional capacity to certain first-party applications (such as M365 Copilot), as
+well as to R&D, weighed on Azure growth this quarter by at least a couple of points.
+Encouraging Azure Growth Outlook, with F3Q Revenue in Line
+MSFT provided F3Q revenue guidance of $80.6B-$81.75B (15%-17% Y/Y) that was in line
+with the Street's $81.2B target. More importantly, mgmt is targeting Azure revenue growth
+of 37-38% Y/Y CC, slightly above the Street's roughly 36-37% Y/Y projection. Meanwhile,
+mgmt stated that it expects capex to be down Q/Q. More on guidance below.

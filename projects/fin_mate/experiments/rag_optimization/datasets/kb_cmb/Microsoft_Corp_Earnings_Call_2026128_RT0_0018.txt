@@ -1,0 +1,12 @@
+And
+second, when it comes to science and engineering, companies like Unilever in consumer goods
+and Synopsys in EDA are using Microsoft Discovery to orchestrate specialized agents for R&D
+end-to-end. They're able to reason over scientific literature and internal knowledge, formulate
+hypotheses, spin up simulations, and continuously iterate to drive new discoveries. Beyond AI, we
+continue to invest in all our core franchises and meet the needs of our customers and partners,
+and we are seeing strong progress. For example, when it comes to cloud migrations, our new
+SQL Server has over 2x the IaaS adoption of the previous version.
+In security, we now have 1.6 million security customers, including over 1 million who use four or
+more of our workloads. Windows reached a big milestone, 1 billion Windows 11 users, up over
+45% year-over-year. And we had share gains this quarter across Windows, Edge, and Bing.
+Double-digit member growth in LinkedIn with 30% growth in paid video ads.

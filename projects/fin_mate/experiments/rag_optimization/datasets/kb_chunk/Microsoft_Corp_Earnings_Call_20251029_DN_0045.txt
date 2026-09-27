@@ -1,0 +1,16 @@
+And as you know,
+we have spent the past few years not actually being short GPUs and CPUs per se, we were short
+the space or the power is the language we use to put them in. So we spent a lot of time building
+out that infrastructure. Now we're continuing to do that also using leases. Those are very long-
+lived assets as we've talked about, 15 years to 20 years. And over that period of time, do I have
+confidence that we'll need to use all of that, it is very high.
+And so, when I think about sort of balancing those things, seeing the pivot to GPU, CPU, short-
+lived, seeing the pivot in terms of how those are being utilized, we are, and I said this now, we've
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 11 of 17
+
+
+been short now for many quarters, I thought we were going to catch-up.

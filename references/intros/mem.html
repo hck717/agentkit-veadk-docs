@@ -1,0 +1,47 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<blockquote>
+<p>🎯 <strong>一句心法</strong>：Agent 嘅「記憶」係一條流水線——<strong>記憶三層（短期會話 STM / 長期記憶 LTM / 知識庫 KB）</strong>幾時寫、點帶返，最後全部湧入<strong>每輪 context</strong>。呢頁教<strong>點控制個 context</strong>（top_k / compaction / 切 session / cache 協同）：短 = 快 + 平 + 準。</p>
+</blockquote>
+<h2 id="it-mem-一由頭到尾一頁睇晒">一、由頭到尾一頁睇晒</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>喺呢頁邊度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>記憶三層 flow 圖</th>
+<th>§1（STM / LTM / KB 幾時寫、點讀入 context）</th>
+</tr>
+<tr>
+<th>短期會話 STM</th>
+<th>§2（逐輪入 context · 後端揀法）</th>
+</tr>
+<tr>
+<th>長期記憶 LTM</th>
+<th>§3（threshold 自動寫 · load_memory 帶返 · CLI）</th>
+</tr>
+<tr>
+<th>知識庫 KB</th>
+<th>§4（load_knowledgebase / kb.search · top_k 慳法）</th>
+</tr>
+<tr>
+<th>上下文管理</th>
+<th>§5（context 點被食 · 六個槓桿 · Compaction 深入）</th>
+</tr>
+<tr>
+<th>同 Cache 協同</th>
+<th>§6（穩定 prefix → 命中率 50–95% · output_schema 關 cache）</th>
+</tr>
+<tr>
+<th>實戰技巧</th>
+<th>§7（12 條 memory × context Tricks）</th>
+</tr>
+</tbody>
+</table>
+<h2 id="it-mem-sales-一句">Sales 一句</h2>
+<p>「模型冇記憶，Agent 至有——LTM 跨 session 自動記住用戶，KB 揀啱片段先入 context；context 壓得細、cache 命中高，對話越長越平越準。」</p>
+<hr />
+<p><em>嗌法：後端「放邊度」睇 db tab；呢頁講「點流入、點慳」。threshold 同工具名跟 SDK 郁，落地前 refetch。</em></p>

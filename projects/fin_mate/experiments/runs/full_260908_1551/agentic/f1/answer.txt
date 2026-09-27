@@ -1,0 +1,37 @@
+我现在需要回答用户的问题：“Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？”首先，我需要确定用户的问题是关于微软2026财年第二季度（F2Q）的Azure增长率，以及该增长率与德意志银行给出的指导意见之间的比较。
+
+接下来，我需要检查提供的知识库条目，找到相关的信息。首先看第一个知识库条目，来自德意志银行的报告，日期是2026年1月29日。其中提到：“Azure growth of +38% y/y @CC was 1pt above guidance (37%), but likely a touch shy of buyside expectations that we believe were closer to ~+39%.” 这里明确指出Azure在不变汇率下的同比增长率为38%，比指导的37%高出1个百分点，但略低于市场预期的39%。
+
+然后，第二个知识库条目也是德意志银行的报告，提到：“Azure growth of +38% y/y @CC was 1pt above guidance (37%), but likely a touch shy of what we believe was a buyside bogey of >39%+ and what mgmt. indicated would have been >40% had they allocated all incremental GPU capacity in F1H26 to Azure.” 这里进一步确认了Azure的增长率为38%，高于指导的37%，但低于市场预期的39%以上。
+
+第三个知识库条目同样来自德意志银行，提到：“F3Q Azure guidance of +37-38% y/y @CC was 1.5-2.5pt ahead of consensus ~35.5%, signaling stability despite a 4pt harder comp. and expectations for demand to remain significantly ahead of available capacity.” 这里虽然是关于第三季度的指导，但也提到Azure的增长率在37-38%之间，高于市场预期。
+
+第四个知识库条目是中国 Renaissance 证券的报告，提到：“Azure delivered 39% (38% in forex neutral) YoY growth in the quarter, slightly above the 37% guidance but below Visible Alpha’s consensus of 40%.” 这里指出Azure的增长率为39%（不变汇率下38%），高于指导的37%，但低于市场预期的40%。
+
+综合这些信息，不同的报告中Azure的增长率略有不同，但总体上都显示38%的增长率高于指导的37%，但低于市场预期的39%左右。需要注意的是，不同报告中的市场预期可能略有差异，但核心结论一致。
+
+此外，还需要确认是否有其他相关信息，比如是否有关于指导的具体说明，或者增长率的计算方式。例如，第一个报告中提到“guidance (37%)”，而第三个报告中提到“F3Q Azure guidance of +37-38% y/y @CC”，这可能是指不同季度的指导。用户的问题是关于F2Q，所以需要关注F2Q的指导。
+
+总结来说，Deutsche Bank的报告指出F2Q Azure增长率为38%，高于指导的37%，但低于市场预期的39%。其他报告也支持这一结论，尽管市场预期略有不同。因此，回答时需要明确这一点，并引用具体的知识库条目作为来源。
+### Microsoft F2Q Azure 增长及与指引对比分析  
+根据德意志银行（Deutsche Bank）的报告，Microsoft 2026财年第二季度（F2Q）Azure 收入同比增长率为 **38%（不变汇率，@CC）**，**高于管理层指引的37%**，但 **略低于市场预期（约39%）**。  
+
+#### 关键细节：  
+1. **增长表现**：  
+   - Azure 增长38%（@CC），超出指引1个百分点，主要受益于效率提升释放部分容量至可盈利的 Azure 需求。  
+   - 若管理层在F1H26将所有增量GPU容量分配给Azure，增长率可能超过40%，但受限于AI应用（如M365 Copilot、GitHub Copilot）和研发投入的GPU需求，实际增速受限。  
+
+2. **市场预期**：  
+   - 市场普遍预期Azure增长约39%，实际增速低于预期，反映GPU供应约束对扩张的影响。  
+
+3. **后续指引**：  
+   - 管理层指引F3Q Azure增长为 **37-38%（@CC）**，仍高于市场预期（约35.5%），显示Azure需求持续强劲，但供应约束仍将持续。  
+
+
+## 來源  
+1. <https://viking.resource/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md>  
+2. <https://viking.resource/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_1.md>  
+3. <https://viking.resource/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_3.md>  
+
+
+**注**：不同报告对市场预期的表述略有差异（如39% vs. >39%），但核心结论一致。

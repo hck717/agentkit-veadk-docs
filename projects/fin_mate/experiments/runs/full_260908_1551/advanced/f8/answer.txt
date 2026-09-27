@@ -1,0 +1,6 @@
+Wells Fargo 認為 agentic adoption 取決於安全性（Security）。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】
+
+此外，報告還提到 Agent 365 提供的代理登記冊、代理 ID、可觀察性和風險信號等是代理型採用的重要前提條件。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】
+
+## 來源
+<20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>

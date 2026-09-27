@@ -1,0 +1,21 @@
+agent:
+  name: aggregation_agent
+  model: seed-2-0-mini-260428
+  mock: true
+  reasoning_effort: minimal
+short_term_memory:
+  backend: sqlite
+  local_database_path: ./stm_dev.db
+aggregation:
+  duplicate_detection:
+    field: invoice_number
+  currency_conversion:
+    default: CNY
+context_policy:
+  max_input_tokens: 12000
+  max_output_tokens: 6000
+  window_strategy: sliding
+  window_size: 10
+  compaction_interval: 5
+  overlap_size: 1
+  max_session_messages: 50

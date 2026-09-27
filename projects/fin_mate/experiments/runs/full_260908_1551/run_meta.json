@@ -1,0 +1,50 @@
+{
+  "tag": "full_260908_1551",
+  "ts": "2026-09-08 15:51:04",
+  "models": {
+    "primary": "?",
+    "agent": "?"
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "gate": 0.35,
+  "rrf_k": 60,
+  "max_tokens_budget": 500000,
+  "strats": {
+    "naive": "dense find top_k=5 + L2 hydrate（= prod baseline）",
+    "advanced": "dense find k=15 粗水化 + grep 擴 query + dedupe + score gate",
+    "hybrid": "dense find k=15 + sparse grep terms -> RRF(k=60) 融合",
+    "corrective": "find -> LLM self-check -> rewrite -> re-find -> 再差 skip 注入",
+    "adaptive": "LLM router 決定查唔查（trap/SKIP 就唔查）",
+    "agentic": "veadk Agent + Runner + LoadKnowledgebaseTool 自捽 retrieval"
+  },
+  "n_items": 16,
+  "items": [
+    "f1",
+    "f2",
+    "f3",
+    "f4",
+    "f5",
+    "f6",
+    "f7",
+    "f8",
+    "f9",
+    "f10",
+    "f11",
+    "f12",
+    "t1",
+    "t2",
+    "m1",
+    "m2"
+  ],
+  "retrieve_only": false,
+  "used_tokens": 339434,
+  "used_tokens_total": 448601,
+  "runs": [
+    "full_260908_1551",
+    "full_agentic_260908_1601"
+  ]
+}

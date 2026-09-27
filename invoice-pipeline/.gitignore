@@ -1,0 +1,36 @@
+# API keys & secrets
+config.yaml
+.env
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Local dev DB
+stm_dev.db
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploaded files
+frontend/uploads/
+*.jpg
+*.jpeg
+*.png
+*.pdf
+
+# Generated artifacts
+data/formatted/

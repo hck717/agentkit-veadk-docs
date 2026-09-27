@@ -1,0 +1,79 @@
+{
+  "tag": "jbv_full",
+  "ts": "2026-09-21 12:48:20",
+  "llm": {
+    "prose": "seed-1-6-flash-250715",
+    "decision": "seed-1-6-flash-250715",
+    "mini_fallback": true,
+    "logprobs_ok": true
+  },
+  "thresholds": {
+    "tool_conf_min": 0.5,
+    "rag_gate": 2.0,
+    "mem_gate": 2.0,
+    "rag_score_cand": 15
+  },
+  "prices": {
+    "input": 0.021,
+    "output": 0.211,
+    "cached": 0.004
+  },
+  "variants": {
+    "original": "原裝：flash 全程",
+    "original_mini": "原裝：mini 決策（本 account 冇 → =flash 對照）",
+    "jev_tool": "Jev 揀工具 + Noul",
+    "jev_rag": "Jev Score gate 檢索",
+    "jev_mem": "Jev 篩記憶",
+    "jev_full": "Jev 全層"
+  },
+  "items": {
+    "qa": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10",
+      "f11",
+      "t1",
+      "t2",
+      "m1",
+      "m2"
+    ],
+    "tool": [
+      "tc_calc_01",
+      "tc_calc_02",
+      "tc_calc_03",
+      "tc_calc_04",
+      "tc_calc_05",
+      "tc_news_01",
+      "tc_news_02",
+      "tc_news_03"
+    ],
+    "sent": [
+      "sent_3w_01",
+      "sent_3w_02",
+      "sent_3w_03",
+      "sent_3w_04",
+      "sent_3w_05",
+      "sent_3w_06"
+    ],
+    "mem": [
+      "mem_01",
+      "mem_02",
+      "mem_03",
+      "mem_04",
+      "mem_05",
+      "mem_06",
+      "mem_07",
+      "mem_08"
+    ]
+  },
+  "max_tokens_budget": 800000,
+  "smoke": false,
+  "used_tokens": 367285
+}

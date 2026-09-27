@@ -1,0 +1,17 @@
+Earlier this week, we brought online our Maia
+200 Accelerator. Maia 200 delivers 10-plus petaFLOPS at FP4 precision with over 30% improved
+TCO compared to the latest generation hardware in our fleet. We will be scaling this starting with
+inferencing and synthetic data gen for our Superintelligence Team as well as doing inferencing for
+Copilot and Foundry.
+And given AI workloads are not just about AI accelerators, but also consume large amounts of
+compute, we are pleased with the progress we are making on the CPU side as well. Cobalt 200
+is another big leap forward delivering over 50% higher performance compared to our first
+FINAL TRANSCRIPT
+2026-01-28
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 2 of 16
+
+
+custom-built processor for cloud-native workloads. Sovereignty is increasingly top of mind for
+customers, and we are expanding our solutions and global footprint to match.

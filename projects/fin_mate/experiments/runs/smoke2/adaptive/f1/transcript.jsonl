@@ -1,0 +1,2 @@
+{"llm": "stub", "msgs": [{"role": "system", "content": "只回一步：SEARCH=要查知識庫 / SKIP=唔使查（閒談或資料庫明顯無）"}, {"role": "user", "content": "問題: Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}
+{"llm": "stub", "msgs": [{"role": "system", "content": ""}, {"role": "user", "content": "Deutsche 話 Microsoft F2Q 嘅 Azure 增長有幾多？同 guidance 比點？"}], "text": "", "prompt_tokens": 0, "completion_tokens": 0, "cached_tokens": 0, "ms": 0}

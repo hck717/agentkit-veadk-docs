@@ -1,0 +1,4 @@
+{
+  "variant": "jev3",
+  "desc": "JEV tier-0（確定式）：RAG gate 用 RRF、tool 用規則路由、mem 用 marker rule + 並行 score、noUL asymmetric（STOP 一律 honor）、sentiment 退出 System One"
+}

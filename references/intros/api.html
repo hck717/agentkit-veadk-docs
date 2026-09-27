@@ -1,0 +1,149 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>呢個 Tab 有兩份 API 文件：<strong>VeADK
+框架</strong>（靈活、完整、Agent 為中心）同 <strong>AgentKit
+SDK</strong>（簡潔、App 為中心、A2A 原生）。寫 Agent
+前先搞清楚兩者定位：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>VeADK（框架）</strong></th>
+<th><strong>AgentKit SDK（輕量）</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>心智模型</td>
+<td><code>Agent</code> 組裝（model/tools/memory/kb/instruction）</td>
+<td><code>Agentkit*App</code>
+一把過（<code>AgentkitSimpleApp</code>/<code>MCPApp</code>/<code>A2aApp</code>）</td>
+</tr>
+<tr>
+<td>靈活度</td>
+<td>高：A2UI、Feishu、知識庫、短期記憶逐樣配</td>
+<td>低但快速：少 boilerplate</td>
+</tr>
+<tr>
+<td>適合</td>
+<td>複雜多模態 / 需要完整 control</td>
+<td>快速 demo、單一 LLM agent、MCP/A2A 包裝</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>都要經 <code>ak deploy</code> / runtime</td>
+<td>同左</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>當刻路</strong>：新起項目優先試 <strong>AgentKit
+SDK</strong> 睇啱唔啱；需要知識庫 / 團隊本地工具 / 自訂 runner 先上行
+<strong>VeADK</strong>。</p>
+</blockquote>
+<h2 id="it-api-veadk-核心概念一張圖">VeADK 核心概念（一張圖）</h2>
+<pre><code>Agent(model, tools=[], knowledgebase=kb, longterm_memory=ltm, instruction=...)
+   └── Runner.run(session, task)
+          ├── 自動載入 knowledge / memory / 工具
+          └── 產生 session events（含 usage_metadata → 睇 cache 命中）</code></pre>
+<h3 id="it-api-建立-agent--runner最短範例">建立 Agent + Runner（最短範例）</h3>
+<div class="sourceCode" id="it-api-cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-api-cb2-1"><a href="#it-api-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent, Runner, KnowledgeBase</span>
+<span id="it-api-cb2-2"><a href="#it-api-cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-api-cb2-3"><a href="#it-api-cb2-3" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> Agent(</span>
+<span id="it-api-cb2-4"><a href="#it-api-cb2-4" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">&quot;doubao-seed-2-0-mini&quot;</span>,</span>
+<span id="it-api-cb2-5"><a href="#it-api-cb2-5" aria-hidden="true" tabindex="-1"></a>    knowledgebase<span class="op">=</span>KnowledgeBase(backend<span class="op">=</span><span class="st">&quot;viking&quot;</span>, index<span class="op">=</span><span class="st">&quot;docs&quot;</span>),</span>
+<span id="it-api-cb2-6"><a href="#it-api-cb2-6" aria-hidden="true" tabindex="-1"></a>    instruction<span class="op">=</span><span class="st">&quot;用粵語回答；答案引用返知識庫出處。&quot;</span>,</span>
+<span id="it-api-cb2-7"><a href="#it-api-cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-api-cb2-8"><a href="#it-api-cb2-8" aria-hidden="true" tabindex="-1"></a>runner <span class="op">=</span> Runner(agent)</span>
+<span id="it-api-cb2-9"><a href="#it-api-cb2-9" aria-hidden="true" tabindex="-1"></a>response <span class="op">=</span> runner.run(session, task<span class="op">=</span><span class="st">&quot;公司請假流程係點？&quot;</span>)</span></code></pre></div>
+<h3 id="it-api-記憶--知識庫三個層唔好混">記憶 &amp;
+知識庫（三個層，唔好混）</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>VeADK 元件</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>短期記憶（session）</td>
+<td>Runner / session 內建</td>
+<td>每輪對話 context</td>
+</tr>
+<tr>
+<td>長期記憶（LTM）</td>
+<td><code>LongTermMemory(backend="viking")</code></td>
+<td>跨 session 記住用戶偏好</td>
+</tr>
+<tr>
+<td>知識庫（KB）</td>
+<td><code>KnowledgeBase(backend="viking")</code></td>
+<td>靜態文檔 RAG</td>
+</tr>
+</tbody>
+</table>
+<p>後端矩陣同揀法詳見「記憶 / 知識庫」Tab；<strong>Backend 揀錯 =
+價錢同速度兩頭唔到岸</strong>。</p>
+<h3 id="it-api-工具tools">工具（Tools）</h3>
+<ul>
+<li>VeADK
+內建：<code>load_knowledgebase</code>（RAG）、<code>build_crud_ops</code>（自動
+CRUD）、<code>code_executor</code>（Code
+Runner）、<code>browser_*</code>、<code>image_*</code>、Feishu
+工具。</li>
+<li>用
+<strong>第三方工具</strong>（MCP）時，<code>agent_mcp_toolset</code> 令
+Agent 直接識 call 外部 MCP server——動態注入 tool 定義（SDK
+都有「每輪注入工具定義」選項提升多輪穩定性）。</li>
+</ul>
+<h3 id="it-api-a2ui--feishu前端--通知一樣源自-adk-生態">A2UI + Feishu（前端 /
+通知，一樣源自 ADK 生態）</h3>
+<ul>
+<li><strong>A2UI</strong>：<code>app = A2UIApp(agent=...)</code>，裝緊
+<code>render</code> 走唔様 A2UI 介面（input box + token/turn
+統計）。</li>
+<li><strong>Feishu</strong>：用 <code>LarkApp</code> / Feishu 工具組將
+agent 接入飛書 bot，多字對話流狀態。</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong><code>output_schema</code> 會關 context cache</strong>（見
+VectorCache Tab）：要結構化抽取 + 慳錢要識取捨。</p>
+</blockquote>
+<h2 id="it-api-agentkit-sdk-核心概念一把過">AgentKit SDK
+核心概念（一把過）</h2>
+<div class="sourceCode" id="it-api-cb3"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-api-cb3-1"><a href="#it-api-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> agentkit_sdk <span class="im">import</span> AgentkitSimpleApp, A2aApp, AgentkitMCPApp</span>
+<span id="it-api-cb3-2"><a href="#it-api-cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-api-cb3-3"><a href="#it-api-cb3-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> AgentkitSimpleApp(model<span class="op">=</span><span class="st">&quot;doubao-seed-2-0-mini&quot;</span>, system_prompt<span class="op">=</span><span class="st">&quot;你係客服&quot;</span>)</span>
+<span id="it-api-cb3-4"><a href="#it-api-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 或 MCP：</span></span>
+<span id="it-api-cb3-5"><a href="#it-api-cb3-5" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> AgentkitMCPApp(name<span class="op">=</span><span class="st">&quot;my-mcp-app&quot;</span>, mcp_server_config<span class="op">=</span>{...})</span></code></pre></div>
+<ul>
+<li><strong>A2aApp</strong>：將 agent 以 A2A registry 發佈，其他 agent /
+沙箱可直接 A2A 調用（見「invoice-pipeline」A2A drive-chain 實作）。</li>
+<li>平台 client：AgentKit 會自動帶 <code>client</code>（平台
+credential），connect 到你嘅 runtime。</li>
+<li><strong>Tool</strong>：<code>@tool</code>
+裝飾器定義自訂工具，自動做成 JSON schema（SDK/CLI
+都支援「結構化工具調用」）。</li>
+</ul>
+<h2 id="it-api-寫完好唔好睇-3-個位">寫完好唔好？睇 3 個位</h2>
+<ol type="1">
+<li><strong>call
+得郁</strong>：<code>agentkit invoke my-agent -m "test"</code>（見 CLI
+Tab）。</li>
+<li><strong>唔好爆 context</strong>：睇 response
+<code>usage_metadata</code> 命中率（見性能 / 記憶 Tab）。</li>
+<li><strong>有 eval 過</strong>：<code>ak eval run</code> 幫 agent 開個
+qa-set 驗證先當「寫完」。</li>
+</ol>
+<h2 id="it-api-記住">記住</h2>
+<ul>
+<li>VeADK ≠ AgentKit SDK；<strong>職責唔同、好唔好咪</strong>。複雜
+agent 用 VeADK，包裝/快速用 SDK。</li>
+<li><strong>mock 試線</strong> vs <strong>真
+model</strong>：本地開發可以 <code>mock=True</code>，確認 orchestration
+啱先切真 model（睇 invoice-pipeline 嘅 <code>--no-mock</code>
+模式）。</li>
+</ul>

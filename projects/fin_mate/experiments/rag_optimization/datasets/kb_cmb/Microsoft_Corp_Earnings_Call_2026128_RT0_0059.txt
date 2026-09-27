@@ -1,0 +1,14 @@
+Then on top of it, of course, there's the transformation, which is what businesses are doing. How
+should we think about customer service? How should we think about marketing? How should we
+think about finance? How should we think about that and build our own agents? That's where all
+the services in Fabric and Foundry, and of course, the GitHub tooling is helping them, or even the
+low-code, no-code tools. I had some stats on how much that's being used. But one of the more
+exciting things for me is these new agents, systems, M365 Copilot, GitHub Copilot, Security
+Copilot, all coming together to compound the benefits of all the data and all the deployment, I
+think, is probably the most transformative effect right now.
+Q - Brad Zelnick {BIO 16211883 <GO>}
+Thank you. Very helpful.
+A - Jonathan Neilson
+Thanks, Brad. Operator, we have time for one last question.
+Operator
+And the last question will come from the line of Raimo Lenschow with Barclays. Please proceed.

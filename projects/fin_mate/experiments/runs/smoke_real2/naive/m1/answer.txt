@@ -1,0 +1,5 @@
+當Azure供應受限時，Microsoft力推E7加價式upsell，可能基於以下原因：  
+1. **AI驅動的應用層戰略**：E7 SKU整合了M365 Copilot、Agent 365等AI功能，重點開發高邊際的應用層機會，以彌補Azure供應受限時的收入增長。管理層認為，應用層是AI盈利的關鍵領域，且目前尚未完全釋放價值，因此寧可犧牲部分Azure收入，也要推動上層軟件的 adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop, 20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+2. **高毛利訂閱模式**：E7 SKU定價更高（$99/用戶/月），帶來更高的毛利率。相比Azure的雲服務收入，上層軟件和AI功能的利潤率更可觀，有助於維持整體利潤水平【KB:20260205_Mizuho_Securities_MSFT_MSFT-_Good_O, 20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+3. **存量用戶轉化**：E7 SKU針對現有M365 E3/E5用戶（約1.5億席位），上拋售機會巨大（估計年收入1000億美元）。管理層認為，通過捆綁AI功能的高價SKU，可加速用戶升級，並提升ARPU（每用戶平均收入）【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+4. **GenAI戰略落地**：Agent 365和Copilot Wave 3等功能是Microsoft GenAI戰略的重要組成部分。E7 SKU的推出可加速這些AI產品的 adoption，鞏固其在企業級AI領域的領先地位，並為未來收入增長奠定基礎【KB:2026020

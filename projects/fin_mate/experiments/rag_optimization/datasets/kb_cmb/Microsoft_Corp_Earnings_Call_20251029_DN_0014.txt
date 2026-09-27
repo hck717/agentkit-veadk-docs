@@ -1,0 +1,14 @@
+In health, Dragon Copilot helps providers automate critical workflows. This quarter alone, we
+helped document over 17 million patient encounters up nearly 5x year-over-year. More than 650
+healthcare organizations have purchased our ambient listening tech to-date, including University
+of Michigan Health, where over 1,000 physicians are actively using it.
+Finally, when it comes to AI consumer experiences, we are excited about all the progress Copilot
+is making, starting with Windows. Every Windows 11 PC now is an AI PC. Just two weeks ago, we
+introduced new ways to speak naturally to your computer, including a Copilot wake word, with
+Vision, Copilot sees what you see on your screen, and you can have a real-time conversation
+about it. And with Action, it takes real action on your behalf, interacting with both web and
+desktop apps.
+In Edge, we are introducing first of its kind AI features to automate multi-step workflows within
+the browser and help you pick-up right where you left off. Edge now has taken share for 18
+consecutive quarters. In Bing, our overview pages now include embedded conversational
+capabilities.

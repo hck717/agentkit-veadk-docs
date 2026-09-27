@@ -1,0 +1,8 @@
+### 原因分析
+1. **戰略重心轉向高毛利應用層**：當Azure供應受限時，Microsoft優先將GPU資源分配給第一方應用程序的AI使用和R&D，以加速高毛利、重復訂閱的軟件機會上移。E7 SKU作為包含多種高價值服務（如M365 E5、Entra Suite、Agent 365、M365 Copilot）的捆綁方案，屬於應用層戰略的一部分，能夠帶來更高的利潤。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】【KB:20260212_China_Renaissance_Research_MSFT_Mic】
+2. **AI驅動的訂閱升級需求**：M365 Copilot、Agent 365等AI功能的 adoption 是企業數字轉型的關鍵，而E7 SKU將這些功能打包，降低了企業的採用門檻（相比單獨購買），同時帶來更高的ARPU（每用戶平均收入）。此外，近期M365價格上漲迫使企業在2H26進行談判，E7 SKU成為訂閱升級的催化劑。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】
+3. **安裝基數龐大， Upsell潛力可觀**：Microsoft擁有龐大的E3/E5安裝基數（約1.5億席位），E7 SKU將這些席位升級為高價套餐，帶來約1000億美元的年額外收入機會。供應受限時，通過捆綁銷售可以最大化利用現有客戶基礎，提升利潤貢獻。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】
+
+## 來源
+- <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>
+- <20260212_China_R

@@ -1,0 +1,8 @@
+MICROSOFT INTERNAL MEMO · CONFIDENTIAL
+Subject: E7 Copilot + Agent Suite · FY26 pilot program
+Date: 2026-03-18 | Origin: Enterprise Commercial Sales Ops
+1. Pilot scope: 250,000 M365 E7 seats across 40 enterprise accounts.
+2. List price $99/user/month; pilot discount 20% net 30 days.
+3. Datacenter: North Netherlands +1.2 GW capacity add in H1 FY27.
+4. Security review pending via Entra Suite rollout (see E7 SKU brief).
+Page scanned 2026-03-19 by CorpScan #0417

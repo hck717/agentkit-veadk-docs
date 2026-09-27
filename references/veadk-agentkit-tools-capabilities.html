@@ -1,0 +1,592 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>工具 / 能力</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>工具 / 能力</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-工具--能力參考--functions--mcp--a2a--skills">VeADK +
+AgentKit 工具 / 能力參考 — Functions / MCP / A2A / Skills</h1>
+<p>呢份文件講 Agent 點樣「攞到對外能力」——即係所謂嘅
+<strong>工具層</strong>。一個 agent 淨係識 chat 唔算
+agent：要係「隻手」得，先可以攞資料、執行操作、同人哋嘅系統同其他 agent
+協作。呢度由淺入深：先睇 <strong>Function calling / 內建
+tools</strong>（agent 自己嘅手），再睇
+<strong>MCP</strong>（標準化插頭，接外部 tool
+server）、<strong>A2A</strong>（agent 之間團隊分工）、同埋
+<strong>Skills</strong>（師傅手法：可複用指令/流程）。</p>
+<p>一句講晒：<strong>MCP = 標準插頭，A2A = 團隊分工，Skills =
+老師傅手法</strong>，夾埋先係真正嘅 agent 平台，唔係得個 chat。呢份配合
+<code>agentkit-cli.md</code>（mcp service / skill / sandbox
+指令）、<code>veadk-api.md</code>（Agent(tools=...) /
+MCPToolset）、<code>agentkit-sdk.md</code>（A2aApp / MCPApp）同
+<code>veadk-agentkit-ai-concepts.md</code> §9
+一齊睇；安全嗰層（guardrail / filter）淨係帶過，主要落喺安全 tab。</p>
+<hr />
+<h2 id="0-一句定位--快睇tools-vs-skills-vs-mcp-vs-a2a">0. 一句定位 +
+快睇（Tools vs Skills vs MCP vs A2A）</h2>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>係咩</th>
+<th>幾時用</th>
+<th>例子（BytePlus/Volcengine）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Function calling / Tools</strong></td>
+<td>Agent 直接 call 嘅可執行函式（內建或自訂）</td>
+<td>單一私有函數、agent 自己嘅手</td>
+<td>VeADK
+<code>web_search</code>、<code>run_code</code>；<code>@agent.tool</code>
+自訂</td>
+</tr>
+<tr>
+<td><strong>MCP（Model Context Protocol）</strong></td>
+<td><strong>標準化工具接口</strong>，接外部 tool server</td>
+<td>接入第三方 / 內部現成工具、跨 agent 重用</td>
+<td><code>MCPToolset</code> 接入；<code>agentkit mcp service</code></td>
+</tr>
+<tr>
+<td><strong>A2A（Agent-to-Agent）</strong></td>
+<td>Agent 之間嘅通訊協議</td>
+<td>多 agent 分工、pipeline / 平行任務</td>
+<td>Invoice Pipeline 五 agent、Movie Generator</td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>預包裝指令/流程 bundle（唔淨係函式）</td>
+<td>跨 agent 共用嘅工作流程 / 語氣 / 格式</td>
+<td><code>agentkit skill</code>、<code>agentkit onboard</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>記法</strong>：Tools 係「單手動作」，MCP
+係「標準插頭」，A2A 係「成隊人」，Skills
+係「師傅嘅手法」。四樣唔係互相取代，係<strong>層層疊</strong>。</p>
+</blockquote>
+<hr />
+<h2 id="1-function-calling--內建-tools--agent-隻手">1. Function Calling
+/ 內建 Tools — Agent 隻手</h2>
+<h3 id="11-概念">1.1 概念</h3>
+<p>Function calling = Model 喺生成過程中出 JSON tool
+call，由框架執行函式、將結果塞返 context 再繼續生成。呢個係
+agent「識做嘢」嘅最底層機制，同一個 model 喺 VeADK 就係
+<code>Agent(tools=[...])</code>。</p>
+<h3 id="12-built-in-tools-一覽">1.2 Built-in tools 一覽</h3>
+<p>VeADK 內建咗成批工具，唔使自己寫 API 整合：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>做咩</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>web_search</code></td>
+<td>網頁搜尋</td>
+<td>Agent 要最新資訊 / 外部資料</td>
+</tr>
+<tr>
+<td><code>web_fetch</code></td>
+<td>攞指定 URL 嘅網頁內容</td>
+<td>有明確網址要讀內容</td>
+</tr>
+<tr>
+<td><code>document_compressor</code></td>
+<td>壓縮長文檔先入 context</td>
+<td>文件太長、慳 token</td>
+</tr>
+<tr>
+<td><code>run_code</code> / <code>run_python</code></td>
+<td>沙箱執行 Python 代碼</td>
+<td>計數、分析、處理檔案</td>
+</tr>
+<tr>
+<td><code>image_generation</code></td>
+<td>用 <strong>Seedream</strong> 生圖</td>
+<td>角色參考圖、mood board（~100 AFP/img）· 詳情 → seedream tab</td>
+</tr>
+<tr>
+<td><code>video_generation</code></td>
+<td>用 <strong>Seedance</strong> 生片</td>
+<td>每個 scene 一條 clip（~2,000 AFP/clip）· 詳情 → seedance tab</td>
+</tr>
+<tr>
+<td><code>document_understanding</code></td>
+<td>文檔理解（PDF/掃描件）</td>
+<td>契約、發票、長文件抽取</td>
+</tr>
+<tr>
+<td>TTS / ASR</td>
+<td>火山語音（合成 / 識別）</td>
+<td>語音入出、配音</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-自訂-function-tool">1.3 自訂 Function Tool</h3>
+<pre class="python"><code>import asyncio
+from google.adk.tools.tool_context import ToolContext
+from veadk import Agent, Runner
+
+def calculator(a: float, b: float, operation: str) -&gt; dict:
+    &quot;&quot;&quot;簡單計算器
+    Args:
+        a: 第一個數字
+        b: 第二個數字
+        operation: add / subtract / multiply / divide
+    &quot;&quot;&quot;
+    if operation == &quot;add&quot;:
+        return {&quot;result&quot;: a + b, &quot;status&quot;: &quot;success&quot;}
+    return {&quot;status&quot;: &quot;error&quot;, &quot;message&quot;: f&quot;唔支援嘅運算: {operation}&quot;}
+
+agent = Agent(
+    name=&quot;computing_agent&quot;,
+    instruction=&quot;用 calculator 工具做用戶要求嘅運算。&quot;,
+    tools=[calculator],
+)
+response = asyncio.run(Runner(agent=agent).run(&quot;2 加 3 等於幾？&quot;))</code></pre>
+<blockquote>
+<p>✅ <strong>Docstring 最重要</strong>：Model 靠 function name +
+docstring 決定幾時 call、傳咩參數，所以 <code>Args:</code>
+一定要寫得清。</p>
+</blockquote>
+<h3 id="14-toolcontext--longrunningfunctiontool">1.4 ToolContext +
+LongRunningFunctionTool</h3>
+<p><code>ToolContext</code> 提供共享狀態畀工具之間傳嘢（例如計 call
+次數、記 user_id）；長任務就包一層
+<strong>LongRunningFunctionTool</strong>，即刻回 <code>pending</code> +
+<code>task-id</code>，由框架異步追蹤，唔使阻塞成條 thread：</p>
+<pre class="python"><code>from google.adk.tools.tool_context import ToolContext
+from google.adk.tools.long_running_tool import LongRunningFunctionTool
+
+def message_checker(user_message: str, tool_context: ToolContext) -&gt; str:
+    count = tool_context.state.get(&quot;message_checker_calls&quot;, 0) + 1
+    tool_context.state[&quot;message_checker_calls&quot;] = count
+    return f&quot;Checked: {user_message.upper()} (call {count})&quot;
+
+def big_data_processing(data_url: str) -&gt; dict:
+    return {&quot;status&quot;: &quot;pending&quot;, &quot;data-url&quot;: data_url, &quot;task-id&quot;: &quot;big-data-1&quot;}
+
+agent = Agent(name=&quot;hybrid_agent&quot;,
+              tools=[message_checker, LongRunningFunctionTool(func=big_data_processing)])</code></pre>
+<blockquote>
+<p>🎯 幾時用 built-in，幾時自訂？「攞最新資料」→
+<code>web_search</code>；「計數/處理」→ <code>run_code</code>；「有現成
+API」→ 自訂 function tool 或 MCP（§2）。</p>
+</blockquote>
+<hr />
+<h2 id="2-mcpmodel-context-protocol深入版">2. MCP（Model Context
+Protocol）深入版</h2>
+<h3 id="21-mcp-係咩解決咩問題">2.1 MCP 係咩、解決咩問題</h3>
+<p>MCP = Model Context
+Protocol，<strong>開放標準工具協議</strong>（JSON-RPC 2.0）。冇 MCP
+之前，每個 tool 都係自家協議，CRM / Slack / DB 各自寫一個
+integration，接得越多越係地獄；MCP 將「工具 = 一個 server 暴露
+tools/resources/prompts」變成標準，<strong>一次接入、任何 MCP client
+都用得</strong>（2024+ 業界事實標準）。</p>
+<h3 id="22-三種-transport">2.2 三種 Transport</h3>
+<table>
+<thead>
+<tr>
+<th>Transport</th>
+<th>通道</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>stdio</strong></td>
+<td>本地 process，透過 stdin/stdout 通訊</td>
+<td>本地開發、同機 sidecar</td>
+</tr>
+<tr>
+<td><strong>SSE（Server-Sent Events）</strong></td>
+<td>HTTP 事件流</td>
+<td>舊款遠端 MCP（逐步淘汰）</td>
+</tr>
+<tr>
+<td><strong>HTTP（Streamable HTTP）</strong></td>
+<td>現代遠端 MCP 標準</td>
+<td><strong>公網 / 生產主流</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="23-client-vs-server邊個係邊個">2.3 Client vs
+Server（邊個係邊個）</h3>
+<pre><code>Agent（MCP client） ←── JSON-RPC 2.0 ──→ MCP server（工具 / 資源 / prompts）</code></pre>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>做咩</th>
+<th>喺 stack 邊度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MCP client</strong></td>
+<td>Agent 側接入外部 server，攞 tools 入 context</td>
+<td>VeADK <code>MCPToolset</code>；<code>AgentkitMCPApp</code></td>
+</tr>
+<tr>
+<td><strong>MCP server</strong></td>
+<td>開放自己嘅工具俾人駁</td>
+<td><code>agentkit mcp service</code> 部署嘅鏡像</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-接入例子veadk">2.4 接入例子（VeADK）</h3>
+<pre class="python"><code>from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StreamableHTTPConnectionParams
+from veadk import Agent
+
+mcp_toolset = MCPToolset(
+    connection_params=StreamableHTTPConnectionParams(
+        url=&quot;https://your-mcp-service.com/mcp&quot;,
+        headers={&quot;Authorization&quot;: &quot;Bearer &lt;token&gt;&quot;},
+    ),
+)
+agent = Agent(name=&quot;mcp_agent&quot;, tools=[mcp_toolset])</code></pre>
+<p>AgentKit SDK 仲有 <code>AgentkitMCPApp</code> — MCP service 一鍵變
+Agent，配合 <code>@mcp_app.tool</code> /
+<code>@mcp_app.agent_as_a_tool</code>（連子 agent 都可以當 tool）。</p>
+<h3 id="25-agentkit-cli--自己開-mcp-server">2.5 AgentKit CLI — 自己開
+MCP Server</h3>
+<pre class="bash"><code># 公網 + API Key
+agentkit mcp service create \
+  --name customer-tools \
+  --image-url cr-cn-beijing.volces.com/agentkit/customer-tools:latest \
+  --inbound-api-key-name primary-key \
+  --env LOG_LEVEL=INFO
+
+# 私網（internal VPC，唔出公網）
+agentkit mcp service create --name internal-tools \
+  --image-url cr-cn-beijing.volces.com/agentkit/internal-tools:latest \
+  --network private --vpc-id vpc-xxxxx --subnet-id subnet-xxxxx
+
+# 自訂 JWT 認證
+agentkit mcp service create --name jwt-protected-tools \
+  --image-url cr-cn-beijing.volces.com/agentkit/jwt-tools:latest \
+  --inbound-auth custom-jwt --inbound-discovery-url https://... --inbound-allowed-client web-client
+
+agentkit mcp service list / show customer-tools / delete customer-tools
+agentkit add tool ...          # 將某個 tool 綁定到 agent / harness</code></pre>
+<h3 id="26-安全深探喺安全-tab">2.6 安全（深探喺安全 tab）</h3>
+<table>
+<thead>
+<tr>
+<th>風險</th>
+<th>防護</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MCP server 認證</td>
+<td>AK-SK / OAuth2 / JWT（<code>--inbound-auth</code>）</td>
+</tr>
+<tr>
+<td>憑證注入</td>
+<td>Agent Identity 托管 + 自動輪換，<strong>唔入 repo</strong></td>
+</tr>
+<tr>
+<td>過度授權</td>
+<td>最小權限：每個 agent 只掛要用嘅 tools（toolset）</td>
+</tr>
+<tr>
+<td>入參 / 返回</td>
+<td><code>content_safety</code> Before/After Tool（見 §5）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Remote MCP 好處</strong>：tools 唔使同 agent 同一部
+server——agent 喺任何地方跑，都 call 同一個 MCP endpoint。但公開 endpoint
+就一定要有認證，唔好裸奔。</p>
+</blockquote>
+<hr />
+<h2 id="3-a2aagent-to-agent-多-agent-協作">3. A2A（Agent-to-Agent）— 多
+Agent 協作</h2>
+<h3 id="31-a2a-係咩同-mcp-分別">3.1 A2A 係咩、同 MCP 分別</h3>
+<p>A2A（Agent2Agent，Google DeepMind 主導嘅開放協議）係** agent ↔︎
+agent** 嘅通訊，配合 <strong>agent registry</strong> 做服務發現。同 MCP
+嘅分野一條線講清：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>MCP</strong></th>
+<th><strong>A2A</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>關係</td>
+<td><strong>Agent → tool</strong>（我 call 你嘅工具）</td>
+<td><strong>Agent → Agent</strong>（我俾成個任務你）</td>
+</tr>
+<tr>
+<td>粒度</td>
+<td>單一 function</td>
+<td>成個 agent / 專責任務</td>
+</tr>
+<tr>
+<td>編排</td>
+<td>無</td>
+<td>Registry + pipeline / parallel</td>
+</tr>
+<tr>
+<td>例子</td>
+<td>MCPToolset 接 CRM</td>
+<td>Invoice Pipeline OCR → 翻譯 → 驗證</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-喺-stack-點落地">3.2 喺 stack 點落地</h3>
+<p>CLI 用 harness 加 A2A registry；SDK 用 <code>AgentkitA2aApp</code> 將
+agent 包成 A2A service：</p>
+<pre class="bash"><code># 加 A2A Registry（top-k 檢索 agent）
+agentkit add harness --name my-harness --registry-space-id as-xxx --registry-top-k 3
+
+# 註冊已部署 harness 到 A2A（public / private）
+agentkit add harness --name my-harness \
+  --register-self --register-space-id as-xxx --register-network-type public</code></pre>
+<pre class="python"><code>from agentkit.a2a_app import AgentkitA2aApp
+
+a2a_app = AgentkitA2aApp(name=&quot;ocr_agent&quot;, model_name=&quot;seed-2-0-lite-260228&quot;)
+
+@a2a_app.agent_executor(name=&quot;ocr_agent&quot;)
+async def ocr_flow(image_data: dict) -&gt; dict:
+    raw = await ocr_agent.run_async(messages=image_data[&quot;base64&quot;])
+    return await call_a2a_agent(&quot;translation-agent&quot;, raw)   # 再 call 下一隻</code></pre>
+<h3 id="33-project-例子見-projects-目錄">3.3 Project 例子（見 projects
+目錄）</h3>
+<table>
+<thead>
+<tr>
+<th>Project</th>
+<th>Pipeline</th>
+<th>點解用 A2A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Invoice Pipeline</strong></td>
+<td>OCR → 翻譯 → 驗證 → 匯總 → HITL 審批</td>
+<td>每個 agent 獨立 deploy / 獨立 eval；驗證 agent 可 loopback 叫 OCR
+重讀</td>
+</tr>
+<tr>
+<td><strong>Movie Generator</strong></td>
+<td>研究 → 劇本 → 分鏡 → 每 scene 生片 → 合併</td>
+<td>Agent4（video gen）<strong>平行</strong>生成 N 條 clip，橫向
+scale</td>
+</tr>
+</tbody>
+</table>
+<h3 id="34-同步調用--並行performance-參考">3.4 同步調用 +
+並行（performance 參考）</h3>
+<pre class="python"><code>import asyncio
+
+storyboard = await storyboard_agent.run_async(messages=script)
+
+# 平行：N 個 scene 同時 call video-gen agent
+tasks = [
+    call_a2a_agent(f&quot;video-gen-agent-{i % NUM_INSTANCES}&quot;, scene)
+    for i, scene in enumerate(storyboard[&quot;scenes&quot;])
+]
+clip_results = await asyncio.gather(*tasks)</code></pre>
+<hr />
+<h2 id="4-skills--複用-prompt-工程">4. Skills — 複用 Prompt 工程</h2>
+<h3 id="41-skill-係咩">4.1 Skill 係咩</h3>
+<p><strong>Skills</strong> = 預包裝嘅「指令 /
+流程」bundle：唔淨係一個函式，而係成段 instructions + 可選工具 +
+檔案模板，畀其他 agent 攞去用。AgentKit 用 <code>agentkit skill</code>
+管理（見 README / <code>agentkit-cli.md</code> §Skills）：</p>
+<pre class="bash"><code>agentkit skill list / show sk-xxxxxxxx / versions sk-xxxxxxxx
+agentkit skill spaces            # 技能空間
+agentkit onboard                 # 安裝內置技能包</code></pre>
+<h3 id="42-skills-vs-tools">4.2 Skills vs Tools</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Tools</strong></th>
+<th><strong>Skills</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本質</td>
+<td>可執行函式（做嘢）</td>
+<td>指令 / 流程（點做）</td>
+</tr>
+<tr>
+<td>載體</td>
+<td>Code / API call</td>
+<td>Instructions + 模板 + 可選 tools</td>
+</tr>
+<tr>
+<td>複用單位</td>
+<td>一次 call</td>
+<td>成個工作流程</td>
+</tr>
+<tr>
+<td>例子</td>
+<td><code>web_search</code></td>
+<td>「寫定期報告」嘅成套路數</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43-例子">4.3 例子</h3>
+<ul>
+<li><strong>定期報告 skill</strong>：包「格式 + 每週 summary 步驟 +
+用邊啲 data source」，任何 agent 收到報告任務即套用。</li>
+<li><strong>客服語氣 skill</strong>：包「語氣規則 + 唔講啲咩 +
+返工時間話術」，所有客服 agent 共享同一人設。</li>
+</ul>
+<blockquote>
+<p>🎯 揀錯嘅訊號：同一個 workflow 喺幾隻 agent 度 copy-and-paste
+咗第三次——嗰陣就應該抽做 skill。</p>
+</blockquote>
+<hr />
+<h2 id="5-guardrail--input-output-filter工具層要知道嘅安全">5. Guardrail
+/ Input-Output Filter（工具層要知道嘅安全）</h2>
+<p>呢度淨係帶過：<strong>Guardrail</strong>（攔有害 / 敏感內容，火山
+LLM-FW 四點 Before/After Model + Before/After Tool）同
+<strong>Filter</strong>（清潔 input/output、PII
+masking）係安全範疇嘅嘢，同工具層最密切嗰個位係 <strong>Before/After
+Tool</strong>——工具 call 前 check 入參、工具返回後 scrub PII。</p>
+<blockquote>
+<p>⚠️ 工具係 agent 唯一「對外出手」嘅位，所以 guardrail
+四點入面，<strong>Before/After Tool</strong>
+就係工具層直接安全控制。詳細內容（LLM-FW
+categories、過濾機制、授權輪換）睇
+<code>veadk-agentkit-rbac-observability.md</code>（安全 tab）。</p>
+</blockquote>
+<hr />
+<h2 id="6-揀工具嘅決策樹--sales-一句">6. 揀工具嘅決策樹 + Sales
+一句</h2>
+<pre><code>要外部能力？
+├─ 又要 language model 生成 → 直接用 agent（唔使 tool）
+├─ 要攞資料/執行操作（DB/API/網頁）→ function tool（veadk Agent(tools=...)）
+├─ 已有現成工具 server（第三方/內部）→ MCP client 接入
+├─ 要俾其他人/agent 用自己嘅能力 → MCP server 或 A2A registry
+└─ 要另一隻 agent 完成專責任務 → A2A</code></pre>
+<table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>用</th>
+<th>詳見</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>攞最新資訊 / 計數 / 生圖生片</td>
+<td>Built-in tools（<code>web_search</code> / <code>run_code</code> /
+seedream / seedance）</td>
+<td>§1</td>
+</tr>
+<tr>
+<td>單一私有函數</td>
+<td>自訂 function tool</td>
+<td>§1.3</td>
+</tr>
+<tr>
+<td>長任務唔想 block</td>
+<td><code>LongRunningFunctionTool</code></td>
+<td>§1.4</td>
+</tr>
+<tr>
+<td>接外部 / 內部現成工具</td>
+<td>MCP client（<code>MCPToolset</code> /
+<code>AgentkitMCPApp</code>）</td>
+<td>§2</td>
+</tr>
+<tr>
+<td>開放自己工具俾人</td>
+<td><code>agentkit mcp service</code></td>
+<td>§2.5</td>
+</tr>
+<tr>
+<td>多 agent 分工 / 平行</td>
+<td>A2A（<code>AgentkitA2aApp</code> + registry）</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>重複 workflow 複用</td>
+<td>Skills（<code>agentkit skill</code>）</td>
+<td>§4</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「Agent 嘅價值喺『隻手』——MCP
+係標準插頭，A2A 係團隊分工，Skills 係老師傅手法。三樣夾埋先係真正嘅
+agent 平台，唔係得個 chat。」</p>
+</blockquote>
+<hr />
+<h2 id="7-資料來源">7. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VeADK API 參考（Tools / MCP Toolset / ToolContext /
+LongRunningFunctionTool / built-in tools）</td>
+<td><code>references/veadk-api.md</code></td>
+<td>2026-07-30</td>
+</tr>
+<tr>
+<td>AgentKit SDK 參考（A2aApp / A2aAgent / Tool / MCPApp /
+agent_as_a_tool）</td>
+<td><code>references/agentkit-sdk.md</code></td>
+<td>2026-07-30</td>
+</tr>
+<tr>
+<td>AgentKit CLI 指令大全（mcp service / skills / sandbox）</td>
+<td><code>references/agentkit-cli.md</code></td>
+<td>2026-07-31</td>
+</tr>
+<tr>
+<td>AI 概念百科 §9（MCP / Tools / Skills 概念）</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code></td>
+<td>2026-08-17</td>
+</tr>
+<tr>
+<td>MCP 規範官方</td>
+<td><a
+href="https://modelcontextprotocol.io">https://modelcontextprotocol.io</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>A2A Protocol 官方（Google DeepMind）</td>
+<td><a href="https://a2a-protocol.org">https://a2a-protocol.org</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus AgentKit 官方</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-agentkit">https://www.byteplus.com/solutions/ai-cloud-native-agentkit</a></td>
+<td>頁面日</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：MCP transport（stdio / SSE / HTTP）、A2A
+registry、built-in tools 清單以各官方文檔同當刻 SDK 版本為準；spec
+常改，引用前 refetch。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · 工具清單 / MCP / A2A
+規格常常郁，引用前 refetch。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

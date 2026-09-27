@@ -1,0 +1,558 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TrainingKit 訓練套件</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>TrainingKit 訓練套件</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="byteplus-trainingkit-解構--企業級模型訓練套件prepost-training">BytePlus
+TrainingKit 解構 — 企業級模型訓練套件（pre/post-training）</h1>
+<p>BytePlus 嘅成個 AI 方案除咗<strong>跑
+agent</strong>，仲有一條線係<strong>訓練模型</strong>——如果你個
+enterprise client
+唔係淨係「用」現成模型，而係想<strong>自己由零起個私有模型</strong>（pre-training），或者<strong>力谷一輪強化學習
+/ RL（post-training）嚟調出自家 reasoning 能力</strong>，就要用遊嘅呢套
+<strong>AI Cloud Native TrainingKit</strong>。</p>
+<p>呢份文件係講俾 sales engineer 聽：<strong>TrainingKit
+到底管咩、點行、同 AgentKit / ServingKit
+點分工、幾時先真正要用到佢</strong>。定位為「<strong>精調 / 優化 + 訓練
+tab</strong>」入面嘅 sub-page——喺方舟精調 /
+LoRA（<code>veadk-agentkit-finetune-optimize.md</code>）之上，再講到<strong>大規模訓練基建</strong>（pre-training
++ post-training / RL）。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>TrainingKit 唔係畀你「精調一隻 LoRA」</strong>——精調（LoRA /
+SFT / DPO）走火山方舟模型精調，幾張卡就搞掂；TrainingKit
+係<strong>萬卡級 GPU cluster + 訓練框架 +
+穩定基建</strong>嘅成套訓練方案。</li>
+<li>三條 Kit 分工：<strong>AgentKit</strong> 管「部署同運行
+agent」，<strong>ServingKit</strong> 管「推理
+serving」，<strong>TrainingKit</strong> 管「訓練」。訓練完嘅 checkpoint
+→ 服務去 ServingKit / 方舟 → AgentKit 掛去用，一條龍。</li>
+<li>賣點係三句大數：<strong>MFU &gt; 60%</strong>、<strong>ETTR &gt;
+99%</strong>、<strong>20× RL
+throughput</strong>——記住呢三粒數就可以開場。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-trainingkit-係咩--一句--同-agentkit--servingkit-關係">0.
+TrainingKit 係咩 — 一句 + 同 AgentKit / ServingKit 關係</h2>
+<p><strong>一句講晒</strong>：TrainingKit 係建基於 ByteDance 大規模 AI
+基建同 LLM 訓練經驗嘅 <strong>AI Cloud Native 訓練套件</strong>——用嚟喺
+BytePlus GPU 集群度高效開發模型，幫你<strong>慳資源、快迭代</strong>，由
+pre-training 到 RL post-training 都有齊。</p>
+<p>BytePlus 嘅三套「AI Cloud Native」kit 各管一段 lifecycle：</p>
+<table>
+<thead>
+<tr>
+<th>Kit</th>
+<th>管咩</th>
+<th>主要客群</th>
+<th>對應呢個 repo 嘅參考 doc</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AgentKit</strong></td>
+<td>Agent 平台（runtime / tools / MCP / 記憶 / 可觀測）</td>
+<td>整 agent 應用嘅 developer</td>
+<td><code>references/agentkit-cli.md</code>、<code>veadk-agentkit-sdk.md</code></td>
+</tr>
+<tr>
+<td><strong>ServingKit</strong></td>
+<td>推理 serving（模型上線、QPS、延遲）</td>
+<td>將模型行到生產嘅團隊</td>
+<td><code>references/veadk-agentkit-serving-kit.md</code></td>
+</tr>
+<tr>
+<td><strong>TrainingKit</strong></td>
+<td>模型訓練（pre-training + post-training / RL）</td>
+<td>ML infra / 大模型團隊</td>
+<td><strong>呢份</strong>
+<code>veadk-agentkit-training-kit.md</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「AgentKit 買返嚟嘅係『agent
+行得順』，TrainingKit 買返嚟嘅係『個模型練得出』——兩個客戶名都係 LLM
+團隊，但錢袋唔同。」</p>
+</blockquote>
+<hr />
+<h2 id="1-三條大數mfu--ettr--20-rl">1. 三條大數（MFU / ETTR / 20×
+RL）</h2>
+<p>TrainingKit
+嘅官方主打數據就係呢三粒，<strong>開場先報呢三粒先啱數</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>數字</th>
+<th>即係咩</th>
+<th>點解對客戶重要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MFU</strong>（Model FLOPs Utilization）</td>
+<td><strong>&gt; 60%</strong></td>
+<td>GPU 嘅理論計算力有幾多用咗喺真訓練度</td>
+<td>高 MFU = 你張卡冇「嘅—半時間吹水」，同樣資源練得快啲、慳錢</td>
+</tr>
+<tr>
+<td><strong>ETTR</strong>（Effective Training Time Ratio）</td>
+<td><strong>&gt; 99%</strong></td>
+<td>計劃訓練時間入面幾多有成效行緊（vs 等重啟 / 等診斷）</td>
+<td>99%+ = 幾乎唔使停工，萬卡級跑 30 日都唔會呃你時間</td>
+</tr>
+<tr>
+<td><strong>RL throughput（veRL HybridEngine）</strong></td>
+<td><strong>20×</strong></td>
+<td>用 veRL HybridEngine 做 RL 訓練嘅吞吐，vs 其他開源框架</td>
+<td>RL（尤其 GRPO）最燒錢又最慢，快 20× = 同一預算可以試多好多輪</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>Sales
+角度</strong>：呢三粒數堆埋，客戶聽落係「<strong>快、穩、慳</strong>」——MFU
+講「慳卡」，ETTR 講「唔使 Band-Aid 人手救」，20× 講「RL
+你哋以前做唔起嘅，而家做得起」。對比其他雲廠，訓練集群通常淨係賣「你有幾多張
+H 卡」，冇人敢報 MFU / ETTR——呢啲先係差異位。</p>
+</blockquote>
+<hr />
+<h2 id="2-兩大架構pre-training-vs-post-training">2.
+兩大架構：Pre-Training vs Post-Training</h2>
+<p>TrainingKit
+對應兩條完全唔同嘅架構題——<strong>先搞清楚客戶係想「由零起機」定係「喺基模上力谷
+RL」</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>維度</th>
+<th><strong>Pre-Training</strong>（由零起私有模型）</th>
+<th><strong>Post-Training / RL</strong>（喺基模上調）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>做咩</td>
+<td>由大規模語料由零訓練 / 大規模持續預訓練</td>
+<td>用 RL 算法（PPO / GRPO 等）將模型調到識推理、跟指令</td>
+</tr>
+<tr>
+<td>規模</td>
+<td><strong>10,000 節點</strong>級 AI 集群</td>
+<td>百萬核並發（CPU 都要多，因為 rollout 燒 CPU）</td>
+</tr>
+<tr>
+<td>主要硬件</td>
+<td>大量 GPU + <strong>PFS 並行文件存儲</strong>（餵高吞吐數據）</td>
+<td>GPU（訓練/推理）+ <strong>彈性 Sandbox</strong> 環境 + 推理加速</td>
+</tr>
+<tr>
+<td>通信</td>
+<td><strong>veCCL</strong> 通信加速</td>
+<td>veCCL + 彈性 sandbox（唔使自行開滿成批機器）</td>
+</tr>
+<tr>
+<td>CLI 關鍵</td>
+<td>穩定運行 + 故障自愈</td>
+<td>冷啟動快 + rolling 並發高</td>
+</tr>
+<tr>
+<td>對應落地速度</td>
+<td>慢（月計）、燒錢最狠</td>
+<td>快啲（週計）、機會成本係 reward 設計</td>
+</tr>
+</tbody>
+</table>
+<p><strong>每種要咩硬件 / 存儲（重點）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>架構</th>
+<th>GPU</th>
+<th>存儲</th>
+<th>通信</th>
+<th>其他關鍵件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pre-Training</td>
+<td>萬卡 GPU 集群（GPU Compute Service）</td>
+<td><strong>PFS（Parallel File Storage）</strong>
+高吞吐並行文件系統</td>
+<td>veCCL（訓練專用集合通信）</td>
+<td>一鍵診斷 + 自主癒合；VKE 編排</td>
+</tr>
+<tr>
+<td>Post-Training（RL）</td>
+<td>GPU for training + inference；<strong>百萬核</strong>多核並發</td>
+<td>相對細（checkpoint 為主）</td>
+<td>veCCL + <strong>模型快取 / caching</strong></td>
+<td><strong>彈性 Sandbox</strong>：150ms 冷啟動，seek torn 唔使長佔
+GPU</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>分清兩條線嘅價值主張</strong>：Pre-Training
+賣「你買得起萬卡 + 唔會日日斷」，Post-Training 賣「RL rollout 快 +
+冷啟動平」——唔好串錯。諗住「我淨係想試 RL」就硬推 10k node
+cluster，客戶會當你冇做功課。</p>
+</blockquote>
+<hr />
+<h2 id="3-verl-框架深入ppo--grpo--hybridengine--sandbox">3. veRL
+框架深入（PPO / GRPO / HybridEngine / Sandbox）</h2>
+<p>TrainingKit 嘅 post-training 心臟係 <strong>veRL</strong>——ByteDance
+自家開源 RL 框架（同 BytePlus 官方整合），支援大量 RL 算法同多套訓練 /
+推理框架。</p>
+<table>
+<thead>
+<tr>
+<th>veRL 元件</th>
+<th>作用</th>
+<th>客戶見到咩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PPO</strong></td>
+<td>經典 RL，用 critic 模型估 value</td>
+<td>通用 RL 對齊</td>
+</tr>
+<tr>
+<td><strong>GRPO</strong></td>
+<td>唔使 critic，用 group 「好/trace 壞」比對估算 reward</td>
+<td><strong>推理（reasoning）主力</strong>——目前 best practice</td>
+</tr>
+<tr>
+<td><strong>HybridEngine</strong></td>
+<td>混合多個訓練/推理框架加速 RL 循環</td>
+<td><strong>吞吐 20×</strong>（vs 其他開源框架）</td>
+</tr>
+<tr>
+<td><strong>Sandbox（Code Sandbox）</strong></td>
+<td>彈性、加速嘅執行環境，畀 agent 喺 RL 中間跑碼 / rollout</td>
+<td>百萬核並發 + <strong>150ms 冷啟動</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GRPO 用喺邊——同 SFT / DPO 嘅分別：</strong></p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>數據類型</th>
+<th>優化緊咩</th>
+<th>TrainingKit 角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SFT</strong></td>
+<td>標好嘅「問題→答案」</td>
+<td>直接抄模型格式 / 風格</td>
+<td>唔特別需要（方舟精調已夠，見精調 doc §2）</td>
+</tr>
+<tr>
+<td><strong>DPO</strong></td>
+<td>好 / 壞回覆配對</td>
+<td>揀優，方向對但冇「分數」</td>
+<td>方舟精調已支援 LoRA/全量</td>
+</tr>
+<tr>
+<td><strong>GRPO / RL</strong></td>
+<td><strong>Rule-based
+reward</strong>（例：答案啱唔啱、格式啱唔啱）</td>
+<td>用「分數」夾硬去優化，將 chain-of-thought 拉長</td>
+<td><strong>TrainingKit 主場</strong>——reasoning 模型就係咁練出嚟</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>🎯 <strong>對客戶講</strong>：而家啲 reasoning 模型（包括 doubao-seed
+系列自家嘅推理能力）<strong>唔係 SFT 調出嚟，係 RL（GRPO 行 rule-based
+reward）「練」出嚟</strong>——畀一分就知錯，繼續嗌佢諗深啲。SFT
+教「口脗」，RL 教「諗嘢」，兩者唔同層次。</p>
+</blockquote>
+<blockquote>
+<p>✅ <strong>同精調 doc 嘅分工</strong>：想做 LoRA / DPO 細執 →
+<code>veadk-agentkit-finetune-optimize.md</code>；想做完整 RL
+post-training（成千萬次 rollout、要 running infra + sandbox）→ 先會掂到
+TrainingKit。精調 doc 嘅精調方法矩陣（SFT / DPO /
+GRPO）就係「細都喺方舟做」同「大先上 TrainingKit」嘅分界線。</p>
+</blockquote>
+<hr />
+<h2 id="4-訓練集群硬件--通信gpu--veccl--bcc--caching--pfs--10k-nodes">4.
+訓練集群硬件 + 通信（GPU / veCCL / BCC / caching / PFS / 10k
+nodes）</h2>
+<p>訓練同推理係兩嚿嘢——推理重低延遲、單卡都得；<strong>訓練重吞吐同「唔好斷」</strong>，分別由呢幾樣構成：</p>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>元件</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算力</td>
+<td><strong>GPU Compute Service</strong>（GPU 集群）</td>
+<td>專為訓練優化嘅 GPU 集群，Pre-Training 可到 <strong>10,000
+節點</strong></td>
+</tr>
+<tr>
+<td>編排</td>
+<td><strong>Vital Kubernetes Engine（VKE）</strong></td>
+<td>容器編排，配合 KEDA 做彈性伸縮</td>
+</tr>
+<tr>
+<td>數據</td>
+<td><strong>PFS（Parallel File Storage）</strong></td>
+<td>並行文件存儲，餵得飽萬卡同時讀數據</td>
+</tr>
+<tr>
+<td>通信</td>
+<td><strong>veCCL</strong></td>
+<td>自家集合通信庫，optimize 大規模 all-reduce（官方有 high-performance
+通信 best practice）</td>
+</tr>
+<tr>
+<td>通信</td>
+<td><strong>BCC / 模型 caching</strong></td>
+<td>BCC（ByteDance 自家通信相關加速）+ 模型快取，RL
+運算中間慳重覆傳輸</td>
+</tr>
+<tr>
+<td>調度</td>
+<td><strong>topology-aware + NUMA affinity</strong></td>
+<td>安排任務時考慮機櫃拓樸同 NUMA，減少跨節點通信</td>
+</tr>
+<tr>
+<td>彈性</td>
+<td>KEDA</td>
+<td>按負載自動伸縮 workload</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Sales
+必讀</strong>：萬卡級訓練最大敵人係<strong>通信</strong>，唔係算力——GPU
+數多到某個位，卡與卡之間嘅 all-reduce 慢過你「停住等佢」，MFU
+即刻跌。BytePlus 嘅賣點係<strong>自家 veCCL / BCC / caching
+疊埋</strong>，先做到 MFU &gt; 60% 呢個級數（一般開源棧 30–50%
+已經偷笑）。</p>
+</blockquote>
+<hr />
+<h2
+id="5-穩定性--可觀測性ettr-99--auto-healing--code-free-instrumentation--全鏈路">5.
+穩定性 / 可觀測性（ETTR 99%+ / auto-healing / code-free instrumentation
+/ 全鏈路）</h2>
+<p>萬卡訓練晒幾十日，<strong>最貴嘅嘢係「中斷」</strong>——TrainingKit
+嘅穩定性賣點全部為咗保住 ETTR 99%+：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>做咩</th>
+<th>客戶價值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>診斷 + 即時故障告警</td>
+<td>開機 / 運行期間自動偵測硬件 / 網絡異常</td>
+<td>未斷先知</td>
+</tr>
+<tr>
+<td><strong>Auto-healing / 自主癒合</strong></td>
+<td>壞咗自動替補、自動重啟任務</td>
+<td>ETTR 99%+ 嘅來源</td>
+</tr>
+<tr>
+<td>自動任務重啟</td>
+<td>訓練 task crashed 自動接返</td>
+<td>唔使半夜起身手動救</td>
+</tr>
+<tr>
+<td><strong>子秒級可觀測性</strong></td>
+<td>指標秒級出，睇到 GPU / 通信 / 進度</td>
+<td>快啲搵到瓶頸</td>
+</tr>
+<tr>
+<td>全訓練生命週期監控</td>
+<td>由數據、到訓練、到 rollout 全 cover</td>
+<td>一條管睇晒</td>
+</tr>
+<tr>
+<td><strong>Code-free instrumentation</strong></td>
+<td>一鍵啟動、唔使自己寫監控 code</td>
+<td>接入成本近零</td>
+</tr>
+<tr>
+<td><strong>跨棧問題偵測</strong></td>
+<td>agent → 推理引擎 → service 全鏈路<strong>秒級</strong>定位</td>
+<td>RL 中間邊一環出事即刻知</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>對比講法</strong>：一般雲廠會講「我哋有
+monitoring」，但係冇講<strong>故障之後自動癒合</strong>。TrainingKit
+嘅可觀測性係<strong>一鍵零代碼</strong>嘅——你唔使喺訓練框架度插埋一堆
+OTel，先係真正幫到唔想理 infra 嘅 ML 團隊。</p>
+</blockquote>
+<p><strong>附帶相關產品</strong>（同一張單好可能一齊落）：</p>
+<p>GPU Compute Service · VKE · <strong>PFS</strong> · Function
+Service（FaaS）· Container Registry · Vital Managed Service for
+Prometheus ·
+<strong>APMPlus</strong>（應用性能監控，跨棧那條就係佢）。</p>
+<hr />
+<h2 id="6-幾時用-trainingkitvs-方舟精調--agent-plan--決策表">6. 幾時用
+TrainingKit（vs 方舟精調 / Agent Plan — 決策表）</h2>
+<p>Sales 最常問「到底幾時先要開 TrainingKit
+呢張單」——答案係<strong>睇規模</strong>，精調同 Agent Plan
+都唔包訓練：</p>
+<table>
+<thead>
+<tr>
+<th>你個 case</th>
+<th>用咩</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>想改 agent 語氣 / 格式 / 少量領域知識</td>
+<td><strong>改 system prompt / LoRA</strong></td>
+<td>零成本或方舟精調搞掂</td>
+</tr>
+<tr>
+<td>想做 DPO / 細 GRPO（LoRA）</td>
+<td><strong>方舟模型精調</strong>（見
+<code>veadk-agentkit-finetune-optimize.md</code>）</td>
+<td>幾張卡、幾個鐘級別，唔需要萬卡基建</td>
+</tr>
+<tr>
+<td>想喺 Agent Plan 度「買訓練」</td>
+<td>❌ <strong>冇得買</strong></td>
+<td>Agent Plan（AFP）<strong>只包推理 + 工具</strong>，隻字唔提訓練</td>
+</tr>
+<tr>
+<td>想由零起私有模型 / 大型持續預訓練</td>
+<td>✅ <strong>TrainingKit Pre-Training</strong></td>
+<td>10k node + PFS + veCCL 先食得起個規模</td>
+</tr>
+<tr>
+<td>想做完整 RL（GRPO / PPO）post-training、幾百萬 rollout</td>
+<td>✅ <strong>TrainingKit Post-Training</strong></td>
+<td>veRL + HybridEngine + 彈性 Sandbox 先做得起成本</td>
+</tr>
+<tr>
+<td>模型練完想上線</td>
+<td><strong>ServingKit / 方舟推理</strong></td>
+<td>訓練唔等於 deploy，serving 係另一張單（見
+<code>veadk-agentkit-serving-kit.md</code>）</td>
+</tr>
+</tbody>
+</table>
+<pre><code>客戶想「自己整模型」？
+├─ 只改風格 / 語氣 / 格式
+│   └─ ➜ system prompt → LoRA（方舟精調）—— 唔使 TrainingKit
+├─ 想做 DPO / 細量 GRPO
+│   └─ ➜ 方舟模型精調（LoRA/全量）—— 睇 `veadk-agentkit-finetune-optimize.md`
+├─ 想由零起私有 model / 萬卡 pre-training
+│   └─ ➜ TrainingKit（Pre-Training：PFS + veCCL + 10k nodes）
+├─ 想 RL 調推理（doubao-seed 式 reasoning）
+│   └─ ➜ TrainingKit（Post-Training：veRL + GRPO + HybridEngine + Sandbox）
+└─ 只想「用」模型
+    └─ ➜ Agent Plan / 按量 —— 詳見 `veadk-agentkit-pricing.md`</code></pre>
+<blockquote>
+<p><strong>Sale 一句</strong>：「Agent Plan
+幫你慳推理錢，精調幫你細執，但<strong>兩個都唔包含『自己練個模型』</strong>——練模型呢啲先係
+TrainingKit 張單，而且同推理 / agent 嗰兩條收費線完全分開。」</p>
+</blockquote>
+<hr />
+<h2 id="7-資料來源">7. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TrainingKit 官方頁（MFU / ETTR / 20× / 兩大架構）</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-trainingkit">https://www.byteplus.com/solutions/ai-cloud-native-trainingkit</a></td>
+<td>主打數據 + 架構</td>
+</tr>
+<tr>
+<td>ServingKit 官方頁（同 TrainingKit 分工）</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-servingkit">https://www.byteplus.com/solutions/ai-cloud-native-servingkit</a></td>
+<td>三 Kit 對照</td>
+</tr>
+<tr>
+<td>AgentKit 官方頁</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-agentkit">https://www.byteplus.com/solutions/ai-cloud-native-agentkit</a></td>
+<td>三 Kit 對照</td>
+</tr>
+<tr>
+<td>veRL GRPO RL 訓練 best practice（MLP 範例）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/.../GRPO_reinforcement_learning_training_best_practices_with_verl">https://docs.byteplus.com/en/docs/.../GRPO_reinforcement_learning_training_best_practices_with_verl</a></td>
+<td>pre/post-training 教學</td>
+</tr>
+<tr>
+<td>PPO on GSM8K with veRL</td>
+<td><a
+href="https://docs.byteplus.com/.../PPO_training_on_the_GSM8K_dataset_with_veRL">https://docs.byteplus.com/.../PPO_training_on_the_GSM8K_dataset_with_veRL</a></td>
+<td>PPO 流程參考</td>
+</tr>
+<tr>
+<td>veRL 做 RL code generation（Eurus-2-RL-Data + Code Sandbox）</td>
+<td><a
+href="https://docs.byteplus.com/.../Conducting_RL_for_code_generation_through_veRL_Code_Sandbox">https://docs.byteplus.com/.../Conducting_RL_for_code_generation_through_veRL_Code_Sandbox</a></td>
+<td>Sandbox 場景</td>
+</tr>
+<tr>
+<td>veCCL 高效通信 practices</td>
+<td><a
+href="https://docs.byteplus.com/.../High-performance_communication_practices_of_veCCL">https://docs.byteplus.com/.../High-performance_communication_practices_of_veCCL</a></td>
+<td>通信加速論據</td>
+</tr>
+<tr>
+<td>精調 / 優化 tab（SFT / DPO / GRPO 分工）</td>
+<td><code>references/veadk-agentkit-finetune-optimize.md</code></td>
+<td>分界線</td>
+</tr>
+<tr>
+<td>定價指南（Agent Plan 唔包訓練）</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>收費線</td>
+</tr>
+<tr>
+<td>推理 / serving 參考</td>
+<td><code>references/veadk-agentkit-serving-kit.md</code></td>
+<td>ServingKit 側</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：MFU &gt; 60% / ETTR &gt; 99% / 20× RL 等數字係
+BytePlus 官方宣稱，實際數字隨
+workload、模型、集群規模有差異——引用時標明「官方數據，實際以 POC
+為準」。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · TrainingKit / veRL
+係快速演化嘅產品，賣之前對正官方頁同 best practice 教學再講。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

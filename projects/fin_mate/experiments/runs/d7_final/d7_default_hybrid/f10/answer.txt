@@ -1,0 +1,4 @@
+根據資料[4] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>，F2Q26（2026財年第二季度）中提到「new disclosure this quarter of 15m paid M365 Copilot seats (accelerating q/q and +160% y/y)」，即本季度有1500萬個付費的Microsoft 365 Copilot席位，環比加速增長並同比增長160%。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

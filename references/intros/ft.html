@@ -1,0 +1,208 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<blockquote>
+<p>🔑 <strong>底層事實</strong>：AgentKit /
+VeADK（框架層）<strong>本身冇微調能力</strong>——微調係**火山方舟（底層）**嘅事。框架層只係「指住一個已精調嘅
+model 嚟用」。</p>
+</blockquote>
+<h2 id="it-ft-先答三條最常見問題">先答三條最常見問題</h2>
+<ol type="1">
+<li><strong>AgentKit 做唔做到 LoRA？</strong> — 做唔到訓練；只能
+<strong>用</strong> 方舟已精調嘅 model（<code>model_name</code> 直接指
+EP 個出品 model ID，或用環境變數）。</li>
+<li><strong>要唔要識底層技術先做到？</strong> — 唔使。底層（方舟 Console
+/ API）包辦數據集、訓練、評測，框架層只係 call。</li>
+<li><strong>幾時先值做 LoRA？</strong> — <strong>唔係
+default</strong>。先試 prompt 工程 + RAG（見「記憶 /
+知識庫」Tab）；得唔到先考慮 LoRA。唔好一嚟就精調。</li>
+</ol>
+<h2 id="it-ft-lora-原理-30-秒版">LoRA 原理 30 秒版</h2>
+<p>Fine-tune 成個 model 太貴；<strong>LoRA = 權重外加上細 rank
+矩陣，原地增量</strong>。訓練平、切換快、仲可以<strong>同一個 base model
+疊多個 adapter</strong> 一齊 serve。低 data
+冷知識：原本唔需要大量標注，一半得有效就唔錯。</p>
+<h2 id="it-ft-三種精調後推理渠道--價格記住">三種精調後推理渠道 +
+價格（記住）</h2>
+<table>
+<thead>
+<tr>
+<th>渠道</th>
+<th>價格 / 特色</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>本地 mount adapter</strong></td>
+<td>稱效能好、便宜</td>
+<td>場景穩定、單個 model</td>
+</tr>
+<tr>
+<td><strong>精調 model 公開服務</strong></td>
+<td>即 Production-ready、貴少少</td>
+<td>上線 / 唔想自己學 LLMOps</td>
+</tr>
+<tr>
+<td><strong>自建 / Mixed</strong></td>
+<td>最貴幾多、SLA 自決</td>
+<td>數據不出域 / 極端 SLA</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-ft-幾時先要-lora--決策樹上面唔掂先落呢步">幾時先要 LoRA →
+決策樹（上面唔掂先落呢步）</h2>
+<pre><code>同一個 tone / 語調 / 格式規則，靠 prompt 做唔到？
+├── 唔得 → 行「下遊 RAG（知識庫）」再試
+│        ├── 唔得 → 先睇「提示詞 / output_schema」
+│        │        ├── 唔得 → 先諗 LoRA
+│        │        │         ├── 想要開箱即用 → 方舟精調 + 公開服務渠道
+│        │        │         └── 要控成本 / 自學 → 方舟 Console LoRA 流程
+│        │        └── 得 → 唔使 LoRA
+│        └── 得 → 唔使 LoRA
+└── 得 → 唔使 LoRA</code></pre>
+<blockquote>
+<p>💡 一句記住：<strong>「LoRA 係最後手段，唔係第一選擇。」</strong> RAG
+同 prompt 永遠係第一、第二站。</p>
+</blockquote>
+<h2 id="it-ft-方舟-console-做一次-lora底層流程識講就得">方舟 Console 做一次
+LoRA（底層流程，識講就得）</h2>
+<ol type="1">
+<li>開 Console → 模型精調 → 建數據集（幾百條高質量對話/task
+樣本已見效）。</li>
+<li>揀 base model + LoRA 參數（<code>lora_rank</code>
+等，方舟有預設）。</li>
+<li>訓練 → 評測（好唔好過對照）→ 發布做「精調 model」。</li>
+</ol>
+<h2 id="it-ft-框架層接入veadk--agentkit-點用">框架層接入（VeADK / AgentKit
+點用）</h2>
+<div class="sourceCode" id="it-ft-cb2"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-ft-cb2-1"><a href="#it-ft-cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent</span>
+<span id="it-ft-cb2-2"><a href="#it-ft-cb2-2" aria-hidden="true" tabindex="-1"></a>Agent(model_name<span class="op">=</span><span class="st">&quot;cr-fin-xxx&quot;</span>)   <span class="co"># 直接指方舟精調出品嘅 model ID</span></span></code></pre></div>
+<ul>
+<li>部署時可用環境變數指定精調 model，唔使改 code。</li>
+<li>Zero-code Harness 都支援直接綁精調 model → 非工程師都可以「用」精調
+agent。</li>
+</ul>
+<h2
+id="it-ft-實作精調-model-由方舟發布--agentkit-用cli--yaml--veadk">實作：精調
+model 由方舟發布 → AgentKit 用（CLI / YAML / VeADK）</h2>
+<h3 id="it-ft-①-方舟底層發布精調-model">① 方舟（底層）發布精調 model</h3>
+<p>方舟 Console → 模型精調 → 完成訓練 → <strong>發布</strong>（拎到出品
+model ID，例如
+<code>cr-fin-230815</code>）。框架層做唔到呢步——底層先有得訓練。</p>
+<h3 id="it-ft-②-agentkit-cli直接指精調-model">② AgentKit CLI：直接指精調
+model</h3>
+<div class="sourceCode" id="it-ft-cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-ft-cb3-1"><a href="#it-ft-cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 部署時指定 model（runtime update 唔使重新部署）</span></span>
+<span id="it-ft-cb3-2"><a href="#it-ft-cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> login</span>
+<span id="it-ft-cb3-3"><a href="#it-ft-cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> config set MODEL_AGENT_NAME=cr-fin-230815</span>
+<span id="it-ft-cb3-4"><a href="#it-ft-cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> deploy my-agent</span>
+<span id="it-ft-cb3-5"><a href="#it-ft-cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-ft-cb3-6"><a href="#it-ft-cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 或者部署後動態改 model</span></span>
+<span id="it-ft-cb3-7"><a href="#it-ft-cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime update my-agent <span class="dt">\</span></span>
+<span id="it-ft-cb3-8"><a href="#it-ft-cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">--model-agent-name</span> <span class="st">&quot;cr-fin-230815&quot;</span> <span class="dt">\</span></span>
+<span id="it-ft-cb3-9"><a href="#it-ft-cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">--auto-release</span></span>
+<span id="it-ft-cb3-10"><a href="#it-ft-cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-ft-cb3-11"><a href="#it-ft-cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 驗證真係行緊精調 model</span></span>
+<span id="it-ft-cb3-12"><a href="#it-ft-cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> invoke my-agent <span class="at">-m</span> <span class="st">&quot;用公司 finance tone 回覆 invoice 查詢&quot;</span></span></code></pre></div>
+<h3 id="it-ft-③-agentkityaml綁定精調-model唔使寫死喺-code">③
+agentkit.yaml：綁定精調 model（唔使寫死喺 code）</h3>
+<div class="sourceCode" id="it-ft-cb4"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="it-ft-cb4-1"><a href="#it-ft-cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># agentkit.yaml</span></span>
+<span id="it-ft-cb4-2"><a href="#it-ft-cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">agent_name</span><span class="kw">:</span><span class="at"> finance-agent</span></span>
+<span id="it-ft-cb4-3"><a href="#it-ft-cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">entry_point</span><span class="kw">:</span><span class="at"> agent_app.py</span></span>
+<span id="it-ft-cb4-4"><a href="#it-ft-cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">launch_type</span><span class="kw">:</span><span class="at"> cloud</span></span>
+<span id="it-ft-cb4-5"><a href="#it-ft-cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">region</span><span class="kw">:</span><span class="at"> cn-beijing</span></span>
+<span id="it-ft-cb4-6"><a href="#it-ft-cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">env</span><span class="kw">:</span></span>
+<span id="it-ft-cb4-7"><a href="#it-ft-cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> MODEL_AGENT_NAME=cr-fin-230815</span><span class="co">          # 精調 model ID 優先</span></span>
+<span id="it-ft-cb4-8"><a href="#it-ft-cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">  # 若未買精調公開服務，可 fallback base model：</span></span>
+<span id="it-ft-cb4-9"><a href="#it-ft-cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">  # - MODEL_AGENT_NAME=seed-2-0-mini-260428</span></span>
+<span id="it-ft-cb4-10"><a href="#it-ft-cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">  # MODEL_AGENT_API_KEY 用 `ak config -e MODEL_AGENT_API_KEY=sk-xxx` 設，唔好寫入 YAML</span></span></code></pre></div>
+<h3 id="it-ft-④-veadk-python完整-agent-用精調-model--綁-kb記憶">④ VeADK
+Python：完整 Agent 用精調 model + 綁 KB/記憶</h3>
+<div class="sourceCode" id="it-ft-cb5"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="it-ft-cb5-1"><a href="#it-ft-cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk <span class="im">import</span> Agent, Runner</span>
+<span id="it-ft-cb5-2"><a href="#it-ft-cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.knowledgebase <span class="im">import</span> KnowledgeBase</span>
+<span id="it-ft-cb5-3"><a href="#it-ft-cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> veadk.memory.long_term_memory <span class="im">import</span> LongTermMemory</span>
+<span id="it-ft-cb5-4"><a href="#it-ft-cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-ft-cb5-5"><a href="#it-ft-cb5-5" aria-hidden="true" tabindex="-1"></a>agent <span class="op">=</span> Agent(</span>
+<span id="it-ft-cb5-6"><a href="#it-ft-cb5-6" aria-hidden="true" tabindex="-1"></a>    model_name<span class="op">=</span><span class="st">&quot;cr-fin-230815&quot;</span>,                     <span class="co"># 方舟精調出品</span></span>
+<span id="it-ft-cb5-7"><a href="#it-ft-cb5-7" aria-hidden="true" tabindex="-1"></a>    knowledgebase<span class="op">=</span>KnowledgeBase(backend<span class="op">=</span><span class="st">&quot;viking&quot;</span>, index<span class="op">=</span><span class="st">&quot;finance_policy&quot;</span>),</span>
+<span id="it-ft-cb5-8"><a href="#it-ft-cb5-8" aria-hidden="true" tabindex="-1"></a>    long_term_memory<span class="op">=</span>LongTermMemory(backend<span class="op">=</span><span class="st">&quot;viking&quot;</span>, app_name<span class="op">=</span><span class="st">&quot;finance_support&quot;</span>),</span>
+<span id="it-ft-cb5-9"><a href="#it-ft-cb5-9" aria-hidden="true" tabindex="-1"></a>    instruction<span class="op">=</span><span class="st">&quot;以公司 finance 統一語氣回覆，引用知識庫出處。&quot;</span>,</span>
+<span id="it-ft-cb5-10"><a href="#it-ft-cb5-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="it-ft-cb5-11"><a href="#it-ft-cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-ft-cb5-12"><a href="#it-ft-cb5-12" aria-hidden="true" tabindex="-1"></a>runner <span class="op">=</span> Runner(agent)</span>
+<span id="it-ft-cb5-13"><a href="#it-ft-cb5-13" aria-hidden="true" tabindex="-1"></a>resp <span class="op">=</span> runner.run(messages<span class="op">=</span><span class="st">&quot;呢個月毛利點解跌咗？&quot;</span>, session_id<span class="op">=</span><span class="st">&quot;s1&quot;</span>, user_id<span class="op">=</span><span class="st">&quot;u-42&quot;</span>)</span>
+<span id="it-ft-cb5-14"><a href="#it-ft-cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(resp)</span></code></pre></div>
+<blockquote>
+<p>💡 <strong>Model list fallback</strong>：<code>model_name</code>
+可以傳 list，精調 model 出問題會自動 fallback 去 base model（見
+<code>veadk-api.md</code>：<code>model_name=["doubao-seed-2-1-pro-260628", "seed-2-0-mini-260428"]</code>）——精調
+model + fallback 組合最穩陣。</p>
+</blockquote>
+<h3 id="it-ft-⑤-精調後照行-eval唔好當精調咗好咗">⑤ 精調後照行
+eval（唔好當「精調咗=好咗」）</h3>
+<div class="sourceCode" id="it-ft-cb6"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-ft-cb6-1"><a href="#it-ft-cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset create <span class="at">--name</span> lora-qa <span class="at">--schema</span> <span class="st">&quot;input,reference_output&quot;</span></span>
+<span id="it-ft-cb6-2"><a href="#it-ft-cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset add lora-qa <span class="at">--file</span> ./cases.json</span>
+<span id="it-ft-cb6-3"><a href="#it-ft-cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval run <span class="at">--dataset</span> lora-qa <span class="at">--evaluator</span> 相关性 <span class="at">--target</span> finance-agent <span class="at">--json</span></span></code></pre></div>
+<h2 id="it-ft-框架層--模型唔好搞亂">框架層 → 模型：唔好搞亂</h2>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>微調能力</th>
+<th>你可能要做嘅</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AgentKit/VeADK（框架）</td>
+<td>❌ 唔可以訓練</td>
+<td>指住精調 model、綁 KB/memory</td>
+</tr>
+<tr>
+<td>火山方舟（底層）</td>
+<td>✅ LoRA / 全參精調</td>
+<td>數據集、訓練、評測、發布</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-ft-實作-yaml--cli-速查貼落方案">實作 YAML + CLI
+速查（貼落方案）</h2>
+<table>
+<thead>
+<tr>
+<th>想做</th>
+<th>命令 / 設定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署時固定精調 model</td>
+<td><code>agentkit.yaml</code> →
+<code>env: MODEL_AGENT_NAME=cr-fin-230815</code></td>
+</tr>
+<tr>
+<td>唔重新部署換 model</td>
+<td><code>ak runtime update my-agent --model-agent-name cr-fin-230815 --auto-release</code></td>
+</tr>
+<tr>
+<td>精調 model 出問題自動 fallback</td>
+<td>VeADK
+<code>model_name=[cr-fin-230815, seed-2-0-mini-260428]</code></td>
+</tr>
+<tr>
+<td>驗證精調有冇好到</td>
+<td><code>ak eval run --dataset lora-qa --evaluator 相关性 --target finance-agent --json</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-ft-記憶">記憶</h2>
+<ul>
+<li><strong>LoRA 唔係 agent 功能，係 model 功能</strong>——你教嘅係「個
+model 嘅 tone/rule」，唔係「個 agent 點排流程」。</li>
+<li>揀 with/without LoRA 前，<strong>先證明 prompt + RAG + eval
+真係唔掂</strong>（見性能 Playbook eval 做法）。</li>
+<li>精調後都要照行 eval——「精調咗」唔等於「好咗」，要對照測驗。</li>
+</ul>

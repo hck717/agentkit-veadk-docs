@@ -1,0 +1,9 @@
+Microsoft 力推 E7 加價式 upsell 的原因可能包括以下幾點：  
+1. **E7 SKU 整合多項高價值服務**：E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，這些服務組合能為企業提供更全面的解決方案，從而支撐加價。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+2. **Agentic 採用的 prerequisites**：Agent 365 作為 E7 的一部分，提供代理登記、可觀察性和風險信號等功能，這些是 Agentic 採用的關鍵前提，企業可能更願意通過 E7 獲取全套工具。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+3. **應對 Azure 供應受限的策略**：Azure 供應受限時，Microsoft 可能通過高毛利的上層應用（如 M365 套件）來維持收入和利潤，E7 作為高毛利 SKU 符合這一策略。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】  
+4. **價格上漲的時機性**：近期 M365 價格上漲迫使企業在 2H26 進行談判，這可能成為 E7 採用的催化劑，企業為避免未來更高成本，可能提前升級至 E7。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+## 來源  
+[20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop](<20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop>)  
+[20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L](<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>) 

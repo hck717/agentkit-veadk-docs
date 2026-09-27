@@ -1,0 +1,9 @@
+### 安全對 Agentic Adoption 及 E7 Bundle 的關鍵性分析  
+#### 一、Agentic Adoption 的安全需求  
+Agentic 採用（即 AI 代理的廣泛應用）涉及多個環節，包括代理的註冊、身份驗證、可觀察性及風險管理。根據報告，Agent 365 提供的**代理註冊/身份證（基於 Entra）、可觀察性及風險信號**是 agentic 採用的關鍵前提條件【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+- **身份安全**：代理的身份驗證和授權（如 Entra）是防止未授權訪問的核心。若缺乏有效的身份管理，代理可能被濫用，導致數據洩露或威脅企業系統安全。  
+- **可觀察性與風險管理**：AI 代理在運行過程中可能產生未預期行為（如數據洩露、誤導性決策），需要即時監控和風險識別。例如，Purview 對 Copilot 交互的審計顯示，2026 年第一季審計了 240 億次交互，同比增長 9 倍，說明安全可觀察性在 agentic 採用中的重要性【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+
+#### 二、E7 Bundle 的安全整合  
+E7 SKU 將**M365 E5、Entra Suite、Agent 365 及 M365 Copilot**打包，其中 Entra Suite 提供身份治理和安全能力，直接支持 agentic 代理的安全運行【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+- **安全一體化**：E7 將安全功能（如身份驗證、數據加密、威脅防護）與 AI 代理功能深度整合，避免了碎片化部署的安全漏洞。例如，安全 Copilot 代理被整合到 Defender、Entra 等產品中

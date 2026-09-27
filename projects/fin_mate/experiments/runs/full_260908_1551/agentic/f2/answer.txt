@@ -1,0 +1,62 @@
+
+我现在需要处理用户的问题：“Deutsche 點樣形容 F2Q 結果 vs 市場預期？主要原因？” 首先，我需要确定是否需要调用工具。根据规则，用户的问题涉及特定金融机构（Deutsche）对季度结果（F2Q）与市场预期的描述及原因，这属于需要知识base支持的内容。因此，我之前已经调用了load_knowledgebase工具，参数是“Deutsche Bank F2Q results vs market expectations description and reasons”。
+
+接下来，我需要分析工具返回的结果。查看返回的知识条目，第一个条目来自Deutsche Bank Securities Inc.的报告，内容涉及Microsoft的F2Q结果。其中提到：
+
+- 收入方面，F2Q收入为813亿美元，高于指引中点1.5%，增长集中在PBP和IC部门。按固定汇率计算，环比下降约1.5个百分点，同比增长15%。
+- Azure增长同比38%，高于指引（37%），但可能略低于买方预期的约39%。上行原因是效率提升使容量从其他部门重新分配到可盈利的Azure需求。
+- M365 Commercial Cloud增长14%，符合指引高端（13-14%），由座位增长（6%）和ARPU扩张驱动，Copilot付费座位达1500万。
+- Server Products增长1%，好于指引的LSD-MSD下降，受益于混合解决方案需求和SQL Server 2025发布。
+- LinkedIn增长10%，符合指引，由营销解决方案驱动。
+- Search and News Advertising revenue增长9%，低于指引的低两位数增长，因执行挑战导致环比下降。
+- Windows OEM + Devices收入增长1%，好于指引的MSD下降，受益于Windows 10支持结束和库存水平较高。
+
+这些信息中，部分内容涉及Deutsche对Microsoft F2Q结果与市场预期的比较及原因。例如，Azure增长高于指引但低于市场预期，原因是效率提升和容量重新分配；M365增长符合指引；Server Products和Windows OEM表现好于预期等。
+
+需要检查是否有更多相关条目。其他条目主要涉及Deutsche的研究报告说明、评级分散度等，与用户问题无关。因此，现有知识条目已覆盖主要内容。
+
+是否需要再次调用工具？根据规则，最多查2次，目前已查1次，且结果相关。因此，无需继续调用。
+
+接下来，整理信息，标注来源，并确保每句claim都有inline标注。例如：
+
+- F2Q revenue of $81.3bn was 1.5% above the midpoint of guidance, with upside concentrated in PBP & IC segments. On a constant currency basis, growth ticked down ~1.5pts sequentially to +15% y/y.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- Azure growth of +38% y/y @CC was 1pt above guidance (37%), but likely a touch shy of buyside expectations that we believe were closer to ~+39%. Upside to guidance was a result of efficiency gains across the fleet enabling reallocation of some capacity from other segments to monetizable Azure demand.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- M365 Commercial Cloud growth of +14% y/y came in line with the high end of guidance +13-14% y/y @cc, with growth once again driven by a combination of seat growth (+6% y/y) and ARPU expansion. This quarter was also the first time mgmt. disclosed M365 copilot paid seats, which sit at 15m as of F2Q.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- Server Products grew +1% y/y @CC, much better compared to guidance for a LSD-MSD decline driven by demand for Microsoft's hybrid solutions, with benefit from the launch of SQL Server 2025 and higher transactional purchasing ahead of memory price increases.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- LinkedIn +10% y/y @CC accelerated 1pt from F1Q and was consistent with +10% y/y guidance, driven by strength in Marketing Solutions.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- Search and News Advertising revenue (ex-TAC) +9% y/y @CC missed guidance for low double digits growth (down sequentially as growth rates normalize) following some execution challenges.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+- High margin Windows OEM + Devices revenue of +1% y/y and flattish @cc was much better than guidance of MSD decline attributable to strength in Windows OEM (+5% y/y) with continued benefit from Windows 10 end of support and still-elevated inventory levels from increased purchasing ahead of memory price increases, partially offset by a decline in Devices, as expected.【KB:viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md】
+
+需要注意的是，用户问题中的“Deutsche”可能指Deutsche Bank，但工具返回的内容主要是Deutsche Bank对Microsoft F2Q结果的分析。因此，在回答时需要明确这一点，即Deutsche Bank（可能）对Microsoft的F2Q结果与市场预期进行了描述。
+
+最后，整理结论，列出主要描述和原因，并确保来源正确。
+Deutsche Bank 對 Microsoft F2Q 業績與市場預期的對比及原因如下：
+
+
+### **業績 vs 市場預期的描述**  
+1. **收入/訂單**：F2Q 收入 813 億美元，高於指引中點 1.5%，增長集中在 PBP 和 IC 部門；按固定匯率計，環比下降約 1.5 個百分點，同比增長 15%。商業訂單按固定匯率同比增長 228%，主要受 OpenAI 更大 Azure 承諾驅動，並受益於近期 Anthropic 合作及核心年金銷售的健康增長。  
+2. **Azure**：按固定匯率同比增長 38%，高於指引（37%），但可。能略低於買方預期（約 39%）。上修原因是效率提升使容量從其他部門重新分配至可盈利的 Azure 需求。  
+3. **M365 商業雲**：按固定匯率同比增長 14%，符合指引高端（13-14%），由座位增長（6%）和 ARPU 擴張驅動，Copilot 付費座位達 1500 萬（本季度首次披露）。  
+4. **服務器產品**：按固定匯率同比增長 1%，遠好於指引的 LSD-MSD 下降，受益於混合解決方案需求、SQL Server 2025 發布及記憶體漲價前的交易性采購增加。  
+5. **LinkedIn**：按固定匯率同比增長 10%，環比加速 1 個百分點，符合指引，由營銷解決方案驅動。  
+6. **搜索與新聞廣告**：按固定匯率同比增長 9%，低於指引的低兩位數增長（因執行挑戰導致環比下降，增長率正常化）。  
+7. **Windows OEM + 設備**：按固定匯率同比增長 1%（環比持平），遠好於指引的 MSD 下降，受益於 Windows 10 支持結束、記憶體漲價前的庫存水準高企，部分被設備銷售下降抵消。  
+
+
+### **主要原因**  
+- **Azure**：效率提升與容量重分配，平衡 Azure 需求與 1P 服務、研發投入及設備更換需求。  
+- **M365**：座位增長、ARPU 擴張（含 E5 和 Copilot 驅動）。  
+- **服務器產品/Windows OEM**：混合解決方案需求、新產品發布及庫存因素。  
+- **LinkedIn**：營銷解決方案強勁。  
+- **搜索廣告**：執行挑戰導致增長放緩。  
+
+
+## 來源  
+1. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_2.md>  
+2. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_7.md>  
+3. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_6.md>  
+4. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_8.md>  
+5. <viking://resources/fin_kb/msft_txt/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23/20260205_Deutsche_Bank_MSFT_Microsoft-_F2_64197d23_14.md>  
+
+
+（注：上述分析主要基於 Deutsche Bank 對 Microsoft F2Q 業績的評級，若涉及其他 "Deutsche" 機構，需進一步確認。）

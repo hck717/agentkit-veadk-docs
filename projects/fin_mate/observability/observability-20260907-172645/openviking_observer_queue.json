@@ -1,0 +1,12 @@
+{
+  "status": "ok",
+  "result": {
+    "name": "queue",
+    "is_healthy": true,
+    "has_errors": false,
+    "status": "+----------------+---------+-------------+-----------+----------+--------+-------+\n|     Queue      | Pending | In Progress | Processed | Requeued | Errors | Total |\n+----------------+---------+-------------+-----------+----------+--------+-------+\n|   Embedding    |    0    |      0      |    141    |    0     |   0    |  141  |\n|    Semantic    |    0    |      0      |     2     |    0     |   0    |   2   |\n| ExternalParse  |    0    |      0      |     0     |    0     |   0    |   0   |\n|  AddResource   |    0    |      0      |     1     |    0     |   0    |   1   |\n| SessionCommit  |    0    |      0      |     2     |    0     |   0    |   2   |\n|  UserDeletion  |    0    |      0      |     0     |    0     |   0    |   0   |\n| Semantic-Nodes |    0    |      0      |     0     |    0     |   0    |   0   |\n|     TOTAL      |    0    |      0      |    146    |    0     |   0    |  146  |\n+----------------+---------+-------------+-----------+----------+--------+-------+"
+  },
+  "error": null,
+  "telemetry": null,
+  "profile": null
+}

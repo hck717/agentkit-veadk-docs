@@ -1,0 +1,8 @@
+Microsoft 力推 E7 加價式 upsell 可能基於以下原因，但資料中無直接提及：  
+1. **AI 驅動的高邊際需求**：AI 相關功能（如 M365 Copilot）是 E7 等高階版本的核心，公司希望透過 upsell 抓住 AI 帶來的高邊際機會，彌補 Azure 供應受限導致的增長壓力【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L, 20260212_China_Renaissance_Research_MSFT_Mic】。  
+2. **應用層戰略重要性**：雖然 Azure 是關鍵 KPIs，但應用層（如 M365）被視為 AI 貨幣化的最後一步，公司需透過高階版本的銷售來證明長期戰略有效性，提振市場信心【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+3. **用戶生命周期價值（LTV）**：高階版本用戶通常具有更高的 LTV，供應受限時，公司更傾向於鎖定高價值用戶，提升營收質量【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+
+## 來源  
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>  
+<20260212_China_Renaissance_Research_MSFT_Mic>

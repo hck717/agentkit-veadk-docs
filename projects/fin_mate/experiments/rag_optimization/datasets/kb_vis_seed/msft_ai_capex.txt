@@ -1,0 +1,5 @@
+Microsoft AI Compute Spend by Fiscal Year ($B) — chart 01 (D7 KB, table source).
+Spend per fiscal year: FY25: 62.0 | FY26: 82.0 | FY27: 112.0 | FY28: 150.0.
+Inference cost per 1M tokens ($): 2024 3.5, 2025 1.2, 2026E 0.4.
+Method: company-provided FY25-FY26; FY27-FY28 are management forecasts.
+Source: fin_mate KB multimodal corpus, chart_src=msft_ai_capex.png

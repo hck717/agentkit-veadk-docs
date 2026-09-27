@@ -1,0 +1,506 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ServingKit</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>ServingKit</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-推理交付解構servingkit--大規模-gpu-集群推理">VeADK +
+AgentKit 推理交付解構（ServingKit — 大規模 GPU 集群推理）</h1>
+<p>呢份文件講<strong>BytePlus AI Cloud Native
+ServingKit</strong>：點解、點樣、喺邊度。ServingKit 係 ByteDance 大規模
+AI 推理經驗 + 火山方舟業務沉澱嘅產品，用嚟喺大規模 GPU
+集群上高穩定、高性價比咁跑主流推理模型。</p>
+<p>內容分兩層（舊有嘅 engine-internal 文件已合併落嚟）：</p>
+<ul>
+<li><strong>引擎內部</strong>（§3）：xLLM / vLLM / SGLang / Dynamo
+點運作——PagedAttention / RadixAttention / PD 分離 / speculative
+decoding。</li>
+<li><strong>交付層</strong>（§4 起）：ServingKit 點將呢啲引擎喺大 scale
+上面落地（AI 網關、用量、監控），同 AgentKit / TrainingKit /
+方舟嘅關係。</li>
+</ul>
+<blockquote>
+<p><strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>喺 AgentKit / VeADK 框架層，你用 <code>model_name</code>
+call 推理就得</strong>——方舟幫你 serve。</li>
+<li>但<strong>公司要自建 / 大規模私有推理</strong>嗰陣，就落到
+ServingKit——呢度係「底層落地嘅最後一里路」。</li>
+<li>Sales 要識嘅係：ServingKit 解決咗乜問題、有幾快、幾慳錢，唔使識排
+GPU。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-servingkit-係咩--一句--位置">0. ServingKit 係咩 — 一句 +
+位置</h2>
+<table>
+<thead>
+<tr>
+<th>產品</th>
+<th>一句</th>
+<th>同 ServingKit 關係</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI Cloud Native ServingKit</strong></td>
+<td>大規模 GPU 集群推理交付</td>
+<td><strong>呢份 doc 嘅主角</strong></td>
+</tr>
+<tr>
+<td><strong>AI Cloud Native AgentKit</strong></td>
+<td>Agent runtime 一層（可被 ServingKit 部署）</td>
+<td>ServingKit 可以 serve AgentKit 嘅 agent</td>
+</tr>
+<tr>
+<td><strong>AI Cloud Native TrainingKit</strong></td>
+<td>訓練（另一份 doc）</td>
+<td>訓練完嘅 model → ServingKit serve</td>
+</tr>
+<tr>
+<td><strong>火山方舟 / ModelArk</strong></td>
+<td>托管 model API（<code>doubao-*</code>）</td>
+<td>一般客戶用方舟就夠；要自建先落 ServingKit</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「AgentKit 係你寫 agent 嘅地方，方舟係你
+call API 嘅地方，ServingKit 係你要自己揸 GPU 嗰陣嘅答案。」</p>
+</blockquote>
+<p>喺 docset 嘅位置：框架層（VeADK / AgentKit）用
+<code>model_name</code> 指令調用推理；公司要自建 /
+大規模私有推理嗰陣，先落到 ServingKit。ServingKit
+係<strong>自建大規模推理嘅「底層落地層」</strong>。</p>
+<hr />
+<h2 id="1-三條大數講畀-client-聽">1. 三條大數（講畀 client 聽）</h2>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>數字</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TPS ↑</strong></td>
+<td>1–3×</td>
+<td>DeepSeek-R1 operator-level optimization</td>
+</tr>
+<tr>
+<td><strong>TTFT ↓</strong></td>
+<td>60%</td>
+<td>首 token 延遲大幅縮短</td>
+</tr>
+<tr>
+<td><strong>Service startup</strong></td>
+<td>分鐘級</td>
+<td>DeepSeek-R1-671B 跨 100+ GPU 分鐘級部署</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「三條數講完：出 token 快 1–3 倍、首
+token 快 60%、100 張 GPU 幾分鐘起晒。」呢個係同 client 講嘅 selling
+point。</p>
+</blockquote>
+<hr />
+<h2 id="2-架構五寶core-competencies">2. 架構五寶（Core
+Competencies）</h2>
+<h3 id="21-模型極速啟動-rapid-model-startup">2.1 模型極速啟動 Rapid
+Model Startup</h3>
+<ul>
+<li>權重加速引擎（weight-based acceleration engine）：LLM 載入速度提升
+<strong>8×</strong>。</li>
+<li>GDKV warmup + RDMA 高速互聯，P2P + model loading utilities。</li>
+<li>結果：100+ 張 GPU <strong>分鐘級部署</strong>
+DeepSeek-R1-671B。</li>
+</ul>
+<h3 id="22-算子優化-operator-optimization">2.2 算子優化 Operator
+Optimization</h3>
+<ul>
+<li>自研 SGLang operator：提升<strong>單 GPU throughput</strong>。</li>
+<li>針對 vLLM / SGLang / Dynamo 嘅 operator-level optimizations → TPS
+<strong>1–3×</strong>。</li>
+<li>唔止用開源，加埋自家調校。</li>
+</ul>
+<h3 id="23-ai-gateway">2.3 AI Gateway</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多 model 統一接入</td>
+<td>一個 gateway serve 多個 model</td>
+</tr>
+<tr>
+<td>身份認證 + token 限額</td>
+<td>控制邊個用幾多</td>
+</tr>
+<tr>
+<td>Add-ons</td>
+<td>web search / content security / canary release</td>
+</tr>
+<tr>
+<td>Load-aware routing</td>
+<td>根據 GPU 負載分 request</td>
+</tr>
+<tr>
+<td><strong>KVCache-aware routing</strong></td>
+<td>識得將 request 路由去 KV-cache 命中率高嘅節點</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-pd-分離編排-orchestration-for-pd-disaggregation">2.4 PD
+分離編排 Orchestration for PD Disaggregation</h3>
+<ul>
+<li><strong>Dynamic Disaggregation</strong>：動態將 prefill 同 decode
+分開到唔同 GPU 節點。</li>
+<li>Metric-guided scaling：根據指標自動擴縮。</li>
+<li>統一排 P / D nodes 喺 heterogeneous GPU cluster 上。</li>
+<li>HPA with KEDA custom scaling metrics：獨立 P / D scaling，用
+composite metrics 控制。</li>
+</ul>
+<h3 id="25-端到端推理可觀測性">2.5 端到端推理可觀測性</h3>
+<ul>
+<li>Non-intrusive instrumentation：唔改 model code 就監控。</li>
+<li>原生 metric monitoring for vLLM / Dynamo / SGLang。</li>
+<li>Lightweight dynamic activation：快速搵 bottleneck。</li>
+</ul>
+<blockquote>
+<p><strong>Sale 一句</strong>：「五寶 = 快起 + 快出 + 智能路由 + PD 分離
++ 睇得清。同普通自建 vLLM 嘅分別，就係呢五樣全部打包咗。」</p>
+</blockquote>
+<hr />
+<h2 id="3-推理引擎相容xllm--vllm--sglang--dynamo">3. 推理引擎相容（xLLM
+/ vLLM / SGLang / Dynamo）</h2>
+<p>ServingKit 支援多個主流推理引擎，底層常識同速度來源詳見
+<code>references/veadk-agentkit-hardware.md</code>
+§5（引擎運作），呢度做個速覽：</p>
+<table>
+<thead>
+<tr>
+<th>引擎</th>
+<th>核心技術</th>
+<th>適合場景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>xLLM（自研）</strong></td>
+<td>BytePlus 自研：PD 分離、xTensor 記憶（邏輯連續/物理離散）、EPLB MoE
+優化、異步 pipeline 疊算</td>
+<td>DeepSeek / MoE 大規模、PD 分離開箱即用（內建）</td>
+</tr>
+<tr>
+<td><strong>vLLM</strong></td>
+<td>PagedAttention（分頁式 KV-Cache）、Continuous Batching、Prefix
+Caching</td>
+<td>大量獨立 request、成熟生態</td>
+</tr>
+<tr>
+<td><strong>SGLang</strong></td>
+<td>RadixAttention（前綴樹複用）、Structured Output、Multi-LoRA</td>
+<td>高共享 prefix、多租戶、多 LoRA</td>
+</tr>
+<tr>
+<td><strong>Dynamo</strong></td>
+<td>NVIDIA 出品，operator-level 優化</td>
+<td>NVIDIA 生態深度整合</td>
+</tr>
+</tbody>
+</table>
+<p>關鍵底層概念速覽：</p>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefill</td>
+<td>讀 prompt、計首 token（compute-bound）</td>
+</tr>
+<tr>
+<td>Decode</td>
+<td>逐 token 出（memory-bound）</td>
+</tr>
+<tr>
+<td>KV-Cache</td>
+<td>留住之前 token 嘅 attention 中間值</td>
+</tr>
+<tr>
+<td>Continuous Batching</td>
+<td>唔落 idle、即插下個 request → GPU 利用率飆升</td>
+</tr>
+<tr>
+<td>Speculative Decoding</td>
+<td>細 model 估 + 大 model verify → throughput 2–3×</td>
+</tr>
+<tr>
+<td>Quantization（FP8 / AWQ / GPTQ）</td>
+<td>低位 bit 存權重：VRAM 慳、token/s 升</td>
+</tr>
+<tr>
+<td>SGLang Multi-LoRA</td>
+<td>單一引擎動態切換多個 LoRA adapter</td>
+</tr>
+<tr>
+<td>PD 分離</td>
+<td>Prefill / Decode 拆 instance 池（xLLM 內建），慳碎片 + 低 TTFT</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 托管方舟 / ModelArk 收埋引擎（<strong>xLLM
+係自家主打</strong>，vLLM / SGLang 同場兼容）——你唔使揀。ServingKit
+係<strong>自建嗰陣嘅選項</strong>，先需要理解呢啲。四引擎邊個啱邊種場景
+→ cache tab §2.6–2.7。</p>
+</blockquote>
+<hr />
+<h2 id="4-gpu-集群--硬件大-scale">4. GPU 集群 + 硬件（大 Scale）</h2>
+<table>
+<thead>
+<tr>
+<th>硬件 / 服務</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H100 / H200 / B200 大規模集群</strong></td>
+<td>ServingKit 嘅底座，支援最新 NVIDIA GPU</td>
+</tr>
+<tr>
+<td><strong>NVLink / RDMA</strong></td>
+<td>GPU 高速互聯，模型切分跨卡無痛</td>
+</tr>
+<tr>
+<td><strong>PFS（Parallel File Storage）</strong></td>
+<td>做 checkpoint / weight 載入，唔使等</td>
+</tr>
+<tr>
+<td><strong>Weight-based acceleration</strong></td>
+<td>權重級加速，100+ images 分鐘級服務啟動</td>
+</tr>
+<tr>
+<td><strong>Image acceleration</strong></td>
+<td>容器鏡像加速，加快冷啟動</td>
+</tr>
+</tbody>
+</table>
+<p>關聯 BytePlus products：</p>
+<table>
+<thead>
+<tr>
+<th>Product</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPU Compute Service</td>
+<td>GPU 算力</td>
+</tr>
+<tr>
+<td>Vital Kubernetes Engine（VKE）</td>
+<td>容器編排</td>
+</tr>
+<tr>
+<td>Container Registry</td>
+<td>鏡像管理</td>
+</tr>
+<tr>
+<td>Parallel File Storage</td>
+<td>高速文件存儲</td>
+</tr>
+<tr>
+<td>Vital Managed Service for Prometheus</td>
+<td>Metric 監控</td>
+</tr>
+<tr>
+<td>APMPlus</td>
+<td>應用性能監控</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「唔止係 GPU——連
+storage、container、monitoring 都係 BytePlus 自家
+product，一個生態圈搞掂。」</p>
+</blockquote>
+<hr />
+<h2 id="5-自建-vs-托管決策幾時揀-servingkit--方舟--agentkit">5. 自建 vs
+托管決策（幾時揀 ServingKit / 方舟 / AgentKit）</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>自建大規模（ServingKit）</strong></th>
+<th><strong>托管（方舟 / ModelArk）</strong></th>
+<th><strong>AgentKit + 方舟</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>適合</td>
+<td>數據不出域、極端 SLA、自家 model、大規模 GPU 集群</td>
+<td>快速上線、中小規模、托管推理</td>
+<td>快速交付 agent、要 eval / audit 全家桶</td>
+</tr>
+<tr>
+<td>你管嘅</td>
+<td>GPU / 部署 / PD 分離 / 觀測</td>
+<td>model_name、context、runtime</td>
+<td>context、model、runtime</td>
+</tr>
+<tr>
+<td>開運成本</td>
+<td>GPU + 部署 + 維運（高）</td>
+<td>方舟 API 費（中）</td>
+<td>Agent Plan + Runtime（中）</td>
+</tr>
+<tr>
+<td>靈活度</td>
+<td>高（量化 / AWQ / multi-LoRA / engine 揀）</td>
+<td>低（平台決定）</td>
+<td>低（平台決定）</td>
+</tr>
+<tr>
+<td>交付速度</td>
+<td>慢（要排 GPU、部署、調參）</td>
+<td>快</td>
+<td>最快</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sales 判斷</strong>：「要控 100% 唔出我域 + 大 scale →
+ServingKit；要快上線、唔想管 infra → 方舟 /
+AgentKit。」兩條生意都有人做。具體計價見
+<code>references/veadk-agentkit-pricing.md</code>。</p>
+</blockquote>
+<blockquote>
+<p>⚠️ ServingKit 嘅定價同 Agent Plan 唔同——ServingKit 係 infra
+級計費（GPU + storage + bandwidth），唔係 per-token 計。</p>
+</blockquote>
+<hr />
+<h2 id="6-應用場景">6. 應用場景</h2>
+<h3 id="61-ai-searchdeepseek-部署--rag-內網知識">6.1 AI Search（DeepSeek
+部署 + RAG 內網知識）</h3>
+<ul>
+<li>用 ServingKit 部署 DeepSeek 系列模型，配合 RAG
+搭建內網知識搜索引擎。</li>
+<li>大規模 GPU 集群確保低延遲、高吞吐，支援高並發搜索請求。</li>
+<li>適合企業內部知識管理、客服知識庫。</li>
+</ul>
+<h3 id="62-ai-assisted-codingopen-source-llm-部署成本控制">6.2
+AI-Assisted Coding（Open-Source LLM 部署、成本控制）</h3>
+<ul>
+<li>部署開源 LLM（DeepSeek 等）做 code assistant。</li>
+<li>透過 ServingKit 嘅算子優化 + continuous batching 控制成本。</li>
+<li>支援 vibe coding 場景：長 context、多輪對話、結構化輸出。</li>
+</ul>
+<h3 id="63-ai-customer-service客服-assistant">6.3 AI Customer
+Service（客服 Assistant）</h3>
+<ul>
+<li>客服 assistant 需要低延遲、高並發、穩定 serving。</li>
+<li>ServingKit 嘅 AI Gateway + load-aware routing
+確保請求分發均勻。</li>
+<li>配合 content security add-on 做合規。</li>
+</ul>
+<blockquote>
+<p><strong>Sale 一句</strong>：「三個場景都係用 ServingKit 部署
+open-source models（DeepSeek 等），配合 RAG，解決企業內部 / 對外嘅 AI
+需求。」</p>
+</blockquote>
+<hr />
+<h2 id="7-資料來源">7. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BytePlus ServingKit solution page</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-servingkit">https://www.byteplus.com/solutions/ai-cloud-native-servingkit</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus AgentKit AI Cloud Native</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-agentkit">https://www.byteplus.com/solutions/ai-cloud-native-agentkit</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>BytePlus TrainingKit</td>
+<td><a
+href="https://www.byteplus.com/solutions/ai-cloud-native-trainingkit">https://www.byteplus.com/solutions/ai-cloud-native-trainingkit</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>xLLM Technical Report</td>
+<td><a
+href="https://arxiv.org/abs/2510.14686">https://arxiv.org/abs/2510.14686</a></td>
+<td>2025-10</td>
+</tr>
+<tr>
+<td>xLLM 官方 GitHub</td>
+<td><a
+href="https://github.com/xLLM-AI/xllm">https://github.com/xLLM-AI/xllm</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>veMLP xLLM PD 分離（vs vLLM/SGLang）</td>
+<td><a
+href="https://docs.byteplus.com/en/docs/mlp/veMLP_xLLM_Inference_Engine_PD_Separation_Deployment_for_Qwen_Model">https://docs.byteplus.com/en/docs/mlp/veMLP_xLLM_Inference_Engine_PD_Separation_Deployment_for_Qwen_Model</a></td>
+<td>2026</td>
+</tr>
+<tr>
+<td>vLLM 官方（PagedAttention / continuous batching）</td>
+<td><a href="https://docs.vllm.ai">https://docs.vllm.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>SGLang 官方（RadixAttention / multi-LoRA）</td>
+<td><a href="https://docs.sglang.ai">https://docs.sglang.ai</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>推理引擎底層常識（已合併）</td>
+<td><code>references/veadk-agentkit-hardware.md</code> §5</td>
+<td>2026-08-15</td>
+</tr>
+<tr>
+<td>自建 vs 托管決策</td>
+<td><code>references/veadk-agentkit-hardware.md</code> §8</td>
+<td>2026-08-13</td>
+</tr>
+<tr>
+<td>定價</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：TPS 倍數、TTFT 個百分比、部署時間屬 BytePlus
+官方參考估算；ServingKit 細節同定價會隨產品迭代而變，引用前 check
+一遍最新資料。底層引擎版本同 GPU 硬件亦會走。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · ServingKit 功能同定價會隨 BytePlus
+產品迭代而變，引用前 check 一遍。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

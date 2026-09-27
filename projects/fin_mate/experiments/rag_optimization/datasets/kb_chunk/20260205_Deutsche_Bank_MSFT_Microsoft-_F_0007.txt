@@ -1,0 +1,13 @@
+ARPU expansion also continues to be 
+attributed to E5 momentum and then M365 Copilot. This quarter was also the first 
+time mgmt. disclosed M365 copilot paid seats, which sit at 15m as of F2Q.
+(+) Server Products grew +1% y/y @CC, much better compared to guidance for a 
+LSD-MSD decline driven by demand for Microsoft's hybrid solutions, with benefit 
+from the launch of SQL Server 2025 and higher transactional purchasing ahead of 
+memory price increases.
+(=) LinkedIn +10% y/y @CC accelerated 1pt from F1Q and was consistent with 
++10% y/y guidance, driven by strength in Marketing Solutions.
+(-) Search and News Advertising revenue (ex-TAC) +9% y/y @CC missed guidance 
+for low double digits growth (down sequentially as growth rates normalize) 
+following some execution challenges. Growth continues to be driven by higher 
+search volume and continued benefit from 3P partnerships.

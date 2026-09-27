@@ -1,0 +1,13 @@
+Thank you.
+A - Amy Hood {BIO 18040963 <GO>}
+Thanks, Mark. Let me start with at a high level, and Satya can add as well. I think when you think
+about average duration, I think what you're getting to is, and we need to remember, is that
+average duration is a combination of a broad set of contract arrangements that we have.
+A lot of them around things like M365 or a Biz App portfolio are shorter dated, right? Three-year
+contracts, and so they have, quite frankly, a short duration. The majority then, that's remaining are
+Azure contracts that are longer duration, and you saw that this quarter when you saw the
+extension of that duration from around two years to two and a half. And the way to think about
+that is the majority of the capital that we're spending today and a lot of the GPUs that we're
+buying are already contracted for most of their useful life.
+And so a way to think about that is much of that risk that I think you're pointing to isn't there
+because they're already sold for the entirety of their useful life.

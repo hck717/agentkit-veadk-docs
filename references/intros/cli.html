@@ -1,0 +1,109 @@
+<div class="intro-bar">📘 呢頁詳細解說（先睇呢度，再落下面文件）</div>
+<p>CLI 係成個 AgentKit
+生命週期嘅「控制台」：<strong>init（起）、config（配）、build（打包）、deploy（部署）、runtime（管）、invoke（call）、knowledge/memory（數據）、mcp（開放接口）、eval（驗證）、sandbox（執行）</strong>。你寫嘅
+code 唔會自己飛上雲——全部經 <code>ak</code> 踩出去。</p>
+<h2 id="it-cli-最快上手一個-demo-agent10-分鐘">最快上手：一個 demo agent（10
+分鐘）</h2>
+<div class="sourceCode" id="it-cli-cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-cli-cb1-1"><a href="#it-cli-cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1) 起項目（模板模式）</span></span>
+<span id="it-cli-cb1-2"><a href="#it-cli-cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> init demo-agent <span class="at">--template</span> agent</span>
+<span id="it-cli-cb1-3"><a href="#it-cli-cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-cli-cb1-4"><a href="#it-cli-cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2) 配環境變數 + 登入</span></span>
+<span id="it-cli-cb1-5"><a href="#it-cli-cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> login <span class="at">--scopes</span> full           <span class="co"># 或用 AK/SK 登入</span></span>
+<span id="it-cli-cb1-6"><a href="#it-cli-cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> config set MODEL_AGENT_NAME doubao-seed-2-0-mini</span>
+<span id="it-cli-cb1-7"><a href="#it-cli-cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-cli-cb1-8"><a href="#it-cli-cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 3) 寫好 agent 邏輯（agents 目錄，見「開發 API」Tab）</span></span>
+<span id="it-cli-cb1-9"><a href="#it-cli-cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-cli-cb1-10"><a href="#it-cli-cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 4) 一鍵 config → build → apply</span></span>
+<span id="it-cli-cb1-11"><a href="#it-cli-cb1-11" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> deploy demo-agent</span>
+<span id="it-cli-cb1-12"><a href="#it-cli-cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="it-cli-cb1-13"><a href="#it-cli-cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 5) call 佢</span></span>
+<span id="it-cli-cb1-14"><a href="#it-cli-cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> invoke demo-agent <span class="at">-m</span> <span class="st">&quot;Hello，自我介紹一下&quot;</span></span>
+<span id="it-cli-cb1-15"><a href="#it-cli-cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> runtime logs demo-agent <span class="at">--limit</span> 50</span></code></pre></div>
+<h2 id="it-cli-成個流程圖記憶用">成個流程圖（記憶用）</h2>
+<pre><code>init → config → (code) → build → deploy/launch → runtime → invoke
+                          ▲                             │
+                          └───── eval / logs ◄──────────┘</code></pre>
+<ul>
+<li><strong>build</strong> 只係打包 Docker 鏡像（可以
+<code>--local</code> 本地檢視）。</li>
+<li><strong>deploy</strong> = config + build + apply
+三合一；<code>launch</code> = build + deploy 兩合一。</li>
+<li>部署完嘅嘢叫 <strong>runtime</strong>（有版本、有 CPU/記憶體、有
+concurrency、有日誌）。</li>
+</ul>
+<h2 id="it-cli-環境變數兩層級最易錯嘅位">環境變數兩層級（最易錯嘅位）</h2>
+<pre><code>Agent（應用級）  ← MODEL_AGENT_NAME / API 憑證… 所有模式共享
+Workflow（工作流級）← 只喺當前 mode 內生效</code></pre>
+<ul>
+<li><code>agentkit config set K V</code> 設「應用級」；有 Workflow
+拆擋時要分開確認係咪想放邊層。</li>
+<li>想喺 runtime 度動態改環境變數（唔重新部署）：
+<code>agentkit runtime update my-agent --envs-json '[{"Key":"K","Value":"V"}]' --auto-release</code></li>
+</ul>
+<h2 id="it-cli-揀-mode--模板先唸清楚">揀 mode / 模板先唸清楚</h2>
+<table>
+<thead>
+<tr>
+<th>你嘅情況</th>
+<th>揀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>初學 / 標準 Agent</td>
+<td><code>ak init</code> 預設模板</td>
+</tr>
+<tr>
+<td>想將現有 Agent 包裝做 runtime</td>
+<td><code>ak init --from-agent</code>（包裝模式）</td>
+</tr>
+<tr>
+<td>要不支援 prebuilt 嘅行為</td>
+<td>Harness / Custom sandbox（見下方）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="it-cli-部署後日常唔好淨係-deploy-完就算">部署後日常（唔好淨係 deploy
+完就算）</h2>
+<ul>
+<li><strong>體檢</strong>：<code>ak runtime show</code>（資源）、<code>ak runtime logs</code>（日誌）、<code>ak invoke -u user-X -s session-1</code>（指定用戶/會話測）。</li>
+<li><strong>更新</strong>：<code>ak runtime update</code>（CPU/記憶體/instance/concurrency/model
+都唔使 rebuild）。</li>
+<li><strong>回滾</strong>：<code>ak runtime versions</code> →
+<code>ak runtime release my-agent --rev N</code>。</li>
+<li><strong>拆除</strong>：<code>ak runtime delete my-agent --yes</code>
+或項目目錄 <code>ak destroy</code>。</li>
+</ul>
+<h2 id="it-cli-數據--開放能力">數據 &amp; 開放能力</h2>
+<ul>
+<li><strong>知識庫</strong>
+<code>ak knowledge create/add/update</code>：綁
+<code>--knowledge-id</code> 落 runtime，Agent 即講 product docs。</li>
+<li><strong>記憶庫</strong>
+<code>ak memory create</code>：<code>VIKINGDB_MEMORY</code> /
+<code>MEM0</code> 等 provider，跨 session 記住用戶（見「記憶 /
+知識庫」Tab）。</li>
+<li><strong>MCP 服務</strong> <code>ak mcp service create</code>：將
+agent 變成 MCP server（公網 + API Key / 私網 / JWT）俾外部 tool
+調用。</li>
+<li><strong>Sandbox</strong> <code>ak sandbox</code>：安全 shell +
+檔案，可 <code>--json</code> 非交互執行，<code>codex/agent</code>
+注入憑證即 AI 自動跑命令行任務。</li>
+</ul>
+<h2 id="it-cli-驗收前必做eval">驗收前必做：eval</h2>
+<div class="sourceCode" id="it-cli-cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="it-cli-cb4-1"><a href="#it-cli-cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset create <span class="at">--name</span> qa-set <span class="at">--schema</span> <span class="st">&quot;input,reference_output&quot;</span></span>
+<span id="it-cli-cb4-2"><a href="#it-cli-cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> dataset add qa-set <span class="at">--file</span> ./cases.json</span>
+<span id="it-cli-cb4-3"><a href="#it-cli-cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">agentkit</span> eval run <span class="at">--dataset</span> qa-set <span class="at">--evaluator</span> 相关性 <span class="at">--target</span> demo-agent <span class="at">--json</span></span></code></pre></div>
+<p>冇 eval 就唔好叫「上線」。CLI 層嘅 eval 只係起點；自動回流最好用
+Studio（見「性能 Playbook」Tab §10）。</p>
+<h2 id="it-cli-常見錯--記住">常見錯 &amp; 記住</h2>
+<ul>
+<li>❌ 未 <code>login</code> 就 deploy → 一律 auth 錯；先
+<code>agentkit whoami</code> 確認。</li>
+<li>❌ 直接改手動 RPM / 唔經 CLI → 部署資訊同 runtime
+唔一致，回滾會漏。</li>
+<li>✅ <strong>每改一個 prompt/context 就 <code>ak eval run</code>
+一次</strong> —— 「好似快咗」唔等於「冇變差」。</li>
+</ul>

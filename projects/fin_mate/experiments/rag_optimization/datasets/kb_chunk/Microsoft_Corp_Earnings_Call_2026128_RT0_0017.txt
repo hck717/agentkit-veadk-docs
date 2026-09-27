@@ -1,0 +1,14 @@
+For example, Icertis'
+SOC team used security Copilot agent to reduce manual triage time by 75%, which is a real
+game changer in an industry facing a severe talent shortage.
+To make it easier for security teams to onboard, we are rolling out Security Copilot to all our E5
+customers, and our security solutions are also becoming essential to manage organizations' AI
+deployments. 24 billion Copilot interactions were audited by Purview this quarter, up 9x year-
+over-year. Finally, I want to talk about two additional high-impact agentic experiences. First, in
+healthcare, Dragon Copilot is the leader in its category, helping over 100,000 medical providers
+automate their workflows. Mount Sinai Health is now moving to a system-wide Dragon Copilot
+deployment for providers after a successful trial with its primary care physicians.
+All up, we helped document 21 million patient encounters this quarter, up 3x year-over-year. And
+second, when it comes to science and engineering, companies like Unilever in consumer goods
+and Synopsys in EDA are using Microsoft Discovery to orchestrate specialized agents for R&D
+end-to-end.

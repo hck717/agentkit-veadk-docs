@@ -1,0 +1,4 @@
+Deutsche Bank 報告顯示，Microsoft F2Q（截至 2026 年 1 月 31 日的季度）Azure 按不變匯率計算同比增長 **38%**，高於指導範圍（37%）1 個百分點，但低於買方預期（約 39%）。若 F2H26 將所有增量 GPU 容量分配給 Azure，增長有望超過 40%，但目前因供應限制優先考慮 AI 第一方應用和研發而受限。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

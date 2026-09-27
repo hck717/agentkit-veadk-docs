@@ -1,0 +1,4 @@
+Deutsche Bank 形容 F2Q（截至 2026 年 1 月 31 日的季度）結果時，指出總收入的新預估值為 81,18900 萬美元，低於舊預估值的 81,58800 萬美元，差異為 -0.5%，同時低於市場一致預期的 81,36000 萬美元【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。主要原因可能與「More Personal Computing」業務 segment 的表現有關，該 segment 新預估值為 12,62900 萬美元，低於舊預估值的 13,52200 萬美元，同比增長 -5.5%，而舊預估值同比增長 +1.1%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+## 來源
+`20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt`

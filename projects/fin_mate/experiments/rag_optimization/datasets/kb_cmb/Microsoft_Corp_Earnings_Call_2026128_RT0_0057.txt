@@ -1,0 +1,14 @@
+So if you take M365, you take what's happening with security,
+and you take GitHub. In fact, it's fascinating. I mean, these three things had effectively
+compounding effects for our customers in the past, like something like Entra as an identity
+system or Defender as the protection system across all three was sort of super helpful.
+But -- so what now you're seeing is something like Work IQ, right? So I mean, just to give you a
+flavor for it. The most important database underneath for any company that uses Microsoft today
+is the data underneath Microsoft 365, and the reason is because it has all this tacit information,
+right? Who are your people? What are their relationships? What are their projects they're working
+on? What are their artifacts, their communications?
+FINAL TRANSCRIPT
+2026-01-28
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 14 of 16

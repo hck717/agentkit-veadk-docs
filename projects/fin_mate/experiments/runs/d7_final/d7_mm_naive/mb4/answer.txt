@@ -1,0 +1,3 @@
+250,000 M365 E7 seats across 40 enterprise accounts【KB:msft_scan.pdf】
+## 來源
+msft_scan.pdf

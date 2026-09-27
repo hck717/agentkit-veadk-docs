@@ -1,0 +1,15 @@
+### 1. Security Copilot agents reduce manual triage time and address talent shortages  
+Icertis' SOC team used security Copilot agents to reduce manual triage time by 75%, which is critical in an industry facing a severe talent shortage【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】. This efficiency gain is essential for agentic adoption, as security teams need tools to manage complex AI deployments.  
+
+### 2. Agent 365 includes security prerequisites  
+Agent 365, a control plane for managing agents, includes features like agent registry/agent ID (in Entra), observability, and risk signals—all important prerequisites for agentic adoption【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】. Without these security measures, standalone adoption of Copilot or Agent 365 may be risky.  
+
+### 3. E7 bundle integrates security and AI tools  
+The E7 SKU includes M365 E5, Entra Suite, Agent 365, and M365 Copilot, combining security and AI capabilities【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】. This integration makes it easier for enterprises to adopt agentic solutions, as security is embedded rather than added separately.  
+
+### 4. Security is essential for managing AI deployments  
+Microsoft's security solutions are becoming essential to manage organizations' AI deployments. For example, 24 billion Copilot interactions were audited by Purview this quarter, up 9x year-over-year【KB:Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt】. This scale of auditing highlights the need for robust security in agentic workflows.  
+
+## 來源  
+[1] <Microsoft_Corp_Earnings_Call_2026128_RT000000003094331726.pdf.txt>  
+[

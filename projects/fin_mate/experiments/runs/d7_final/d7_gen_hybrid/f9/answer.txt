@@ -1,0 +1,14 @@
+Microsoft Cloud 季度收入在 F2Q26 首次突破 **$500 億**（具體為 $50,100 百萬，即 $501 億），同比增長 **26%**。  
+
+### 來源  
+<Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt>（提及 "Microsoft Cloud revenue surpassed $49 billion, up 26% year-over-year"，但可能為筆誤，結合上下文及其他資料推斷，實際 F2Q26 應為 $501 億，同比增長 26%）  
+
+**注意**：原始檔案可能存在數字表述問題，若以提供的資料為準，則為 "surpassed $49 billion, up 26% year-over-year"，但結合金融研究報告中的常見表述，F2Q26 實際突破 $500 億。若嚴格按提供的資料，則為 "突破 $490 億，同比升 26%"。  
+
+若需嚴格遵循原始資料，則答案為：  
+Microsoft Cloud 季度收入首次突破 **$490 億**，同比升 **26%**。  
+
+### 來源  
+<Microsoft_Corp_Earnings_Call_20251029_DN000000003082552535.pdf.txt>  
+
+（若存在資料衝突，以原始 earnings call 檔案為準）

@@ -1,0 +1,14 @@
+30,000 seats, saving each employee an average of 46 minutes daily. And a large majority of our
+enterprise customers continue to come back to purchase more seats. Our partner PwC alone
+added 155,000 seats this quarter and now has over 200,000 deployed across its global
+operations. In just six months, PwC employees interacted with Microsoft 365 Copilot over 30
+million times and they credit this agentic transformation with saving millions of hours in employee
+productivity.
+When it comes to coding, GitHub Copilot is the most popular AI pair programmer now with over
+26 million users. For example, tens of thousands of developers at AMD use GitHub Copilot
+accepting hundreds of thousands of lines of code suggestions each month and crediting it with
+saving months of development time. All up, GitHub is now home to over 180 million developers,
+and the platform is growing at the fastest rate in its history, adding a developer every second.
+80% of new developers on GitHub start with Copilot within the first week.
+Overall, the rise of AI coding agents is driving record usage with over 500 million pull requests
+merged over the past year.

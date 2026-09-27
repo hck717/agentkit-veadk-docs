@@ -1,0 +1,4 @@
+Microsoft Cloud surpassed $50 billion in revenue for the first time, up 26% year-over-year in the call mentioned in [1] <Microsoft_Corp_Earnings_Call_2026128_RT00000>. In another call [2] <Microsoft_Corp_Earnings_Call_20251029_DN0000>, Microsoft Cloud revenue was $49 billion, up 26% year-over-year. However, the question specifically refers to "F2Q26 call" which is likely the 2026128 call, so the key data is $50 billion and 26% [KB:Microsoft_Corp_Earnings_Call_2026128_RT00000].
+## 來源
+<Microsoft_Corp_Earnings_Call_2026128_RT00000>
+<Microsoft_Corp_Earnings_Call_20251029_DN0000>

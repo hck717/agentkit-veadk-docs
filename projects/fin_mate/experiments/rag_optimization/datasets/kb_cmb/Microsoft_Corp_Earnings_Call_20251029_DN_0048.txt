@@ -1,0 +1,11 @@
+And in order to do that, you have to start with building
+out a very fungible fleet. It's not like we are building one data center in one region in the world
+that's mega-scale. We are building it out across the globe for inference, for pre-training, for post-
+training, for RL, for datacenters and what have you. So therefore, that's the fungibility is super
+important.
+The second thing that we're also doing is continually modernizing the fleet. It's not like we buy
+one version of, say, NVIDIA and load-up for all the gigawatts we have. Each year you buy, you
+write the Moore's Law, you continuously modernize and depreciate it. And that means you also
+use software to grow efficiency. I talked about, I think, 30% improvement on both serving up GPT-
+4.1 and GPT-5, right? That's software. That's sort of -- and by the way, it's helpful on A100s. It's
+helpful on GB200s and it will be helpful on GB300s.

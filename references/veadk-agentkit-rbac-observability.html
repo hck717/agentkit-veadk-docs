@@ -1,0 +1,814 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>安全 / 可觀測</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>安全 / 可觀測</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1
+id="veadk--agentkit-安全--可觀測servingkit-睇全--rbac--pii--audit--observability--guardrail--filter">VeADK
++ AgentKit 安全 / 可觀測（ServingKit 睇全 — RBAC / PII / Audit /
+Observability / Guardrail / Filter）</h1>
+<p>呢份文件係一套 Agent 方案嘅「安全 + 合規 + 可觀測性」地圖。 唔係單純
+function list——係要教你**幫 client
+砌一套行得、審得、爆得（出事查得返）**嘅生產環境。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>安全分「入、出、內容、攔截、過濾、平台」五條</strong>：入站認證（邊個入嚟）、出站憑證（去邊度攞野）、內容安全（乜嘢過嚟）、Guardrail
+攔有害（四點 + 多層防禦）、Input/Output Filter 過濾入出（PII
+遮蔽）、平台 RBAC（邊個管）。</li>
+<li><strong>Audit（審計）唔等於 logging</strong>：audit 係「重現 + 簽名
++ 保留」，logging 係「睇 log」。invoice 方案講 7 年保留要咁樣解。</li>
+<li><strong>可觀測性唔使揀，可以疊</strong>：APMPlus + Cozeloop + TLS
+同一份 span
+一次過送出；仲有內容追蹤開關（<code>trace_content</code>）。</li>
+<li><strong>真銀嘅隱性成本</strong>：安全本身接近免費，但 audit + shadow
+eval + PII scan 會<strong>推高 model 消耗</strong>（見 pricing doc
+§10）。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-快睇五條安全軸">0. 快睇：五條安全軸</h2>
+<table>
+<thead>
+<tr>
+<th>軸</th>
+<th>答邊條問題</th>
+<th>主力元件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>入站認證</strong></td>
+<td>「邊個可以 call 我個 agent？」</td>
+<td>API Key / OAuth2 / JWT / VeIdentity 用戶池</td>
+</tr>
+<tr>
+<td><strong>出站憑證</strong></td>
+<td>「agent 去攞第三方 API 嘅 key 邊度保管？」</td>
+<td>Agent Identity（出站憑證托管 + 自動輪換）</td>
+</tr>
+<tr>
+<td><strong>內容安全</strong></td>
+<td>「模型入/出有冇 PII / 有害內容？」</td>
+<td><code>content_safety</code> 基於火山 LLM-FW（category 103 =
+敏感資訊）</td>
+</tr>
+<tr>
+<td><strong>Guardrail / Filter</strong></td>
+<td>「攔得住有害嘅入同出？」</td>
+<td>LLM-FW 四點審查 + 多層防 prompt injection + Input/Output Filter</td>
+</tr>
+<tr>
+<td><strong>平台 RBAC</strong></td>
+<td>「邊個可以開 Runtime / 改 Studio？」</td>
+<td>Studio <code>--admin</code>/<code>--developer</code> + IAM</td>
+</tr>
+</tbody>
+</table>
+<p>另外<strong>橫切一層：可觀測性</strong>（trace/metrics/log）服務晒上面五條——出事靠佢。</p>
+<hr />
+<h2 id="1-入站認證inbound-驗證邊個入嚟">1. 入站認證（Inbound）—
+驗證邊個入嚟</h2>
+<p>VeADK 支援 <strong>API Key</strong> 同
+<strong>OAuth2</strong>（單點登入 + JWT）兩類：</p>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>做法</th>
+<th>適合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Key</strong></td>
+<td>Runtime 用 API Key 鑒權；Studio 顯示時預設
+mask（<code>****</code>）</td>
+<td>機器對機器、快速</td>
+</tr>
+<tr>
+<td><strong>OAuth2 / VeIdentity 用戶池</strong></td>
+<td>用戶登入用戶池 → JWT → Runtime 認得</td>
+<td>人類用戶、有 SSO 要求</td>
+</tr>
+<tr>
+<td><strong>Custom JWT</strong></td>
+<td><code>custom-jwt</code> + OIDC Discovery URL + allowed client</td>
+<td>已有自有 IdP</td>
+</tr>
+</tbody>
+</table>
+<p><strong>VeADK 框架層直接接
+<code>AuthRequestProcessor</code></strong>（VeIdentity）：</p>
+<pre class="python"><code>from veadk.integrations.ve_identity import AuthRequestProcessor
+
+agent = Agent(name=&quot;assistant&quot;, run_processor=AuthRequestProcessor())</code></pre>
+<p><strong>AgentKit Runtime
+層</strong>（<code>create_agentkit_app</code>）新增
+<code>identity</code> 參數：AgentKit 喺 agent
+或工具代碼執行前<strong>驗證並綁定入站用戶身份</strong>；<code>/ping</code>
+健康檢查<strong>排除</strong>在身份綁定之外。要用呢個功能要
+<code>agentkit-sdk-python&gt;=0.8.2</code>。</p>
+<blockquote>
+<p>⚠️ <code>/ping</code>
+健康檢查、<code>/health</code>、<code>/metrics</code> 一類 exempt path
+要諗清楚——健康檢查唔應該俾身份檢查擋住，但<strong>唔好</strong>將業務接口都當
+exempt。</p>
+</blockquote>
+<p><strong>A2A 調用下游</strong>：可傳入站 <code>X-Ve-TIP-Token</code> +
+Bearer JWT；下游用入站 JWT 返回 <code>401</code> 時回退到 M2M OAuth2
+重試一次。</p>
+<hr />
+<h2 id="2-出站憑證outbound-agent-攞野嘅鑰匙">2. 出站憑證（Outbound）—
+agent 攞野嘅鑰匙</h2>
+<p>Agent Identity（火山一站式身份與權限平台）負責：<strong>加密保管 API
+Key 與 OAuth 令牌，憑據唔寫入 code，自動緩存、刷新與輪換</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>認證方式</th>
+<th>點用</th>
+<th>注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API Key</strong>（出站）</td>
+<td>控制台建憑證 → <code>VeIdentityFunctionTool</code> /
+<code>VeIdentityMcpToolset</code> 注入</td>
+<td>普通函數工具用前者，MCP 工具集用後者</td>
+</tr>
+<tr>
+<td><strong>OAuth2 M2M</strong></td>
+<td>建 M2M 用戶池客戶端 → 換 JWT</td>
+<td>服務之間（機器對機器）</td>
+</tr>
+<tr>
+<td><strong>OAuth2 用戶委託</strong></td>
+<td>用戶首次授權 → Agent Identity 自動完成 token 交換 + 刷新</td>
+<td>用戶撤銷後調用報錯，要提示重新授權</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code># 出站憑證注入範例（概念）
+tool = VeIdentityFunctionTool(
+    fn=call_crm_api,
+    auth_config=api_key_auth(&quot;your-outbound-cred-name&quot;),
+)</code></pre>
+<blockquote>
+<p><strong>Sales 一句</strong>：「我哋嘅出站 key 唔會入你個 repo，Agent
+Identity 幫你轉緊、你哋自己人唔使貼 secret 落 code。」——呢個係同自架
+LangGraph 最唔同嘅位。</p>
+</blockquote>
+<hr />
+<h2 id="3-內容安全content-safety--pii-用火山-llm-fw">3.
+內容安全（Content Safety / PII）— 用火山 LLM-FW</h2>
+<p><code>content_safety</code> 掛喺 agent
+執行流程嘅回調上，借**火山大模型應用防火牆（LLM-FW）**做四點審查：</p>
+<table>
+<thead>
+<tr>
+<th>審計點</th>
+<th>幾時</th>
+<th>攔乜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before Model</td>
+<td>入 model 前</td>
+<td>用戶輸入有冇攻擊 / PII</td>
+</tr>
+<tr>
+<td>After Model</td>
+<td>model 出咗</td>
+<td>輸出有冇敏感資訊</td>
+</tr>
+<tr>
+<td>Before Tool</td>
+<td>工具 call 前</td>
+<td>入參有冇問題</td>
+</tr>
+<tr>
+<td>After Tool</td>
+<td>工具返嚟</td>
+<td>返回有冇 PII</td>
+</tr>
+</tbody>
+</table>
+<p><strong>LLM-FW 一級分類（節錄）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>代碼</th>
+<th>策略</th>
+<th>一句</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>模型濫用</td>
+<td>防止詐騙 / 違法 prompt</td>
+</tr>
+<tr>
+<td><strong>103</strong></td>
+<td><strong>敏感資訊（PII）</strong></td>
+<td><strong>實時偵測輸入輸出嘅隱私數據（身份證、手機號）並攔截</strong></td>
+</tr>
+<tr>
+<td>104</td>
+<td>提示詞攻擊</td>
+<td>防越獄 / DAN mode / 系統提示詞外洩</td>
+</tr>
+<tr>
+<td>106</td>
+<td>通用話題控制</td>
+<td>敏感話題（例：推股票）——<strong>預設唔開，要自己配</strong></td>
+</tr>
+<tr>
+<td>107</td>
+<td>算力消耗</td>
+<td>惡意重複輸出攻擊（累積 pattern 先觸發）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>配置</strong>：先買 LLM-FW 實例、加資產、攞 AppID →
+<code>TOOL_LLM_SHIELD_APP_ID</code> 或 <code>config.yaml</code> 嘅
+<code>tool.llm_shield.app_id</code> → 掛回調。</p>
+<pre class="python"><code>from veadk.tools.builtin_tools.llm_shield import content_safety
+
+agent = Agent(
+    name=&quot;robot&quot;,
+    before_model_callback=content_safety.before_model_callback,
+    after_model_callback=content_safety.after_model_callback,
+    before_tool_callback=content_safety.before_tool_callback,
+    after_tool_callback=content_safety.after_tool_callback,
+)</code></pre>
+<blockquote>
+<p>⚠️ <strong>category 103 就係你要答 client「PII
+點算」嗰嚿</strong>——直接答：「入/出/工具三個點都過 LLM-FW
+103，敏感資料一被偵測就攔。」 ⚠️ 106
+話題控制<strong>唔係默認</strong>——要 PII 保護一定要開
+103，要敏感話題控制記住加 106。</p>
+</blockquote>
+<hr />
+<h2 id="4-guardrail攔有害--敏感內容-多層防禦">4. Guardrail（攔有害 /
+敏感內容）— 多層防禦</h2>
+<h3 id="41-概念guardrail-係安全filter-係乾淨">4.1 概念：guardrail
+係「安全」，filter 係「乾淨」</h3>
+<ul>
+<li><strong>Guardrail</strong>：攔有害 / 違法 /
+PII——目標係<strong>安全</strong>。</li>
+<li><strong>Filter</strong>：過濾入出內容——目標係<strong>乾淨</strong>（見
+§5）。</li>
+<li>兩者有重疊但目標唔同；production <strong>兩個都要</strong>。</li>
+</ul>
+<blockquote>
+<p>✅ §3 嘅 <code>content_safety</code> 四點回調 = Guardrail
+嘅<strong>一級防線</strong>（LLM-FW）。本節再加：<strong>多層防禦策略</strong>
++ <strong>同其他家比較</strong>。</p>
+</blockquote>
+<h3 id="42-防-prompt-injection-嘅多層防禦">4.2 防 prompt injection
+嘅多層防禦</h3>
+<table>
+<thead>
+<tr>
+<th>層</th>
+<th>做法</th>
+<th>點解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>① 內容安全</td>
+<td>LLM-FW category <strong>104</strong>（提示詞攻擊）</td>
+<td>攔越獄 / DAN / system prompt 外洩</td>
+</tr>
+<tr>
+<td>② 輸入隔離</td>
+<td>唔好將外部內容同指令混埋（分隔符 / 指令重申）</td>
+<td>降低注入成功率</td>
+</tr>
+<tr>
+<td>③ 權限最小化</td>
+<td>tool 權限收窄（Agent Identity 只授需要嘅）</td>
+<td>被注入都做唔到壞事</td>
+</tr>
+<tr>
+<td>④ 輸出過濾</td>
+<td>After-Model 審查（見 §5）</td>
+<td>擋住敏感資料外洩</td>
+</tr>
+<tr>
+<td>⑤ 監控</td>
+<td>OTel / APMPlus 異常偵測</td>
+<td>事後發現 + 響應</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>冇單一銀彈</strong>——prompt injection 靠多層防守。104
+係第一層，但唔好依賴佢做唯一防線。</p>
+</blockquote>
+<h3 id="43-vs-其他家">4.3 vs 其他家</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>BytePlus（LLM-FW）</th>
+<th>Azure Content Safety</th>
+<th>Bedrock Guardrails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>接入</td>
+<td>框架掛鈎（<code>content_safety</code> 回調）</td>
+<td>另接服務</td>
+<td>另接服務</td>
+</tr>
+<tr>
+<td>計費</td>
+<td><strong>內置接近免費</strong></td>
+<td>逐次計</td>
+<td>$0.15/1K units（in+out 各一）</td>
+</tr>
+<tr>
+<td>PII 實時</td>
+<td>category 103 四點</td>
+<td>有</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「Guardrail = 喺 agent
+面前架個防火牆，唔係淨係睇 output——四個點（入 model / 出 model / 入工具
+/ 出工具）都過 LLM-FW，再加 prompt injection 多層防禦。我哋嘅 LLM-FW
+計費接近免費，唔似 Azure / Bedrock 逐次收。」</p>
+</blockquote>
+<hr />
+<h2 id="5-input--output-filter過濾入--出-雙向乾淨">5. Input / Output
+Filter（過濾入 / 出）— 雙向乾淨</h2>
+<h3 id="51-概念兩邊都要擋">5.1 概念：兩邊都要擋</h3>
+<table>
+<thead>
+<tr>
+<th>種類</th>
+<th>過濾乜</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Input filter（入）</strong></td>
+<td>唔想 agent 見嘅內容（黑白名單 / prompt injection 字樣 / 過長截斷 /
+語言）</td>
+<td>公開入口、多租戶</td>
+</tr>
+<tr>
+<td><strong>Output filter（出）</strong></td>
+<td>唔想俾用戶見嘅內容（mask 電話 / 合規敏感詞 / 格式清理 /
+品牌管控）</td>
+<td>有 PII 輸出、品牌</td>
+</tr>
+<tr>
+<td><strong>PII masking</strong></td>
+<td>偵測並遮罩個人資料（電話 / 身份證 / email）</td>
+<td>合規（金融 / 健康）</td>
+</tr>
+<tr>
+<td><strong>Rate / abuse filter</strong></td>
+<td>用量限制、惡意重複</td>
+<td>防濫用、防爆單</td>
+</tr>
+</tbody>
+</table>
+<h3 id="52-過濾機制對比">5.2 過濾機制對比</h3>
+<table>
+<thead>
+<tr>
+<th>機制</th>
+<th>原理</th>
+<th>優點</th>
+<th>弱點</th>
+<th>幾時用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Regex / 規則</strong></td>
+<td>字串 pattern</td>
+<td>快、平、可預測</td>
+<td>假陽性 / 假陰性</td>
+<td>電話 / email / 特定詞</td>
+</tr>
+<tr>
+<td><strong>ML 偵測</strong></td>
+<td>模型分類</td>
+<td>語意、揸唔定都捉到</td>
+<td>貴、要 model</td>
+<td>PII / 有害內容（LLM-FW）</td>
+</tr>
+<tr>
+<td><strong>遮蔽（mask）</strong></td>
+<td>偵測後換 <code>*</code></td>
+<td>保留其餘</td>
+<td>要另做還原流程</td>
+<td>日誌 / trace 出街</td>
+</tr>
+<tr>
+<td><strong>審批（HITL）</strong></td>
+<td>人睇過先放</td>
+<td>最準、可控</td>
+<td>慢、貴</td>
+<td>高風險</td>
+</tr>
+</tbody>
+</table>
+<h3 id="53-喺-stack-點做">5.3 喺 stack 點做</h3>
+<table>
+<thead>
+<tr>
+<th>要做</th>
+<th>用</th>
+<th>見</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>內容安全（Guardrail 一級）</td>
+<td>LLM-FW 四點 + category 103</td>
+<td>§3 / §4</td>
+</tr>
+<tr>
+<td>Prompt injection 防禦</td>
+<td>category 104 + 輸入隔離 + 權限最小化</td>
+<td>§4.2</td>
+</tr>
+<tr>
+<td>Trace 唔寫敏感嘢</td>
+<td><code>OBSERVABILITY_OPENTELEMETRY_TRACE_CONTENT=false</code></td>
+<td>§7</td>
+</tr>
+<tr>
+<td>Logging 唔洩 prompt</td>
+<td><code>LOGGING_LEVEL=INFO</code>（DEBUG 會記 prompt / 輸出 /
+工具參數）</td>
+<td>§7</td>
+</tr>
+<tr>
+<td>出站憑證唔入 repo</td>
+<td>Agent Identity（托管 + 自動輪換）</td>
+<td>§2</td>
+</tr>
+<tr>
+<td>PII 遮蔽出街</td>
+<td>Output filter / mask（金融 / 健康合規）</td>
+<td>§5.1</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Sale 一句</strong>：「入 filter 擋『啲客傳咩入嚟』，出 filter
+擋『我哋 agent 講咩出街』。兩邊都要，唔好只做一邊——trace 同 log
+都係『出街』。」</p>
+</blockquote>
+<hr />
+<h2 id="6-平台-rbacstudio--frontend-邊個管">6. 平台 RBAC（Studio /
+Frontend）— 邊個管</h2>
+<p><code>veadk studio</code> / <code>veadk frontend</code> /
+<code>veadk studio deploy</code> 支援基於角色嘅訪問控制：</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>可以</th>
+<th>設定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>admin</strong></td>
+<td>全部 Runtime + 管理 Studio / 部署</td>
+<td><code>--admin "bob@example.com,alice"</code></td>
+</tr>
+<tr>
+<td><strong>developer</strong></td>
+<td>自己創建嘅 Runtime + 開發工具</td>
+<td><code>--developer "carol@example.com"</code></td>
+</tr>
+<tr>
+<td>（普通用戶）</td>
+<td>只可用被指派嘅 Runtime</td>
+<td>冇 <code>--admin</code>/<code>--developer</code> 時預設</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>唔同角色喺「管理智能體」頁面同選擇器嘅<strong>可見性</strong>都唔同：admin
+見全部，developer/普通用戶只見到自己創建。</li>
+<li>同一身份同時喺兩個名單 → <strong>admin 優先</strong>。</li>
+<li>角色對應埋 Studio「技能生成」呢類進階能力（Dev Sandbox 技能生成只對
+developer / admin 開放）。</li>
+</ul>
+<p><strong>底層仲有 IAM</strong>：<code>veadk studio deploy</code>
+默認建 <code>VeADKFrontendServiceRole</code> +
+<code>VeADKFrontendPolicy</code>；生產環境應該審查權限範圍，要收窄就用
+<code>--iam-role</code> 指定預先配好嘅 Role。</p>
+<blockquote>
+<p>⚠️ 部署默認 Role 有<strong>廣泛權限</strong>（可開 AgentKit Runtime +
+雲資源）。上線前一定要由管理員收窄或用自有 IAM Role。</p>
+</blockquote>
+<hr />
+<h2 id="7-audit審計-出事要重現--簽名--保留">7. Audit（審計）— 出事要重現
++ 簽名 + 保留</h2>
+<p><strong>Audit ≠ log</strong>。Audit
+要能答：「邊個、幾時、做咗乜、個模型見到乜、最後係咪一致。」</p>
+<table>
+<thead>
+<tr>
+<th>Audit 要求</th>
+<th>用邊樣做</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>記錄 agent 每一步</td>
+<td>OTel span + TLS 集中日誌</td>
+<td><code>trace_content</code> 默認記錄 prompt/completion/工具入出</td>
+</tr>
+<tr>
+<td>可重現</td>
+<td><code>runner.run</code> + session trace dump 落 JSON</td>
+<td><code>tracer.dump(user_id, session_id)</code> 出 span JSON</td>
+</tr>
+<tr>
+<td>防篡改</td>
+<td>chain-hash（invoice 方案嘅概念）</td>
+<td>喺 DB 存 hash 鏈，唔係淨係 log</td>
+</tr>
+<tr>
+<td>保留 7 年</td>
+<td>TOS archive + PostgreSQL 寫入</td>
+<td>儲存計費（見 pricing doc §8）</td>
+</tr>
+<tr>
+<td>身份關聯</td>
+<td><code>create_agentkit_app(identity=...)</code></td>
+<td>每個 span 綁到入站用戶</td>
+</tr>
+</tbody>
+</table>
+<p><strong>實務</strong>：APMPlus / Cozeloop 留近期 trace（熱儲存）；TLS
+做集中長期留存；invoice 方案嘅 chain-hash + TOS archive
+做合規層。三層唔衝突，可以同時開。</p>
+<hr />
+<h2 id="8-observability--trace--metrics--log-三合一">8. Observability —
+trace / metrics / log 三合一</h2>
+<p><strong>統一入口 <code>OpentelemetryTracer</code></strong>：持有一組
+exporter，自動附加一個內存 exporter 用嚟本地落盤。</p>
+<table>
+<thead>
+<tr>
+<th>Exporter</th>
+<th>目標</th>
+<th>用嚟</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>APMPlusExporter</code></td>
+<td>火山 APMPlus</td>
+<td>trace + 指標（模型調用次數 / token 用量 / 操作耗時 / 異常 /
+工具耗時），<code>reasoning</code> 內容單獨標注</td>
+</tr>
+<tr>
+<td><code>CozeloopExporter</code></td>
+<td>Cozeloop</td>
+<td>鏈路觀測 + 評測</td>
+</tr>
+<tr>
+<td><code>TLSExporter</code></td>
+<td>火山日志 TLS</td>
+<td>集中存儲、長期留存、跨服務分析</td>
+</tr>
+<tr>
+<td><code>InMemoryExporter</code></td>
+<td>進程內存</td>
+<td>本地 debug、<code>dump</code> 落 JSON（自動附加，唔可以手加）</td>
+</tr>
+</tbody>
+</table>
+<pre class="python"><code>from veadk.tracing.telemetry.exporters.apmplus_exporter import APMPlusExporter
+from veadk.tracing.telemetry.exporters.cozeloop_exporter import CozeloopExporter
+from veadk.tracing.telemetry.exporters.tls_exporter import TLSExporter
+from veadk.tracing.telemetry.opentelemetry_tracer import OpentelemetryTracer
+
+tracer = OpentelemetryTracer(
+    exporters=[APMPlusExporter(), CozeloopExporter(), TLSExporter()]
+)
+agent = Agent(tools=[...], tracers=[tracer])</code></pre>
+<p><strong>唔使寫 code 嘅方式</strong>（環境變數自動掛載）：</p>
+<pre class="bash"><code>export ENABLE_APMPLUS=true
+export ENABLE_COZELOOP=true
+export ENABLE_TLS=true</code></pre>
+<p><strong>內容追蹤開關</strong>（敏感數據場景）：</p>
+<ul>
+<li><code>OBSERVABILITY_OPENTELEMETRY_TRACE_CONTENT=false</code> → span
+只保留結構 + 耗時，<strong>唔寫
+prompt/completion/工具入出</strong>。</li>
+<li>涉及 PII 嘅生產環境建議關（或者同 PII 遮罩併用）。</li>
+</ul>
+<p><strong>複用全局 TracerProvider</strong>：初始化時已存在全局 provider
+→ VeADK 複用佢並自動移除
+<code>APMPlusExporter</code>（當佢已負責），其他 exporter 照註冊。查
+<code>tracer.apmplus_managed_externally</code> 確認。</p>
+<p><strong>Logging（應用日誌）</strong>：自 1.0.5 用 Python 標準庫
+<code>logging</code>（唔再 Loguru）。<code>veadk</code> namespace，預設
+stdout。<code>LOGGING_LEVEL</code>（預設
+<code>DEBUG</code>）控制；<strong>DEBUG
+會記錄模型輸出、思考、工具參數/結果，生產記得轉 INFO</strong>。</p>
+<pre class="bash"><code>export LOGGING_LEVEL=INFO</code></pre>
+<pre class="python"><code>import logging
+logging.getLogger(&quot;veadk&quot;).setLevel(logging.INFO)
+app_logger = logging.getLogger(&quot;company_assistant&quot;)</code></pre>
+<p><strong>CLI
+快速睇</strong>：<code>agentkit runtime logs my-agent --limit 200</code>。</p>
+<hr />
+<h2 id="9-一頁式開到盡配置示例">9. 一頁式「開到盡」配置示例</h2>
+<pre class="python"><code># 安全 + 合規 + 觀測 全開（概念組裝）
+from veadk import Agent, Runner
+from veadk.integrations.ve_identity import AuthRequestProcessor
+from veadk.tools.builtin_tools.llm_shield import content_safety
+from veadk.tracing.telemetry.opentelemetry_tracer import OpentelemetryTracer
+from veadk.tracing.telemetry.exporters.apmplus_exporter import APMPlusExporter
+from veadk.tracing.telemetry.exporters.tls_exporter import TLSExporter
+
+tracer = OpentelemetryTracer(exporters=[APMPlusExporter(), TLSExporter()])
+
+agent = Agent(
+    name=&quot;compliant_bot&quot;,
+    run_processor=AuthRequestProcessor(),                # 入站身份
+    before_model_callback=content_safety.before_model_callback,   # Guardrail（LLM-FW 103）
+    after_model_callback=content_safety.after_model_callback,
+    before_tool_callback=content_safety.before_tool_callback,
+    after_tool_callback=content_safety.after_tool_callback,
+    tracers=[tracer],                                    # 可觀測性
+)</code></pre>
+<p>對應 AgentKit Runtime
+層：<code>create_agentkit_app(root_agent=..., identity=...)</code>
+加返身份邊界；deploy 用 <code>--admin</code>/<code>--developer</code> 鎖
+Studio；出站用 <code>VeIdentityFunctionTool</code>。</p>
+<blockquote>
+<p>Input / Output Filter（§5）喺呢個基礎上再加：public endpoint 加
+regex/ML filter 做過濾；output 端加 PII mask；trace 開關
+<code>TRACE_CONTENT=false</code> 搵敏感嘢。</p>
+</blockquote>
+<hr />
+<h2 id="10-隱性成本sales-必讀">10. 隱性成本（Sales 必讀）</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>間接成本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Content-safety 四點 callback</td>
+<td>每次多一次 LLM-FW API call（價格極低，但次數多）</td>
+</tr>
+<tr>
+<td>PII scan / mask</td>
+<td>每次多一次 API call / token 處理</td>
+</tr>
+<tr>
+<td>Audit trace 全開（<code>trace_content=true</code>）</td>
+<td>span payload 增大 → 儲存/流量</td>
+</tr>
+<tr>
+<td>TLS 長期留存 + TOS archive</td>
+<td>儲存計費（0.0015 元/GB/小時 起）</td>
+</tr>
+<tr>
+<td>Shadow eval（10% 流量）</td>
+<td><strong>+10% 模型消耗</strong>（見 pricing doc §10）</td>
+</tr>
+<tr>
+<td>Guardrail（LLM-FW）</td>
+<td>接近免費（內置），但 category 106/107 開咗多一條路</td>
+</tr>
+<tr>
+<td>Input/Output Filter</td>
+<td>regex/ML filter 有自己嘅 infra 成本；PII mask 額外處理</td>
+</tr>
+<tr>
+<td>RBAC / IAM / secrets</td>
+<td>純軟件，冇直接雲費（自架 Vault 另計）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>報價金句：「安全係『集中做、唔分開買』——但 audit 7 年留存 + shadow
+eval 一定要計入隱性 +%。」詳見 <code>veadk-agentkit-pricing.md</code>
+§10。</p>
+</blockquote>
+<hr />
+<h2 id="11-資料來源">11. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>入站認證（API Key / OAuth2 / JWT）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/inbound">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/inbound</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>出站認證（Agent Identity / VeIdentityFunctionTool / M2M）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/outbound">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/outbound</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>內容安全（LLM-FW / category 101-107）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/content-safety">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/security/content-safety</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Agent Identity 官方文檔</td>
+<td><a
+href="https://www.volcengine.com/docs/86848/2080920">https://www.volcengine.com/docs/86848/2080920</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td><code>create_agentkit_app</code> <code>identity</code> 參數（需
+sdk&gt;=0.8.2）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/deploy/agentkit">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/deploy/agentkit</a></td>
+<td>2026-xx（1.0.10）</td>
+</tr>
+<tr>
+<td>Studio RBAC（<code>--admin</code>/<code>--developer</code>）/ IAM
+Role</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>可觀測概述 + 全部 Exporter + <code>trace_content</code></td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>APMPlus（指標 + <code>reasoning</code>）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/apmplus">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/apmplus</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>應用日誌（stdlib logging / LOGGING_LEVEL）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/logging">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/logging</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>InMemoryExporter / <code>dump</code> 落盤</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/inmemory">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/inmemory</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Guardrail / Input-Output Filter</td>
+<td><code>references/veadk-agentkit-ai-concepts.md</code>
+§10/§11（概念深入版）</td>
+<td>2026-08-17</td>
+</tr>
+<tr>
+<td>隱性成本 / shadow eval</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08-09</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：Guardrail / Filter
+嘅多層防禦策略係最佳實踐建議，唔係產品保證。LLM-FW category
+開關以方舟控制台當刻為準。各模型/功能存在性以方舟控制台當刻為準。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-17 · Guardrail / Filter 內容由
+<code>veadk-agentkit-ai-concepts.md</code> §10/§11 整合至此；RBAC
+名單、exempt path、Audit 保留週期按項目要求再收緊。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

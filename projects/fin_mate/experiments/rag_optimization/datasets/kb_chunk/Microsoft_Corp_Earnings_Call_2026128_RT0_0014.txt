@@ -1,0 +1,13 @@
+All up, it was a record quarter for
+Microsoft 365 Copilot seat adds, up over 160% year-over-year. We saw accelerating seat growth
+quarter-over-quarter and now have 15 million paid Microsoft 365 Copilot seats and multiples
+more enterprise chat users. And we are seeing larger commercial deployments.
+The number of customers with over 35,000 seats tripled year-over-year. Fiserv, ING, NASA,
+University of Kentucky, University of Manchester, U.S. Department of Interior, and Westpac all
+purchased over 35,000 seats. Publicis alone purchased over 95,000 seats for nearly all its
+employees.
+We are also taking share in Dynamics 365 with built-in agents across the entire suite. A great
+example of this is how Visa is turning customer conversations data into knowledge articles with
+our customer knowledge management agent in Dynamics, and how Sandvik is using our sales
+qualification agent to automate lead qualification across tens of thousands of potential
+customers. In coding, we are seeing strong growth across all paid GitHub Copilot.

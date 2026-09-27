@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invoice Pipeline</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📄 Invoice Processing Pipeline</h1>
+    <p class="subtitle">OCR → Translation → Validation → Aggregation → Formatting → Approval</p>
+  </header>
+
+  <section class="upload-section">
+    <h2>Upload Invoice</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+      <div class="file-drop" id="drop-zone">
+        <p>Drag & drop invoice image/PDF here, or click to browse</p>
+        <input type="file" name="file" id="file-input" accept="image/*,.pdf" required>
+      </div>
+      <button type="submit" id="upload-btn" disabled>Run Pipeline</button>
+    </form>
+    <div id="upload-progress" class="hidden">
+      <div class="spinner"></div>
+      <p>Processing invoice...</p>
+    </div>
+  </section>
+
+  <section id="result-section" class="hidden">
+    <h2>Pipeline Results</h2>
+    <div class="pipeline-steps" id="pipeline-steps"></div>
+
+    <div id="approval-section" class="hidden">
+      <h3>🫵 Human Approval Required</h3>
+      <div class="approval-card" id="approval-card"></div>
+      <div class="approval-actions">
+        <button class="btn-approve" id="btn-approve" data-task-id="">✅ Approve</button>
+        <button class="btn-reject" id="btn-reject" data-task-id="">❌ Reject</button>
+      </div>
+      <textarea id="reviewer-notes" placeholder="Reviewer notes (optional)" rows="3"></textarea>
+    </div>
+
+    <div id="final-result" class="hidden">
+      <h3>✅ Final Result</h3>
+      <pre id="final-json"></pre>
+    </div>
+  </section>
+</div>
+
+<script>
+const STEP_LABELS = {
+  "1_ocr": "🔍 OCR Extraction",
+  "2_translation": "🌐 Translation",
+  "3_validation": "✅ Validation",
+  "4_aggregation": "📊 Aggregation",
+  "5_formatting": "🎨 Formatting (Seedream)",
+  "6_approval": "👤 Approval",
+};
+
+document.getElementById("file-input").addEventListener("change", (e) => {
+  document.getElementById("upload-btn").disabled = !e.target.files.length;
+});
+
+// Drag & drop
+const dropZone = document.getElementById("drop-zone");
+dropZone.addEventListener("dragover", (e) => { e.preventDefault(); dropZone.classList.add("drag-over"); });
+dropZone.addEventListener("dragleave", () => dropZone.classList.remove("drag-over"));
+dropZone.addEventListener("drop", (e) => {
+  e.preventDefault();
+  dropZone.classList.remove("drag-over");
+  if (e.dataTransfer.files.length) {
+    document.getElementById("file-input").files = e.dataTransfer.files;
+    document.getElementById("upload-btn").disabled = false;
+  }
+});
+
+document.getElementById("upload-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const file = document.getElementById("file-input").files[0];
+  if (!file) return;
+
+  document.getElementById("upload-progress").classList.remove("hidden");
+  document.getElementById("result-section").classList.add("hidden");
+  document.getElementById("upload-btn").disabled = true;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const resp = await fetch("/upload", { method: "POST", body: formData });
+    const data = await resp.json();
+    displayResults(data);
+  } catch (err) {
+    alert("Upload failed: " + err.message);
+  } finally {
+    document.getElementById("upload-progress").classList.add("hidden");
+    document.getElementById("upload-btn").disabled = false;
+  }
+});
+
+function displayResults(data) {
+  document.getElementById("result-section").classList.remove("hidden");
+  const steps = document.getElementById("pipeline-steps");
+  steps.innerHTML = "";
+
+  if (data.pipeline && data.pipeline.steps) {
+    for (const [key, value] of Object.entries(data.pipeline.steps)) {
+      const stepDiv = document.createElement("div");
+      stepDiv.className = "step-card";
+      const label = STEP_LABELS[key] || key;
+      stepDiv.innerHTML = `<strong>${label}</strong><pre>${syntaxHighlight(value)}</pre>`;
+      steps.appendChild(stepDiv);
+    }
+  }
+
+  const fmt = data.formatted_image || {};
+  if (fmt.path && fmt.status !== "mock_placeholder") {
+    const basename = fmt.path.split("/").pop();
+    const imgSection = document.createElement("div");
+    imgSection.className = "step-card";
+    imgSection.innerHTML = `<strong>🎨 Formatted Invoice (Seedream)</strong><br>
+      <img src="/formatted/${encodeURIComponent(basename)}" alt="Formatted invoice" style="max-width:100%;border:1px solid #ccc;border-radius:6px;">`;
+    steps.appendChild(imgSection);
+  }
+
+  const approval = data.approval || {};
+  if (approval.status === "pending_review") {
+    document.getElementById("approval-section").classList.remove("hidden");
+    document.getElementById("btn-approve").dataset.taskId = data.task_id;
+    document.getElementById("btn-reject").dataset.taskId = data.task_id;
+    document.getElementById("approval-card").innerHTML = `
+      <p><strong>Invoice:</strong> ${approval.invoice_number || "N/A"}</p>
+      <p><strong>Vendor:</strong> ${approval.vendor || "N/A"}</p>
+      <p><strong>Amount:</strong> ${approval.amount || "N/A"}</p>
+      <p><strong>Notes:</strong> ${approval.reviewer_notes || "N/A"}</p>
+    `;
+  } else {
+    showFinal(data);
+  }
+}
+
+document.getElementById("btn-approve").addEventListener("click", async () => {
+  await submitDecision("approve");
+});
+document.getElementById("btn-reject").addEventListener("click", async () => {
+  await submitDecision("reject");
+});
+
+async function submitDecision(action) {
+  const taskId = document.getElementById("btn-approve").dataset.taskId;
+  const notes = document.getElementById("reviewer-notes").value;
+  const resp = await fetch(`/${action}`, {
+    method: "POST",
+    headers: {"Content-Type": "application/x-www-form-urlencoded"},
+    body: new URLSearchParams({ task_id: taskId, reviewer_notes: notes }),
+  });
+  const data = await resp.json();
+  document.getElementById("approval-section").classList.add("hidden");
+  showFinal(data);
+}
+
+function showFinal(data) {
+  document.getElementById("final-result").classList.remove("hidden");
+  document.getElementById("final-json").textContent = syntaxHighlight(data);
+}
+
+function syntaxHighlight(obj) {
+  return JSON.stringify(obj, null, 2);
+}
+</script>
+</body>
+</html>

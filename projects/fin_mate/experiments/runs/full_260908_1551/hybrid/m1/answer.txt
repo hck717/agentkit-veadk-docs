@@ -1,0 +1,12 @@
+### 背景
+1. **Azure 供應受限**：Microsoft 面臨 GPU 供應約束，優先將 GPU 分配給第一方應用程序（如 Copilot）和 R&D，導致 Azure 增長受一定影響。例如，F2Q26 Azure 同比增長 38%（按固定匯率計為 39%），雖高於指導，但低於市場預期，且管理層表示若將所有增量 GPU 容量分配給 Azure，增長有望超過 40%。
+2. **E7 SKU 推出**：2026年3月，Microsoft 推出 E7 "Frontier Suite" SKU，包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，定價為每用戶每月 99 美元。此舉旨在推動 M365 Copilot 和 Agent 365 的 adoption，並釋放增長潛力。
+
+
+### 原因分析
+#### 1. **AI 戰略優先**
+   - **Copilot 生態系統**：M365 Copilot 和 GitHub Copilot 是 Microsoft AI 戰略的核心，E7 SKU 將其與現有企業級套件整合，降低了企業採用門檻。例如，Agent 365 提供代理註冊、可觀測性和風險信號等功能，是 agentic adoption 的關鍵前提，而企業更傾向於通過捆綁 SKU 採用，而非單獨購買。
+   - **利潤率考慮**：軟件和訂閱模式毛利率高，E7 SKU 作為高毛利產品，可彌補 Azure 因供應受限導致的增長放緩。管理層強調，將 GPU 分配給 AI 應用程序和 R&D 是為了追求更高毛利的重複性軟件機會，E7 SKU 正是這一戰略的延伸。
+
+#### 2. **現有安裝基礎龐大**
+   - **E3/E5 用戶轉化**：Microsoft 擁有龐大的 M365 E3/E5 用戶基礎（截至 2

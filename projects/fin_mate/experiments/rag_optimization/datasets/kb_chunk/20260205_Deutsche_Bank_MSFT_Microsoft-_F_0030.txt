@@ -1,0 +1,28 @@
+01/25/2024
+Buy, Target Price Change USD 450.00, Current Price
+USD 404.87 Brad Zelnick
+2.
+04/26/2023
+Buy, Target Price Change USD 340.00, Current Price
+USD 295.37 Brad Zelnick
+7.
+04/26/2024
+Buy, Target Price Change USD 475.00, Current Price
+USD 406.32 Brad Zelnick
+3.
+05/26/2023
+Buy, Target Price Change USD 380.00, Current Price
+USD 332.89 Brad Zelnick
+8.
+05/02/2025
+Buy, Target Price Change USD 500.00, Current Price
+USD 435.28 Brad Zelnick
+4.
+10/25/2023
+Buy, Target Price Change USD 395.00, Current Price
+USD 340.67 Brad Zelnick
+9.
+07/17/2025
+Buy, Target Price Change USD 550.00, Current Price
+USD 511.70 Brad Zelnick
+5.

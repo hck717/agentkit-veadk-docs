@@ -1,0 +1,18 @@
+The index fixings may - by construction - lag or mis-measure the actual move in the underlying variables 
+they are intended to track. The choice of the proper fixing (or metric) is particularly important in swaps markets, where floating 
+coupon rates (i.e., coupons indexed to a typically short-dated interest rate reference index) are exchanged for fixed coupons. 
+Funding in a currency that differs from the currency in which coupons are denominated carries FX risk. Options on swaps 
+(swaptions) the risks typical to options in addition to the risks related to rates movements. 
+This document is being provided for the exclusive use of YUI CHEUNG at THE UNIVERSITY OF HONG
+KONG.
+
+
+29 January 2026
+Software
+Microsoft
+Page 12
+Deutsche Bank Securities Inc.
+Derivative transactions involve numerous risks including market, counterparty default and illiquidity risk.  The appropriateness 
+of these products for use by investors depends on the investors' own circumstances, including their tax position, their 
+regulatory environment and the nature of their other assets and liabilities; as such, investors should take expert legal and 
+financial advice before entering into any transaction similar to or inspired by the contents of this publication.

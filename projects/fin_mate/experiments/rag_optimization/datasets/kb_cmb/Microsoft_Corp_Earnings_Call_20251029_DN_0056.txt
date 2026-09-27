@@ -1,0 +1,13 @@
+And remember, these assets, especially the datacenters and so on, are long
+assets, right? There will be many refresh cycles for any one of these when it comes to the gear.
+So I feel that once you think about all those dimensions, the concentration risk gets mitigated by
+being thoughtful about how you really ensure the build is for the broad customer base.
+A - Amy Hood {BIO 18040963 <GO>}
+And maybe just to help with another angle, that I think Satya has helped a lot is that when you
+think about concentration risk for delivering to any customer, you have to remember that because
+we're talking about this very large flexible fleet that can be used for anyone and for any purpose,
+1P, 3P and including our Commercial Cloud, by the way, which I should be quite clear on, is pretty
+flexible in every regard. You have to remember that the CPU and GPU and the storage gear
+doesn't come into play until the contracts start happening. And so, you're right, some of these
+large contracts have delivery dates over time. So you get a lot of lead time in being able to say,
+oh, what's the status?

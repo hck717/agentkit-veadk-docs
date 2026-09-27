@@ -1,0 +1,4 @@
+Deutsche Bank 形容 Microsoft F2Q 結果「最終未能達到更高的市場預期」，尤其是 Azure 增長方面。主要原因是管理層優先將 GPU 分配用於支持第一方應用程序的 AI 用途和研發，以加速產品創新並追求更高利潤率、重複性軟件機會，導致 Azure 增長低於買方預期。儘管 Azure 同比增長 38%（不計入匯率影響）高於指導的 37%，但低於買方預期的 39%+，且若在 F1H26 將所有增量 GPU 容量分配給 Azure，增長本可超過 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

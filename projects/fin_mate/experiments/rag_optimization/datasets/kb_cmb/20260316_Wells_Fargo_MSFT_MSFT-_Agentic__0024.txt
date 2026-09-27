@@ -1,0 +1,9 @@
+“AI Technologies” means any deep learning, machine learning, and other artificial intelligence technologies, including without limitation any 
+and all (a) proprietary algorithms, software, or systems that make use of or employ neural networks, statistical learning algorithms (such as linear and logistic 
+regression, support vector machines, random forests or k-means clustering) or reinforcement learning, or curated data sets accessible by any of the foregoing or (b) 
+proprietary embodied artificial intelligence and related hardware or equipment.
+In addition, certain text, images, graphics, screenshots and audio or video clips included in this report are protected by copyright law and owned by Wells Fargo 
+Securities, its affiliates or one or more third parties (collectively, “Protected Content”). Protected Content is made available to clients by Wells Fargo under license 
+or otherwise in accordance with applicable law. Any use or publication of Protected Content included in this report for purposes other than fair use requires 
+permission from Wells Fargo Securities or, in the case of content attributed to any third party, the third-party copyright owner. You may not alter, obscure, or 
+remove any copyright, trademark or any other notices attached to or contained within this report.

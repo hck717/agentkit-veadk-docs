@@ -1,0 +1,12 @@
+With Copilot CLI and VS Code, we offer developers the full
+spectrum of form factors and models they need for AI-first coding workflows. And when you add
+Work IQ as a skill or an MCP to our developer workflow, it's a game changer, surfacing more
+context like emails, meetings, docs, projects, messages, and more.
+You can simply ask the agent to plan and execute changes to your code base based on an
+update to a spec in SharePoint or using the transcript of your last engineering and design
+meeting in Teams. And we're going beyond that with GitHub Copilot SDK. Developers can now
+embed the same runtime behind Copilot CLI, multi-model, multi-step planning, tools, MCP
+integration, auth streaming directly into their applications. In security, we added a dozen new and
+updated security Copilot agents across Defender, Entra, Intune, and Purview. For example, Icertis'
+SOC team used security Copilot agent to reduce manual triage time by 75%, which is a real
+game changer in an industry facing a severe talent shortage.

@@ -1,0 +1,12 @@
+And so, when you're thinking about
+it, that is where and it is a priority for us to allocate resourcing there first.
+And so, you're right to ask how do I think about that? We've worked very hard to try to mitigate it
+as best we can, but we have been short in Azure, and we've been clear on it. And I would say the
+other two priorities that I haven't mentioned maybe as much before is also just making sure our
+product teams and the AI talent that we've been able to hire into the company really over the
+past year and a half have access also to significant capacity because we're seeing it make the
+product better in a loop that is adding great benefit today into products people are using today
+for real-world work. And so, we are making that a priority to make sure our research teams have
+that as well as our product engineering teams. And yes, it does impact Azure directly. That is the
+place where you see that prioritization. But I think it's probably hard for me to give an exact
+number, but it is safe to say that the number could be higher.

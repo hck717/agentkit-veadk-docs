@@ -1,0 +1,55 @@
+{
+  "ts": "2026-09-10 09:21:41",
+  "engine": "deterministic (no model)",
+  "total": 42,
+  "passed": 42,
+  "per_set": {
+    "injection": {
+      "n": 15,
+      "pass": 15,
+      "rate": 1.0
+    },
+    "pii": {
+      "n": 10,
+      "pass": 10,
+      "rate": 1.0
+    },
+    "secrets": {
+      "n": 7,
+      "pass": 7,
+      "rate": 1.0
+    },
+    "authz": {
+      "n": 10,
+      "pass": 10,
+      "rate": 1.0
+    }
+  },
+  "interceptions": {
+    "injection": {
+      "n": 15,
+      "pass": 15,
+      "rate": 1.0
+    },
+    "pii": {
+      "n": 10,
+      "pass": 10,
+      "rate": 1.0
+    },
+    "secrets": {
+      "n": 7,
+      "pass": 7,
+      "rate": 1.0
+    },
+    "authz": {
+      "n": 10,
+      "pass": 10,
+      "rate": 1.0
+    }
+  },
+  "block_policy": {
+    "name": "all_denied_blocked",
+    "passed": true,
+    "violations": []
+  }
+}

@@ -1,0 +1,57 @@
+February 2, 2026
+Earnings Review
+5
+Financials
+Note: Historical valuation ratios calculated on yearly average price. 
+Source: Company data, CRSUS estimates 
+Year to Jun 30
+Income Statement
+(US$mn)
+2025A
+2026E
+2027E
+2028E
+More Personal Computing
+54,649
+54,688
+57,281
+59,401
+Productivity & Business Process
+120,810
+137,053
+151,157
+165,255
+Intelligent Cloud
+106,265
+135,987
+167,480
+205,633
+Sales
+281,724
+327,727
+375,918
+430,289
+Cost of Goods Sold
+(87,831)
+(105,190)
+(122,173)
+(139,844)
+Gross Profit
+193,893
+222,537
+253,745
+290,445
+SG&A (incl. R&D)
+(65,365)
+(70,317)
+(80,806)
+(91,924)
+EBIT
+123,627
+155,031
+170,138
+196,321
+EBITDA
+157,780
+200,972
+238,

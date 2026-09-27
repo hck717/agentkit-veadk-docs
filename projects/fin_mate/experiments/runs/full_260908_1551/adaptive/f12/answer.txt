@@ -1,0 +1,4 @@
+MSFT 三大主要業務分別係 Azure 智能雲、生產力與商業流程、更多個人計算。【KB:msft_overview】
+
+## 來源
+viking://resources/fin_kb/msft_overview/

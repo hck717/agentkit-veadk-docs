@@ -1,0 +1,47 @@
+27
+480.00
+Buy
+31-Jan-24
+397.58
+487.00
+Buy
+04-Dec-23
+372.52
+466.00
+Buy
+XLFT
+C20542
+KEY
+D,0
+DIM
+11
+0
+132
+Disc_PriceRCODE
+Microsoft Corp (MSFT US) - Rating Plotter as at 02 Feb 2026
+02/23
+08/23
+02/24
+08/24
+02/25
+08/25
+200
+250
+300
+350
+400
+450
+500
+550
+600
+650
+BUY
+
+
+February 2, 2026
+Earnings Review
+9
+Our salespeople, traders, and other professionals may provide oral or written market commentary or trading strategies to our clients 
+and principal trading desks that reflect opinions that are contrary to the opinions expressed in this research report. Our asset 
+management area and investing businesses may make investment decisions that are inconsistent with the recommendations or views
+expressed in this research report.

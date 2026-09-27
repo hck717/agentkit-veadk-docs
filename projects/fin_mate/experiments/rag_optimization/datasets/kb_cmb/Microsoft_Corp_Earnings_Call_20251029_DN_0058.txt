@@ -1,0 +1,15 @@
+All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 14 of 17
+
+
+capacity? And while I appreciate the constraints you face are broad across the industry, is there
+risk of workloads going elsewhere? And how do you mitigate that?
+A - Amy Hood {BIO 18040963 <GO>}
+Yeah, Brad, It's a great question. It's always hard to quantify precisely what would have been the
+revenue impact in quarter. But I would offer a way to think about it is Azure probably does bear
+most of the revenue impact, because when you think about real priorities that you have to fill first,
+it's obviously the increasing usage and adoption and sales we've seen of M365 Copilot and the
+usage of Copilot Chat, which we've seen very different patterns, which we're encouraged by. It's
+the adoption of security features. It's the GitHub momentum. And so, when you're thinking about
+it, that is where and it is a priority for us to allocate resourcing there first.
+And so, you're right to ask how do I think about that?

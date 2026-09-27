@@ -1,0 +1,17 @@
+Capital expenditures were $34.9 billion, driven by
+growing demand for our cloud and AI offerings. This quarter, roughly half of our spend was on
+short-lived assets, primarily GPUs and CPUs to support increasing Azure platform demand,
+growing first-party apps and AI solutions, accelerating R&D by our product teams as well as
+continued replacement for end-of-life server and networking equipment.
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 5 of 17
+
+
+The remaining spend was for long lived assets that will support monetization for the next 15 years
+and beyond, including $11.1 billion of finance leases that are primarily for large datacenter sites.
+And cash paid for PP&E was $19.4 billion. As a reminder, the difference between total CapEx and
+cash paid for PP&E is primarily due to finance leases as well as the normal timing of goods
+received but not yet paid.

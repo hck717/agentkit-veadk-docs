@@ -1,0 +1,413 @@
+<!doctype html><html lang="zh-HK"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>性能 Playbook</title><style>
+
+:root{--bg:#07111f;--text:#edf4ff;--muted:#a8b7cc;--line:#203b59;--accent:#59d4ff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(900px 450px at 10% -10%,#153f64 0,transparent 62%),radial-gradient(800px 450px at 100% 0,#25205b 0,transparent 65%),var(--bg);color:var(--text);font:16px/1.7 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.shell{max-width:1440px;margin:auto;padding:28px 22px 70px}.hero{border:1px solid #2c5274;background:linear-gradient(120deg,#0b2035cc,#101d43cc);border-radius:24px;padding:28px;box-shadow:0 25px 80px #0006}.eyebrow{color:var(--accent);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.16em}.hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:7px 0}.hero p{margin:0;color:var(--muted);max-width:820px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.toolbar button,.copy{cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}.navwrap{position:sticky;top:0;z-index:60;margin-top:22px;background:#0a1727f2;border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(6px);padding:10px}.sectionbar{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #1d3a5c}.section-btn{cursor:pointer;color:#cfe6ff;background:#1b3f60;border:1px solid #3b7aa8;border-radius:999px;padding:7px 14px;font-weight:700;font-size:.88rem}.section-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tab-btn[hidden]{display:none!important}.topbar{display:flex;gap:8px;flex-wrap:wrap}.tab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:.92rem}.tab-btn.active,.subtab-btn.active{background:var(--accent);color:#03141f;border-color:var(--accent)}.tabintro{margin:0 0 22px;padding:18px 22px 8px;border:1px solid #2c6c9a;border-left:4px solid var(--accent);border-radius:16px;background:linear-gradient(160deg,#0d2340cc,#0a1a30cc);box-shadow:inset 0 1px #ffffff0a}.intro-bar{font-weight:800;color:var(--accent);margin:-18px -22px 14px;padding:11px 22px;background:#123a5e;border-bottom:1px solid #2c6c9a;border-radius:15px 15px 0 0;font-size:.86rem;letter-spacing:.02em}.tabintro h2{border-top:none!important;font-size:1.35rem;margin-top:1.6em;padding-top:0}.tabintro h3{color:#caeaff;font-size:1.08rem;margin-top:1.4em}.subtabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap}.subtab-btn{cursor:pointer;color:var(--muted);background:#173452;border:1px solid #32638e;border-radius:10px;padding:6px 12px;font-weight:700;font-size:.88rem}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;margin-top:28px}.toc{position:sticky;top:18px;height:max-content;max-height:calc(100vh - 36px);overflow:auto;padding:18px;background:#091727d9;border:1px solid var(--line);border-radius:18px}.toc strong{display:block;margin-bottom:10px}.toc a{display:block;color:var(--muted);text-decoration:none;padding:5px 2px;font-size:.91rem}.toc a:hover{color:var(--accent)}main{min-width:0;background:#0a1727d9;border:1px solid var(--line);border-radius:20px;padding:clamp(22px,4vw,48px);box-shadow:0 25px 80px #0004}h1,h2,h3{scroll-margin-top:25px}main h2{margin-top:2.5em;padding-top:.25em;border-top:1px solid var(--line);font-size:1.65rem}main h3{margin-top:1.8em;color:#caeaff;font-size:1.18rem}p,li{color:#d5e1f0}code{background:#0e2a44;padding:1px 5px;border-radius:5px;font-size:.93em}pre{background:#0b1a2e;border:1px solid #1d3a5c;border-radius:12px;padding:18px;overflow:auto;position:relative}pre code{background:none;padding:0;font-size:.88em;line-height:1.6}table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.93rem}th,td{border:1px solid #1d3a5c;padding:10px 14px;text-align:left}th{background:#0e2a44;color:#caeaff;font-weight:700}tr:nth-child(even){background:#09172788}blockquote{border-left:4px solid #32638e;margin:18px 0;padding:12px 18px;background:#0b1a2e88;border-radius:0 12px 12px 0;color:#a8b7cc}a{color:#59d4ff;text-decoration:none}a:hover{text-decoration:underline}hr{border:none;border-top:1px solid #1d3a5c;margin:2em 0}pre .copy{position:absolute;top:8px;right:8px;font-size:.82rem;padding:4px 10px;z-index:2}.copy{position:relative;cursor:pointer;color:var(--text);background:#173452;border:1px solid #32638e;border-radius:10px;padding:8px 12px;font-weight:700}main h2:first-of-type{margin-top:.2em}
+</style></head><body><div class="shell"><header class="hero"><div class="eyebrow">BytePlus · Volcengine Agent 開發文檔</div><h1>性能 Playbook</h1><p>參考文檔（獨立頁面）</p><div class="toolbar"><button onclick="collapse()">Hide code</button><button onclick="expand()">Show code</button><button onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</button></div></header><div class="layout"><aside class="toc"><strong>On this page</strong><nav id="toc"></nav></aside><main>
+<h1 id="veadk--agentkit-性能優化-playbook">VeADK + AgentKit 性能優化
+Playbook</h1>
+<p>呢份文件幫你 client 將一套 VeADK / AgentKit 方案由「行得」推到「慳錢
++ 快」。 主角唔係 GPU——係
+<strong>四條槓</strong>：延遲（Latency）、吞吐（Throughput）、成本（Cost）、呢三樣背後嘅
+<strong>Prompt chain / 上下文管理</strong>。</p>
+<blockquote>
+<p>✅ <strong>核心心法</strong>：</p>
+<ol type="1">
+<li><strong>性能問題 90% 係「context 太大 / model call
+太多」</strong>，9% 係 Runtime 資源，1% 先係 platform。</li>
+<li>慳錢 = 減行 token，唔係減 GPU；**上下文緩存（§3）+
+壓縮（§4）**係兩個最大槓桿。</li>
+<li>所有優化都要用 <strong>agentkit eval</strong> 守住質量——慳到飛起但
+accuracy 跌晒等於白做。</li>
+<li>Runtime 調資源係
+<strong><code>agentkit runtime update</code></strong>，唔係改
+Dockerfile。</li>
+</ol>
+</blockquote>
+<hr />
+<h2 id="0-性能四象限--邊個場景食邊樣">0. 性能四象限 —
+邊個場景食邊樣</h2>
+<table>
+<thead>
+<tr>
+<th>場景</th>
+<th>死因首選</th>
+<th>對應章節</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>多輪客服長對話</td>
+<td>context 越滾越長 → 每輪 token 爆</td>
+<td>§3 緩存、§4 壓縮</td>
+</tr>
+<tr>
+<td>多 Agent pipeline（invoice/movie）</td>
+<td>每個 agent 一句 prompt 過長 + 多 agent 之間 handoff</td>
+<td>§5 prompt chain、§2 響應</td>
+</tr>
+<tr>
+<td>高吞吐 request 湧入</td>
+<td>Runtime concurrency / 實例數唔夠</td>
+<td>§6 runtime scale</td>
+</tr>
+<tr>
+<td>追求低延遲（即時對話）</td>
+<td>model call 太長（大模型）+ 唔盡用緩存</td>
+<td>§2、§3</td>
+</tr>
+<tr>
+<td>成本爆炸</td>
+<td>日日 full context 重跑 + summary 唔識用</td>
+<td>§3、§4、§7</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-三大數字先拆清楚">1. 三大「數字」先拆清楚</h2>
+<table>
+<thead>
+<tr>
+<th>指標</th>
+<th>點樣量</th>
+<th>點先叫好</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TTFT（首 token 延遲）</strong></td>
+<td>由 request 到第一個 token</td>
+<td>細模型 &lt;1s，中模型 1–3s</td>
+</tr>
+<tr>
+<td><strong>Total latency（成個回合）</strong></td>
+<td>request → 完整 answer</td>
+<td>多步 agent loop 會 xN turns</td>
+</tr>
+<tr>
+<td><strong>Throughput（token/s）</strong></td>
+<td>平台吞吐 / 並行度</td>
+<td>想睇 APMPlus + <code>usage_metadata</code></td>
+</tr>
+<tr>
+<td><strong>Cost per task</strong></td>
+<td>每次任務總 token × 費率</td>
+<td>用 <code>eval run</code> + 計費定基線</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sales
+一句</strong>：「延遲係明示，成本係暗線。你話『快』，但其實日日重跑幾萬
+token 冇 cache——一個月先見真章。」</p>
+<hr />
+<h2 id="2-模型選擇--第一道加速">2. 模型選擇 = 第一道加速</h2>
+<ul>
+<li><strong>細模型行高頻</strong>：極速（<code>mini</code>）基礎係數
+0.5×，仲要唔使行全 context；default 主走 mini，遇到難題先
+fallback（<code>model_name=[mini, pro]</code> list 自動 fallback，見
+<code>veadk-api.md</code>）。</li>
+<li><strong>快慢分行</strong>：customer-facing 即時對話用
+<code>mini</code> / <code>lite</code>；離線 deep reasoning 用
+<code>pro</code>。唔好淨用一個 model 走天涯。</li>
+<li><strong>視覺要小心</strong>：OCR 一張圖 token 遠高過讀 1,000
+字（見定價 doc §3）——圖片還是小 model 好。</li>
+</ul>
+<hr />
+<h2 id="3-上下文緩存responses-api-命中率要識睇">3. 上下文緩存（Responses
+API）— 命中率要識睇</h2>
+<p>Responses API <strong>默認開</strong> session 上下文緩存。每輪
+response event 個 <code>usage_metadata</code> 有兩條 key：</p>
+<pre><code>cached_content_token_count   # 命中等於唔使入 prompt
+prompt_token_count           # 今次實際送到 model 嘅輸入
+命中率 = cached / prompt</code></pre>
+<p><strong>優化動作：</strong></p>
+<ul>
+<li>多輪對話：命中率應該 50–95%；若低過 50%，好可能每輪幫 context
+加咗唔應該加嘅大 object（例如成個 file 丟入 tool return）。</li>
+<li><strong><code>output_schema</code> 會關緩存</strong>（VeADK
+自動關）——要結構化輸出嘅場景就要衡量「準確 vs 慳」。</li>
+<li>prompt 前面（system 部分）穩定就係緩存區；<strong>printf
+動態內容放後面</strong>，命中率自然上去。</li>
+</ul>
+<hr />
+<h2 id="4-context-壓縮compaction-最直接嘅-token-殺手">4. Context
+壓縮（Compaction）— 最直接嘅 token 殺手</h2>
+<p>用 <code>EventsCompactionConfig</code> +
+<code>LlmEventSummarizer</code> 將長對話壓成 summary，減少 replay
+token。</p>
+<pre class="python"><code>from google.adk.apps.app import App, EventsCompactionConfig
+from google.adk.apps.llm_event_summarizer import LlmEventSummarizer
+
+summarizer = LlmEventSummarizer(
+    model=&quot;doubao-seed-2-0-mini&quot;,     # 用細模型做 summary，慳錢
+    system_instruction=&quot;壓縮成精簡中文摘要，保留用戶事實、已承諾事項、key terms。&quot;,
+)
+app = App(
+    agents=[my_agent],
+    events_compaction_config=EventsCompactionConfig(
+        compaction_interval=10,        # 每 10 次新 call 壓一次（太密好貴）
+        max_events=50,                 # 超過 50 events 觸發
+        max_tokens=8000,               # summary 上限
+        compactor=summarizer,
+    ),
+)</code></pre>
+<p><strong>經驗</strong>：<code>compaction_interval</code> 太細（如
+3）壓得太密反而貴；長 RA g 對話同埋要 detail 嘅 domain
+對話唔好壓太勁，會冇咗細數字。</p>
+<hr />
+<h2 id="5-prompt-chain-優化--唔好一次過堆滿">5. Prompt chain 優化 —
+唔好「一次過堆滿」</h2>
+<table>
+<thead>
+<tr>
+<th>反模式</th>
+<th>點改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成個 KB 全文塞入 system</td>
+<td>用 <code>load_knowledgebase</code> RAG 只塞 top_k 片段</td>
+</tr>
+<tr>
+<td>tool 回傳大 JSON 唔諗就入 context</td>
+<td>喺 tool 內預先 summarize / 抽 key fields</td>
+</tr>
+<tr>
+<td>一個 agent 做十件事</td>
+<td>拆 Hans：抽取 agent / 驗證 agent（A2A）平行</td>
+</tr>
+<tr>
+<td>每次 run 都重放成串歷史</td>
+<td>靠 session cache + 壓縮，或切 session 令佢重新計</td>
+</tr>
+<tr>
+<td>所有輪都問埋大 model</td>
+<td>用 gateway / 前端規則先行 handle 簡單查詢（純 pipeline，唔落
+LLM）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 每個 agent 嘅 <code>instruction</code> 都係 <strong>system prompt
+一部分</strong>。寫得精簡 = 每輪慳幾百 token × 幾萬輪 = 實質銀兩。</p>
+</blockquote>
+<hr />
+<h2 id="6-runtime-調資源--agentkit-runtime-update">6. Runtime 調資源 —
+<code>agentkit runtime update</code></h2>
+<p>橫向即係 <code>runtime update</code>（CLI），唔使重 build：</p>
+<pre class="bash"><code># 提高單實例資源
+agentkit runtime update my-agent \
+  --cpu-milli 2000 \
+  --memory-mb 4096 \
+  --max-concurrency 40 \
+  --auto-release
+
+# 或者加實例數（多實例要配持久化 DB，見 vector-cache doc §2/§7）
+agentkit runtime update my-agent --max-instance 5 --auto-release</code></pre>
+<p><strong>睇有冇需要調</strong>：APMPlus 指標（模型調用次數 / 操作耗時
+/ 異常次數 / 工具耗時）見 §8；<code>--max-concurrency</code> 每 instance
+預設 20。 開 <code>--apmplus</code>
+監控正路：<code>agentkit runtime update my-agent --apmplus --auto-release</code>。</p>
+<blockquote>
+<p>⚠️ concurrency 升得快 = 同時間多 request =
+<strong>唔一定慳</strong>；跑得順但 cost 爆就應該返去
+§3/§4，唔係一味加機。</p>
+</blockquote>
+<hr />
+<h2 id="7-並行--異步--多-agent-出結果唔好排隊">7. 並行 / 異步 — 多 Agent
+出結果唔好排隊</h2>
+<ul>
+<li><strong>多 Agent A2A</strong>：做「parallel tool calls / 多個
+downstream Agent 一齊跑」用 A2A registry；movie 12 scenes seedance
+可以同時出。</li>
+<li><strong><code>runner.run</code>
+異步</strong>：<code>asyncio.gather</code> 多 batch，唔好 for-loop
+排住隊。</li>
+<li><strong>eval
+並行</strong>：<code>agentkit eval run --concurrency 10</code>（預設
+5）縮短 CI turnaround。</li>
+</ul>
+<hr />
+<h2 id="8-可觀測性--唔量測就唔好話快">8. 可觀測性 —
+唔量測就唔好話快</h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>用嚟睇</th>
+<th>接入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>APMPlus</strong></td>
+<td>模型調用次數、token 用量、操作耗時、異常次數、工具耗時；推理內容用
+<code>reasoning</code> 標注</td>
+<td><code>OpentelemetryTracer([APMPlusExporter()])</code> 或
+<code>ENABLE_APMPLUS=true</code></td>
+</tr>
+<tr>
+<td><strong>Cozeloop</strong></td>
+<td>trace + 評測</td>
+<td><code>CozeloopExporter()</code></td>
+</tr>
+<tr>
+<td><strong>TLS</strong></td>
+<td>集中日誌、長期留存</td>
+<td><code>TLSExporter()</code></td>
+</tr>
+<tr>
+<td><strong>InMemory</strong></td>
+<td>本地 debug，span JSON 落盤</td>
+<td>自動附帶，唔使手加</td>
+</tr>
+<tr>
+<td><strong>CLI logs</strong></td>
+<td>快速睇 runtime</td>
+<td><code>agentkit runtime logs my-agent --limit 200</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Performance checklist</strong>：睇 APMPlus「操作耗時」分佈 →
+俾你知邊個 agent / 邊個工具最慢 → 集中攻嗰嚿。</p>
+<blockquote>
+<p>⚠️ <code>LOGGING_LEVEL=DEBUG</code>
+會記錄模型輸出、思考內容、工具參數同結果——生產環境記住轉 INFO（見
+security/observability doc）。</p>
+</blockquote>
+<hr />
+<h2 id="9-優化順序--由零成本排到貴">9. 優化順序 — 由零成本排到貴</h2>
+<ol type="1">
+<li><strong>Context 工廠</strong>：轉 RAG（唔好全文件）+
+睇緩存命中率（§3）——零 code。</li>
+<li><strong>縮 prompt</strong>：instruction 精簡、tool return 抽
+key（§5）——少 code、冇 infra 影響。</li>
+<li><strong>加壓縮</strong>：<code>EventsCompactionConfig</code> + mini
+summarizer（§4）——少 code。</li>
+<li><strong>調 Runtime</strong>：<code>runtime update</code>
+CPU/mem/concurrency（§6）——有雲費銀兩，唔好隨便。</li>
+<li><strong>拆 Agent + 並行</strong>：A2A +
+<code>asyncio.gather</code>（§7）——工程量較大。</li>
+<li><strong>評估守住</strong>：任何改動過 <code>agentkit eval run</code>
+先放心（§10）。</li>
+</ol>
+<hr />
+<h2 id="10-eval--優化嘅安全網">10. Eval — 優化嘅安全網</h2>
+<pre class="bash"><code>agentkit dataset create --name qa-set --schema &quot;input,reference_output&quot;
+agentkit dataset add qa-set --file ./cases.json
+agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent \
+  --concurrency 10 --dry-run
+agentkit eval run --dataset qa-set --evaluator 相关性 --target my-agent --json</code></pre>
+<ul>
+<li>一次可多個 <code>--evaluator</code>（相關性 / 完整性）加權。</li>
+<li>CI 用：<code>eval run</code> 回傳 <code>experimentId</code> →
+<code>eval experiment get / results</code>。</li>
+<li><strong>Studio 自動回流</strong>：部署開「自動創建評測集」→
+每輪對話自動評分（0–1，≥0.6 入 Good Case）→ Good/Bad Case 落返
+<code>{agent}_good_case</code>/<code>{agent}_bad_case</code>。</li>
+</ul>
+<blockquote>
+<p>Sales 一句：「性能優化唔使講『應該快少少』——我哋用 eval
+每改一版都畀分，慳錢之餘有實績。」</p>
+</blockquote>
+<hr />
+<h2 id="11-實例客服-agent快同慳前後對比">11. 實例：客服
+Agent「快同慳」前後對比</h2>
+<p>場景：S5 客服，20k turns/日，每 turn 平均 input 4k token、output
+500。</p>
+<table>
+<thead>
+<tr>
+<th>優化前</th>
+<th>優化後</th>
+<th>慳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每輪全 context 重送 4k token</td>
+<td>Responses cache 命中等 ~ 首輪 4k + 後續 ~600</td>
+<td><strong>~75%</strong></td>
+</tr>
+<tr>
+<td>每 turn 大 model</td>
+<td>主輪 <code>mini</code> + 難題 fallback <code>pro</code></td>
+<td>大 model 用量 ~50%↓</td>
+</tr>
+<tr>
+<td>每輪 full summary</td>
+<td><code>compaction_interval=10</code></td>
+<td>summary call ~10×↓</td>
+</tr>
+<tr>
+<td>context 塞成個 FAQ</td>
+<td>RAG top_k=10</td>
+<td>token ~30%↓</td>
+</tr>
+</tbody>
+</table>
+<p><strong>結果</strong>：月成本大概 -50%，median latency 由 ~3s 落到
+~1.5s，<code>eval</code> 分不跌反升（因為 context 乾淨）。</p>
+<hr />
+<h2 id="12-資料來源">12. 資料來源</h2>
+<table>
+<thead>
+<tr>
+<th>來源</th>
+<th>URL</th>
+<th>日期</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>runtime update（CPU/記憶/instance/concurrency/APMPlus）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/agentkit-cli/preview/zh/commands/runtime/update">https://agentkit-f14c9eb5.mintlify.app/productions/agentkit-cli/preview/zh/commands/runtime/update</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>eval run / dataset / experiment（CI 編排）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/agentkit-cli/preview/zh/commands/eval">https://agentkit-f14c9eb5.mintlify.app/productions/agentkit-cli/preview/zh/commands/eval</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>上下文緩存 + <code>usage_metadata</code>（cached/prompt count）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/agent/prompt-management</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>ADK EventsCompactionConfig / LlmEventSummarizer</td>
+<td><a
+href="https://google.github.io/adk-python/app/">https://google.github.io/adk-python/app/</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>APMPlus 指標（model calls/token/耗時/工具耗時）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/apmplus">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/observability/apmplus</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>Studio 自動評測（Good/Bad Case 回流入 eval 集）</td>
+<td><a
+href="https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio">https://agentkit-f14c9eb5.mintlify.app/productions/veadk/preview/zh/components/frontend/studio</a></td>
+<td>頁面日</td>
+</tr>
+<tr>
+<td>model 頻率係數 / AFP 估算</td>
+<td><code>references/veadk-agentkit-pricing.md</code></td>
+<td>2026-08-09</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>免責</strong>：慳 % 數字係參考估算，以實戰
+<code>usage_metadata</code> + APMPlus 為準；每個 model 費率畀 pricing
+doc 覆蓋。</p>
+</blockquote>
+<hr />
+<p><em>Last audit date: 2026-08-13 · 優化順序優先做「零成本」嘅 context
+層，再掂錢袋。</em></p>
+
+</main></div></div><script>const toc=document.getElementById('toc'),heads=[...document.querySelectorAll('main h2,main h3')];heads.forEach((h,i)=>{h.id=h.id||`section-${i}`;let a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.style.paddingLeft=h.tagName==='H3'?'15px':'2px';toc.append(a)});document.querySelectorAll('pre').forEach(pre=>{let b=document.createElement('button');b.className='copy';b.textContent='Copy';b.onclick=async()=>{await navigator.clipboard.writeText(pre.innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1200)};pre.append(b)});const collapse=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='none');const expand=()=>document.querySelectorAll('pre').forEach(p=>p.style.display='block');</script></body></html>

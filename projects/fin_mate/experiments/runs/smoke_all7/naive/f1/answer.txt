@@ -1,0 +1,5 @@
+Microsoft F2Q（截至2026年1月的季度）的Azure增长率按固定汇率计算为38%同比（y/y），比指引高出1个百分点（指引为37%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。不过，这一增长率略低于买方预期的约39%，若微软在2026财年上半年（F1H26）将所有额外GPU容量分配给Azure，增长率可能会超过40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+[2] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>
+[3] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

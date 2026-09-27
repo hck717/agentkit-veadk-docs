@@ -1,0 +1,28 @@
+the S&P 500 for U.S.-listed stocks) over the above-defined time horizon from the publishing
+date of the initiation of coverage or subsequent report announcing a rating change.
+Hold – The stock price of the subject company is not expected to either appreciate or depreciate meaningfully from the typical 
+benchmark market index for the subject company’s primary listing exchange (e.g. the S&P 500 for U.S.-listed stocks) during the 
+above-stated time horizon.
+Sell – The expected return on the subject company’s stock price should underperform the typical benchmark market index for the 
+subject company’s primary listing exchange (e.g. the S&P 500 for U.S.-listed stocks) over the above-defined time horizon from the 
+publishing date of the initiation of coverage or subsequent report announcing a rating change.
+Rating
+Count
+Percent
+IB Count
+IB%
+Buy
+150
+77%
+4
+3%
+Hold
+43
+22%
+0
+0%
+Sell
+2
+1%
+0
+0%

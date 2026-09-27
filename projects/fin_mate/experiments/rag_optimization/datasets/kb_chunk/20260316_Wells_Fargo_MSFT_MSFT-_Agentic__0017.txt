@@ -1,0 +1,8 @@
+WFSIL does not deal with retail clients as defined in the 
+Directive 2014/65/EU (“MiFID2”). The FCA rules made under the Financial Services and Markets Act 2000 for the protection of retail clients will therefore not apply, 
+nor will the Financial Services Compensation Scheme be available. This report is not intended for, and should not be relied upon by, retail clients. For the purposes of 
+the U.K. Financial Conduct Authority's rules, this report constitutes impartial investment research.
+EEA – The securities and related financial instruments described herein may not be eligible for sale in all jurisdictions or to certain categories of investors. For 
+recipients in the EEA, this report is distributed by WFSIL or Wells Fargo Securities Europe S.A. (“WFSE”). WFSE is a French incorporated investment firm authorized 
+and regulated by the Autorité de contrôle prudentiel et de résolution and the Autorité des marchés financiers. WFSE does not deal with retail clients as defined in 
+the Directive 2014/65/EU (“MiFID2”). This report is not intended for, and should not be relied upon by, retail clients.

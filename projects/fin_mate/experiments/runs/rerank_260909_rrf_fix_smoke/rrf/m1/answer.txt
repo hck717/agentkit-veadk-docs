@@ -1,0 +1,8 @@
+### 1. 供應受限下，Microsoft 將 GPU 優先分配給第一方應用和 R&D，以加速產品創新和高毛利重複軟件機會  
+當 Azure 面臨供應約束時，Microsoft 優先將 GPU 分配給支持 AI 的第一方應用（如 Microsoft 365 Copilot、GitHub Copilot）和研發，以推動產品創新並爭取更高毛利的上層軟件機會。這表明公司認為，從長期來看，犧牲部分 Azure 收入以抓住 AI 驅動的上層應用機會更為合理【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。  
+
+### 2. E7 SKU 捆綁整合多項高價值服務，構建 upsell 催化劑  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，定價 $99/用戶/月。這種捆綁策略旨在推動 M365 Copilot 和 Agent 365 的 adoption，因為用戶更傾向於購買包含多項服務的套件而非單獨購買。此外，Agent 365 提供代理登記、可觀察性和風險信號等功能，是 AI 代理 adoption 的關鍵前提，捆綁銷售可加速其普及【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+### 3. 現有 E3/E5 用戶基數龐大，upsell 潛力可觀  
+Microsoft 估計，全球約有 3.25 億企業用戶，其中 1.5 億為 E3/E5 用戶，E7 SKU 有望帶來每年 1000 億美元的 upsell 機會。現有 E3/E5 用戶是 E7 的高潛在 adoption 群體，價格上漲（相較於單獨購買各項服務）具有時效性，可推動 2H26 的企業談判和 adoption【KB:2026

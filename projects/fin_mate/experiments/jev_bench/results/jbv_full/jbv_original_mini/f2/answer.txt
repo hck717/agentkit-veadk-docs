@@ -1,0 +1,10 @@
+### 點樣形容 F2Q 結果 vs 市場預期？
+1. **總收入**：新預期為81,189百萬美元，低於舊預期81,588百萬美元，環比下降0.5%；市場共識新預期81,360百萬美元，低於舊預期80,650-81,750百萬美元區間【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+2. **營業利潤**：新預期36,632百萬美元，低於舊預期37,245百萬美元，環比下降1.6%；市場共識新預期37,007百萬美元，低於舊預期35,900-37,300百萬美元區間【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+3. **淨利潤**：非GAAP淨利潤新預期30,239百萬美元，略高於舊預期30,168百萬美元，環比增長0.2%；市場共識新預期29,529百萬美元【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。  
+
+### 主要原因？
+資料中未提及具體原因，僅顯示德銀對微軟F2Q的收入、利潤預期相較舊預期及市場共識略有下調【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。
+
+## 來源
+[1] <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

@@ -1,0 +1,13 @@
+All up, the number of customers spending $1
+million plus per quarter on Foundry grew nearly 80%, driven by strong growth in every industry,
+and over 250 customers are on track to process over 1 trillion tokens on Foundry this year. There
+are many great examples of customers using all of this capability on Foundry to build their own
+agentic systems.
+Alaska Airlines is creating natural language flight search, BMW is speeding up design cycles, Land
+O'Lakes is enabling precision farming for co-op members, and SymphonyAI is addressing
+bottlenecks in the CPG industry. And of course, Foundry remains a powerful on ramp for the
+entire cloud. The vast majority of Foundry customers use additional Azure solutions like developer
+services, app services, databases as they scale. Beyond Fabric and Foundry, we're also
+addressing agent building by knowledge workers with Copilot Studio and Agent Builder.
+Over 80% of the Fortune 500 have active agents built using these low-code, no-code tools. As
+agents proliferate, every customer will need new ways to deploy, manage, and protect them.

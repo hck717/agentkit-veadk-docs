@@ -1,0 +1,15 @@
+This quarter, we also introduced
+Agent Mode, which turns single prompts into expert quality Word Documents, Excel
+Spreadsheets, PowerPoint Presentation and then iterate to deliver the final product, much like
+Agent Mode in coding tools today. We're thrilled by the early response, including third-party
+benchmarks that rank it best-in-class.
+Beyond individual productivity, Copilot is multi-player with Teams Mode announced this week. You
+can now invite colleagues into a Copilot conversation. And our collaborative agents like Facilitator
+and Project Manager prep meeting agendas, take notes, capture decision, kick-off group tasks.
+We are seeing a growing Copilot agent ecosystem with top ISVs like Adobe, Asana, GRAIL,
+LexisNexis, SAP, ServiceNow, Snowflake and Workday all building their own agents that connect to
+Copilot. And customers are also building agents for their mission-critical business processes and
+workflows using tools like Copilot Studio and integrating them into Copilot.
+The overall number of agent users doubled quarter-over-quarter, and just yesterday, we
+announced App Builder, a new Copilot agent that lets anyone create and deploy task-specific
+apps and agents in minutes grounded in Microsoft 365 context.

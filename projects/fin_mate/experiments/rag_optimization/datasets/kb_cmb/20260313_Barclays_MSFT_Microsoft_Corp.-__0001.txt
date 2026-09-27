@@ -1,0 +1,12 @@
+Seat growth has
+been one growth factor but upside here is limited (mostly entry level expansions), and hence
+capturing greater value has been the more important driver of growth. In this respect, we like
+the introduction of E7 today as it enables the continuation of MSFT's upsell strategy by bundling
+more value into an offering at a higher price point. E7 should increase investors' confidence that
+MSFT can maintain solid Office growth (currently around mid-teens level YoY) for longer. We also
+note the launch of Wave 3 for MSFT Copilot which includes the offering of Anthropic's models
+(beside OpenAI) and Claude Cowork capabilities and cements MSFT's role as a successful fast
+follower of new technology.
+When MSFT launched Copilot a while ago, many investors asked why it was not part of a new
+SKU (E7 for example). At the time, it seemed MSFT wanted to make Copilot available to a
+broader audience (not just the high-end SKU customers) and hence the separate pricing.

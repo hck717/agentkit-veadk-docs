@@ -1,0 +1,14 @@
+This is
+probably the most important sovereign consideration for firms as AI diffuses more broadly across
+our GDP and every firm needs to protect their enterprise value.
+For agents to be effective, they need to be grounded in enterprise data and knowledge. That
+means connecting their agents to systems of record and operational data, analytical data, as well
+as semi-structured and unstructured productivity and communications data. And this is what we
+are doing with our unified IQ layer spanning Fabric, Foundry and data powering Microsoft 365. In
+the world of context engineering, Foundry knowledge and Fabric are gaining momentum. Foundry
+knowledge delivers better context with automated source routing and advanced agentic retrieval
+while respecting user permissions, and Fabric brings together end-to-end operational, real-time
+and analytical data.
+Two years since it became broadly available, Fabric's annual revenue run rate is now over $2
+billion with over 31,000 customers, and it continues to be the fastest growing analytics platform
+on the market with revenue up 60% year-over-year.

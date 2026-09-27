@@ -1,0 +1,12 @@
+### 1. **Security 對 Agentic Adoption 嘅重要性**  
+Agentic adoption 涉及使用自主代理（agents）自動執行任務，而代理依賴於對多個模型、數據和工作流嘅管理。根據 [3] 和 [5]，Agent 365 作為管理代理嘅控制平面，需具備**代理注冊表、代理 ID（Entra 中）、可觀察性、風險信號**等功能。這些均為代理採用嘅前提條件。若缺乏 security 措施，代理可能面臨**數據洩露、模型劫持、工作流中斷**等風險，導致企業不敢輕易部署。因此，security 係 agentic adoption 嘅關鍵 prerequisite。  
+
+### 2. **Security 對 E7 Bundle 嘅重要性**  
+E7 SKU 將 M365 E5、Entra Suite、Agent 365 和 M365 Copilot 打包，主打高價值 bundle。[3] 提到，企業採用 Copilot 和 Agent 365 時，單獨購買（如 $30/月或 $15/月）嘅 adoption 有限，而 E7 作為整合 bundle 可加速 adoption。但整合 bundle 涉及更多數據和模型管理，security 成為核心競爭力。若 E7 缺乏足夠 security 保障，可能影響企業對 bundle 價值嘅認可，削弱 upsell 效果。此外，[5] 指出，E7 嘅推出有助於統一 Office 套件與附加功能，減少碎片化，而 security 係統一過程中嘅關鍵環節。  
+
+### 總結  
+Security 對 agentic adoption 係**前提條件**（無 security 則無法安全部署代理），對 E7 bundle 係**核心競爭力**（無 security 則 bundle 對企業吸引力下降）。兩者均離不開 security 作為基礎保障。  
+
+## 來源  
+[3] <20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt>  
+[5] <20260313_Barcl

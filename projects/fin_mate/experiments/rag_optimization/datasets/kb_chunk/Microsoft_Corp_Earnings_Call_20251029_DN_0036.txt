@@ -1,0 +1,12 @@
+But beyond that, I think your question touches on something that's
+pretty important, which is, how are these AI systems going to truly be deployed in the real-world
+and make a real difference and make a return for both the customers, who are deploying them,
+and then obviously the providers of these systems.
+And I think the best way to characterize the situation is that even as the intelligence capability
+increases, let's even say exponentially by model version over model version. The problem is, it's
+always going to still be jagged, right? I think the term people use is the jagged intelligence. Even
+it or spiky intelligence, right? So you may even have a capability that's fantastic at a particular task,
+but it may not uniformly grow. So, what is required is, in fact, these systems, whether it is GitHub
+Agent HQ or the M365 Copilot system, don't think of this as a product, think of it as a system that
+in some sense smooths out those jagged edges and really helps the capability.
+I mean, just to give you a flavor for it, right?

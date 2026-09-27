@@ -1,0 +1,5 @@
+Barclays 嘅資料中冇提及 Microsoft 新 E7 SKU 嘅定價及包含內容。  
+Wells Fargo 嘅資料提及 E7 SKU 定價為 $99 美元/用戶/月，包含 M365 E5、Entra Suite、Agent 365 同 M365 Copilot【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt】。  
+
+## 來源  
+20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adoption_Hinges_on_Security-_E7_SKU_Presen.txt

@@ -1,0 +1,16 @@
+And we have deployed the world's first large scale cluster of NVIDIA GB300s. We are building a
+fungible fleet that's being continuously modernized and spans all stages of the AI lifecycle from
+pre-training to post-training to synthetic data generation and inference and it also goes beyond
+GenAI workloads to recommendation engines, databases and streaming. We are optimizing this
+fleet across silicon, systems and software to maximize performance and efficiency. It's this
+combination of fungibility and continuous optimization that allows us to deliver the best ROI and
+TCO for us and our customers. For example, during the quarter, we increased the token
+throughput for GPT-4.1 and GPT-5, two of the most widely used models by over 30% per GPU.
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 2 of 17
+
+
+We also have the most comprehensive digital sovereignty platform.

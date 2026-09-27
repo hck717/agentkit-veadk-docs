@@ -1,0 +1,9 @@
+### 1. **Azure 供應受限下的戰略側重**  
+   - 當 Azure 面臨 GPU 等供應約束時，微軟優先將 GPU 分配給**第一方應用程序（如 Office、GitHub）和 R&D**，以加速 AI 驅動的產品創新（如 Copilot），而非無差異地滿足 Azure 的擴張需求【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。此時，推動高毛利、重復訂閱的軟件服務（如 M365 Copilot）成為關鍵，E7 SKU 正是整合這些服務的捆綁方案。  
+
+### 2. **E7 SKU 的產品設計與市場需求**  
+   - **E7 捆綁方案**整合了 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，針對企業對**AI 管理工具（如 Agent 365 的代理注冊、可觀察性）**的需求。微軟認為，Agentic  adoption（代理式 adoption）離不開安全和控制平面，而 E7 恰好解決了這一 prerequisite【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+   - **企業 adoption 慣性**：微軟擁有龐大的 E3/E5 安裝基礎（約 1.5 億座位），E7 作為升級 SKU，可將 Copilot 等 AI 功能滲透到現有客戶，既利用了存量用戶的 adoption 慣性，又避免了 Azure 供應受限時的增長壓力【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】。  
+
+### 3. **財務與利潤考慮**  
+   - **高毛利特性**：軟件訂閱模式（尤其是 Copilot 等高增長功能）的毛利率顯著高於 Azure 的硬件依賴型收入。E7 SKU 的加價策略可提升單用戶收入（ARPU），彌

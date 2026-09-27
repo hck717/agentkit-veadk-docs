@@ -1,0 +1,16 @@
+3/9/2026 16:45:34EDT. Please see page 5 for rating definitions, important disclosures and required analyst certifications. 
+Wells Fargo Securities, LLC does and seeks to do business with companies covered in its research reports. As a result, investors should be aware that the firm may have a conflict of interest that could 
+affect the objectivity of the report and investors should consider this report as only a single factor in making their investment decision.
+This document is being provided for the exclusive use of YUI CHEUNG at THE UNIVERSITY OF HONG KONG.
+
+
+U.S. Software
+Equity Research
+Exhibit 1 - Mapping Microsoft 365 User Counts By SKU
+Source: Wells Fargo Securities, LLC estimates, Company reports
+Exhibit 2 - Sizing E5 > E7 and E3 > E7 Upsell Opportunity
+Source: Wells Fargo Securities, LLC estimates, Company reports
+ 
+Incremental Agent 365 adoption/stats across internal MSFT + preview customers:
+MSFT also highlighted its own usage of Agent 365, detailing 500K+ agents now deployed 
+internally and generating more than 65K responses daily (as of the past month).

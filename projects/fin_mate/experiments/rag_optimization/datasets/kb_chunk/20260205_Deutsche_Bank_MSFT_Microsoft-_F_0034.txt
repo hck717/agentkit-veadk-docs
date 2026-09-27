@@ -1,0 +1,26 @@
+Buy: Based on a current 12- month view of TSR, we recommend that investors buy the stock.
+ 
+ Sell: Based on a current 12-month view of TSR, we recommend that investors sell the stock.
+ 
+ Hold: We take a neutral view on the stock 12-months out and, based on this time horizon, do not recommend either a 
+Buy or Sell. 
+ 
+ TSR = Total Shareholder Return. Percentage change in share price from current price to projected target price plus 
+projected dividend yield
+ 
+ Newly issued research recommendations and target prices supersede previously published research. 
+ 
+This document is being provided for the exclusive use of YUI CHEUNG at THE UNIVERSITY OF HONG
+KONG.
+
+
+29 January 2026
+Software
+Microsoft
+Deutsche Bank Securities Inc.
+Page 11
+Additional Information 
+The information and opinions in this report were prepared by Deutsche Bank AG or one of its affiliates (collectively 'Deutsche 
+Bank'). Though the information herein is believed to be reliable and has been obtained from public sources believed to be 
+reliable, Deutsche Bank makes no representation as to its accuracy or completeness. Hyperlinks to third-party websites in this 
+report are provided for reader convenience only.

@@ -1,0 +1,4 @@
+Deutsche Bank 提到 Microsoft F2Q（截至 2026 年 1 月 29 日的季度）的 Azure 增长率在持续汇率（CC）基础上为 **38% 同比**，比指引高出 **1 个百分点**（指引为 37%）【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。不过，这一增长仍低于买方预期的约 39%，且若管理层在 2026 年上半年将所有额外 GPU 容量分配给 Azure，增长率可能超过 40%【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】。
+
+## 來源
+- <20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L>

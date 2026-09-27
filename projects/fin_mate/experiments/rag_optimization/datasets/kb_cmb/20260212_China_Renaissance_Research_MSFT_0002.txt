@@ -1,0 +1,11 @@
+Azure and capital investments: Azure delivered 39% (38% in forex neutral) YoY growth 
+in the quarter, slightly above the 37% guidance but below Visible Alpha’s consensus of 
+40%. Management guided 37-38% YoY growth for the next quarter, also below 39% 
+consensus. Capex of the quarter was US$37.5bn (vs.US$34.9bn last quarter), of which 
+2/3 was for CPUs and GPUs (increased from ~50% mix last quarter yet is expected to 
+remain at this level for next quarter, per mgmt), and the remaining 1/3 of spending is for 
+long-term assets such as datacenters. The company added about 1 gigawatt of total 
+capacity this quarter but still faces supply constraints as demand remains strong. 
+It’s not just Azure. As management highlighted on the call, its capex spending is for 
+multiple purposes: 1) first-party AI usage services such as M365 Copilot and GitHub 
+Copilot, 2) internal R&D teams, and 3) Azure business.

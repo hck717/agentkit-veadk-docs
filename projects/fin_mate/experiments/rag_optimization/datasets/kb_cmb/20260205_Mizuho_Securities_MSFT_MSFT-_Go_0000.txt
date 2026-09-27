@@ -1,0 +1,17 @@
+Company Report
+Microsoft Corporation (MSFT)
+TMT: Software Largecap
+Microsoft Corporation (MSFT)
+Outperform | $481.63 | PT $620.00
+January 29, 2026
+U.S. Equity Research
+Estimates Change
+Good Overall Execution, Albeit with More Modest Azure Upside
+MSFT reported a good overall F2Q, as total revenue of $81.3B (+15% Y/Y CC) was above
+the Street's $80.3B estimate. Azure revenue grew by 38% Y/Y CC and exceeded mgmt's
+guidance of ~37% Y/Y CC, but it came in slightly below buy-side expectations. Mgmt
+did note that its disciplined capacity allocation weighed on Azure growth. Meanwhile,
+Commercial bookings exceeded expectations, growing by a tremendous 228% Y/Y
+(largely from OpenAI). Moreover, mgmt is targeting Azure revenue growth of 37-38% Y/
+Y CC in F3Q, above the Street's ~36-37% projection, while MSFT's revenue guidance was
+in line with consensus. MSFT also expects capex to be down sequentially.

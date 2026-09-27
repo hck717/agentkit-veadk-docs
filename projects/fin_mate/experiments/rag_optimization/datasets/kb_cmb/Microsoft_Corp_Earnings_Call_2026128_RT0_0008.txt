@@ -1,0 +1,13 @@
+Our customers expect to use multiple models as part of
+any workload that they can fine-tune and optimize based on cost, latency, and performance
+requirements. And we offer the broadest selection of models of any hyperscaler. This quarter, we
+added support for GPT-5.2 as well as Claude 4.5. Already over 1,500 customers have used both
+Anthropic and OpenAI models on Foundry. We are seeing increasing demand for region-specific
+models, including Mistral and Cohere, as more customers look for sovereign AI choices.
+And we continue to invest in our first-party models, which are optimized to address the highest
+value customer scenarios such as productivity, coding and security. As part of Foundry, we also
+give customers the ability to customize and fine-tune models. Increasingly, customers want to be
+able to capture the tacit knowledge they possess inside of model weights as their core IP. This is
+probably the most important sovereign consideration for firms as AI diffuses more broadly across
+our GDP and every firm needs to protect their enterprise value.
+For agents to be effective, they need to be grounded in enterprise data and knowledge.

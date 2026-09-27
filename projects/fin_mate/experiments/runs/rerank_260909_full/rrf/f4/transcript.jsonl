@@ -1,0 +1,1 @@
+{"llm": "ark", "msgs": [{"role": "system", "content": "你是 FIN-MATE 金融研究助手。只用畀嘅資料答；資料無提及就答「KB 無資料」唔好作。"}, {"role": "user", "content": "Mizuho 對 MSFT 嘅評級係咩？"}], "text": "KB 無資料", "prompt_tokens": 60, "completion_tokens": 4, "cached_tokens": 0, "ms": 337.50575000885874}

@@ -1,0 +1,6 @@
+{
+  "variant": "llm",
+  "desc": "Qwen3-4B pointwise score 0–3 → desc（tie 原序）；$0（Ollama 本機）",
+  "top_k": 3,
+  "ans_k": 5
+}

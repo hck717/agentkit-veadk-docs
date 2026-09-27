@@ -1,0 +1,8 @@
+### 1. **E7 SKU 整合高毛利 AI 功能，彌補 Azure 供應受限的影響**  
+E7 SKU 包含 M365 E5、Entra Suite、Agent 365 和 M365 Copilot，提供高毛利的企業級 AI 解決方案。即使 Azure 因供應限制增長放緩，E7 等應用層產品的銷售可提升利潤率，並通過 AI 功能的商業化（如 Copilot）創造新的收入來源。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】【KB:20260212_China_Renaissance_Research_MSFT_Mic】  
+
+### 2. **E3/E5 用戶基礎龐大，Upsell 潛力可觀**  
+Microsoft 擁有龐大的 E3/E5 用戶安裝基數（約 1500 萬座位），E7 SKU 將這些用戶升級為包含 AI 功能的高價 SKU，帶來顯著的 upsell 機會（預計每年 1000 億美元）。企業客戶因成本上升等因素更傾向於整合式解決方案，E7 可滿足其對 AI 管理、風險控制的需求。【KB:20260316_Wells_Fargo_MSFT_MSFT-_Agentic_Adop】  
+
+### 3. **AI  adoption 是長期戰略，短期供應問題不動搖其佈局**  
+Microsoft 認為 AI 是長期增長驅動力，E7 等產品是 AI 功能落地的關鍵載體。即使 Azure 供應受限，公司仍優先分配 GPU 支持第一方應用（如 Copilot）和 R&D，確保 AI 生態的領先優勢。短期供應問題不影響其對 AI 商業化的長期投入。【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_L】【KB:20260212_China_Renaissance_Research_MSFT_Mic

@@ -1,0 +1,31 @@
+(ADSK)
+Braze Inc. (BRZE)
+CCC Intelligent Solutions (CCC)
+Check Point Software Technologies Ltd. (CHKP)
+Cloudflare, Inc. (NET)
+Commerce (CMRC)
+Confluent, Inc (CFLT)
+CoreWeave, Inc (CRWV)
+CrowdStrike Holdings, Inc (CRWD)
+Datadog, Inc. (DDOG)
+9 March 2026
+4
+Barclays | Microsoft Corp.
+
+
+Descartes Systems Group (DSGX)
+DigitalOcean (DOCN)
+DoubleVerify Holdings, Inc. (DV)
+Dynatrace, Inc. (DT)
+Elastic N.V. (ESTC)
+EverCommerce Inc. (EVCM)
+Five9, Inc. (FIVN)
+Fortinet, Inc. (FTNT)
+Gen Digital Inc. (GEN)
+GitLab Inc. (GTLB)
+Hinge Health, Inc. (HNGE)
+HubSpot, Inc. (HUBS)
+Intapp, Inc. (INTA)
+Intuit Inc. (INTU)
+JFROG LTD (FROG)
+Klaviyo, Inc.

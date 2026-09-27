@@ -1,0 +1,20 @@
+A - Jonathan Neilson
+Thanks, Karl. Operator, next question please.
+Operator
+The next question comes from the line of Mark Murphy with J.P. Morgan. Please proceed.
+Q - Mark Murphy {BIO 18840231 <GO>}
+Thank you so much. So we seem to be entering into a new era where the contractual
+commitments from a small number of AI natives are just incredibly large, not only in absolute
+terms, but sometimes relative to the size of the companies themselves. For instance, contracts
+worth hundreds of billions of dollars that are 20 times their current revenue scale. Philosophically,
+how do you evaluate the ability of those companies to follow through on these commitments?
+And how do you think about placing guardrails on customer concentration for any single entity?
+A - Satya Nadella {BIO 3224315 <GO>}
+FINAL TRANSCRIPT
+2025-10-30
+Microsoft Corp (MSFT US Equity)
+© COPYRIGHT 2026, BLOOMBERG LP. All rights reserved. Any reproduction, redistribution or retransm ission is expressly prohibited.
+Printed on 03-06-2026 Page 13 of 17
+
+
+Yeah.

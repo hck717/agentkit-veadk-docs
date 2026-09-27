@@ -1,0 +1,4 @@
+根據資料，Microsoft（MSFT）F2Q 嘅 Intelligent Cloud 部分 Y/Y 增長為 +28.0%（New Estimates vs. Old Estimates），其中 Azure 屬於 Intelligent Cloud 範疇【KB:20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt】。但資料中未提及 Azure 與公司指引（Company guidance）的具體對比情況，因此無法回答 Azure 同 guidance 比點【KB:無資料】。
+
+## 來源
+<20260205_Deutsche_Bank_MSFT_Microsoft-_F2Q_Leaning_into_the_long_game.txt>

@@ -1,0 +1,63 @@
+83
+21.79
+15.80
+18.72
+21.64
+8%
+1%
+1%
+EPS (diluted)
+17.04
+18.76
+21.70
+15.74
+18.65
+21.55
+8%
+1%
+1%
+Capex
+151,494
+159,758
+165,219
+150,826
+159,118
+164,422
+0%
+0%
+0%
+% change YoY
+-55%
+89%
+83%
+-67%
+149%
+92%
+New estimates
+Old estimates
+% change
+US$(mn)
+FY27E
+139,513
+Target PE multiple 
+34
+Target market cap 
+4,701,602
+No. of shares (mn)
+7,460
+Target price (US$)
+630.00
+Current price (US$)
+430.29
+Potential upside 
+46%
+
+
+February 2, 2026
+Earnings Review
+4
+Risks
+•
+Slower-than-expected AI adoption. Slower-than-expected AI adoption by enterprises and 
+consumers alike would pose a risk to our revenue and earnings forecasts and likely dampen 
+sentiment on Microsoft’s investment value.

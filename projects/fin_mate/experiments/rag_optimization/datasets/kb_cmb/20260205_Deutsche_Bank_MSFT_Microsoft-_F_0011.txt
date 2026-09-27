@@ -1,0 +1,11 @@
+(+) On a full-year basis, mgmt. now expects FY26 operating margins to be up 
+"slightly" (vs. flat prior) given a strong 1H and benefit from higher mix of Windows 
+OEM and Commercial on-prem revenue. Additionally, from an FX perspective, 4Q 
+total revenue and COGS are expected to increase <1pt, with roughly a ~1pt revenue 
+benefit in PBP and MPC, and <1pt in IC.
+(=) F3Q Capex is expected to be sequentially lower following normal variability from 
+cloud infrastructure buildouts and timing delivery of finance leases, with mix of 
+short-lived assets expected to be similar to F2Q. Separately, mgmt. noted rising 
+memory prices could impact capital expenditures for the full year; however impact 
+to Microsoft Cloud gross margins will be phased given the 6-year depreciation life 
+of these assets.

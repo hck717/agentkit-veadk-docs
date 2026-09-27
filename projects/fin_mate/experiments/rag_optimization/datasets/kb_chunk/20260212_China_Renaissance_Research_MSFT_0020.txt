@@ -1,0 +1,63 @@
+000)
+Net Cash Flow from Financing
+(51,699)
+(43,692)
+(41,663)
+(44,538)
+Net Cash Flow
+11,927
+(14,097)
+14,227
+57,546
+Free Cash Flow
+47,962
+24,595
+52,890
+99,084
+Key Assumptions
+2025A
+2026E
+2027E
+2028E
+Azure YoY growth (%)
+34.1
+38.9
+30.0
+28.0
+Financial Ratios
+2025A
+2026E
+2027E
+2028E
+YoY (%)
+Revenue
+14.9
+16.3
+14.7
+14.5
+Gross Profit
+13.4
+14.8
+14.0
+14.5
+EBITDA
+21.3
+27.4
+18.6
+20.1
+Net Profit
+15.5
+24.8
+9.7
+15.4
+EPS
+16.0
+24.4
+10.1
+15.7
+Profitability (%)
+Gross Margin
+68.8
+67.9
+67.5
+67.

@@ -1,0 +1,5 @@
+{
+  "read_limit": 200,
+  "k": 5,
+  "desc": "veadk Agent + Runner + LoadKnowledgebaseTool 自捽 retrieval"
+}
